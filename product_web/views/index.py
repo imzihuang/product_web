@@ -27,4 +27,8 @@ class HomeHandler(tornado.web.RequestHandler):
         return self.templates_path
 
     def get(self):
+        forwarded = self.request.headers.get("x-forwarded-for", "")
+        real_iP =self.request.header.get("x-real-ip")
+
+
         self.render('home.html')

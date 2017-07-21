@@ -49,7 +49,7 @@ setproctitle('product:web')
 if __name__ == "__main__":
     options.logging = 'info'
     app = make_app()
-    server = httpserver.HTTPServer(app)
+    server = httpserver.HTTPServer(app, xheaders=True)
     server.bind(options.port)
     server.start(0)
     IOLoop.instance().start()
