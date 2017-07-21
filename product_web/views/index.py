@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import tornado
+from common.log_client import gen_log
 
 class DefaultHandler(tornado.web.RequestHandler):
     def initialize(self, static_path, templates_path, product_prefix, **kwds):
@@ -28,7 +29,7 @@ class HomeHandler(tornado.web.RequestHandler):
 
     def get(self):
         forwarded = self.request.headers.get("x-forwarded-for", "")
-        real_iP =self.request.header.get("x-real-ip")
-
+        real_iP =self.request.headers.get("x-real-ip", "")
+        gen_log.info("home:%s,%s"%(forwarded, real_iP))
 
         self.render('home.html')
