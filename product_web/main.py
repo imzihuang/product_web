@@ -4,8 +4,10 @@
 import tornado.ioloop
 from tornado.web import URLSpec, StaticFileHandler
 
-from product_web import views
-from product_web import api
+#from product_web import views
+#from product_web import api
+import views
+import api
 from settings import *
 
 
@@ -45,4 +47,5 @@ def make_app():
 if __name__ == "__main__":
     app = make_app()
     app.listen(8080)
+    print "start web"
     tornado.ioloop.IOLoop.current().start()
