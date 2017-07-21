@@ -1,11 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import tornado.ioloop
-from tornado.web import URLSpec, StaticFileHandler
-
-#from product_web import views
-#from product_web import api
+from tornado import httpserver
+from tornado.web import URLSpec, StaticFileHandler, Application
+from tornado.options import define, options
+from tornado.ioloop import IOLoop
+from setproctitle import setproctitle
 import views
 import api
 from settings import *
@@ -36,16 +36,23 @@ def api_handlers():
         (prefix + r'signin$', api.SignInHandler),
     ]
 
-class My_Application(tornado.web.Application):
+class My_Application(Application):
     def __init__(self, handlers=None, default_host="", **settings):
         super(My_Application, self).__init__(view_handlers() + api_handlers() + handlers, default_host, **settings)
 
 def make_app():
     return My_Application([])
 
+define("port", default=8081, help="run on the given port", type=int)
+setproctitle('product:web')
 
 if __name__ == "__main__":
+    options.logging = 'info'
     app = make_app()
-    app.listen(8081)
-    print "start web"
-    tornado.ioloop.IOLoop.current().start()
+    server = httpserver.HTTPServer(app)
+    server.bind(options.port)
+    server.start(0)
+    IOLoop.instance().start()
+
+    #app.listen(options.port)
+    #tornado.ioloop.IOLoop.current().start()
