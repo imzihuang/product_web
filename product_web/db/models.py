@@ -51,18 +51,18 @@ class Product(BaseModel):
                           foreign_keys=type_id,
                           primaryjoin='Product.type_id == ProductType.id')
 
-class Product_PU(DynamicDModel):
-    __tablename__ = "product_pu_%s"
-    mysql_engine='InnoDB'
-    id = Column(Integer, primary_key=True)
-    ip = Column(VARCHAR(30))
-    html = Column(VARCHAR(20))
-    product_id = Column(CHAR(36))
-    product_name = Column(CHAR(30))
-    pu_count = Column(Integer)
+
 
 def get_product_pu(suffix_name):
-    Product_PU.__tablename__ = Product_PU.__tablename__%suffix_name
+    class Product_PU(DynamicDModel):
+        __tablename__ = "product_pu_%"%suffix_name
+        mysql_engine='InnoDB'
+        id = Column(Integer, primary_key=True)
+        ip = Column(VARCHAR(30))
+        html = Column(VARCHAR(20))
+        product_id = Column(CHAR(36))
+        product_name = Column(CHAR(30))
+        pu_count = Column(Integer)
     return Product_PU
 
 
