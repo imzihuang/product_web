@@ -6,7 +6,7 @@ class SqlTestCase(unittest.TestCase):
         pass
 
     def test_pu_add(self):
-        _ = api.pu_add()
+        _ = api.pu_add("ip", "html", "product_id", "product_name")
 
 
 
