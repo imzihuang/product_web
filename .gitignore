@@ -2,3 +2,4 @@
 #.gitignore
 #忽略后缀名为.pyc的文件  
 *.pyc
+.idea/
