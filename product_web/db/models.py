@@ -1,20 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from sqlalchemy import Column, String
+from sqlalchemy import Column, Table, MetaData
+
 from sqlalchemy.types import *
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
+import uuid
+from common.convert import utcnow
+from base import get_engine
 
 BaseModel = declarative_base()
-
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from common.convert import utcnow
-
-
-engine = create_engine('mysql://root:Hs2BitqLYKoruZjb18SV@localhost/productdb')
-DBSession = sessionmaker(bind=engine)
-
+DynamicDModel = declarative_base()
 
 class User(BaseModel):
     __tablename__ = 'user'
@@ -55,11 +51,27 @@ class Product(BaseModel):
                           foreign_keys=type_id,
                           primaryjoin='Product.type_id == ProductType.id')
 
+def get_product_pu(suffix_name):
+    table_name = "product_pu_%s"%suffix_name
+    metadate = MetaData()
+    return Table(table_name, metadate,
+                 Column("id", Integer, primary_key=True),
+                 Column("ip", VARCHAR(30)),
+                 Column("html", VARCHAR(20)),
+                 Column("product_id", CHAR(36)),
+                 Column("product_name", CHAR(30)),
+                 Column("pu_count", Integer),
+                 mysql_engine='InnoDB'
+                 )
+
+
 def register_db():
+    engine = get_engine()
     BaseModel.metadata.create_all(engine)
 
 
 def unregister_db():
+    engine = get_engine()
     BaseModel.metadata.drop_all(engine)
 
 
