@@ -1,10 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import datetime
 from common.convert import bs2unicode
 import models
 from common.log_client import gen_log
 from base import get_session, get_engine
+
 
 def convert_model(class_name, info_dic):
     """
@@ -43,7 +45,8 @@ def model_query(session, class_name, query_dict):
 def pu_add(ip, html, product_id, product_name):
     engine = get_engine()
     session = get_session()
-    Product_PU = models.get_product_pu("a")
+    suffix_name = datetime.datetime.now().strftime('%Y-%m-%d')
+    Product_PU = models.get_product_pu(suffix_name)
     try:
         # 如果查询不到改数据表，自动创建该表格
         query = session.query(Product_PU)
