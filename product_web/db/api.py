@@ -50,6 +50,8 @@ def pu_add(ip, html, product_id, product_name):
     try:
         # 如果查询不到改数据表，自动创建该表格
         query = session.query(Product_PU)
+        _ = query.all()
+        print _
     except Exception as ex:
         gen_log.info("pu not exit:%r"%ex)
         Product_PU.metadata.create_all(engine)
@@ -57,8 +59,8 @@ def pu_add(ip, html, product_id, product_name):
         query = session.query(Product_PU)
         query = query.filter(Product_PU.ip == ip and Product_PU.html==html and Product_PU.product_id==product_id)
         result = query.first()
+        print result
         if not result:
-
             result = Product_PU()
             setattr(result, "ip", ip)
             setattr(result, "html", html)
