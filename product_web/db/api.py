@@ -58,13 +58,13 @@ def pu_add(ip, html, product_id, product_name):
         query = query.filter(Product_PU.ip == ip and Product_PU.html==html and Product_PU.product_id==product_id)
         result = query.first()
         if not result:
-            result = Product_PU({
-                "ip": ip,
-                "html": html,
-                "product_id": product_id,
-                "product_name": product_name,
-                "pu_count": 1
-            })
+
+            result = Product_PU()
+            setattr(result, "ip", ip)
+            setattr(result, "html", html)
+            setattr(result, "product_id", product_id)
+            setattr(result, "product_name", product_name)
+            setattr(result, "pu_count", 1)
             session.add(result)
         else:
             query.update({
