@@ -7,7 +7,7 @@ import threading
 from common.ini_client import ini_load
 
 #_conf = dict(conf_load('auth.config')).get('auth.config')
-_conf=ini_load('configs/mysql.ini')
+_conf=ini_load('config/mysql.ini')
 _dic_con=_conf.get_fields('product_db')
 
 connect = 'mysql://{0}:{1}@{2}:{3}/{4}?charset=utf8'.format(
