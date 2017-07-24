@@ -55,7 +55,7 @@ class Product(BaseModel):
 
 def get_product_pu(suffix_name):
     class Product_PU(DynamicDModel):
-        __tablename__ = "product_pu_%"%suffix_name
+        __tablename__ = "product_pu_%s"%suffix_name
         mysql_engine='InnoDB'
         id = Column(Integer, primary_key=True)
         ip = Column(VARCHAR(30))

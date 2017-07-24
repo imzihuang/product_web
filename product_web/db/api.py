@@ -49,33 +49,29 @@ def pu_add(ip, html, product_id, product_name):
     suffix_name = datetime.datetime.now().strftime('%Y%m')
     Product_PU = models.get_product_pu(suffix_name)
     try:
-        # 如果查询不到改数据表，自动创建该表格
-        _ = session.query(func.count(Product_PU.id))
-        print _
-    except Exception as ex:
-        gen_log.info("pu not exit:%r"%ex)
         Product_PU.metadata.create_all(engine)
-    try:
-        query = session.query(Product_PU)
+        query = session.query(Product_PU.pu_count)
         query = query.filter(Product_PU.ip == ip and Product_PU.html==html and Product_PU.product_id==product_id)
         result = query.first()
-        print result
+        pu_count = 1
         if not result:
             result = Product_PU()
             setattr(result, "ip", ip)
             setattr(result, "html", html)
             setattr(result, "product_id", product_id)
             setattr(result, "product_name", product_name)
-            setattr(result, "pu_count", 1)
+            setattr(result, "pu_count", pu_count)
             session.add(result)
         else:
+            pu_count = result[0] + 1
             query.update({
-                Product_PU.pu_count: Product_PU.pu_count + 1
+                Product_PU.pu_count: pu_count
             })
         session.commit()
-        return result
+        return pu_count
     except Exception as ex:
         gen_log.error("pu add error:%r"%ex)
+        return 0
     finally:
         session.close()
 
