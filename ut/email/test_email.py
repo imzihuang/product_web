@@ -7,6 +7,7 @@ _user = "316191270@qq.com"
 _pwd  = "gfptlbljvnjnbgff"
 _to   = "linzihuangwoo@163.com"
 
+
 msg = MIMEText("Test")
 msg["Subject"] = "don't panic"
 msg["From"]    = _user
