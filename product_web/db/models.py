@@ -20,12 +20,16 @@ class User(BaseModel):
     pwd = Column(VARCHAR(20), default='888888', nullable=False)
     iage = Column(SMALLINT(), server_default='20')
     email = Column(VARCHAR(50))
-    ip = Column(VARCHAR(50))
+    telephone = Column(VARCHAR(20))
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow,
                         nullable=True, onupdate=datetime.utcnow)
     birthday_at = Column(DateTime)
-    remark = Column(CHAR(100))
+
+    # creating 创建中的账号，如生成了验证码，但是没有校验
+    # available 有效账号
+    status = Column(VARCHAR(10))
+    valcode = Column(CHAR(6))
 
 class ProductType(BaseModel):
     __tablename__ = 'producttype'

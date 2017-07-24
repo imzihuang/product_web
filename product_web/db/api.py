@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import datetime
-from sqlalchemy import func
+from sqlalchemy.sql import and_, or_
 from common.convert import bs2unicode
 import models
 from common.log_client import gen_log
@@ -75,52 +75,3 @@ def pu_add(ip, html, product_id, product_name):
     finally:
         session.close()
 
-"""
-
-def get_user(name=''):
-    try:
-        session = get_session()
-        if not isinstance(name, basestring):
-            return -1, 'name invaild'
-        if not name:
-            _ = session.query(User).all()
-        else:
-            name = bs2unicode(name)
-            _ = session.query(User).filter(User.name == name).all()
-        for info in _:
-            info.hash_password = "" #移除密码
-        return _
-    except Exception,ex:
-        return -1, ex.message
-    finally:
-        session.close()
-
-def signin_user(user_dic):
-    try:
-        session = get_session()
-        name = user_dic.get('username')
-        if not name:
-            return -1, '用户名异常'
-        if session.query(User).filter(User.username == name).count()>0:
-            return -1, '用户名已存在'
-
-        pwd = bs2utf8(user_dic.get('hash_password'))
-        if not pwd:
-            return -1, '密码异常'
-        pwd = get_md5(pwd) # 加密
-
-        user_dic.update({'hash_password':pwd})
-        _ = convert_model('UserInfo', user_dic)
-        status, info =_
-        if status == 0 and isinstance(info, UserInfo):
-            r_info = copy.copy(info)
-            session.add(info)
-            session.commit()
-            r_info.hash_password = ''#密码不返回
-            return 0, r_info
-        return _
-    except Exception,ex:
-        return -1, ex.message
-    finally:
-        session.close()
-"""
