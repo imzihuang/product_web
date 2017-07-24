@@ -6,7 +6,7 @@ from sqlalchemy.types import *
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 import uuid
-from common.convert import utcnow
+from datetime import datetime
 from base import get_engine
 
 BaseModel = declarative_base()
@@ -21,9 +21,9 @@ class User(BaseModel):
     iage = Column(SMALLINT(), server_default='20')
     email = Column(VARCHAR(50))
     ip = Column(VARCHAR(50))
-    created_at = Column(DateTime, default=lambda: utcnow(),nullable=False)
-    updated_at = Column(DateTime, default=lambda: utcnow(),
-                        nullable=True, onupdate=lambda: utcnow())
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow,
+                        nullable=True, onupdate=datetime.utcnow)
     birthday_at = Column(DateTime)
     remark = Column(CHAR(100))
 
@@ -33,9 +33,9 @@ class ProductType(BaseModel):
                 default=lambda: str(uuid.uuid4()))
     name = Column(VARCHAR(30))
     description = Column(VARCHAR(100))
-    created_at = Column(DateTime, default=lambda: utcnow(),nullable=False)
-    updated_at = Column(DateTime, default=lambda: utcnow(),
-                        nullable=True, onupdate=lambda: utcnow())
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow,
+                        nullable=True, onupdate=datetime.utcnow)
 
 class Product(BaseModel):
     __tablename__ = 'product'
@@ -44,9 +44,9 @@ class Product(BaseModel):
     name = Column(VARCHAR(30))
     type_id = Column(CHAR(36))
     description = Column(VARCHAR(100))
-    created_at = Column(DateTime, default=lambda: utcnow(),nullable=False)
-    updated_at = Column(DateTime, default=lambda: utcnow(),
-                        nullable=True, onupdate=lambda: utcnow())
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow,
+                        nullable=True, onupdate=datetime.utcnow)
     product_type=relationship(ProductType, backref="product",
                           foreign_keys=type_id,
                           primaryjoin='Product.type_id == ProductType.id')
