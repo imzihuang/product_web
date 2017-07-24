@@ -52,7 +52,6 @@ class Product(BaseModel):
                           primaryjoin='Product.type_id == ProductType.id')
 
 
-
 def get_product_pu(suffix_name):
     class Product_PU(DynamicDModel):
         __tablename__ = "product_pu_%s"%suffix_name
