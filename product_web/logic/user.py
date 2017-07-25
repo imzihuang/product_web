@@ -138,6 +138,7 @@ def del_user(user_name):
         session = get_session()
         query = api.model_query(session, "User", {"name": [user_name]})
         query.delete(synchronize_session=False)
+        session.commit()
         return 0
     except Exception as ex:
         gen_log.error("del user error:%r"%ex)
