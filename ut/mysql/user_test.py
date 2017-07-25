@@ -15,7 +15,7 @@ class SqlTestCase(unittest.TestCase):
             "status": "available"
         }
         _ = add_user(userinfo)
-        _ = get_available_user({"name": "ut_test"})
+        _ = get_available_user(name="ut_test")
         self.assertTrue(_ is not None)
         _ = del_user("ut_test")
         self.assertTrue(_)
