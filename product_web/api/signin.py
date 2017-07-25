@@ -4,6 +4,7 @@ from tornado.web import RequestHandler
 import json
 from random import randint
 from common.convert import bs2utf8, is_email
+from common.encrypt_md5 import get_md5
 from logic import user as loc_user
 from ser_email.ser_email import send_email
 from common.log_client import gen_log
@@ -15,7 +16,6 @@ class SignInHandler(RequestHandler):
         # telephone = bs2utf8(self.get_argument('telephone', ''))
         pwd = bs2utf8(self.get_argument('pwd', ''))
         affirm_pwd = bs2utf8(self.get_argument('affirm_pwd', ''))
-        gen_log.info("-------------------:%s,%s,%r"%(user_name, email,self.request))
         real_ip =self.request.headers.get("x-real-ip", self.request.headers.get("x-forwarded-for", ""))
 
         if pwd != affirm_pwd:
@@ -40,7 +40,7 @@ class SignInHandler(RequestHandler):
             loc_user.add_user({
                 "name": user_name,
                 "email": email,
-                "pwd": pwd,
+                "pwd": get_md5(pwd),
                 "valcode": val_code,
                 "status": "creating"
             })
@@ -78,17 +78,17 @@ class SignInRegCode(RequestHandler):
             redirect_url = "login.html"
             self.redirect(self.prefix + redirect_url, permanent=True)
             return
+
+        #判断验证码
         if user_info.valcode != val_code:
             gen_log.error("val code:%s,%s"%(user_info.valcode, val_code))
             redirect_url = "login.html"
             self.redirect(self.prefix + redirect_url, permanent=True)
             return
-        loc_user.update_user({"status": "available"}, {"name": user_name})
-        gen_log.error("test%s,%s"%(user_name, val_code))
-
-        #判断验证码
 
         #更新用户状态
+        loc_user.update_user({"status": "available"}, {"name": [user_name]})
+        gen_log.error("test%s,%s"%(user_name, val_code))
 
         #跳转
         self.redirect(self.prefix + redirect_url, permanent=True)
