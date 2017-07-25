@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 from common.log_client import gen_log
-from base import get_session
-from product_web.db import api, models
+from db.base import get_session
+from db import api, models
 #from common.convert import bs2unicode
 
 def is_exit_avai_email(email=""):
