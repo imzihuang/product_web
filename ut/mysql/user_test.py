@@ -18,7 +18,7 @@ class SqlTestCase(unittest.TestCase):
         _ = get_available_user(name="ut_test")
         self.assertTrue(_ is not None)
         _ = del_user("ut_test")
-        self.assertTrue(_)
+        self.assertTrue(_==0)
 
 if __name__ == '__main__':
     unittest.main()
