@@ -12,7 +12,7 @@ def is_exit_avai_email(email=""):
     try:
         #email = bs2unicode(email)
         session = get_session()
-        query = api.model_query(session, "User", {"email": email, "status": "available"})
+        query = api.model_query(session, "User", {"email": [email], "status": ["available"]})
         result = query.first()
         if result:
             return True
@@ -32,12 +32,12 @@ def get_creating_user(**kwargs):
         session = get_session()
         if email:
             gen_log.info(1)
-            query = api.model_query(session, "User", {"email": email, "status": "creating"})
+            query = api.model_query(session, "User", {"email": [email], "status": ["creating"]})
             result = query.first()
             return result
         if user_name:
             gen_log.info(2)
-            query = api.model_query(session, "User", {"name": user_name, "status": "creating"})
+            query = api.model_query(session, "User", {"name": [user_name], "status": ["creating"]})
             result = query.first()
             return result
     except Exception as ex:
@@ -51,11 +51,11 @@ def get_available_user(**kwargs):
     try:
         session = get_session()
         if email:
-            query = api.model_query(session, "User", {"email": email, "status": "available"})
+            query = api.model_query(session, "User", {"email": [email], "status": ["available"]})
             result = query.first()
             return result
         if user_name:
-            query = api.model_query(session, "User", {"name": user_name, "status": "available"})
+            query = api.model_query(session, "User", {"name": [user_name], "status": ["available"]})
             result = query.first()
             return result
     except Exception as ex:
@@ -132,6 +132,19 @@ def update_user(userinfo, con_dic):
         return False
     finally:
         session.close()
+
+def del_user(user_name):
+    try:
+        session = get_session()
+        query = api.model_query(session, "User", {"name": [user_name]})
+        query.delete(synchronize_session=False)
+        return 0
+    except Exception as ex:
+        gen_log.error("del user error:%r"%ex)
+        return 1
+    finally:
+        session.close()
+
 
 
 

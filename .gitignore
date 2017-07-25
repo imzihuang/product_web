@@ -4,5 +4,6 @@
 *.pyc
 *.pyo
 *.log
+*.xml
 product_web/nohup.out
 .idea/

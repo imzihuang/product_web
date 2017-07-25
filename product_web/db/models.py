@@ -16,7 +16,7 @@ class User(BaseModel):
     __tablename__ = 'user'
     id = Column(Integer, primary_key=True)
     name = Column(VARCHAR(30), nullable=False)
-    pwd = Column(VARCHAR(20), default='888888', nullable=False)
+    pwd = Column(VARCHAR(50), nullable=False)
     age = Column(SMALLINT)
     email = Column(VARCHAR(50), nullable=False)
     telephone = Column(VARCHAR(20))
