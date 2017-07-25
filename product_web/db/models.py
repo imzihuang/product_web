@@ -46,14 +46,10 @@ class Product(BaseModel):
     id = Column(CHAR(36), primary_key=True,
                 default=lambda: str(uuid.uuid4()))
     name = Column(VARCHAR(30))
-    type_id = Column(CHAR(36))
     description = Column(VARCHAR(100))
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow,
                         nullable=True, onupdate=datetime.utcnow)
-    product_type=relationship(ProductType, backref="product",
-                          foreign_keys=type_id,
-                          primaryjoin='Product.type_id == ProductType.id')
 
 
 def get_product_pu(suffix_name):
