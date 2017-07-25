@@ -11,4 +11,4 @@ class SignInHandler(tornado.web.RequestHandler):
         return self.templates_path
 
     def get(self):
-        self.render('login.html')
+        self.render('signin.html')

@@ -4,7 +4,7 @@ from tornado.web import RequestHandler
 import json
 from random import randint
 from common.convert import bs2utf8, is_email
-from common.encrypt_md5 import get_md5
+#from common.encrypt_md5 import get_md5
 from common.ini_client import ini_load
 from common.log_client import gen_log
 from logic import user as loc_user
@@ -49,14 +49,14 @@ class SignInHandler(RequestHandler):
             loc_user.add_user({
                 "name": user_name,
                 "email": email,
-                "pwd": get_md5(pwd),
+                "pwd": pwd,
                 "valcode": val_code,
                 "status": "creating"
             })
             msg = "ValCode:%s"%val_code
         #http://123.58.0.76:48080/product/regcode_signin?user_name=123errr&val_code=403164
         #"I'm %(name)s. I'm %(age)d year old" % {'name':'Vamei', 'age':99}
-        redirect_url = "http://%(ip)s:%(port)d/product/regcode_signin?user_name=%(name)s&val_code=%(val_code)s"%{
+        redirect_url = "http://%(ip)s:%(port)s/product/regcode_signin?user_name=%(name)s&val_code=%(val_code)s"%{
             "ip": ser_url,
             "port": ser_port,
             "name": user_name,

@@ -22,6 +22,7 @@ def send_email(to_email, message, subject):
     :return:
     """
     try:
+        gen_log.info("lzh---------%s,%s,%s"%(email_user, to_email, subject))
         service_smtp = smtplib.SMTP_SSL("smtp.qq.com", 465)
         msg = MIMEText(message)
         msg["Subject"] = subject
