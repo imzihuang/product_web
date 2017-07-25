@@ -14,12 +14,11 @@ DynamicDModel = declarative_base()
 
 class User(BaseModel):
     __tablename__ = 'user'
-    id = Column(CHAR(36), primary_key=True,
-                default=lambda: str(uuid.uuid4()))
-    name = Column(VARCHAR(30))
+    id = Column(Integer, primary_key=True)
+    name = Column(VARCHAR(30), nullable=False)
     pwd = Column(VARCHAR(20), default='888888', nullable=False)
     iage = Column(SMALLINT(), server_default='20')
-    email = Column(VARCHAR(50))
+    email = Column(VARCHAR(50), nullable=False)
     telephone = Column(VARCHAR(20))
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow,
@@ -31,11 +30,16 @@ class User(BaseModel):
     status = Column(VARCHAR(10))
     valcode = Column(CHAR(6))
 
-class ProductType(BaseModel):
-    __tablename__ = 'producttype'
-    id = Column(CHAR(36), primary_key=True,
-                default=lambda: str(uuid.uuid4()))
-    name = Column(VARCHAR(30))
+class ProductKeyword(BaseModel):
+    __tablename__ = 'productkeyword'
+    id = Column(Integer, primary_key=True)
+    name = Column(VARCHAR(30), nullable=False)
+    theme = Column(VARCHAR(80))
+    source = Column(VARCHAR(50))
+    ori_price = Column(FLOAT)
+    con_price = Column(FLOAT)
+    postage_price = Column(FLOAT)
+    count_down_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     description = Column(VARCHAR(100))
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow,
@@ -43,13 +47,25 @@ class ProductType(BaseModel):
 
 class Product(BaseModel):
     __tablename__ = 'product'
-    id = Column(CHAR(36), primary_key=True,
-                default=lambda: str(uuid.uuid4()))
+    id = Column(Integer, primary_key=True)
     name = Column(VARCHAR(30))
+    theme = Column(VARCHAR(80))
+    source = Column(VARCHAR(50))
+    ori_price = Column(FLOAT)
+    con_price = Column(FLOAT)
+    postage_price = Column(FLOAT)
+    count_down_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     description = Column(VARCHAR(100))
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow,
                         nullable=True, onupdate=datetime.utcnow)
+
+class Like(BaseModel):
+    __tablename__ = 'like'
+    id = Column(Integer, primary_key=True)
+    user_name = Column(VARCHAR(30), nullable=False)
+    keyword_id = Column(Integer)
+    product_id = Column(Integer)
 
 
 def get_product_pu(suffix_name):
