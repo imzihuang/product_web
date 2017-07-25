@@ -23,15 +23,23 @@ def is_exit_avai_email(email=""):
     finally:
         session.close()
 
-def get_creating_user(email=""):
-    if not email:
-        return
+def get_creating_user(**kwargs):
+    email = kwargs.get("email", "")
+    user_name = kwargs.get("name", "")
+    gen_log.info("user name:%s"%user_name)
     try:
         #email = bs2unicode(email)
         session = get_session()
-        query = api.model_query(session, "User", {"email": email, "status": "creating"})
-        result = query.first()
-        return result
+        if email:
+            gen_log.info(1)
+            query = api.model_query(session, "User", {"email": email, "status": "creating"})
+            result = query.first()
+            return result
+        if user_name:
+            gen_log.info(2)
+            query = api.model_query(session, "User", {"name": user_name, "status": "creating"})
+            result = query.first()
+            return result
     except Exception as ex:
         gen_log.error("get creating user error:%r"%ex)
     finally:

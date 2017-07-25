@@ -17,7 +17,7 @@ class User(BaseModel):
     id = Column(Integer, primary_key=True)
     name = Column(VARCHAR(30), nullable=False)
     pwd = Column(VARCHAR(20), default='888888', nullable=False)
-    iage = Column(SMALLINT(), server_default='20')
+    age = Column(SMALLINT)
     email = Column(VARCHAR(50), nullable=False)
     telephone = Column(VARCHAR(20))
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
