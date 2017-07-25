@@ -75,15 +75,15 @@ def verify_user(session, name="", email="", telephone=""):
     try:
 
         if email:
-            query = api.model_query(session, "User", {"email": email})
+            query = api.model_query(session, "User", {"email": [email]})
             if query.count()>0:
                 return 1
         if name:
-            query = api.model_query(session, "User", {"name": name})
+            query = api.model_query(session, "User", {"name": [name]})
             if query.count()>0:
                 return 2
         if telephone:
-            query = api.model_query(session, "User", {"telephone": telephone})
+            query = api.model_query(session, "User", {"telephone": [telephone]})
             if query.count()>0:
                 return 3
         return 0
