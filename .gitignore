@@ -3,5 +3,6 @@
 #忽略后缀名为.pyc的文件  
 *.pyc
 *.pyo
+*.log
 product_web/nohup.out
 .idea/
