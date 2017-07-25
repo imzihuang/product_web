@@ -2,4 +2,6 @@
 #.gitignore
 #忽略后缀名为.pyc的文件  
 *.pyc
+*.pyo
+product_web/nohup.out
 .idea/
