@@ -27,6 +27,6 @@ class LoginHandler(RequestHandler):
 
         # 设置cookie
         self.set_secure_cookie("user_name", user_info.name, max_age = com_cookie_time)
-        self.set_secure_cookie("user_level", user_info.level, max_age = com_cookie_time)
+        self.set_secure_cookie("user_level", str(user_info.level), max_age = com_cookie_time)
 
         self.finish(json.dumps({'state': 0, 'message': 'ok'}))
