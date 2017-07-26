@@ -32,4 +32,4 @@ class HomeHandler(tornado.web.RequestHandler):
         real_iP =self.request.headers.get("x-real-ip", "")
         gen_log.info("home:%s,%s"%(forwarded, real_iP))
 
-        self.render('home.html')
+        self.render('home.html', user_name=self.get_secure_cookie('user_name', ''))

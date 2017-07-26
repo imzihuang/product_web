@@ -4,17 +4,20 @@ from tornado.web import RequestHandler
 import json
 from random import randint
 from common.convert import bs2utf8, is_email
-#from common.encrypt_md5 import get_md5
+from common.encrypt_md5 import encry_md5
 from common.ini_client import ini_load
 from common.log_client import gen_log
 from logic import user as loc_user
 from ser_email.ser_email import send_email
 
-_conf=ini_load('config/service.ini')
-_dic_con=_conf.get_fields('service')
+ser_conf=ini_load('config/service.ini')
+ser_dic_con=ser_conf.get_fields('service')
+ser_url = ser_dic_con.get("url")
+ser_port  = ser_dic_con.get("port")
 
-ser_url = _dic_con.get("url")
-ser_port  = _dic_con.get("port")
+com_conf=ini_load('config/commin.ini')
+com_dic = com_conf.get("cookie_time")
+com_cookie_time = com_dic.get('cookie_time','max_time')
 
 class SignInHandler(RequestHandler):
     def post(self):
@@ -49,7 +52,7 @@ class SignInHandler(RequestHandler):
             loc_user.add_user({
                 "name": user_name,
                 "email": email,
-                "pwd": pwd,
+                "pwd": encry_md5(pwd),
                 "valcode": val_code,
                 "status": "creating"
             })
@@ -102,7 +105,10 @@ class SignInRegCode(RequestHandler):
 
         #更新用户状态
         loc_user.update_user({"status": "available"}, {"name": [user_name]})
-        gen_log.error("test%s,%s"%(user_name, val_code))
+
+        # 设置cookie，注册的，默认都是1
+        self.set_secure_cookie("user_name", user_name, max_age = com_cookie_time)
+        self.set_secure_cookie("user_level", 1, max_age = com_cookie_time)
 
         #跳转
         self.redirect(self.prefix + redirect_url, permanent=True)

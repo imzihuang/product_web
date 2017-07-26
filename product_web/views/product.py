@@ -14,5 +14,4 @@ class ProductHandler(tornado.web.RequestHandler):
 
     def get(self):
         type_id = bs2utf8(self.get_argument('type_id', ""))
-        gen_log.info("test-----%s"%type_id)
-        self.render('product.html', type_id = type_id)
+        self.render('product.html', type_id=type_id, user_name=self.get_secure_cookie('user_name', ''))

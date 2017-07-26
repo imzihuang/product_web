@@ -1,7 +1,10 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-from Crypto.Hash import MD5
 
-def get_md5(v):
-    return MD5.new(v).hexdigest()
+import hashlib
+
+def encry_md5(v):
+    m = hashlib.md5()
+    m.update(v)
+    return m.hexdigest()

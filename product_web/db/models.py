@@ -29,6 +29,8 @@ class User(BaseModel):
     # available 有效账号
     status = Column(VARCHAR(10))
     valcode = Column(CHAR(6))
+    # 0:admin; 1general
+    level = Column(SMALLINT, default=1)
 
 class ProductKeyword(BaseModel):
     __tablename__ = 'productkeyword'
