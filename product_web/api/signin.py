@@ -16,7 +16,7 @@ ser_url = ser_dic_con.get("url")
 ser_port  = ser_dic_con.get("port")
 
 com_conf=ini_load('config/commin.ini')
-com_dic = com_conf.get("cookie_time")
+com_dic = com_conf.get_fields("cookie_time")
 com_cookie_time = com_dic.get('cookie_time','max_time')
 
 class SignInHandler(RequestHandler):
