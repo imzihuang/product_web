@@ -42,7 +42,10 @@ class My_Application(Application):
         super(My_Application, self).__init__(view_handlers() + api_handlers() + handlers, default_host, **settings)
 
 def make_app():
-    return My_Application([])
+    settings = {
+        'cookie_secret': "bZJc2sWbQLKos6GkHn/VB9oXwQt8S0R0kRvJ5/xJ89E=",
+    }
+    return My_Application([], **settings)
 
 define("port", default=8081, help="run on the given port", type=int)
 setproctitle('product:web')
