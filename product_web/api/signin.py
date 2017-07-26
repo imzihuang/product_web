@@ -53,7 +53,7 @@ class SignInHandler(RequestHandler):
                 loc_user.add_user({
                     "name": user_name,
                     "email": email,
-                    "pwd": pwd,
+                    "pwd": encry_md5(pwd),
                     "valcode": val_code,
                     "status": "creating"
                 })

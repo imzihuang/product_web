@@ -6,6 +6,7 @@ from common.convert import bs2utf8
 #from common.log_client import gen_log
 from logic import user as loc_user
 from common.encrypt_md5 import encry_md5
+from common.ini_client import ini_load
 
 com_conf = ini_load('config/commin.ini')
 com_dic = com_conf.get("cookie_time")
