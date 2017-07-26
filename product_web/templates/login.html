@@ -42,7 +42,7 @@
                                     <div class="form-group text-right">
                                         <div class="forget"><a href="signin.html">Create Account？</a></div>
                                     </div>
-                                    <button type="submit" class="btn submitbtn">Sign in</button>
+                                    <button type="submit" class="btn submitbtn" onclick="login()">Sign in</button>
                                 </form>
                             </div>
                         </div>
@@ -62,17 +62,18 @@
         <script type="text/javascript">
             function login(){
                 var data = {
-                    userName:BASE64.encoder($("#form-username").val()),
+                    userName:$("#form-username").val(),
                     password:$("#form-password").val()
                 }
                 console.log(data);
                 console.log($('#login').serialize());
                 $.ajax({
                     type: "POST",
-                    url:"127.0.0.1:8080/product/Login",
+                    url:"/product/Login",
                     async: false,
                     data:data,
                     success: function(msg) {
+                        alert("login ok");
                         console.log(msg);
                         var data = JSON.parse(msg)
                         console.log(data.result.tokenId);
