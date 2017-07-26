@@ -49,13 +49,17 @@ class SignInHandler(RequestHandler):
             msg = "Email Address already registered, ValCode:%s"%val_code
         else:
             val_code = ''.join((str(randint(0, 9)) for _ in xrange(6)))
-            loc_user.add_user({
-                "name": user_name,
-                "email": email,
-                "pwd": encry_md5(pwd),
-                "valcode": val_code,
-                "status": "creating"
-            })
+            try:
+                loc_user.add_user({
+                    "name": user_name,
+                    "email": email,
+                    "pwd": pwd,
+                    "valcode": val_code,
+                    "status": "creating"
+                })
+            except Exception as e:
+                self.finish(json.dumps({'state': 4, "message": str(e)}))
+                return
             msg = "ValCode:%s"%val_code
         #http://123.58.0.76:48080/product/regcode_signin?user_name=123errr&val_code=403164
         #"I'm %(name)s. I'm %(age)d year old" % {'name':'Vamei', 'age':99}
@@ -65,7 +69,9 @@ class SignInHandler(RequestHandler):
             "name": user_name,
             "val_code": val_code
         }
-        send_email(email, redirect_url, "Verify signin")
+        if not send_email(email, redirect_url, "Verify signin"):
+            self.finish(json.dumps({'state': 5, "message": "send email faild"}))
+            return
         self.finish(json.dumps({'state': 0, "message": msg}))
 
 class SignInRegCode(RequestHandler):
