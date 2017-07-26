@@ -164,15 +164,15 @@ img { max-width: 100%; }
     margin-bottom: 0px;
     font-weight: 700;
 }
-.form-bottom form textarea {
+.form-bottom textarea {
 	height: 100px;
 }
 
-.form-bottom form button.btn {
+.form-bottom button.btn {
 	width: 100%;
 }
 
-.form-bottom form .input-error {
+.form-bottom .input-error {
 	border-color: #febd69;
 }
 
