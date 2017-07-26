@@ -3,8 +3,22 @@
 
 from common.log_client import gen_log
 from db.base import get_session
-from db import api, models
+from db import api
 #from common.convert import bs2unicode
+
+def get_all_user():
+    """
+    获取所有的用户
+    :return:
+    """
+    try:
+        session = get_session()
+        query = api.model_query(session, "User", {})
+        return query.all()
+    except Exception as ex:
+        gen_log.error("get all user error:%r"%ex)
+    finally:
+        session.close()
 
 def is_exit_avai_email(email=""):
     if not email:
@@ -73,7 +87,6 @@ def verify_user(session, name="", email="", telephone=""):
     :return: 0：没有重复；1：邮箱重复；2：用户名重复；3：电话号码重复；4：代码错误
     """
     try:
-
         if email:
             query = api.model_query(session, "User", {"email": [email]})
             if query.count()>0:

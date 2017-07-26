@@ -46,6 +46,9 @@ class ProductKeyword(BaseModel):
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow,
                         nullable=True, onupdate=datetime.utcnow)
+    like_add_count = Column(Integer)
+    sort_num = Column(Integer, default=10000)
+
 
 class Product(BaseModel):
     __tablename__ = 'product'
@@ -61,6 +64,9 @@ class Product(BaseModel):
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow,
                         nullable=True, onupdate=datetime.utcnow)
+    links = Column(VARCHAR(50))
+    like_add_count = Column(Integer)
+    sort_num = Column(Integer, default=10000)
 
 class Like(BaseModel):
     __tablename__ = 'like'
