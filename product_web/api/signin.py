@@ -114,7 +114,7 @@ class SignInRegCode(RequestHandler):
 
         # 设置cookie，注册的，默认都是1
         self.set_secure_cookie("user_name", user_name, max_age = com_cookie_time)
-        self.set_secure_cookie("user_level", 1, max_age = com_cookie_time)
+        self.set_secure_cookie("user_level", "1", max_age = com_cookie_time)
 
         #跳转
         self.redirect(self.prefix + redirect_url, permanent=True)

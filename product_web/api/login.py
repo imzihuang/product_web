@@ -17,7 +17,7 @@ class LoginHandler(RequestHandler):
         user_name = bs2utf8(self.get_argument('user_name'))
         pwd = bs2utf8(self.get_argument('pwd'))
 
-        user_info = loc_user.get_creating_user(name=user_name)
+        user_info = loc_user.get_available_user(name=user_name)
         if not user_info:
             self.finish(json.dumps({'state': 1, "message": "user name not exit"}))
             return
@@ -27,6 +27,6 @@ class LoginHandler(RequestHandler):
 
         # 设置cookie
         self.set_secure_cookie("user_name", user_info.name, max_age = com_cookie_time)
-        self.set_secure_cookie("user_level", user_info.level, max_age = com_cookie_time)
+        self.set_secure_cookie("user_level", str(user_info.level), max_age = com_cookie_time)
 
         self.finish(json.dumps({'state': 0, 'message': 'ok'}))
