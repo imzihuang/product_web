@@ -30,7 +30,6 @@
                                 <h1>Create account</h1>
                             </div>
                             <div class="form-bottom">
-                                <form role="form" action="" method="post" class="login-form">
                                     <div class="form-group">
                                         <label class="sr_only" for="form-username">Your name</label>
                                         <input type="text" name="form-username" placeholder="Your name" class="form-username form-control" id="sign_form-username">
@@ -50,8 +49,7 @@
                                     <div class="form-group text-right">
                                         <div class="forget"><a href="login.html">Already have an account?</a></div>
                                     </div>
-                                    <button type="submit" class="btn submitbtn" onclick="signin()">Create your new account</button>
-                                </form>
+                                    <button class="btn submitbtn" onclick="signin()">Create your new account</button>
                             </div>
                         </div>
                     </div>
@@ -70,7 +68,7 @@
          <script type="text/javascript">
             function signin(){
                 var data = {
-                    user_name:BASE64.encoder($("#sign_form-username").val()),
+                    user_name:$("#sign_form-username").val(),
                     email:$("#sign_form-Email").val(),
                     pwd:$("#sign_form-password").val(),
                     affirm_pwd:$("#form-Re-enter").val()
@@ -82,6 +80,7 @@
                     async: false,
                     data:data,
                     success: function(msg) {
+                        alert("signin ok")
                         console.log("ok");
                         console.log(msg);
                         var data = JSON.parse(msg)
