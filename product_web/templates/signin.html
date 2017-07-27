@@ -82,6 +82,10 @@
                     $("#confirmRe").html("Password不能为空！");
                     $("#form-Re-enter").focus(); 
                 }
+                if ($("#form-Re-enter").val() != $("#sign_form-password").val()) {
+                    $("#confirmRe").html("密码不统一！");
+                    $("#form-Re-enter").focus(); 
+                }
                 if ($("#sign_form-password").val() == "") {
                     $("#confirmpassword").html("Password不能为空！");
                     $("#sign_form-password").focus();    
@@ -113,15 +117,16 @@
                     data:data,
                     success: function(msg) {
 
-                        // console.log(msg);
+                        console.log(msg);
                         // if(msg.state=="0"){
-                          alert("signin ok");
-                          window.location.href="/product/home.html";
+                        alert("signin ok");
+                        window.location.href="/product/home.html";
                         // }
 
                     },
                     error:function(){
                         console.log("error");
+                        window.location.href="/product/signin.html";
                     }
                 });
             }
