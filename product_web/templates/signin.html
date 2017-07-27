@@ -112,8 +112,9 @@
                     async: false,
                     data:data,
                     success: function(msg) {
-                        console.log(msg.state);
-                        if(msg.state==0){
+
+                        console.log(msg);
+                        if(msg.state=="0"){
                           alert("signin ok");
                           window.location.href="/product/home.html";
                         }
