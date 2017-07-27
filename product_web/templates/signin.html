@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Login</title>
+        <title>Signin</title>
         <!-- CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
@@ -31,6 +31,7 @@
                             </div>
                             <div class="form-bottom">
                                     <div class="form-group">
+                                    <div id="confirmerror"></div>
                                         <label class="sr_only" for="form-username">Your name</label>
                                         <input type="text" name="form-username" placeholder="Your name" class="form-username form-control" id="sign_form-username">
                                         <div id="confirmname"></div>
@@ -118,15 +119,28 @@
                     success: function(msg) {
 
                         console.log(msg);
-                        // if(msg.state=="0"){
-                        alert("signin ok");
+                        if(msg.state=="0"){
                         window.location.href="/product/home.html";
-                        // }
+                        }
+                        else if(msg.state=="1"){
+                          $("#confirmRe").html("密码不一致或者不满足格式！");
+                        }
+                        else if(msg.state=="2"){
+                          $("#confirmMsg").html("邮箱格式错误！");
+                        }
+                        else if(msg.state=="3"){
+                         window.location.href="/product/signin_notice.html";
+                        }
+                        else if(msg.state=="2"){
+                          $("#confirmerror").html("创建用户失败，可能用户名或邮箱已经存在！");
+                        }
+                        else{
+                          $("#confirmerror").html("发送邮件失败；请重新提交");
+                        }
 
                     },
                     error:function(){
                         console.log("error");
-                        window.location.href="/product/signin.html";
                     }
                 });
             }
