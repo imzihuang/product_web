@@ -95,4 +95,15 @@ def update_product(productinfo, con_dic):
     finally:
         session.close()
 
-
+def del_product(product_name):
+    try:
+        session = get_session()
+        query = api.model_query(session, "Product", {"name": [product_name]})
+        query.delete(synchronize_session=False)
+        session.commit()
+        return True
+    except Exception as ex:
+        gen_log.error("del product error:%r"%ex)
+        return False
+    finally:
+        session.close()

@@ -93,7 +93,7 @@ class SignInHandler(RequestHandler):
             return
         self.finish(json.dumps({'state': 0, "message": msg}))
 
-class SignInRegCode(RequestHandler):
+class SignInRegCodeHandler(RequestHandler):
     def initialize(self, static_path, templates_path, product_prefix, **kwds):
         self.static_path = static_path
         self.templates_path = templates_path
