@@ -119,19 +119,20 @@
                     success: function(msg) {
 
                         console.log(msg);
-                        if(msg.state==0){
+                        console.log(msg.state);
+                        if(msg.state=0){
                         window.location.href="/product/home.html";
                         }
-                        else if(msg.state==1){
+                        else if(msg.state=1){
                           $("#confirmRe").html("密码不一致或者不满足格式！");
                         }
-                        else if(msg.state==2){
+                        else if(msg.state=2){
                           $("#confirmMsg").html("邮箱格式错误！");
                         }
-                        else if(msg.state==3){
+                        else if(msg.state=3){
                          window.location.href="/product/signin_notice.html";
                         }
-                        else if(msg.state==4){
+                        else if(msg.state=4){
                           $("#confirmerror").html("创建用户失败，可能用户名或邮箱已经存在！");
                         }
                         else{
