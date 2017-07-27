@@ -273,13 +273,13 @@ ul.countdown li p {
 .searchPart input{border: 1px solid #ccc;border-right: none;}
 .searchPart input:focus{border: 1px solid #febd69;border-right: none;}
 .searchPart{margin-top: 10px; width: 100%;}
-.searchPart .input-group-btn .btn{padding: 0px;background-color: #FF8C00;border: 1px solid #febd69;}
+.searchPart .input-group-btn .btn{padding: 0px;background-color: #febd69;border: 1px solid #febd69;}
 .searchPart .input-group-btn .btn span{width: 21px;height: 21px;background-image: url();}
 .searchPart .input-group-btn .btn:hover,.searchPart .input-group-btn .btn:focus,.searchPart .input-group-btn .btn:active,.searchPart .input-group-btn .btn:visited{
 	background-color: #f3a847;
 	opacity: 1;
 }
-.searchPart .btn-default img{height: 25px;width: auto;}
+.searchPart .btn-default img{height: 24px;width: auto;}
 /***** Media queries *****/
 @media (min-width: 768px){
 	.col-sm-offset-3 {
