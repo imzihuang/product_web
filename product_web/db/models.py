@@ -29,8 +29,9 @@ class User(BaseModel):
     # available 有效账号
     status = Column(VARCHAR(10))
     valcode = Column(CHAR(6))
-    # 0:admin; 1general
+    # 0:admin; 1:general
     level = Column(SMALLINT, default=1)
+    img_path = Column(VARCHAR(50))
 
 class ProductKeyword(BaseModel):
     __tablename__ = 'productkeyword'
@@ -41,13 +42,14 @@ class ProductKeyword(BaseModel):
     ori_price = Column(FLOAT)
     con_price = Column(FLOAT)
     postage_price = Column(FLOAT)
-    count_down_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     description = Column(VARCHAR(100))
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow,
                         nullable=True, onupdate=datetime.utcnow)
-    like_add_count = Column(Integer)
+    count_down_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    like_add_count = Column(Integer, default=0)
     sort_num = Column(Integer, default=10000)
+    img_path = Column(VARCHAR(50))
 
 
 class Product(BaseModel):
@@ -59,14 +61,15 @@ class Product(BaseModel):
     ori_price = Column(FLOAT)
     con_price = Column(FLOAT)
     postage_price = Column(FLOAT)
-    count_down_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     description = Column(VARCHAR(100))
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow,
                         nullable=True, onupdate=datetime.utcnow)
+    count_down_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     links = Column(VARCHAR(50))
-    like_add_count = Column(Integer)
+    like_add_count = Column(Integer, default=0)
     sort_num = Column(Integer, default=10000)
+    img_path = Column(VARCHAR(50))
 
 class Like(BaseModel):
     __tablename__ = 'like'
