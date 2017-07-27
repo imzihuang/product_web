@@ -23,7 +23,7 @@ def send_email(to_email, message, subject):
     """
     try:
         service_smtp = smtplib.SMTP_SSL("smtp.qq.com", 465)
-        msg = MIMEText(message)
+        msg = MIMEText(message, 'html')
         msg["Subject"] = subject
         msg["From"] = email_user
         msg["To"] = to_email

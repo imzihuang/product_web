@@ -88,7 +88,7 @@ class SignInHandler(RequestHandler):
             "name": user_name,
             "val_code": val_code
         }
-        html = """/
+        html = """
             <html>
               <head></head>
               <body>
@@ -98,7 +98,7 @@ class SignInHandler(RequestHandler):
               </body>
             </html>
             """
-        if not send_email(email, html%redirect_url, "Verify email"):
+        if not send_email(email, html%{"redirect_url":redirect_url}, "Verify email"):
             self.finish(json.dumps({'state': 5, "message": "send email faild"}))
             return
         self.finish(json.dumps({'state': 0, "message": msg}))
