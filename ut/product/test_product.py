@@ -23,12 +23,12 @@ class SqlTestCase(unittest.TestCase):
         print _
         self.assertTrue(_ is not None)
         _ = get_product(name="trest111")
-        print _.to_dict()
+        print _
         self.assertTrue(_ is not None)
         _ = update_product({"source": "by amazon", "count_down_at": "2017-07-28 12:07:01"}, {"name": ["trest111"]})
         self.assertTrue(_)
         _ = get_product(name="trest111")
-        print _.to_dict()
+        print _
         self.assertTrue(_ is not None)
         _ = del_product("trest111")
         print _

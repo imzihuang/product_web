@@ -594,20 +594,4 @@ def zip_list_by2(l):
     for i in xrange(len(l) / 2):
         yield l[i * 2: (i + 1) * 2]
 
-def utcnow(with_timezone=False):
-    """Overridable version of utils.utcnow that can return a TZ-aware datetime.
-
-    See :py:class:`oslo_utils.fixture.TimeFixture`.
-
-    .. versionchanged:: 1.6
-       Added *with_timezone* parameter.
-    """
-    if utcnow.override_time:
-        try:
-            return utcnow.override_time.pop(0)
-        except AttributeError:
-            return utcnow.override_time
-    if with_timezone:
-        return datetime.datetime.now(tz=iso8601.iso8601.UTC)
-    return datetime.datetime.utcnow()
 
