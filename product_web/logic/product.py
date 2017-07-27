@@ -8,6 +8,8 @@ from db import api
 def get_product(**kwargs):
     id = kwargs.get("id", "")
     name = kwargs.get("name", "")
+    offset = kwargs.get("offset", 0)
+    limit = kwargs.get("limit", 0)
     try:
         session = get_session()
         if id:
@@ -26,7 +28,7 @@ def get_product(**kwargs):
     finally:
         session.close()
 
-def get_product_like_name(product_keyword):
+def get_product_like_name(product_keyword, offset=0, limit=0):
     """
     获取产品列表，根据关键字模糊查询
     :param product_keyword:
@@ -68,6 +70,13 @@ def add_product(productinfo):
         _ = verify_product(session, name)
         if _ != 0:
             return False
+
+        sort_num = productinfo.get("sort_num", 10000)
+        if sort_num==0:
+            productinfo.update({"sort_num": 10000})
+        if sort_num > 0 and sort_num<10000:
+            api.set_product_sort_num(session, sort_num)
+
         model_user = api.convert_model("Product", productinfo)
         session.add(model_user)
         session.commit()
@@ -87,6 +96,12 @@ def update_product(productinfo, con_dic):
     """
     try:
         session = get_session()
+        sort_num = productinfo.get("sort_num", 10000)
+        if sort_num==0:
+            productinfo.update({"sort_num": 10000})
+        if sort_num > 0 and sort_num<10000:
+            api.set_product_sort_num(session, sort_num)
+
         query = api.model_query(session, "Product", con_dic)
         query.update(productinfo, synchronize_session=False)
         session.commit()
@@ -109,3 +124,4 @@ def del_product(product_name):
         return False
     finally:
         session.close()
+
