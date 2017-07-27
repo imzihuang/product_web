@@ -11,6 +11,8 @@ from base import get_engine
 Base = declarative_base()
 
 class BaseModel(Base):
+    __tablename__ = "base"
+    __table_args__ = {'mysql_engine': 'InnoDB'}
     def to_dict(self):
        return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
 
