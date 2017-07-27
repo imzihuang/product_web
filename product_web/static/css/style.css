@@ -239,7 +239,7 @@ img { max-width: 100%; }
 .all-items .row{margin: 0px;padding-left:10px;padding-right: 10px; }
 .all-items .col-sm-6,.all-items .col-md-3{padding-left:0px;padding-right: 0px;}
 .likeList{height:22px;width: 100%;}
-.likeList a img{height: 100%;width: auto;float: right;}
+.likeList a img{height: 80%;width: auto;float: right;}
 .likeList span{float: right;color: #febd69;}
 .aboutHelp a{color: #777;}
 .all-items .timedown{margin: 0;font-size: 14px;}
@@ -280,6 +280,7 @@ ul.countdown li p {
 	opacity: 1;
 }
 .searchPart .btn-default img{height: 24px;width: auto;}
+.thumbnail{border:none;}
 /***** Media queries *****/
 @media (min-width: 768px){
 	.col-sm-offset-3 {
