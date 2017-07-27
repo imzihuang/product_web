@@ -8,16 +8,8 @@ from sqlalchemy.orm import relationship
 from datetime import datetime
 from base import get_engine
 
-Base = declarative_base()
-
-class BaseModel(Base):
-    __tablename__ = "base"
-    __table_args__ = {'mysql_engine': 'InnoDB'}
-    def to_dict(self):
-       return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
-
-class DynamicDModel(Base):
-    pass
+BaseModel = declarative_base()
+DynamicDModel = declarative_base()
 
 class User(BaseModel):
     __tablename__ = 'user'
@@ -40,6 +32,9 @@ class User(BaseModel):
     level = Column(SMALLINT, default=1)
     img_path = Column(VARCHAR(50))
 
+    def to_dict(self):
+       return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
+
 class ProductKeyword(BaseModel):
     __tablename__ = 'productkeyword'
     id = Column(Integer, primary_key=True)
@@ -58,6 +53,8 @@ class ProductKeyword(BaseModel):
     sort_num = Column(Integer, default=10000)
     img_path = Column(VARCHAR(50))
 
+    def to_dict(self):
+       return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
 
 class Product(BaseModel):
     __tablename__ = 'product'
@@ -78,6 +75,8 @@ class Product(BaseModel):
     sort_num = Column(Integer, default=10000)
     img_path = Column(VARCHAR(50))
 
+    def to_dict(self):
+       return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
 
 class Like(BaseModel):
     __tablename__ = 'like'
@@ -86,6 +85,8 @@ class Like(BaseModel):
     keyword_id = Column(Integer)
     product_id = Column(Integer)
 
+    def to_dict(self):
+       return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
 
 def get_product_pu(suffix_name):
     class Product_PU(DynamicDModel):
