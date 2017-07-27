@@ -1,10 +1,8 @@
 
 body {
-    font-family: arial,sans-serif;
+    font-family: "Amazon Ember",Arial,sans-serif;
     font-size: 13px;
-    font-weight: 300;
     color: #111;
-    line-height: 30px;
     text-align: center;
 }
 
@@ -239,7 +237,7 @@ img { max-width: 100%; }
 .all-items .row{margin: 0px;padding-left:10px;padding-right: 10px; }
 .all-items .col-sm-6,.all-items .col-md-3{padding-left:0px;padding-right: 0px;}
 .likeList{height:22px;width: 100%;}
-.likeList a img{height: 80%;width: auto;float: right;}
+.likeList a img{height: 75%;width: auto;float: right;}
 .likeList span{float: right;color: #febd69;}
 .aboutHelp a{color: #777;}
 .all-items .timedown{margin: 0;font-size: 12px;}
@@ -285,7 +283,9 @@ ul.countdown li p {
 .color_gray{color: #555;}
 .color_red{color: #bf0303;}
 .color_gray_block{color: #444;}
-.f_left{float: left;}
+.f_left{float: left !important;}
+.likecount{line-height: 20px;}
+p{margin: 0px;}
 /***** Media queries *****/
 @media (min-width: 768px){
 	.col-sm-offset-3 {
