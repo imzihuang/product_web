@@ -239,8 +239,9 @@ img { max-width: 100%; }
 .likeList{height:22px;width: 100%;}
 .likeList a img{height: 75%;width: auto;float: right;}
 .likeList span{float: right;color: #febd69;}
-.aboutHelp a{color: #777;}
-.all-items .timedown{margin: 0;font-size: 12px;}
+.aboutHelp a{color: #0066c0;text-decoration: underline;}
+.all-items .timedown{margin: 0;font-size: 12px;font-weight: bold;}
+.howmuch{line-height: 22px;}
 ul.countdown {
 	list-style: none;
 	padding: 0;
@@ -282,11 +283,12 @@ ul.countdown li p {
 .searchPart .btn-default img{height: 20px;width: auto;}
 .thumbnail{border:none;}
 .product_name a{color: #0066c0 !important;}
-.color_gray a{color: #555 !important;}
+.color_gray,.color_gray a{color: #555 !important;}
 .color_red a{color: #bf0303 !important;}
 .color_gray_block a{color: #444 !important;}
 .f_left{float: left !important;}
 .likecount{line-height: 20px;}
+
 p{margin: 0px;}
 .button {
     background-color: #f1f1f1;
