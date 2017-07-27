@@ -13,13 +13,14 @@ def get_product(**kwargs):
         if id:
             query = api.model_query(session, "Product", {"id": [id]})
             result = query.first()
-            return result
+            return result.to_dict()
         if name:
             query = api.model_query(session, "Product", {"name": [name]})
             result = query.first()
-            return result
+            return result.to_dict
         query = api.model_query(session, "Product", {})
-        return query.all()
+        results = query.order_by("sort_num").all()
+        return [result.to_dict() for result in results]
     except Exception as ex:
         gen_log.error("get product error:%r"%ex)
     finally:
@@ -36,8 +37,8 @@ def get_product_like_name(product_keyword):
             return
         session = get_session()
         query = api.get_product_like_name(session, product_keyword)
-        query = query.order_by("sort_num")
-        return query.all()
+        results = query.order_by("sort_num").all()
+        return [result.to_dict() for result in results]
     except Exception as ex:
         gen_log.error("like query product error: %r"% ex)
     finally:
