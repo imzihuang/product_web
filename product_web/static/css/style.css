@@ -273,12 +273,13 @@ ul.countdown li p {
 .searchPart input{border: 1px solid #ccc;border-right: none;}
 .searchPart input:focus{border: 1px solid #febd69;border-right: none;}
 .searchPart{margin-top: 10px; width: 100%;}
-.searchPart .input-group-btn .btn{padding: 0px;}
+.searchPart .input-group-btn .btn{padding: 0px;background-color: #FF8C00;border: 1px solid #febd69;}
 .searchPart .input-group-btn .btn span{width: 21px;height: 21px;background-image: url();}
 .searchPart .input-group-btn .btn:hover,.searchPart .input-group-btn .btn:focus,.searchPart .input-group-btn .btn:active,.searchPart .input-group-btn .btn:visited{
 	background-color: #f3a847;
 	opacity: 1;
 }
+.searchPart .btn-default img{height: 25px;width: auto;}
 /***** Media queries *****/
 @media (min-width: 768px){
 	.col-sm-offset-3 {
@@ -330,7 +331,7 @@ ul.countdown li p {
 		width: 100%;
 		border-left: none;
 	}
-	.home .searchPart input,.home .searchPart .btn{height:34px;line-height: 34px;}
+	.home .searchPart input,.home .searchPart .btn{height:35px;line-height: 35px;}
 	.top-content .col-sm-6{
            width: 350px;
            margin: 0 auto;
@@ -362,7 +363,7 @@ ul.countdown li p {
 		width: 100%;
 		border-left: none;
 	}
-	.home .searchPart input,.home .searchPart .btn{height:34px;line-height: 34px;}
+	.home .searchPart input,.home .searchPart .btn{height:35px;line-height: 35px;}
 	body{font-size: 12px !important;}
     .home .all-items .timedown,.home ul.countdown li span{font-size: 12px !important;}
     .home .likeList{height: 17px;}
