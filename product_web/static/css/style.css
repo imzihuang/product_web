@@ -1,7 +1,7 @@
 
 body {
     font-family: "Amazon Ember",Arial,sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     color: #111;
     text-align: center;
 }
@@ -244,17 +244,19 @@ img { max-width: 100%; }
 ul.countdown {
 	list-style: none;
 	padding: 0;
-	display: block;
+	display: inline-table;
 	text-align: left;
 	margin-bottom: 0px;
+	font-weight: bold;
+	line-height: 20px;
 }
 ul.countdown li {
 	display: inline-block;
 }
 ul.countdown li span {
-	font-size: 13px;
-	font-weight: 300;
-	line-height: 26px;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 20px;
 }
 ul.countdown li.seperator {
 	font-size: 13px;
