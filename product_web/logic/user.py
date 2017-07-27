@@ -102,7 +102,7 @@ def verify_user(session, name="", email="", telephone=""):
         return 0
     except Exception as ex:
         gen_log.error("get available user error:%r"%ex)
-        return 10
+        raise ex
 
 def add_user(userinfo):
     """
@@ -117,10 +117,11 @@ def add_user(userinfo):
         session = get_session()
         _ = verify_user(session, name, email, telephone)
         if _ != 0:
-            raise ValueError('add user fail:%d'%_)
+            return False
         model_user = api.convert_model("User", userinfo)
         session.add(model_user)
         session.commit()
+        return True
     except Exception as ex:
         gen_log.error("add user error:%r"%ex)
         raise ex

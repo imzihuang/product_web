@@ -30,6 +30,7 @@ class ProductHandler(RequestHandler):
         data = {
             "name": product_name,
             "source": bs2utf8(self.get_argument("source", '')),
+            "theme": bs2utf8(self.get_argument("theme", '')),
             "ori_price": self.get_argument("ori_price", 0),
             "con_price": self.get_argument("con_price", 0),
             "postage_price": self.get_argument("postage_price", 0),
@@ -72,7 +73,9 @@ class ProductHandler(RequestHandler):
         source = bs2utf8(self.get_argument("source", ''))
         if source:
             update_data.update({"source": source})
-
+        theme = bs2utf8(self.get_argument("theme", ''))
+        if theme:
+            update_data.update({"theme": theme}) 
         ori_price = self.get_argument("ori_price", -1)
         if ori_price > -1:
             update_data.update({"ori_price": ori_price})
