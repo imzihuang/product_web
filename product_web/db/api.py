@@ -54,4 +54,33 @@ def get_product_like_name(session, product_keyword):
     query = session.query(models.Product).filter(models.Product.name.like("%"+product_keyword+"%"))
     return query
 
+def set_product_sort_num(session, sort_num):
+    """
+    设置产品的顺序，大于等于sort_num的产品顺序，且连续的自动加1
+    :param session:
+    :param sort_num:
+    :return:
+    """
+    query = session.query(models.Product).filter(models.Product.sort_num>=sort_num)
+    products = query.all()
+    current_sort_num = sort_num
+    for product in products:
+        if product.sort_num > current_sort_num:
+            return True
+        current_sort_num += 1
+        session.query(models.Product).filter(models.Product.id==product.id).update({"sort_num":current_sort_num}, synchronize_session=False)
+    return True
+
+def set_keyword_sort_num(session, sort_num):
+    query = session.query(models.ProductKeyword).filter(models.ProductKeyword.sort_num>=sort_num)
+    keywords = query.all()
+    current_sort_num = sort_num
+    for keyword in keywords:
+        if keyword.sort_num > current_sort_num:
+            return True
+        current_sort_num += 1
+        session.query(models.ProductKeyword).filter(models.ProductKeyword.id==keyword.id).update({"sort_num":current_sort_num}, synchronize_session=False)
+    return True
+
+
 

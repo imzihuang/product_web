@@ -9,21 +9,30 @@ from logic import product as loc_product
 
 class ProductHandler(RequestHandler):
     def get(self, *args, **kwargs):
-        product_name = bs2utf8(self.get_argument("name"))
+        product_name = bs2utf8(self.get_argument("product_name"))
         is_like_query = int(self.get_argument("like_query", 0))
+        offset = int(self.get("offset", 0))
+        limit = int(self.get("limit", 0))
         if is_like_query == 1:
             keyword = bs2utf8(self.get_argument("keyword"))
-
-
+            product_list = loc_product.get_product_like_name(keyword, offset, limit)
+            self.finish({'state': '0', 'data': product_list})
+            return
+        if product_name:
+            product = loc_product.get_product(name=product_name)
+            self.finish({'state': '0', 'data': product})
+            return
+        product_list = loc_product.get_product(offset=offset, limit=limit)
+        self.finish({'state': '0', 'data': product_list})
 
     def put(self):
         """"add product"""
         upload_path = os.path.join(os.path.dirname(__file__), 'static')
-        file_metas = self.request.files.get('file-zh[]', 'file')
+        file_metas = self.request.files.get('product_img', 'file')
 
         # save img
         img_path = ""
-        product_name = bs2utf8(self.get_argument("name"))
+        product_name = bs2utf8(self.get_argument("product_name"))
         for meta in file_metas:
             filename = meta['filename']
             filename = product_name + "." + filename.rpartition(".")[-1] #rename img meta
@@ -33,7 +42,7 @@ class ProductHandler(RequestHandler):
             with open(filepath, 'wb') as up:
                 up.write(meta['body'])
         if not img_path:
-            self.finish({'state': '1', 'message': 'file is none'})
+            self.finish({'state': '1', 'message': 'img is none'})
             return
         data = {
             "name": product_name,
@@ -44,6 +53,7 @@ class ProductHandler(RequestHandler):
             "postage_price": self.get_argument("postage_price", 0),
             "description": bs2utf8(self.get_argument("description", "")),
             "links": bs2utf8(self.get_argument("description", "")),
+            "sort_num": self.get_argument("sort_num", 10000),
             "img_path": img_path
         }
 
@@ -52,15 +62,14 @@ class ProductHandler(RequestHandler):
             self.finish({'state': '2', 'message': 'add product faild'})
             return
 
-        self.finish({'state': '0', 'message': 'ok'})
+        self.finish({'state': '0', 'message': 'add product ok'})
 
     def post(self):
         """update product"""
-        product_name = bs2utf8(self.get_argument("name"))
+        product_name = bs2utf8(self.get_argument("product_name"))
         update_data = {}
-        file_metas = self.request.files.get('file-zh[]', 'file')
+        file_metas = self.request.files.get('product_img', 'file')
         if file_metas:
-            # ?????
             img_path = ""
             upload_path = os.path.join(os.path.dirname(__file__), 'static')
             for meta in file_metas:
@@ -103,15 +112,19 @@ class ProductHandler(RequestHandler):
         links = bs2utf8(self.get_argument("description", ""))
         if links:
             update_data.update({"links": links})
+        sort_num = self.get_argument("sort_num", -1)
+        if sort_num > -1:
+            update_data.update({"sort_num": sort_num})
 
-        _ = loc_product.update_product(update_data, {"name": [product_name]})
-        if not _:
-            self.finish({'state': '2', 'message': 'update product faild'})
-            return
+        if update_data:
+            _ = loc_product.update_product(update_data, {"name": [product_name]})
+            if not _:
+                self.finish({'state': '2', 'message': 'update product faild'})
+                return
         self.finish({'state': '0', 'message': 'ok'})
 
     def delete(self):
-        product_name = bs2utf8(self.get_argument("name"))
+        product_name = bs2utf8(self.get_argument("product_name"))
         _ = loc_product.del_product(product_name)
         if not _:
             self.finish({'state': '1', 'message': 'delete product faild'})
