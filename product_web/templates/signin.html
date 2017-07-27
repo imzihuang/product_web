@@ -116,10 +116,11 @@
                     url:"/product/signin",
                     async: false,
                     data:data,
-                    success: function(msg) {
-
+                    success: function(msg) {\
                         console.log(msg);
                         var data = JSON.parse(msg);
+                        console.log(data);
+                        console.log(data.state);
                         if(data.state=0){
                         window.location.href="/product/home.html";
                         }
