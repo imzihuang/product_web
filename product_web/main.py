@@ -21,6 +21,7 @@ def view_handlers():
         URLSpec(prefix + r'product.html$', views.ProductHandler, default_settings),
         URLSpec(prefix + r'login.html$', views.LoginHandler, default_settings),
         URLSpec(prefix + r'signin.html$', views.SignInHandler, default_settings),
+        URLSpec(prefix + r'signin_notice.html$', views.SignInNoticeHandler, default_settings),
         URLSpec(prefix + r'findpwd.html$', views.FindPwdHandler, default_settings),
         URLSpec(prefix + r'helpbuy.html$', views.HelpBuyHandler, default_settings),
         URLSpec(prefix + r'getmoney.html$', views.GetMoneyHandler, default_settings),

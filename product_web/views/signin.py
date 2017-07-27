@@ -12,3 +12,14 @@ class SignInHandler(tornado.web.RequestHandler):
 
     def get(self):
         self.render('signin.html')
+
+class SignInNoticeHandler(tornado.web.RequestHandler):
+    def initialize(self, static_path, templates_path, **kwds):
+        self.static_path = static_path
+        self.templates_path = templates_path
+
+    def get_template_path(self):
+        return self.templates_path
+
+    def get(self):
+        self.render('signin_notice.html')
