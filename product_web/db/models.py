@@ -70,6 +70,9 @@ class Product(BaseModel):
     like_add_count = Column(Integer, default=0)
     sort_num = Column(Integer, default=10000)
     img_path = Column(VARCHAR(50))
+    
+    def to_dict(self):
+       return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
 
 class Like(BaseModel):
     __tablename__ = 'like'

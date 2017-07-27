@@ -58,7 +58,7 @@ def verify_product(session, name):
         return 0
     except Exception as ex:
         gen_log.error("get product error:%r"%ex)
-        return 10
+        raise ex
 
 def add_product(productinfo):
     try:
@@ -66,10 +66,11 @@ def add_product(productinfo):
         session = get_session()
         _ = verify_product(session, name)
         if _ != 0:
-            raise ValueError('add product fail:%d'%_)
+            return False
         model_user = api.convert_model("Product", productinfo)
         session.add(model_user)
         session.commit()
+        return True
     except Exception as ex:
         gen_log.error("add user error:%r"%ex)
         raise ex
