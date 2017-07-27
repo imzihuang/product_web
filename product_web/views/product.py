@@ -13,6 +13,6 @@ class ProductHandler(tornado.web.RequestHandler):
         return self.templates_path
 
     def get(self):
-        type_id = bs2utf8(self.get_argument('type_id', ""))
+        keyword = bs2utf8(self.get_argument('keyword', ""))
         user_name = self.get_secure_cookie('user_name', '')
-        self.render('product.html', type_id=type_id, user_name=user_name)
+        self.render('product.html', keyword=keyword, user_name=user_name)

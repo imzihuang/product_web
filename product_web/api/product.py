@@ -8,6 +8,14 @@ from common.convert import bs2utf8
 from logic import product as loc_product
 
 class ProductHandler(RequestHandler):
+    def get(self, *args, **kwargs):
+        product_name = bs2utf8(self.get_argument("name"))
+        is_like_query = int(self.get_argument("like_query", 0))
+        if is_like_query == 1:
+            keyword = bs2utf8(self.get_argument("keyword"))
+
+
+
     def put(self):
         """"add product"""
         upload_path = os.path.join(os.path.dirname(__file__), 'static')

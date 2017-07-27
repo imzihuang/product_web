@@ -5,12 +5,17 @@ from sqlalchemy import Column, Table, MetaData
 from sqlalchemy.types import *
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
-import uuid
 from datetime import datetime
 from base import get_engine
 
-BaseModel = declarative_base()
-DynamicDModel = declarative_base()
+Base = declarative_base()
+
+class BaseModel(Base):
+    def to_dict(self):
+       return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
+
+class DynamicDModel(Base):
+    pass
 
 class User(BaseModel):
     __tablename__ = 'user'
@@ -70,9 +75,7 @@ class Product(BaseModel):
     like_add_count = Column(Integer, default=0)
     sort_num = Column(Integer, default=10000)
     img_path = Column(VARCHAR(50))
-    
-    def to_dict(self):
-       return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
+
 
 class Like(BaseModel):
     __tablename__ = 'like'
@@ -92,6 +95,11 @@ def get_product_pu(suffix_name):
         product_id = Column(CHAR(36))
         product_name = Column(CHAR(30))
         pu_count = Column(Integer)
+
+        def to_dict(self):
+            return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
+
+
     return Product_PU
 
 
