@@ -61,7 +61,7 @@
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
         <script type="text/javascript">
-            $(".submitbtn").click(function(){
+            function login(){
                 $("#confirmpassword").html("");
                 $("#confirmMsg").html("");
                 if ($("#form-password").val() == "") {
@@ -72,12 +72,9 @@
                     $("#confirmMsg").html("Name不能为空！");
                     $("#form-username").focus();  
                 }
-                return true;  
-            });
-            function login(){
                 var data = {
-                    userName:$("#form-username").val(),
-                    password:$("#form-password").val()
+                    user_name:$("#form-username").val(),
+                    pwd:$("#form-password").val()
                 }
                 $.ajax({
                     type: "POST",
