@@ -34,7 +34,7 @@ def api_handlers():
     return [
         (prefix + r'login$', api.LoginHandler),
         (prefix + r'signin$', api.SignInHandler),
-        (prefix + r'regcode_signin$', api.SignInRegCode, default_settings),
+        (prefix + r'regcode_signin$', api.SignInRegCodeHandler, default_settings),
         (prefix + r'product_os$', api.ProductHandler)
     ]
 
