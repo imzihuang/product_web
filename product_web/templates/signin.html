@@ -71,6 +71,9 @@
         <![endif]-->
          <script type="text/javascript">
             $(".submitbtn").click(function(){
+                
+            });
+            function signin(){
                 $("#confirmRe").html("");
                 $("#confirmpassword").html("");
                  $("#confirmMsg").html("");
@@ -96,24 +99,24 @@
                     $("#sign_form-username").focus();
                 }
                 return true;  
-            });
-            function signin(){
                 var data = {
                     user_name:$("#sign_form-username").val(),
                     email:$("#sign_form-Email").val(),
                     pwd:$("#sign_form-password").val(),
                     affirm_pwd:$("#form-Re-enter").val()
                 }
-                console.log(data);
+               
                 $.ajax({
                     type: "POST",
                     url:"/product/signin",
                     async: false,
                     data:data,
                     success: function(msg) {
-                        alert("signin ok")
-                        var data = JSON.parse(msg)
-                        
+                        console.log(msg.state);
+                        if(msg.state==0){
+                          alert("signin ok");
+                          window.location.href="/product/home.html";
+                        }
 
                     },
                     error:function(){
