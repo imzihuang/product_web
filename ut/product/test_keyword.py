@@ -1,11 +1,11 @@
 import unittest
-from logic.product import *
+from logic.keyword import *
 
 class SqlTestCase(unittest.TestCase):
     def setUp(self):
         pass
 
-    def test_product(self):
+    def test_keywod(self):
         data = {
             "name": "trest111",
             "source": "by jingdong",
@@ -17,20 +17,18 @@ class SqlTestCase(unittest.TestCase):
             "links": "http://www.cnblogs.com/fuckily/p/6393413.html",
             "img_path": "img_path"
         }
-        _ = add_product(data)
-        print _
-        _ = get_product_like_name(product_keyword="st1")
+        _ = add_keyword(data)
         print _
         self.assertTrue(_ is not None)
-        _ = get_product(name="trest111")
+        _ = get_keyword(name="trest111")
         print _
         self.assertTrue(_ is not None)
-        _ = update_product({"source": "by amazon", "count_down_at": "2017-07-28 12:07:01"}, {"name": ["trest111"]})
+        _ = update_keyword({"source": "by amazon", "count_down_at": "2017-07-28 12:07:01"}, {"name": ["trest111"]})
         self.assertTrue(_)
-        _ = get_product(name="trest111")
+        _ = get_keyword(name="trest111")
         print _
         self.assertTrue(_ is not None)
-        _ = del_product("trest111")
+        _ = del_keyword("trest111")
         print _
         self.assertTrue(_)
 

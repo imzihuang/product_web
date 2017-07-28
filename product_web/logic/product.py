@@ -19,7 +19,7 @@ def get_product(**kwargs):
         if name:
             query = api.model_query(session, "Product", {"name": [name]})
             result = query.first()
-            return result.to_dict
+            return result.to_dict()
         query = api.model_query(session, "Product", {})
         results = query.order_by("sort_num").all()
         return [result.to_dict() for result in results]
