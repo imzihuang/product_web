@@ -30,7 +30,7 @@ def view_handlers():
         URLSpec(prefix + r'helpbuy.html$', views.HelpBuyHandler, default_settings),
         URLSpec(prefix + r'getmoney.html$', views.GetMoneyHandler, default_settings),
         (prefix + r'(.*\.(css|png|gif|js))', StaticFileHandler, {'path': default_settings.get('static_path')}),
-        URLSpec(man_prefix + r'mankeywod.html$', views.ManKeywordHandler, default_settings),
+        URLSpec(man_prefix + r'mankeyword.html$', views.ManKeywordHandler, default_settings),
         URLSpec(man_prefix + r'manproduct.html$', views.ManProductHandler, default_settings),
         URLSpec(man_prefix + r'manbaseinfo.html$', views.ManBaseInfoHandler, default_settings),
         (man_prefix + r'(.*\.(css|png|gif|js))', StaticFileHandler, {'path': default_settings.get('static_path')}),
@@ -42,6 +42,7 @@ def api_handlers():
         prefix += '/'
     return [
         (prefix + r'login$', api.LoginHandler),
+        (prefix + r'logout', api.LogoutHandler),
         (prefix + r'signin$', api.SignInHandler),
         (prefix + r'regcode_signin$', api.SignInRegCodeHandler, default_settings),
         (prefix + r'product_os$', api.ProductHandler),

@@ -54,7 +54,8 @@ class ProductHandler(RequestHandler):
             "description": bs2utf8(self.get_argument("description", "")),
             "links": bs2utf8(self.get_argument("links", "")),
             "sort_num": self.get_argument("sort_num", 10000),
-            "img_path": img_path
+            "img_path": img_path,
+            "recommend": self.get_argument("recommend", 0),
         }
 
         _ = loc_product.add_product(data)
@@ -118,6 +119,9 @@ class ProductHandler(RequestHandler):
         sort_num = self.get_argument("sort_num", -1)
         if sort_num > -1:
             update_data.update({"sort_num": sort_num})
+        recommend = self.get_argument("recommend", -1)
+        if recommend > -1:
+            update_data.update({"recommend": recommend})
 
         if update_data:
             _ = loc_product.update_product(update_data, {"name": [product_name]})

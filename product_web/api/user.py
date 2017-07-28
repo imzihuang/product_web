@@ -38,6 +38,15 @@ class LoginHandler(RequestHandler):
 
         self.finish(json.dumps({'state': 0, 'message': 'ok'}))
 
+class LogoutHandler(RequestHandler):
+    def post(self):
+        try:
+            self.clear_cookie("user_name")
+            self.clear_cookie("user_level")
+            self.finish(json.dumps({'state': 0, 'message': 'logout ok'}))
+        except Exception,ex:
+            self.finish(json.dumps({'state': 1, 'message': 'logout faild'}))
+
 class SignInHandler(RequestHandler):
     def post(self):
         user_name = bs2utf8(self.get_argument('user_name', ''))

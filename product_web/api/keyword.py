@@ -47,7 +47,8 @@ class KeywordHandler(RequestHandler):
             "postage_price": self.get_argument("postage_price", 0),
             "description": bs2utf8(self.get_argument("description", "")),
             "sort_num": self.get_argument("sort_num", 10000),
-            "img_path": img_path
+            "img_path": img_path,
+            "recommend": self.get_argument("recommend", 0),
         }
 
         _ = loc_keywod.add_keyword(data)
@@ -108,6 +109,9 @@ class KeywordHandler(RequestHandler):
         sort_num = self.get_argument("sort_num", -1)
         if sort_num > -1:
             update_data.update({"sort_num": sort_num})
+        recommend = self.get_argument("recommend", -1)
+        if recommend > -1:
+            update_data.update({"recommend": recommend})
 
         if update_data:
             _ = loc_keywod.update_product(update_data, {"name": [keyword_name]})
