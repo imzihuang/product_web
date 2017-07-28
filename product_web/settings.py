@@ -10,6 +10,7 @@ default_settings = {
     'static_path': STATIC_PATH,
     'templates_path': TEMPLATES_PATH,
     'product_prefix': '/product',
+    'manage_prefix': '/manage',
     'api_version': 'v1.0',
     'api_key': '',
     'enabled_methods': ['get', 'post', 'put', 'patch', 'delete'],

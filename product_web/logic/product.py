@@ -53,15 +53,11 @@ def verify_product(session, name):
     :param name:
     :return:
     """
-    try:
-        if name:
-            query = api.model_query(session, "Product", {"name": [name]})
-            if query.count()>0:
-                return 1
-        return 0
-    except Exception as ex:
-        gen_log.error("get product error:%r"%ex)
-        raise ex
+    if name:
+        query = api.model_query(session, "Product", {"name": [name]})
+        if query.count()>0:
+            return 1
+    return 0
 
 def add_product(productinfo):
     try:
