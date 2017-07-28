@@ -4,522 +4,280 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title></title>
-		<meta name="keywords" content="">
-		<meta name="description" content="">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/font-awesome.min.css" rel="stylesheet">
-		<link href="css/animate.min.css" rel="stylesheet">
-		<link href="css/table.css" rel="stylesheet">
-		<link href="css/fileinput.css" rel="stylesheet">
-		<link href="js/css/layer.css" rel="stylesheet" type="text/css">
-		<!--[if lt IE 8]>
-	    <meta http-equiv="refresh" content="0;ie.html" />
-	    <![endif]-->
-	</head>
-	<style type="text/css">
-	@media (min-width: 500px){
-		#addInfoContent input,#editAreaContent input{
-              width: 300px;
-		}
-		#addInfoContent select,#editAreaContent select{
-              width: 300px !important;
-		}
-	}
-	@media (max-width: 499px){
-        .layui-layer.layui-layer-page.layui-layer-demo.layer-anim-02 {
-		    margin-left: -120px!important;
-		}
-	}
-	</style>
-	<body class="gray-bg">
-		<div class="wrapper wrapper-content animated fadeIn">
-			<div id="tab-1" class="tab-pane active">
-				<div class="col-sm-12">
-					<div class="bgBackground">
-						<div class="ibox-content">
-							<table class="table table-striped table-bordered table-hover dataTables-example">
-								<thead>
-									<tr class="zx_checkedAll">
-										<th colspan="6" style="text-align: left; background: none;">
-											<button class="btn btn-default btn-myown" id="delInfo" disabled="disabled"><i class="fa fa-trash"></i>&nbsp;删除选中项</button>
-											<button class="btn btn-primary btn-myown" id="addInfo">+添加产品</button>
-										</th>
-									</tr>
-									<tr class="zx_thTitle">
-										<th><input type="checkbox" class="zx_checkedBtn" id="zx_checkedAllBtn" name="allcheck" value="allCheck"></th>
-										<th>序号</th>
-										<th>标题</th>
-										<th>图片</th>
-										<th>来源</th>
-										<th>原价</th>
-										<th>优惠价</th>
-										<th>邮费</th>
-										<th>倒计时</th>
-										<th>是否进入推荐栏</th>
-										<th>点赞数</th>
-										<th>操作</th>
-									</tr>
-								</thead>
-								<tbody id="tbody">
-									<tr class="gradeX">
-										<td><input type="checkbox" class="zx_checkedBtn"></td>
-										<td class="centerSort">
-											1
-										</td>
-										<td class="userMessage">我是一件商品</td>
-										<td class="">1.jpg</td>
-										<td>亚马逊</td>
-										<td class="center">90</td>
-										<td class="center">50</td>
-										<td class="center">10</td>
-										<td class="center">20:25:1</td>
-										<td class="center">是</td>
-										<td class="center">200</td>
-										<td><i class="fa fa-pencil areapen" title="修改"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-close" title="删除"></i></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-            </div>
+        <title>home</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/form-elements.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+<body>
+
+<div class="header">
+	<div class="container">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid"> 
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#example-navbar-collapse">
+					<span class="sr-only">切换导航</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">LOGO</a>
+			</div>
+			<div class="collapse navbar-collapse" id="example-navbar-collapse">
+				<ul class="nav navbar-nav text-right ">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">how to get $0.99deal</a></li>
+					<li><a href="#">connection</a></li>
+					<li><a href="#">help</a></li>
+				</ul>
+				<ul class="nav navbar-nav">
+                    <div class="loginButtonContainer">
+			          <a class="button track-login" href="login.html" ">Log In</a>
+			          <a class="button primary signIn track-sign-up" href="signin.html"">Sign In</a>
+			        </div>
+				</ul>
+			</div>
+			</div>
+		</nav>
+	</div>
+</div>
+<div class="main home">
+	<div class="container">
+		<div class="popular-items">
+			<div class="row">
+			<p class="today_popular">今日主打</p>
+			     <!-- list -->
+				 <div class="col-sm-12 col-md-12">
+			        <div class="thumbnail">
+			            <img src="img/one.png"
+			                 alt="通用的占位符缩略图">
+			            <div class="caption">
+			                <p>产品1</p>
+			            </div>
+			        </div>
+			     </div>
+			     <div class="col-sm-12 col-md-12">
+			        <div class="thumbnail">
+			            <img src="img/one.png"
+			                 alt="通用的占位符缩略图">
+			            <div class="caption">
+			                <p>产品1</p>
+			            </div>
+			        </div>
+			     </div>
+                <!-- list -->
+			</div>
 		</div>
-		
-		<div id="addInfoContent" style="display: none; min-width: 100px; padding: 20px;">
-			<div style="margin: 10px 0;">
-				<span>标题：</span><input type="text" />
-			</div>
-			<form enctype="multipart/form-data">
-	            <span class="f_left">上传图片：</span>
-	            <input id="file-zh_add" name="file-zh[]_add" type="file" multiple>
-	        </form>
-			<div style="margin: 10px 0;">
-				<span>来源：</span><input type="text" />
-			</div>
-			<div style="margin: 10px 0;">
-				<span>原价：</span><input type="text" />
-			</div>
-			<div style="margin: 10px 0;">
-				<span>优惠价：</span><input type="text" />
-			</div>
-			<div style="margin: 10px 0;">
-				<span>邮费：</span><input type="text" />
-			</div>
-			<div style="margin: 10px 0;">
-				<span>倒计时：</span><input type="text" />
-			</div>
-			<div style="margin: 10px 0;">
-				<span>进入推荐栏：</span>
-				<select style="width: 154px; height: 27px; border: 1px solid #ddd;margin-left:-5px;">
-					<option>是</option>
-					<option>否</option>
-				</select>
-			</div>
-			<div style="margin: 10px 0;">
-				<span>点赞数：</span><input type="text" />
-			</div>
+		<div class="all-items">
+			<div class="row">
+			    <div class="form-group searchPart">
+						<div class="input-group">
+							<input type="text" class="form-control">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button">
+									<sapn><img src="img/search.png"></sapn>
+								</button>
+							</span>
+						</div><!-- /input-group -->
+                </div>
+			    <!-- list -->
+			     <div class="col-sm-6 col-md-3">
+			        <div class="thumbnail">
+			            <img src="img/one.png"
+			                 alt="通用的占位符缩略图">
+			            <div class="caption text-left">
+			                <p class="product_name"><a>AmazonBasics 6-Outlet Surge Protector Power Strip, 790 Joule - Black</a></p>
+			                <p class="color_gray"> by AmazonBasics</p>
+			                <p class="howmuch"><span class="color_red"><a>$3.99</a></span>&nbsp;&nbsp;<span class="color_gray"><a>$6.999</a></span>&nbsp;&nbsp;<span class="color_gray_block">&Free shipping</span></p>
+			                <a><span class="timedown">Start for you in：</span>
+			                <ul class="countdown">
+								  <li> <span class="hours">00</span><span> :</span></li>
+								  <li> <span class="minutes">00</span><span> :</span></li>
+								  <li> <span class="seconds">00</span><span> </span></li>
+							</ul></a>
+			                <p class="aboutHelp"><a>how to claim it?</a></p>
+			                <div class="likeList"><span class="f_left"><a>share</a></span><span class="likecount">100</span><a ><img src="img/unlike.png"></a></div>
+			            </div>
+			        </div>
+			    </div>
+			     <div class="col-sm-6 col-md-3">
+			        <div class="thumbnail">
+			            <img src="img/one.png"
+			                 alt="通用的占位符缩略图">
+			            <div class="caption text-left">
+			                <p class="product_name"><a>AmazonBasics 6-Outlet Surge Protector Power Strip, 790 Joule - Black</a></p>
+			                <p class="color_gray"> by AmazonBasics</p>
+			                <p class="howmuch"><span class="color_red"><a>$3.99</a></span>&nbsp;&nbsp;<span class="color_gray"><a>$6.999</a></span>&nbsp;&nbsp;<span class="color_gray_block">&Free shipping</span></p>
+			                <a><span class="timedown">Start for you in：</span>
+			                <ul class="countdown">
+								  <li> <span class="hours">00</span><span> :</span></li>
+								  <li> <span class="minutes">00</span><span> :</span></li>
+								  <li> <span class="seconds">00</span><span> </span></li>
+							</ul></a>
+			                <p class="aboutHelp"><a>how to claim it?</a></p>
+			                <div class="likeList"><span class="f_left"><a>share</a></span><span class="likecount">100</span><a ><img src="img/unlike.png"></a></div>
+			            </div>
+			        </div>
+			    </div>
+			     <div class="col-sm-6 col-md-3">
+			        <div class="thumbnail">
+			            <img src="img/one.png"
+			                 alt="通用的占位符缩略图">
+			            <div class="caption text-left">
+			                <p class="product_name"><a>AmazonBasics 6-Outlet Surge Protector Power Strip, 790 Joule - Black</a></p>
+			                <p class="color_gray"> by AmazonBasics</p>
+			                <p class="howmuch"><span class="color_red"><a>$3.99</a></span>&nbsp;&nbsp;<span class="color_gray"><a>$6.999</a></span>&nbsp;&nbsp;<span class="color_gray_block">&Free shipping</span></p>
+			                <a><span class="timedown">Start for you in：</span>
+			                <ul class="countdown">
+								  <li> <span class="hours">00</span><span> :</span></li>
+								  <li> <span class="minutes">00</span><span> :</span></li>
+								  <li> <span class="seconds">00</span><span> </span></li>
+							</ul></a>
+			                <p class="aboutHelp"><a>how to claim it?</a></p>
+			                <div class="likeList"><span class="f_left"><a>share</a></span><span class="likecount">100</span><a ><img src="img/unlike.png"></a></div>
+			            </div>
+			        </div>
+			    </div>
+			     <div class="col-sm-6 col-md-3">
+			        <div class="thumbnail">
+			            <img src="img/one.png"
+			                 alt="通用的占位符缩略图">
+			            <div class="caption text-left">
+			                <p class="product_name"><a>AmazonBasics 6-Outlet Surge Protector Power Strip, 790 Joule - Black</a></p>
+			                <p class="color_gray"> by AmazonBasics</p>
+			                <p class="howmuch"><span class="color_red"><a>$3.99</a></span>&nbsp;&nbsp;<span class="color_gray"><a>$6.999</a></span>&nbsp;&nbsp;<span class="color_gray_block">&Free shipping</span></p>
+			                <a><span class="timedown">Start for you in：</span>
+			                <ul class="countdown">
+								  <li> <span class="hours">00</span><span> :</span></li>
+								  <li> <span class="minutes">00</span><span> :</span></li>
+								  <li> <span class="seconds">00</span><span> </span></li>
+							</ul></a>
+			                <p class="aboutHelp"><a>how to claim it?</a></p>
+			                <div class="likeList"><span class="f_left"><a>share</a></span><span class="likecount">100</span><a ><img src="img/unlike.png"></a></div>
+			            </div>
+			        </div>
+			    </div>
+                <!-- list -->
+                 <!-- list -->
+			     <div class="col-sm-6 col-md-3">
+			        <div class="thumbnail">
+			            <img src="img/one.png"
+			                 alt="通用的占位符缩略图">
+			            <div class="caption text-left">
+			                <p class="product_name"><a>AmazonBasics 6-Outlet Surge Protector Power Strip, 790 Joule - Black</a></p>
+			                <p class="color_gray"> by AmazonBasics</p>
+			                <p class="howmuch"><span class="color_red"><a>$3.99</a></span>&nbsp;&nbsp;<span class="color_gray"><a>$6.999</a></span>&nbsp;&nbsp;<span class="color_gray_block">&Free shipping</span></p>
+			                <a><span class="timedown">Start for you in：</span>
+			                <ul class="countdown">
+								  <li> <span class="hours">00</span><span> :</span></li>
+								  <li> <span class="minutes">00</span><span> :</span></li>
+								  <li> <span class="seconds">00</span><span> </span></li>
+							</ul></a>
+			                <p class="aboutHelp"><a>how to claim it?</a></p>
+			                <div class="likeList"><span class="f_left"><a>share</a></span><span class="likecount">100</span><a ><img src="img/unlike.png"></a></div>
+			            </div>
+			        </div>
+			    </div>
+			      <div class="col-sm-6 col-md-3">
+			        <div class="thumbnail">
+			            <img src="img/one.png"
+			                 alt="通用的占位符缩略图">
+			            <div class="caption text-left">
+			                <p class="product_name"><a>AmazonBasics 6-Outlet Surge Protector Power Strip, 790 Joule - Black</a></p>
+			                <p class="color_gray"> by AmazonBasics</p>
+			                <p class="howmuch"><span class="color_red"><a>$3.99</a></span>&nbsp;&nbsp;<span class="color_gray"><a>$6.999</a></span>&nbsp;&nbsp;<span class="color_gray_block">&Free shipping</span></p>
+			                <a><span class="timedown">Start for you in：</span>
+			                <ul class="countdown">
+								  <li> <span class="hours">00</span><span> :</span></li>
+								  <li> <span class="minutes">00</span><span> :</span></li>
+								  <li> <span class="seconds">00</span><span> </span></li>
+							</ul></a>
+			                <p class="aboutHelp"><a>how to claim it?</a></p>
+			                <div class="likeList"><span class="f_left"><a>share</a></span><span class="likecount">100</span><a ><img src="img/unlike.png"></a></div>
+			            </div>
+			        </div>
+			    </div>
+			      <div class="col-sm-6 col-md-3">
+			        <div class="thumbnail">
+			            <img src="img/one.png"
+			                 alt="通用的占位符缩略图">
+			            <div class="caption text-left">
+			                <p class="product_name"><a>AmazonBasics 6-Outlet Surge Protector Power Strip, 790 Joule - Black</a></p>
+			                <p class="color_gray"> by AmazonBasics</p>
+			                <p class="howmuch"><span class="color_red"><a>$3.99</a></span>&nbsp;&nbsp;<span class="color_gray"><a>$6.999</a></span>&nbsp;&nbsp;<span class="color_gray_block">&Free shipping</span></p>
+			                <a><span class="timedown">Start for you in：</span>
+			                <ul class="countdown">
+								  <li> <span class="hours">00</span><span> :</span></li>
+								  <li> <span class="minutes">00</span><span> :</span></li>
+								  <li> <span class="seconds">00</span><span> </span></li>
+							</ul></a>
+			                <p class="aboutHelp"><a>how to claim it?</a></p>
+			                <div class="likeList"><span class="f_left"><a>share</a></span><span class="likecount">100</span><a ><img src="img/unlike.png"></a></div>
+			            </div>
+			        </div>
+			    </div>
+			      <div class="col-sm-6 col-md-3">
+			        <div class="thumbnail">
+			            <img src="img/one.png"
+			                 alt="通用的占位符缩略图">
+			            <div class="caption text-left">
+			                <p class="product_name"><a>AmazonBasics 6-Outlet Surge Protector Power Strip, 790 Joule - Black</a></p>
+			                <p class="color_gray"> by AmazonBasics</p>
+			                <p class="howmuch"><span class="color_red"><a>$3.99</a></span>&nbsp;&nbsp;<span class="color_gray"><a>$6.999</a></span>&nbsp;&nbsp;<span class="color_gray_block">&Free shipping</span></p>
+			                <a><span class="timedown">Start for you in：</span>
+			                <ul class="countdown">
+								  <li> <span class="hours">00</span><span> :</span></li>
+								  <li> <span class="minutes">00</span><span> :</span></li>
+								  <li> <span class="seconds">00</span><span> </span></li>
+							</ul></a>
+			                <p class="aboutHelp"><a>how to claim it?</a></p>
+			                <div class="likeList"><span class="f_left"><a>share</a></span><span class="likecount">100</span><a ><img src="img/unlike.png"></a></div>
+			            </div>
+			        </div>
+			    </div>
+                <!-- list -->
+                
+			</div> 
 			
 		</div>
-		
-		<div id="editAreaContent" style="display: none; min-width: 100px; padding: 20px;">
-			<div style="margin: 10px 0;">
-				<span>标题：</span><input type="text" />
-			</div>
-			<form enctype="multipart/form-data">
-	            <span class="f_left">上传图片：</span>
-	            <input id="file-zh" name="file-zh[]" type="file" multiple>
-	        </form>
-			<div style="margin: 10px 0;">
-				<span>来源：</span><input type="text" />
-			</div>
-			<div style="margin: 10px 0;">
-				<span>原价：</span><input type="text" />
-			</div>
-			<div style="margin: 10px 0;">
-				<span>优惠价：</span><input type="text" />
-			</div>
-			<div style="margin: 10px 0;">
-				<span>邮费：</span><input type="text" />
-			</div>
-			<div style="margin: 10px 0;">
-				<span>倒计时：</span><input type="text" />
-			</div>
-			<div style="margin: 10px 0;">
-				<span>进入推荐栏：</span>
-				<select style="width: 154px; height: 27px; border: 1px solid #ddd;margin-left:-5px;">
-					<option>是</option>
-					<option>否</option>
-				</select>
-			</div>
-			<div style="margin: 10px 0;">
-				<span>点赞数：</span><input type="text" />
-			</div>
-		</div>
-
-		<script src="js/jquery-1.11.1.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/layer.js"></script>
-		<script src="js/fileinput.js"></script>
-		<script src="js/zh.js"></script>
-	
-	
-		<script type="text/javascript">
-			$(function() {
-				//全选按钮
-				$("#zx_checkedAllBtn").click(function() {
-					if(this.checked) {
-						$("#tbody :checkbox").prop("checked", true);
-					} else {
-						$("#tbody :checkbox").prop("checked", false);
-					}
-					allchk();
+	</div>
+</div>
+        <!-- Javascript -->
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.backstretch.min.js"></script>
+         <script src="js/jquery.downCount.js"></script>
+        <script type="text/javascript">
+		    $(document).ready(function(){
+		    	$('.likeList a img').click(function(){
+		    		if($(this).attr("src")==="img/unlike.png"){
+		    			$(this).attr("src","img/like.png");
+		    		}
+		    		else{
+		    			$(this).attr("src","img/unlike.png");
+		    		}
+		    	});
+		    	$('.countdown').downCount({
+					date: '12/24/2017 12:44:00',
+					offset: +10
+				}, function () {
+					alert('倒计时结束!');
 				});
-
-				$("#tbody :checkbox").click(function(){
-					allchk();
-				})
-				//全选
-				function allchk() {
-					$('#delInfo').attr("disabled",false); 
-					var chknum = $("#tbody :checkbox").size(); //选项总个数 
-					var chk = 0;
-					$("#tbody :checkbox").each(function(index,ele) {
-						$(this).parents('tr').attr('id',"trId_"+index);
-						if($(this).prop("checked") == true) {
-							chk++;
-						}
-					});
-					if(chknum == chk) { //全选 
-						$("input[name=allcheck]").prop("checked", true);
-					} else { //不全选 
-						$("input[name=allcheck]").prop("checked", false);
-					}
-					if(chk>=1){
-							$('#delInfo').attr('class','btn btn-primary btn-myown');
-					}else{
-						$('#delInfo').attr('class','btn btn-default btn-myown');
-					}
-				}
-				/*=================================*/
-	
-				//============
-					//删除选中项
-				$('#delInfo').click(function() {
-					var valArr = new Array;
-					getValArr(valArr);
-					
-					if(valArr.length > 0) {
-						
-						layer.confirm('您确定删除吗？', {
-							btn: ['确定', '取消'] //按钮
-						}, function() {
-							console.log(valArr)
-							delData(valArr);
-							layer.closeAll();
-							layer.msg('删除成功', {
-							icon: 1,
-							time:600
-						});
-						$('#delInfo').attr("disabled","disabled");
-						$('#delInfo').attr('class','btn btn-default btn-myown');
-						}, function() {
-						});
-					} else {
-						$('#delInfo').attr("disabled","disabled");
-					}
-				});
-				
-				function getValArr(valArr) {
-					$("#tbody :checkbox").each(function(index, ele) {
-						if($(ele).prop("checked")) {
-							valArr.push(index);
-						}
-					});
-				}
-				
-				function delData(valArr){
-					for(var i=0;i<valArr.length;i++){
-						$('#trId_'+valArr[i]).remove();
-					}
-				}
-				
-				$('#delInfo1').click(function() {
-					var valArr1 = new Array;
-					getValArr1(valArr1);
-					if(valArr1.length > 0) {
-						layer.confirm('您确定删除吗？', {
-							btn: ['确定', '取消'] //按钮
-						}, function() {
-							console.log(valArr1)
-							delData1(valArr1);
-							layer.closeAll();
-							$('#delInfo1').attr("disabled","disabled");
-							$('#delInfo1').attr('class','btn btn-default btn-myown');
-						}, function() {});
-					} else {
-						$('#delInfo1').attr("disabled","disabled");
-					}
-				});
-				
-				function getValArr1(valArr1) {
-					$("#tbodyAll :checkbox").each(function(indexe, elee) {
-						if($(elee).prop("checked")) {
-							valArr1.push(indexe);
-						}
-					});
-				}
-				
-				function delData1(valArr1){
-					for(var i=0;i<valArr1.length;i++){
-						$('#trIdAll_'+valArr1[i]).remove();
-					}
-				}
-				
-				//==========
-				var layerIndex;
-				//添加
-				$('#addInfo').click(function(){
-					layerIndex=layer.open({
-					title:'添加产品',
-					  type: 1,
-					  skin: 'layui-layer-demo', //样式类名
-					  anim: 2,
-					  shadeClose: true, //开启遮罩关闭
-					  btn: ['确定', '取消'] ,//按钮
-					  content: $('#addInfoContent'),
-					   yes: function(){
-					  	layer.closeAll();
-					    layer.msg('添加成功', {
-					    	icon: 1,
-						    time: 800//2s后自动关闭
-						  });
-					  }
-					});
-				});
-				$('.areapen').click(function(){
-					layerIndex=layer.open({
-					title:'修改产品信息',
-					  type: 1,
-					  skin: 'layui-layer-demo', //样式类名
-					  closeBtn: 0, //不显示关闭按钮
-					  anim: 2,
-					  shadeClose: true, //开启遮罩关闭
-					  btn: ['确定', '取消'] ,//按钮
-					  content: $('#editAreaContent'),
-					   yes: function(){
-					  	layer.closeAll();
-					    layer.msg('添加成功', {
-					    	icon: 1,
-						    time: 800//2s后自动关闭
-						  });
-					  }
-					});
-				});
-					
-				$('.fa-exclamation-circle').mouseover(function() {
-					$(this).next('.hiddenIntroduce').show();
-				});
-				$('.fa-exclamation-circle').mouseout(function() {
-					$(this).next('.hiddenIntroduce').hide();
-				});
-				
-				$('.fa-close').click(function() {
-				layer.confirm('确定删除吗？', {
-					btn: ['确定', '取消'] //按钮
-				}, function() {
-					layer.msg('删除成功', {
-						icon: 1,
-						time: 600
-					});
-				}, function() {});
-			});
-			});
-		</script>
-		<script>
-		    $('#file-zh').fileinput({
-		        uploadUrl: '/upload/upload',
-		        language: 'zh',
-		        allowedFileExtensions : ['jpg', 'png','gif', 'doc'],
-		        maxFileCount: 1,
-		        enctype: 'multipart/form-data',
-		        uploadExtraData: function(previewId, index) {   //额外参数的关键点
-		                    var obj = {};
-		                    obj.bucket = '123456';
-		                    obj.a11123a = 'lzh----------------';
-		                    return obj;
-		                },
-		        ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
-		                beforeSend: function (xhr) {
-		                    xhr.setRequestHeader('X-CSRFToken', '1234');
-		                }
-		            }
 		    });
-		    $('#file-zh-TW').fileinput({
-		        language: 'zh-TW',
-		        uploadUrl: '#',
-		        allowedFileExtensions : ['jpg', 'png','gif'],
-		    });
-		    $("#file-0").fileinput({
-		        'allowedFileExtensions' : ['jpg', 'png','gif'],
-		    });
-		    $("#file-1").fileinput({
-		        uploadUrl: '#', // you must set a valid URL here else you will get an error
-		        allowedFileExtensions : ['jpg', 'png','gif'],
-		        overwriteInitial: false,
-		        maxFileSize: 1000,
-		        maxFilesNum: 1,
-		        //allowedFileTypes: ['image', 'video', 'flash'],
-		        slugCallback: function(filename) {
-		            return filename.replace('(', '_').replace(']', '_');
-		        }
-			});
-		    /*
-		    $(".file").on('fileselect', function(event, n, l) {
-		        alert('File Selected. Name: ' + l + ', Num: ' + n);
-		    });
-		    */
-			$("#file-3").fileinput({
-				showUpload: false,
-				showCaption: false,
-				browseClass: "btn btn-primary btn-lg",
-				fileType: "any",
-		        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
-			});
-			$("#file-4").fileinput({
-				uploadExtraData: {kvId: '10'}
-			});
-		    $(".btn-warning").on('click', function() {
-		        if ($('#file-4').attr('disabled')) {
-		            $('#file-4').fileinput('enable');
-		        } else {
-		            $('#file-4').fileinput('disable');
-		        }
-		    });    
-		    $(".btn-info").on('click', function() {
-		        $('#file-4').fileinput('refresh', {previewClass:'bg-info'});
-		    });
-		    /*
-		    $('#file-4').on('fileselectnone', function() {
-		        alert('Huh! You selected no files.');
-		    });
-		    $('#file-4').on('filebrowse', function() {
-		        alert('File browse clicked for #file-4');
-		    });
-		    */
-		    $(document).ready(function() {
-		        $("#test-upload").fileinput({
-		            'showPreview' : false,
-		            'allowedFileExtensions' : ['jpg', 'png','gif'],
-		            'elErrorContainer': '#errorBlock'
-		        });
-		        /*
-		        $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
-		            alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
-		        });
-		        */
-		    });
-		    function get_token() {
-		        $.ajax({
-		          url: url,
-		          data: data,
-		          success: success,
-		          dataType: dataType
-		        });
-		    }
-	</script>
-	<script>
-		    $('#file-zh_add').fileinput({
-		        uploadUrl: '/upload/upload',
-		        language: 'zh',
-		        allowedFileExtensions : ['jpg', 'png','gif', 'doc'],
-		        maxFileCount: 1,
-		        enctype: 'multipart/form-data',
-		        uploadExtraData: function(previewId, index) {   //额外参数的关键点
-		                    var obj = {};
-		                    obj.bucket = '123456';
-		                    obj.a11123a = 'lzh----------------';
-		                    return obj;
-		                },
-		        ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
-		                beforeSend: function (xhr) {
-		                    xhr.setRequestHeader('X-CSRFToken', '1234');
-		                }
-		            }
-		    });
-		    $('#file-zh-TW').fileinput({
-		        language: 'zh-TW',
-		        uploadUrl: '#',
-		        allowedFileExtensions : ['jpg', 'png','gif'],
-		    });
-		    $("#file-0").fileinput({
-		        'allowedFileExtensions' : ['jpg', 'png','gif'],
-		    });
-		    $("#file-1").fileinput({
-		        uploadUrl: '#', // you must set a valid URL here else you will get an error
-		        allowedFileExtensions : ['jpg', 'png','gif'],
-		        overwriteInitial: false,
-		        maxFileSize: 1000,
-		        maxFilesNum: 1,
-		        //allowedFileTypes: ['image', 'video', 'flash'],
-		        slugCallback: function(filename) {
-		            return filename.replace('(', '_').replace(']', '_');
-		        }
-			});
-		    /*
-		    $(".file").on('fileselect', function(event, n, l) {
-		        alert('File Selected. Name: ' + l + ', Num: ' + n);
-		    });
-		    */
-			$("#file-3").fileinput({
-				showUpload: false,
-				showCaption: false,
-				browseClass: "btn btn-primary btn-lg",
-				fileType: "any",
-		        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
-			});
-			$("#file-4").fileinput({
-				uploadExtraData: {kvId: '10'}
-			});
-		    $(".btn-warning").on('click', function() {
-		        if ($('#file-4').attr('disabled')) {
-		            $('#file-4').fileinput('enable');
-		        } else {
-		            $('#file-4').fileinput('disable');
-		        }
-		    });    
-		    $(".btn-info").on('click', function() {
-		        $('#file-4').fileinput('refresh', {previewClass:'bg-info'});
-		    });
-		    /*
-		    $('#file-4').on('fileselectnone', function() {
-		        alert('Huh! You selected no files.');
-		    });
-		    $('#file-4').on('filebrowse', function() {
-		        alert('File browse clicked for #file-4');
-		    });
-		    */
-		    $(document).ready(function() {
-		        $("#test-upload").fileinput({
-		            'showPreview' : false,
-		            'allowedFileExtensions' : ['jpg', 'png','gif'],
-		            'elErrorContainer': '#errorBlock'
-		        });
-		        /*
-		        $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
-		            alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
-		        });
-		        */
-		    });
-		    function get_token() {
-		        $.ajax({
-		          url: url,
-		          data: data,
-		          success: success,
-		          dataType: dataType
-		        });
-		    }
-	</script>
-	</body>
-
+	    </script>
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+</body>
 </html>
