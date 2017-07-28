@@ -83,9 +83,9 @@
 			<div class="row">
 			    <div class="form-group searchPart">
 						<div class="input-group">
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" id="homeSearch">
 							<span class="input-group-btn">
-								<button class="btn btn-default" type="button">
+								<button class="btn btn-default" type="button" onclick="search()">
 									<sapn><img src="img/search.png"></sapn>
 								</button>
 							</span>
@@ -273,11 +273,28 @@
 					offset: +10
 				}, function () {
 					alert('倒计时结束!');
-				});
+				});  
 		    });
 	    </script>
-        <!--[if lt IE 10]>
-            <script src="assets/js/placeholder.js"></script>
-        <![endif]-->
+       <script type="text/javascript">
+       	function search(){
+            var data = {
+                product_name:$("#homeSearch").val()
+            }
+            $.ajax({
+                type: "GET",
+                url:"/product/product_os",
+                async: false,
+                data:data,
+                success: function(msg) {
+                    var data = JSON.parse(msg);
+                    console.log(msg);    
+                },
+                error:function(){
+                    console.log("error");
+                }
+            });
+        }
+       </script>
 </body>
 </html>
