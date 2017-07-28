@@ -40,11 +40,8 @@
                                         <input type="password" name="form-password" placeholder="Password" class="form-password form-control" id="form-password">
                                         <div id="confirmpassword"></div>
                                     </div>
-                                    <div class="form-group text-right">
-                                        <div class="forget"><a href="signin.html">Create Account？</a></div>
-                                    </div>
                                     <button type="submit" class="btn submitbtn" onclick="login()">Sign in</button>
-                               
+                                    <button type="submit " class="btn goSigninbtn" onclick="signin()" style="margin-top:10px;">Create new Account</button>
                             </div>
                         </div>
                     </div>
@@ -61,6 +58,9 @@
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
         <script type="text/javascript">
+            function signin(){
+                 window.location.href="/product/signin.html";
+            }
             function login(){
                 $("#confirmpassword").html("");
                 $("#confirmMsg").html("");
