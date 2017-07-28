@@ -33,6 +33,7 @@ def view_handlers():
         URLSpec(man_prefix + r'mankeywod.html$', views.ManKeywordHandler, default_settings),
         URLSpec(man_prefix + r'manproduct.html$', views.ManProductHandler, default_settings),
         URLSpec(man_prefix + r'manbaseinfo.html$', views.ManBaseInfoHandler, default_settings),
+        (man_prefix + r'(.*\.(css|png|gif|js))', StaticFileHandler, {'path': default_settings.get('static_path')}),
     ]
 
 def api_handlers():
