@@ -288,7 +288,18 @@ ul.countdown li p {
 .color_gray_block a{color: #444 !important;}
 .f_left{float: left !important;}
 .likecount{line-height: 20px;}
-
+.goSigninbtn
+{
+    height: 30px;
+    margin-top: 10px;
+    background: #CECDCC;
+    border-color: #CECDCC;
+    color: #111;
+    box-shadow: 0 1px 0 rgba(255,255,255,.4) inset;
+    background: -webkit-linear-gradient(top,#DEDEDE,#E6E5E3);
+    background: linear-gradient(to bottom,#DEDEDE,#E6E5E3);
+    padding: 0px;
+}
 p{margin: 0px;}
 .button {
     background-color: #f1f1f1;
