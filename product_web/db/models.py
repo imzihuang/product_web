@@ -91,6 +91,7 @@ class Like(BaseModel):
        return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
 
 class Product_PV(BaseModel):
+    __tablename__ = "product_pv"
     id = Column(Integer, primary_key=True)
     ip = Column(VARCHAR(30))
     html = Column(VARCHAR(20))
