@@ -109,6 +109,9 @@ class ProductHandler(RequestHandler):
         description = bs2utf8(self.get_argument("description", ""))
         if description:
             update_data.update({"description": description})
+        like_add_count = self.get_argument("description", -1)
+        if like_add_count>-1:
+            update_data.update({"like_add_count": like_add_count})
         links = bs2utf8(self.get_argument("description", ""))
         if links:
             update_data.update({"links": links})
