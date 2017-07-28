@@ -6,3 +6,7 @@ from signin import SignInHandler, SignInNoticeHandler
 from findpwd import FindPwdHandler
 from helpbuy import HelpBuyHandler
 from getmoney import GetMoneyHandler
+from manage import KeywordHandler as ManKeywordHandler
+from manage import ProductHandler as ManProductHandler
+from manage import BaseInfoHandler as ManBaseInfoHandler
+

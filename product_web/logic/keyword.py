@@ -51,7 +51,7 @@ def add_keyword(keywordinfo):
         if sort_num == 0:
             keywordinfo.update({"sort_num": 10000})
         if sort_num>0 and sort_num<10000:
-            api.set_product_sort_num(session, sort_num)
+            api.set_keyword_sort_num(session, sort_num)
 
         model_keyword = api.convert_model("ProductKeyword", keywordinfo)
         session.add(model_keyword)
@@ -70,7 +70,7 @@ def update_keyword(keywordinfo, con_dic):
         if sort_num == 0:
             keywordinfo.update({"sort_num": 10000})
         if sort_num > 0 and sort_num<10000:
-            api.set_product_sort_num(session, sort_num)
+            api.set_keyword_sort_num(session, sort_num)
 
         query = api.model_query(session, "ProductKeyword", con_dic)
         query.update(keywordinfo, synchronize_session=False)
