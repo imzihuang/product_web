@@ -21,7 +21,8 @@ class KeywordHandler(RequestHandler):
 
     def put(self):
         """"add keyword"""
-        upload_path = os.path.join(os.path.dirname(__file__), 'static')
+        upload_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "..")
+        upload_path = os.path.join(upload_path, 'static')
         file_metas = self.request.files.get('keyword_img', 'file')
 
         # save img
@@ -36,7 +37,7 @@ class KeywordHandler(RequestHandler):
             with open(filepath, 'wb') as up:
                 up.write(meta['body'])
         if not img_path:
-            self.finish({'state': '1', 'message': 'img is none'})
+            self.finish({'state': '1', 'message': 'img is none', 'error': 'img is none'})
             return
         data = {
             "name": keyword_name,
@@ -53,7 +54,7 @@ class KeywordHandler(RequestHandler):
 
         _ = loc_keywod.add_keyword(data)
         if not _:
-            self.finish({'state': '2', 'message': 'add keyword faild'})
+            self.finish({'state': '2', 'message': 'add keyword faild', 'error': 'add keyword faild'})
             return
 
         self.finish({'state': '0', 'message': 'add keyword ok'})

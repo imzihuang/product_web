@@ -43,7 +43,7 @@ class ProductHandler(RequestHandler):
             with open(filepath, 'wb') as up:
                 up.write(meta['body'])
         if not img_path:
-            self.finish({'state': '1', 'message': 'img is none'})
+            self.finish({'state': '1', 'message': 'img is none', 'error': 'img is none'})
             return
         data = {
             "name": product_name,
@@ -61,7 +61,7 @@ class ProductHandler(RequestHandler):
 
         _ = loc_product.add_product(data)
         if not _:
-            self.finish({'state': '2', 'message': 'add product faild'})
+            self.finish({'state': '2', 'message': 'add product faild', 'error': 'add product faild'})
             return
 
         self.finish({'state': '0', 'message': 'add product ok'})
