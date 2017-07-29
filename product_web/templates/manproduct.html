@@ -88,38 +88,43 @@
 		
 		<div id="addInfoContent" style="display: none; min-width: 100px; padding: 20px;">
 			<div style="margin: 10px 0;">
-				<span>标题：</span><input type="text" />
+				<span>产品名：</span><input id="add_name" type="text" />
+			</div>
+			<div style="margin: 10px 0;">
+				<span>标题：</span><input id="add_theme" type="text" />
 			</div>
 			<form enctype="multipart/form-data">
 	            <span class="f_left">上传图片：</span>
-	            <input id="file-zh_add" name="file-zh[]_add" type="file" multiple>
+	            <input id="file-zh_add" name="product_img" type="file" multiple>
 	        </form>
 			<div style="margin: 10px 0;">
-				<span>来源：</span><input type="text" />
+				<span>来源：</span><input id="add_source" type="text" />
 			</div>
 			<div style="margin: 10px 0;">
-				<span>原价：</span><input type="text" />
+				<span>原价：</span><input id="add_ori_price" type="number" />
 			</div>
 			<div style="margin: 10px 0;">
-				<span>优惠价：</span><input type="text" />
+				<span>优惠价：</span><input id="add_con_price" type="number" />
 			</div>
 			<div style="margin: 10px 0;">
-				<span>邮费：</span><input type="text" />
+				<span>邮费：</span><input id="add_postage_price" type="number" />
 			</div>
 			<div style="margin: 10px 0;">
-				<span>倒计时：</span><input type="text" />
+				<span>描述：</span><input id="add_description" type="text" />
+			</div>
+			<div style="margin: 10px 0;">
+				<span>外链：</span><input id="add_links" type="text" />
 			</div>
 			<div style="margin: 10px 0;">
 				<span>进入推荐栏：</span>
-				<select style="width: 154px; height: 27px; border: 1px solid #ddd;margin-left:-5px;">
+				<select id="add_recommend" style="width: 154px; height: 27px; border: 1px solid #ddd;margin-left:-5px;">
 					<option>是</option>
 					<option>否</option>
 				</select>
 			</div>
 			<div style="margin: 10px 0;">
-				<span>点赞数：</span><input type="text" />
+				<span>显示顺序：</span><input id="add_sort_num" type="number" />
 			</div>
-			
 		</div>
 		
 		<div id="editAreaContent" style="display: none; min-width: 100px; padding: 20px;">
@@ -432,15 +437,23 @@
 		    $('#file-zh_add').fileinput({
 		        uploadUrl: '/upload/upload',
 		        language: 'zh',
-		        allowedFileExtensions : ['jpg', 'png','gif', 'doc'],
+		        allowedFileExtensions : ['jpg', 'png','gif'],
 		        maxFileCount: 1,
 		        enctype: 'multipart/form-data',
 		        uploadExtraData: function(previewId, index) {   //额外参数的关键点
-		                    var obj = {};
-		                    obj.bucket = '123456';
-		                    obj.a11123a = 'lzh----------------';
-		                    return obj;
-		                },
+					var obj = {};
+					obj.product_name = $("#add_name").val();
+					obj.source = $("#add_source").val();
+					obj.theme = $("#add_theme").val();
+					obj.ori_price = $("#add_ori_price").val();
+					obj.con_price = $("#add_con_price").val();
+					obj.postage_price = $("#add_postage_price").val();
+					obj.description = $("#add_description").val();
+					obj.links = $("#add_links").val();
+					obj.sort_num = $("#add_sort_num").val();
+					//obj.recommend = $("#add_recommend").val();
+					return obj;
+				},
 		        ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
 		                beforeSend: function (xhr) {
 		                    xhr.setRequestHeader('X-CSRFToken', '1234');
