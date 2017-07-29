@@ -37,7 +37,7 @@ class ProductHandler(RequestHandler):
         for meta in file_metas:
             filename = meta['filename']
             filename = product_name + "." + filename.rpartition(".")[-1] #rename img meta
-            content_type = meta['content_type']
+            #content_type = meta['content_type']
             img_path = os.path.join("product_img", filename)
             filepath = os.path.join(upload_path, img_path)
             with open(filepath, 'wb') as up:
@@ -61,7 +61,7 @@ class ProductHandler(RequestHandler):
 
         _ = loc_product.add_product(data)
         if not _:
-            self.finish({'state': '2', 'message': 'add product faild', 'error': 'add product faild'})
+            self.finish({'state': '2', 'message': 'product exit', 'error': 'product exit'})
             return
 
         self.finish({'state': '0', 'message': 'add product ok'})

@@ -66,13 +66,11 @@ def add_product(productinfo):
         _ = verify_product(session, name)
         if _ != 0:
             return False
-
         sort_num = productinfo.get("sort_num", 10000)
         if sort_num==0:
             productinfo.update({"sort_num": 10000})
         if sort_num > 0 and sort_num<10000:
             api.set_product_sort_num(session, sort_num)
-
         model_user = api.convert_model("Product", productinfo)
         session.add(model_user)
         session.commit()
