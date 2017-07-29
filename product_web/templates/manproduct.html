@@ -338,6 +338,26 @@
 	        $(".layui-layer-btn0").click(function(){
 
 	        });
+	        function productAdd(){
+		    	$.ajax({
+	                    type: "GET",
+	                    url:"/product/product_os",
+	                    dataType:'json',
+	                    async: false,
+	                    success: function(msg) {
+	                        var Msg = JSON.parse(msg);
+	                        console.log(msg);
+	                        $("#tbody").find("tr").remove();
+	                        var str="";
+	                        // for(i in msg){
+	                        // 	str+=
+	                        // }     
+	                    },
+	                    error:function(){
+	                        console.log("error");
+	                    }
+	                });
+		    }
 		    $('#file-zh_add').fileinput({
 		        uploadUrl: '/product/product_os',
 		        //language: 'zh',
@@ -376,51 +396,12 @@
                           $(".product_img_error").html("图片不能为空!");
                         }
                         else{
-          //               	 layer.closeAll();
-							   //  layer.msg('添加成功', {
-							   //  	icon: 1,
-								  //   time: 800//2s后自动关闭
-								  // });
 							 console.log("xx");
-							 productAdd();
-			                 
-                        	// alert('i = ' + index + ', id = ' + previewId + ', file = ' + data.response.message);
-         //                	        '<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+index+
-									// '</td><td class="userMessage">'+$("#add_name").val()+'</td><td class="">'+img_path+'</td><td>'+$("#add_source").val()+
-									// '</td><td class="center">'+$("#add_theme").val()+'</td><td class="center">'+$("#add_ori_price").val()+
-									// '</td><td class="center">'+$("#add_con_price").val()+'</td><td class="center">'+$("#add_postage_price").val()+
-									// '</td><td class="center">'+$("#add_description").val()+'</td><td class="center">'+$("#add_links").val()+
-									// '</td><td class="center">'+$("#add_sort_num").val()+
-									// '</td><td class="center">'+$("#add_recommend").val()+
-									// '</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>'
-         //                	$("#tbody tr:last-child").append(str);
-         //                	$('input').val("");console.log(2);
+							 productAdd();	
                         }   
 				
 		    });
-		    function productAdd(){
-		    	// /var data1 = {
-                    
-               // };
-		    	$.ajax({
-	                    type: "GET",
-	                    url:"/product/product_os",
-	                    async: false,
-	                    //data:data1,
-	                    success: function(msg) {
-	                        var Msg = JSON.parse(msg);
-	                        console.log(msg);
-	                        $("#tbody").find("tr").remove();
-	                        var str="";
-	                        // for(i in msg){
-	                        // 	str+=
-	                        // }     
-	                    },
-	                    error:function(){
-	                        console.log("error");
-	                    }
-	                });
-		    }
+		    
 		    $("#file-0").fileinput({
 		        'allowedFileExtensions' : ['jpg', 'png','gif'],
 		    });
