@@ -401,16 +401,17 @@ $(document).ready(function(){
 							'</td><td class="center">'+msg.data[i].links+
 							'</td><td class="center">'+msg.data[i].sort_num+
 							'</td><td class="center">'+msg.data[i].recommend+
-							'</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>';
-							console.log(2);
-		                        	
+							'</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>';	
 		                   }   
 		                    $("#tbody").append(str);
-		                    // $('input').val("");console.log(2);
+		                    $('input').val("");
+		                    layer.closeAll();
+							    layer.msg('添加成功', {
+							    	icon: 1,
+								    time: 800//2s后自动关闭
+								  });
                     },
-                    // error:function(){
-                    //     console.log("error");
-                    // }
+                    
                 });
                 }   
 		
