@@ -6,6 +6,12 @@ from common.log_client import gen_log
 from db.base import get_session, get_engine
 from db import api, models
 
+def get_pu(ip, html, query_date):
+    pass
+
+def get_pv(ip, html):
+    pass
+
 def pu_add(ip, html, product_id, product_name):
     try:
         engine = get_engine()
