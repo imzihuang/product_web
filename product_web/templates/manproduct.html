@@ -246,7 +246,6 @@
 				var layerIndex;
 				//添加
 				$('#addInfo').click(function(){
-					$(".file-drop-zone").html('<div class="file-drop-zone-title">Drag &amp; drop files here …</div><div class="file-preview-thumbnails"></div><div class="clearfix"></div><div class="file-preview-status text-center text-success"></div><div class="kv-fileinput-error file-error-message" style="display: none;"></div>');
 					layerIndex=layer.open({
 					title:'添加产品',
 					  type: 1,
@@ -263,10 +262,12 @@
 						//    time: 800//2s后自动关闭
 						//  });
 					  }
+					  no:function(){
+					  	$(".fileinput-remove-button").click();
+					  }
 					});
 				});
 				$('.areapen').click(function(){
-					$(".file-drop-zone").html('<div class="file-drop-zone-title">Drag &amp; drop files here …</div><div class="file-preview-thumbnails"></div><div class="clearfix"></div><div class="file-preview-status text-center text-success"></div><div class="kv-fileinput-error file-error-message" style="display: none;"></div>');
 					layerIndex=layer.open({
 					title:'修改产品信息',
 					  type: 1,
@@ -352,7 +353,8 @@ $(document).ready(function(){
 			obj.description = $("#add_description").val();
 			obj.links = $("#add_links").val();
 			obj.sort_num = $("#add_sort_num").val();
-			obj.recommend = $("#add_recommend").val();
+			if($("#add_recommend").val()=="是"){obj.recommend = 1;}
+			else($("#add_recommend").val()=="否"){obj.recommend = 0;}
 			return obj;
 		},
         ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
@@ -374,7 +376,6 @@ $(document).ready(function(){
                 else{
 			      productadd();
 			      $('input').val("");
-			      $(".file-drop-zone").html('<div class="file-drop-zone-title">Drag &amp; drop files here …</div><div class="file-preview-thumbnails"></div><div class="clearfix"></div><div class="file-preview-status text-center text-success"></div><div class="kv-fileinput-error file-error-message" style="display: none;"></div>');
 	                    layer.closeAll();
 						    layer.msg('添加成功', {
 						    	icon: 1,
