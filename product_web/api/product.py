@@ -6,15 +6,16 @@ from tornado.web import RequestHandler
 from datetime import datetime
 from common.convert import bs2utf8
 from logic import product as loc_product
+from common.log_client import gen_log
 
 class ProductHandler(RequestHandler):
     def get(self, *args, **kwargs):
-        product_name = bs2utf8(self.get_argument("product_name", ""))
+        product_name = self.get_argument("product_name", "")
         is_like_query = int(self.get_argument("like_query", 0))
         offset = int(self.get_argument("offset", 0))
         limit = int(self.get_argument("limit", 0))
         if is_like_query == 1:
-            keyword = bs2utf8(self.get_argument("keyword"))
+            keyword = self.get_argument("keyword")
             product_list = loc_product.get_product_like_name(keyword, offset, limit)
             self.finish({'state': '0', 'data': product_list})
             return
@@ -33,7 +34,8 @@ class ProductHandler(RequestHandler):
 
         # save img
         img_path = ""
-        product_name = bs2utf8(self.get_argument("product_name"))
+        product_name = self.get_argument("product_name")
+        gen_log.info('lzh----product name:%s'%product_name)
         if not product_name:
             self.finish({'state': '3', 'message': 'product name is none', 'error': 'product name is none'})
             return
@@ -50,13 +52,13 @@ class ProductHandler(RequestHandler):
             return
         data = {
             "name": product_name,
-            "source": bs2utf8(self.get_argument("source", '')),
-            "theme": bs2utf8(self.get_argument("theme", '')),
+            "source": self.get_argument("source", ''),
+            "theme": self.get_argument("theme", ''),
             "ori_price": int(self.get_argument("ori_price", 0)),
             "con_price": int(self.get_argument("con_price", 0)),
             "postage_price": int(self.get_argument("postage_price", 0)),
-            "description": bs2utf8(self.get_argument("description", "")),
-            "links": bs2utf8(self.get_argument("links", "")),
+            "description": self.get_argument("description", ""),
+            "links": self.get_argument("links", ""),
             "sort_num": int(self.get_argument("sort_num", 10000)),
             "img_path": img_path,
             "recommend": int(self.get_argument("recommend", 0)),
@@ -71,7 +73,7 @@ class ProductHandler(RequestHandler):
 
     def post(self):
         """update product"""
-        product_name = bs2utf8(self.get_argument("product_name"))
+        product_name = self.get_argument("product_name")
         update_data = {}
         file_metas = self.request.files.get('product_img', 'file')
         if file_metas:
@@ -89,13 +91,13 @@ class ProductHandler(RequestHandler):
                 return
             update_data = {"img_path": img_path}
 
-        new_product_name = bs2utf8(self.get_argument("new_name", ""))
+        new_product_name = self.get_argument("new_name", "")
         if new_product_name:
             update_data.update({"name": new_product_name})
-        source = bs2utf8(self.get_argument("source", ''))
+        source = self.get_argument("source", '')
         if source:
             update_data.update({"source": source})
-        theme = bs2utf8(self.get_argument("theme", ''))
+        theme = self.get_argument("theme", '')
         if theme:
             update_data.update({"theme": theme}) 
         ori_price = self.get_argument("ori_price", -1)
@@ -108,16 +110,16 @@ class ProductHandler(RequestHandler):
         if postage_price > -1:
             update_data.update({"postage_price": postage_price})
 
-        count_down_at = bs2utf8(self.get_argument("count_down_at", ""))
+        count_down_at = self.get_argument("count_down_at", "")
         if count_down_at:
             update_data.update({"count_down_at": count_down_at})
-        description = bs2utf8(self.get_argument("description", ""))
+        description = self.get_argument("description", "")
         if description:
             update_data.update({"description": description})
         like_add_count = self.get_argument("like_add_count", -1)
         if like_add_count>-1:
             update_data.update({"like_add_count": like_add_count})
-        links = bs2utf8(self.get_argument("links", ""))
+        links = self.get_argument("links", "")
         if links:
             update_data.update({"links": links})
         sort_num = self.get_argument("sort_num", -1)
@@ -135,7 +137,7 @@ class ProductHandler(RequestHandler):
         self.finish({'state': '0', 'message': 'ok'})
 
     def delete(self):
-        product_name = bs2utf8(self.get_argument("product_name"))
+        product_name = self.get_argument("product_name")
         _ = loc_product.del_product(product_name)
         if not _:
             self.finish({'state': '1', 'message': 'delete product faild'})
