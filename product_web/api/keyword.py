@@ -54,7 +54,7 @@ class KeywordHandler(RequestHandler):
 
         _ = loc_keywod.add_keyword(data)
         if not _:
-            self.finish({'state': '2', 'message': 'add keyword faild', 'error': 'add keyword faild'})
+            self.finish({'state': '2', 'message': 'keyword exit', 'error': 'keyword exit'})
             return
 
         self.finish({'state': '0', 'message': 'add keyword ok'})

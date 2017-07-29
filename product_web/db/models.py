@@ -80,6 +80,17 @@ class Product(BaseModel):
     def to_dict(self):
        return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
 
+class Company(BaseModel):
+    __tablename__ = 'company'
+    id = Column(Integer, primary_key=True)
+    name = Column(VARCHAR(30))
+    email = Column(VARCHAR(50))
+    telephone = Column(VARCHAR(20))
+    address = Column(VARCHAR(100))
+    country = Column(VARCHAR(20))
+    province = Column(VARCHAR(20))
+    city = Column(VARCHAR(20))
+
 class Like(BaseModel):
     __tablename__ = 'like'
     id = Column(Integer, primary_key=True)

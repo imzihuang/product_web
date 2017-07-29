@@ -7,11 +7,11 @@ from db.base import get_session, get_engine
 from db import api, models
 
 def pu_add(ip, html, product_id, product_name):
-    engine = get_engine()
-    session = get_session()
-    suffix_name = datetime.datetime.now().strftime('%Y%m')
-    Product_PU = models.get_product_pu(suffix_name)
     try:
+        engine = get_engine()
+        session = get_session()
+        suffix_name = datetime.datetime.now().strftime('%Y%m')
+        Product_PU = models.get_product_pu(suffix_name)
         Product_PU.metadata.create_all(engine)
         query = session.query(Product_PU.pu_count)
         query = query.filter(Product_PU.ip == ip and Product_PU.html==html and Product_PU.product_id==product_id)
@@ -37,3 +37,29 @@ def pu_add(ip, html, product_id, product_name):
         return 0
     finally:
         session.close()
+
+def pv_add(ip, html, product_id, product_name):
+    try:
+        session = get_session()
+        current_date = datetime.datetime.now().strftime('%Y%m%d')
+        query = api.model_query(session, "Product_PV", {"ip": [ip], "visit_date": [current_date]})
+        if query.count() > 0:
+            return 0
+        data = {
+            "ip": ip,
+            "html": html,
+            "product_id": product_id,
+            "product_name": product_name,
+            "visit_date": visit_date
+        }
+        data = api.convert_model("Product_PV", data)
+        session.add(data)
+        session.commit()
+        return pu_count
+    except Exception as ex:
+        gen_log.error("pv error:%r"%ex)
+        return 0
+    finally:
+        session.close()
+
+
