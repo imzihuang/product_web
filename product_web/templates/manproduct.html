@@ -384,7 +384,7 @@
                     xhr.setRequestHeader('X-CSRFToken', '1234');
                 }
             }
-    }).on('fileuploaded', function(event, data, previewId, index) {
+    }).on('click','.layui-layer-btn0', function(event, data, previewId, index) {
                 if($("#add_name").val()==""){
                    $(".add_name_error").html("产品名不能为空!");
                    $('input').val("");
