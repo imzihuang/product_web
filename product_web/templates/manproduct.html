@@ -381,13 +381,13 @@
 							    
 			                     $('input').val("");console.log(2);
                         	// alert('i = ' + index + ', id = ' + previewId + ', file = ' + data.response.message);
-                        	str='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+index+
-									'</td><td class="userMessage">'+obj.product_name+'</td><td class="">'+img_path+'</td><td>'+obj.source+
-									'</td><td class="center">'+obj.theme+'</td><td class="center">'+obj.ori_price+
-									'</td><td class="center">'+obj.con_price+'</td><td class="center">'+obj.postage_price+
-									'</td><td class="center">'+obj.description+'</td><td class="center">'+obj.links+
-									'</td><td class="center">'+obj.sort_num+
-									'</td><td class="center">'+obj.recommend+
+                        	var str='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+index+
+									'</td><td class="userMessage">'+$("#add_name").val()+'</td><td class="">'+img_path+'</td><td>'+$("#add_source").val()+
+									'</td><td class="center">'+$("#add_theme").val()+'</td><td class="center">'+$("#add_ori_price").val()+
+									'</td><td class="center">'+$("#add_con_price").val()+'</td><td class="center">'+$("#add_postage_price").val()+
+									'</td><td class="center">'+$("#add_description").val()+'</td><td class="center">'+$("#add_links").val()+
+									'</td><td class="center">'+$("#add_sort_num").val()+
+									'</td><td class="center">'+$("#add_recommend").val()+
 									'</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>'
                         	$("#tbody tr:last-child").append(str);
                         }   
