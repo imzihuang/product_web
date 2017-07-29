@@ -24,7 +24,7 @@
     margin: 0 0 -5px 0;
     padding: 0;
 }
-
+.file-actions{display: none;}
 .btn-file {
     position: relative;
     overflow: hidden;
