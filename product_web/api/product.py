@@ -11,8 +11,8 @@ class ProductHandler(RequestHandler):
     def get(self, *args, **kwargs):
         product_name = bs2utf8(self.get_argument("product_name", ""))
         is_like_query = int(self.get_argument("like_query", 0))
-        offset = int(self.get("offset", 0))
-        limit = int(self.get("limit", 0))
+        offset = int(self.get_argument("offset", 0))
+        limit = int(self.get_argument("limit", 0))
         if is_like_query == 1:
             keyword = bs2utf8(self.get_argument("keyword"))
             product_list = loc_product.get_product_like_name(keyword, offset, limit)

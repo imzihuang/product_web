@@ -9,9 +9,9 @@ from logic import keyword as loc_keywod
 
 class KeywordHandler(RequestHandler):
     def get(self, *args, **kwargs):
-        keyword_name = bs2utf8(self.get_argument("keyword_name"))
-        offset = int(self.get("offset", 0))
-        limit = int(self.get("limit", 0))
+        keyword_name = bs2utf8(self.get_argument("keyword_name", ""))
+        offset = int(self.get_argument("offset", 0))
+        limit = int(self.get_argument("limit", 0))
         if keyword_name:
             keyword_info = loc_keywod.get_keyword(name=keyword_name)
             self.finish({'state': '0', 'data': keyword_info})
