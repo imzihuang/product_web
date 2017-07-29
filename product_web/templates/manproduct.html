@@ -296,11 +296,8 @@
 					  btn: ['确定', '取消'] ,//按钮
 					  content: $('#addInfoContent'),
 					   yes: function(){
-					  	$("#file-zh_add").on('fileloaded', function(event, file, previewId, index) {
-							alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
-						});
 
-					  	layer.closeAll();
+					  	//layer.closeAll();
 					    //layer.msg('添加成功', {
 					    //	icon: 1,
 						//    time: 800//2s后自动关闭
@@ -349,11 +346,11 @@
 		</script>
 	<script>
 		    $('#file-zh_add').fileinput({
-		        uploadUrl: '/upload/upload',
+		        uploadUrl: '/product/product_os',
 		        //language: 'zh',
 		        allowedFileExtensions : ['jpg', 'png','gif'],
 		        maxFileCount: 1,
-				showCaption:false,
+				showCaption: false,
 		        enctype: 'multipart/form-data',
 		        uploadExtraData: function(previewId, index) {   //额外参数的关键点
 					var obj = {};
@@ -374,6 +371,8 @@
 		                    xhr.setRequestHeader('X-CSRFToken', '1234');
 		                }
 		            }
+		    }).on('fileloaded', function(event, file, previewId, index) {
+				alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
 		    });
 		    $("#file-0").fileinput({
 		        'allowedFileExtensions' : ['jpg', 'png','gif'],
