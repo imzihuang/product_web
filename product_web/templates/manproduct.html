@@ -337,6 +337,7 @@
 			});
 		</script>
 <script>
+$(document).ready(function(){
     function productAdd(){
     	$.ajax({
                 type: "GET",
@@ -358,7 +359,7 @@
                 // }
             });
     }
-    $(".layui-layer-btn0").click(function(){
+    $(".layui-layer-btn0").on("click",function(){
     	$(".fileinput-upload-button").click();
     })
     $('#file-zh_add').fileinput({
@@ -472,6 +473,7 @@
     //       dataType: dataType
     //     });
     // }
+});
 </script>
 	</body>
 
