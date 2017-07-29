@@ -388,7 +388,7 @@ $(document).ready(function(){
                     async: false,
                     success: function(msg) {
                         //var data = JSON.parse(msg);
-                        console.log(msg[0].product_name);
+                        console.log(msg.data[0].product_name);
                         $("#tbody").find("tr").remove();
                         var str="";
                          // for(i in msg){
