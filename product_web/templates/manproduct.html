@@ -262,9 +262,7 @@
 						//    time: 800//2s后自动关闭
 						//  });
 					  }
-					  no:function(){
-					  	$(".fileinput-remove-button").click();
-					  }
+					
 					});
 				});
 				$('.areapen').click(function(){
@@ -353,8 +351,9 @@ $(document).ready(function(){
 			obj.description = $("#add_description").val();
 			obj.links = $("#add_links").val();
 			obj.sort_num = $("#add_sort_num").val();
-			if($("#add_recommend").val()=="是"){obj.recommend = 1;}
-			else($("#add_recommend").val()=="否"){obj.recommend = 0;}
+			if($("#add_recommend").val()=="是")
+			   {obj.recommend = 1;}
+			else{obj.recommend = 0;}
 			return obj;
 		},
         ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
