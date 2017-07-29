@@ -392,18 +392,18 @@ $(document).ready(function(){
                         console.log(msg.data[3].name);
                         $("#tbody").find("tr").remove();
                         var str="";
-                         // for(i in msg){
+                         for(i in msg){
 		                    	str+='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+i+
-									'</td><td class="userMessage">'+msg.data[i].name+'</td><td class="">'+msg[i].product_img+'</td><td>'+msg[i].source+
-									'</td><td class="center">'+msg[i].theme+'</td><td class="center">'+msg[i].ori_price+
-									'</td><td class="center">'+msg[i].con_price+'</td><td class="center">'+msg[i].postage_price+
-									'</td><td class="center">'+msg[i].description+'</td><td class="center">'+msg[i].links+
-									'</td><td class="center">'+msg[i].sort_num+
-									'</td><td class="center">'+msg[i].recommend+
+									'</td><td class="userMessage">'+msg.data[i].name+'</td><td class="">'+msg.data[i].img_path+'</td><td>'+msg.data[i].source+
+									'</td><td class="center">'+msg.data[i].theme+'</td><td class="center">'+msg.data[i].ori_price+
+									'</td><td class="center">'+msg.data[i].con_price+'</td><td class="center">'+msg.data[i].postage_price+
+									'</td><td class="center">'+msg.data[i].description+'</td><td class="center">'+msg.data[i].links+
+									'</td><td class="center">'+msg.data[i].sort_num+
+									'</td><td class="center">'+msg.data[i].recommend+
 									'</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>'
 		                        	$("#tbody").append(str);
 		                        	$('input').val("");console.log(2);
-		                    // }   
+		                    }   
                     },
                     // error:function(){
                     //     console.log("error");
