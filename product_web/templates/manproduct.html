@@ -373,11 +373,11 @@
                           $(".product_img_error").html("图片不能为空!");
                         }
                         else{
-                        	 layer.closeAll();
-							    layer.msg('添加成功', {
-							    	icon: 1,
-								    time: 800//2s后自动关闭
-								  });
+          //               	 layer.closeAll();
+							   //  layer.msg('添加成功', {
+							   //  	icon: 1,
+								  //   time: 800//2s后自动关闭
+								  // });
 							    
 			                 $.ajax({
 				                    type: "GET",
@@ -408,8 +408,7 @@
 									// '</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>'
          //                	$("#tbody tr:last-child").append(str);
          //                	$('input').val("");console.log(2);
-                        } 
-                    }  
+                        }   
 				
 		    });
 		    $("#file-0").fileinput({
