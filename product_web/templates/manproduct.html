@@ -90,6 +90,7 @@
 			<div style="margin: 10px 0;">
 				<span>产品名：</span><input id="add_name" type="text" />
 			</div>
+			<div class="add_name_error"></div>
 			<div style="margin: 10px 0;">
 				<span>标题：</span><input id="add_theme" type="text" />
 			</div>
@@ -97,9 +98,11 @@
 	            <span class="f_left">上传图片：</span>
 	            <input id="file-zh_add" name="product_img" type="file" multiple>
 	        </form>
+	        <div class="product_img_error"></div>
 			<div style="margin: 10px 0;">
 				<span>来源：</span><input id="add_source" type="text" />
 			</div>
+			<div class="add_source_error"></div>
 			<div style="margin: 10px 0;">
 				<span>原价：</span><input id="add_ori_price" type="number" />
 			</div>
@@ -363,6 +366,7 @@
 					obj.description = $("#add_description").val();
 					obj.links = $("#add_links").val();
 					obj.sort_num = $("#add_sort_num").val();
+
 					//obj.recommend = $("#add_recommend").val();
 					return obj;
 				},
@@ -372,7 +376,24 @@
 		                }
 		            }
 		    }).on('fileuploaded', function(event, data, previewId, index) {
-				alert('i = ' + index + ', id = ' + previewId + ', file = ' + data.response.message);
+                        if($("#add_name").val()==""){
+                           $(".add_name_error").html("产品名不能为空");
+                        }
+                        else if($("#add_source_error").val()==""){
+                           $(".add_name_error").html("来源不能为空");
+                        }
+                        else if($("#file-zh_add").val()==""){
+                          $(".product_img_error").html("图片为空");
+                        }
+                        else{
+                        	 layer.closeAll();
+							    layer.msg('添加成功', {
+							    	icon: 1,
+								    time: 800//2s后自动关闭
+								  });
+                        	alert('i = ' + index + ', id = ' + previewId + ', file = ' + data.response.message);
+                        }   
+				
 		    });
 		    $("#file-0").fileinput({
 		        'allowedFileExtensions' : ['jpg', 'png','gif'],
