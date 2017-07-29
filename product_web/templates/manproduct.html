@@ -387,18 +387,18 @@ $(document).ready(function(){
                     url:"/product/product_os",
                     async: false,
                     success: function(msg) {
-                        //var data = JSON.parse(msg);
+                        var data = JSON.parse(msg);
                         console.log(msg);
                         $("#tbody").find("tr").remove();
                         var str="";
-                         for(i in msg){
-		                    	str+='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+index+
-									'</td><td class="userMessage">'+msg[i].name+'</td><td class="">'+msg[i].img_path+'</td><td>'+$("#add_source").val()+
-									'</td><td class="center">'+msg[i].source+'</td><td class="center">'+msg[i].ori_price+
-									'</td><td class="center">'+msg[i].con_price+'</td><td class="center">'+msg[i].postage_price+
-									'</td><td class="center">'+msg[i].description+'</td><td class="center">'+msg[i].links+
-									'</td><td class="center">'+msg[i].sort_num+
-									'</td><td class="center">'+msg[i].recommend+
+                         for(i in data){
+		                    	str+='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+i+
+									'</td><td class="userMessage">'+data[i].product_name+'</td><td class="">'+data[i].product_img+'</td><td>'+data[i].source+
+									'</td><td class="center">'+data[i].theme+'</td><td class="center">'+data[i].ori_price+
+									'</td><td class="center">'+data[i].con_price+'</td><td class="center">'+data[i].postage_price+
+									'</td><td class="center">'+data[i].description+'</td><td class="center">'+data[i].links+
+									'</td><td class="center">'+data[i].sort_num+
+									'</td><td class="center">'+data[i].recommend+
 									'</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>'
 		                        	$("#tbody").append(str);
 		                        	$('input').val("");console.log(2);
