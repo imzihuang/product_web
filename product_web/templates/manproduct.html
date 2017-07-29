@@ -392,24 +392,17 @@ $(document).ready(function(){
                         console.log(msg.data[1].name);
                         $("#tbody").find("tr").remove();
                          var str;
-                        for(i in msg){
-		       //              	str=str+'<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+i+
-									// '</td><td class="userMessage">'+msg.data[i].name+'</td><td class="center">'+msg.data[i].img_path+'</td><td class="center">'+msg.data[i].source+'</td><td class="center">'+msg.data[i].theme+'</td><td class="center">'+msg.data[i].ori_price+
-									// '</td><td class="center">'+msg.data[i].con_price+'</td><td class="center">'+msg.data[i].postage_price+
-									// '</td><td class="center">'+msg.data[i].description+'</td><td class="center">'+msg.data[i].links+
-									// '</td><td class="center">'+msg.data[i].sort_num+
-									// '</td><td class="center">'+msg.data[i].recommend+
-									// '</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>'
-									str+='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+i+
-									'</td><td class="userMessage">'+msg.data[i].name+'</td><td class="center">'+msg.data[i].img_path+
-									'</td><td class="center">'+msg.data[i].source+'</td><td class="center">'+msg.data[i].theme+
-									'</td><td class="center">'+msg.data[i].ori_price+'</td><td class="center">'+msg.data[i].con_price+
-									'</td><td class="center">'+msg.data[i].postage_price+'</td><td class="center">'+msg.data[i].description+
-									'</td><td class="center">'+msg.data[i].links+
-									'</td><td class="center">'+msg.data[i].sort_num+
-									'</td><td class="center">'+msg.data[i].recommend+
-									'</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>';
-									console.log(2);
+                        for(var i=0;i<msg.data.length;i++){
+							str+='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+i+
+							'</td><td class="userMessage">'+msg.data[i].name+'</td><td class="center">'+msg.data[i].img_path+
+							'</td><td class="center">'+msg.data[i].source+'</td><td class="center">'+msg.data[i].theme+
+							'</td><td class="center">'+msg.data[i].ori_price+'</td><td class="center">'+msg.data[i].con_price+
+							'</td><td class="center">'+msg.data[i].postage_price+'</td><td class="center">'+msg.data[i].description+
+							'</td><td class="center">'+msg.data[i].links+
+							'</td><td class="center">'+msg.data[i].sort_num+
+							'</td><td class="center">'+msg.data[i].recommend+
+							'</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>';
+							console.log(2);
 		                        	
 		                   }   
 		                    $("#tbody").append(str);
