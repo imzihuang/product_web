@@ -90,6 +90,11 @@ class Company(BaseModel):
     country = Column(VARCHAR(20))
     province = Column(VARCHAR(20))
     city = Column(VARCHAR(20))
+    description = Column(VARCHAR(200))
+
+    def to_dict(self):
+       return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
+
 
 class Like(BaseModel):
     __tablename__ = 'like'
