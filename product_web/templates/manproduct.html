@@ -207,22 +207,24 @@
 					getValArr(valArr);
 					
 					if(valArr.length > 0) {
-						
 						layer.confirm('您确定删除吗？', {
 							btn: ['确定', '取消'] //按钮
-						}, function() {
+						}, 
+						function() {
 							console.log(valArr)
 							delData(valArr);
 							layer.closeAll();
 							layer.msg('删除成功', {
 							icon: 1,
 							time:600
+						    });
+						    $('#delInfo').attr("disabled","disabled");
+						     $('#delInfo').attr('class','btn btn-default btn-myown');
+						},
+						 function() {
 						});
-						$('#delInfo').attr("disabled","disabled");
-						$('#delInfo').attr('class','btn btn-default btn-myown');
-						}, function() {
-						});
-					} else {
+					} 
+					else {
 						$('#delInfo').attr("disabled","disabled");
 					}
 				});
@@ -334,142 +336,140 @@
 			});
 			});
 		</script>
-	<script>
-	        $(".layui-layer-btn0").click(function(){
-
-	        });
-	        function productAdd(){
-		    	$.ajax({
-	                    type: "GET",
-	                    url:"/product/product_os",
-	                    dataType:'json',
-	                    async: false,
-	                    success: function(msg) {
-	                        var Msg = JSON.parse(msg);
-	                        console.log(msg);
-	                        $("#tbody").find("tr").remove();
-	                        var str="";
-	                        // for(i in msg){
-	                        // 	str+=
-	                        // }     
-	                    },
-	                    error:function(){
-	                        console.log("error");
-	                    }
-	                });
-		    }
-		    $('#file-zh_add').fileinput({
-		        uploadUrl: '/product/product_os',
-		        //language: 'zh',
-		        allowedFileExtensions : ['jpg', 'png','gif'],
-		        maxFileCount: 1,
-				showCaption: false,
-		        enctype: 'multipart/form-data',
-		        uploadExtraData: function(previewId, index) {   //额外参数的关键点
-					var obj = {};
-					obj.product_name = $("#add_name").val();
-					obj.source = $("#add_source").val();
-					obj.theme = $("#add_theme").val();
-					obj.ori_price = $("#add_ori_price").val();
-					obj.con_price = $("#add_con_price").val();
-					obj.postage_price = $("#add_postage_price").val();
-					obj.description = $("#add_description").val();
-					obj.links = $("#add_links").val();
-					obj.sort_num = $("#add_sort_num").val();
-					obj.recommend = $("#add_recommend").val();
-					return obj;
-				},
-		        ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
-		                beforeSend: function (xhr) {
-		                    xhr.setRequestHeader('X-CSRFToken', '1234');
-		                }
-		            }
-		    }).on('fileuploaded', function(event, data, previewId, index) {
-                        if($("#add_name").val()==""){
-                           $(".add_name_error").html("产品名不能为空!");
-                           $('input').val("");
-                        }
-                        else if($("#add_source_error").val()==""){
-                           $(".add_name_error").html("来源不能为空!");
-                        }
-                        else if($("#file-zh_add").val()==""){
-                          $(".product_img_error").html("图片不能为空!");
-                        }
-                        else{
-							 console.log("xx");
-							 productAdd();	
-                        }   
-				
-		    });
-		    
-		    $("#file-0").fileinput({
-		        'allowedFileExtensions' : ['jpg', 'png','gif'],
-		    });
-		    $("#file-1").fileinput({
-		        uploadUrl: '#', // you must set a valid URL here else you will get an error
-		        allowedFileExtensions : ['jpg', 'png','gif'],
-		        overwriteInitial: false,
-		        maxFileSize: 1000,
-		        maxFilesNum: 1,
-		        //allowedFileTypes: ['image', 'video', 'flash'],
-		        slugCallback: function(filename) {
-		            return filename.replace('(', '_').replace(']', '_');
-		        }
-			});
-		    /*
-		    $(".file").on('fileselect', function(event, n, l) {
-		        alert('File Selected. Name: ' + l + ', Num: ' + n);
-		    });
-		    */
-			$("#file-3").fileinput({
-				showUpload: false,
-				showCaption: false,
-				browseClass: "btn btn-primary btn-lg",
-				fileType: "any",
-		        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
-			});
-			$("#file-4").fileinput({
-				uploadExtraData: {kvId: '10'}
-			});
-		    $(".btn-warning").on('click', function() {
-		        if ($('#file-4').attr('disabled')) {
-		            $('#file-4').fileinput('enable');
-		        } else {
-		            $('#file-4').fileinput('disable');
-		        }
-		    });    
-		    $(".btn-info").on('click', function() {
-		        $('#file-4').fileinput('refresh', {previewClass:'bg-info'});
-		    });
-		    /*
-		    $('#file-4').on('fileselectnone', function() {
-		        alert('Huh! You selected no files.');
-		    });
-		    $('#file-4').on('filebrowse', function() {
-		        alert('File browse clicked for #file-4');
-		    });
-		    */
-		    $(document).ready(function() {
-		        $("#test-upload").fileinput({
-		            'showPreview' : false,
-		            'allowedFileExtensions' : ['jpg', 'png','gif'],
-		            'elErrorContainer': '#errorBlock'
-		        });
-		        /*
-		        $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
-		            alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
-		        });
-		        */
-		    });
-		    function get_token() {
-		        $.ajax({
-		          url: url,
-		          data: data,
-		          success: success,
-		          dataType: dataType
-		        });
-		    }
-	</script>
+<script>
+    function productAdd(){
+    	$.ajax({
+                type: "GET",
+                url:"/product/product_os",
+                dataType:'json',
+                async: false,
+                contentType:'application/json',
+                success: function(msg) {
+                    var Msg = JSON.parse(msg);
+                    console.log(msg);
+                    $("#tbody").find("tr").remove();
+                    var str="";
+                    // for(i in msg){
+                    // 	str+=
+                    // }     
+                }
+                // error:function(){
+                //     console.log("error");
+                // }
+            });
+    }
+    $('#file-zh_add').fileinput({
+        uploadUrl: '/product/product_os',
+        //language: 'zh',
+        allowedFileExtensions : ['jpg', 'png','gif'],
+        maxFileCount: 1,
+		showCaption: false,
+        enctype: 'multipart/form-data',
+        uploadExtraData: function(previewId, index) {   //额外参数的关键点
+			var obj = {};
+			obj.product_name = $("#add_name").val();
+			obj.source = $("#add_source").val();
+			obj.theme = $("#add_theme").val();
+			obj.ori_price = $("#add_ori_price").val();
+			obj.con_price = $("#add_con_price").val();
+			obj.postage_price = $("#add_postage_price").val();
+			obj.description = $("#add_description").val();
+			obj.links = $("#add_links").val();
+			obj.sort_num = $("#add_sort_num").val();
+			obj.recommend = $("#add_recommend").val();
+			return obj;
+		},
+        ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('X-CSRFToken', '1234');
+                }
+            }
+    }).on('fileuploaded', function(event, data, previewId, index) {
+                if($("#add_name").val()==""){
+                   $(".add_name_error").html("产品名不能为空!");
+                   $('input').val("");
+                }
+                else if($("#add_source_error").val()==""){
+                   $(".add_name_error").html("来源不能为空!");
+                }
+                else if($("#file-zh_add").val()==""){
+                  $(".product_img_error").html("图片不能为空!");
+                }
+                else{
+					 console.log("xx");
+					 productAdd();	
+                }   
+		
+    });
+    
+    $("#file-0").fileinput({
+        'allowedFileExtensions' : ['jpg', 'png','gif'],
+    });
+    $("#file-1").fileinput({
+        uploadUrl: '#', // you must set a valid URL here else you will get an error
+        allowedFileExtensions : ['jpg', 'png','gif'],
+        overwriteInitial: false,
+        maxFileSize: 1000,
+        maxFilesNum: 1,
+        //allowedFileTypes: ['image', 'video', 'flash'],
+        slugCallback: function(filename) {
+            return filename.replace('(', '_').replace(']', '_');
+        }
+	});
+    /*
+    $(".file").on('fileselect', function(event, n, l) {
+        alert('File Selected. Name: ' + l + ', Num: ' + n);
+    });
+    */
+	$("#file-3").fileinput({
+		showUpload: false,
+		showCaption: false,
+		browseClass: "btn btn-primary btn-lg",
+		fileType: "any",
+        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
+	});
+	$("#file-4").fileinput({
+		uploadExtraData: {kvId: '10'}
+	});
+    $(".btn-warning").on('click', function() {
+        if ($('#file-4').attr('disabled')) {
+            $('#file-4').fileinput('enable');
+        } else {
+            $('#file-4').fileinput('disable');
+        }
+    });    
+    $(".btn-info").on('click', function() {
+        $('#file-4').fileinput('refresh', {previewClass:'bg-info'});
+    });
+    /*
+    $('#file-4').on('fileselectnone', function() {
+        alert('Huh! You selected no files.');
+    });
+    $('#file-4').on('filebrowse', function() {
+        alert('File browse clicked for #file-4');
+    });
+    */
+    $(document).ready(function() {
+        $("#test-upload").fileinput({
+            'showPreview' : false,
+            'allowedFileExtensions' : ['jpg', 'png','gif'],
+            'elErrorContainer': '#errorBlock'
+        });
+        /*
+        $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
+            alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
+        });
+        */
+    });
+    // function get_token() {
+    //     $.ajax({
+    //       url: url,
+    //       data: data,
+    //       success: success,
+    //       dataType: dataType
+    //     });
+    // }
+</script>
 	</body>
 
 </html>
