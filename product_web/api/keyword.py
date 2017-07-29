@@ -28,6 +28,9 @@ class KeywordHandler(RequestHandler):
         # save img
         img_path = ""
         keyword_name = bs2utf8(self.get_argument("keyword_name"))
+        if not keyword_name:
+            self.finish({'state': '3', 'message': 'keyword name is none', 'error': 'product name is none'})
+            return
         for meta in file_metas:
             filename = meta['filename']
             filename = keyword_name + "." + filename.rpartition(".")[-1] #rename img meta
@@ -43,13 +46,13 @@ class KeywordHandler(RequestHandler):
             "name": keyword_name,
             "source": bs2utf8(self.get_argument("source", '')),
             "theme": bs2utf8(self.get_argument("theme", '')),
-            "ori_price": self.get_argument("ori_price", 0),
-            "con_price": self.get_argument("con_price", 0),
-            "postage_price": self.get_argument("postage_price", 0),
+            "ori_price": int(self.get_argument("ori_price", 0)),
+            "con_price": int(self.get_argument("con_price", 0)),
+            "postage_price": int(self.get_argument("postage_price", 0)),
             "description": bs2utf8(self.get_argument("description", "")),
-            "sort_num": self.get_argument("sort_num", 10000),
+            "sort_num": int(self.get_argument("sort_num", 10000)),
             "img_path": img_path,
-            "recommend": self.get_argument("recommend", 0),
+            "recommend": int(self.get_argument("recommend", 0)),
         }
 
         _ = loc_keywod.add_keyword(data)

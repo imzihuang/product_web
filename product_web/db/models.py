@@ -33,7 +33,8 @@ class User(BaseModel):
     img_path = Column(VARCHAR(50))
 
     def to_dict(self):
-       return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
+       return {c.name: getattr(self, c.name, None).strftime('%Y-%m-%d %H:%M:%S') if isinstance(getattr(self, c.name, None), datetime) else getattr(self, c.name, None) for c in self.__table__.columns}
+
 
 class ProductKeyword(BaseModel):
     __tablename__ = 'productkeyword'
@@ -55,7 +56,8 @@ class ProductKeyword(BaseModel):
     recommend = Column(BOOLEAN, default=False)
 
     def to_dict(self):
-       return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
+       return {c.name: getattr(self, c.name, None).strftime('%Y-%m-%d %H:%M:%S') if isinstance(getattr(self, c.name, None), datetime) else getattr(self, c.name, None) for c in self.__table__.columns}
+
 
 class Product(BaseModel):
     __tablename__ = 'product'

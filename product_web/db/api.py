@@ -2,12 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import datetime
-from sqlalchemy.sql import and_, or_
-from common.convert import bs2unicode
+from sqlalchemy.sql import func
 import models
 from common.log_client import gen_log
-from base import get_session, get_engine
-
 
 def convert_model(class_name, info_dic):
     """
@@ -68,7 +65,7 @@ def set_product_sort_num(session, sort_num):
         if product.sort_num > current_sort_num:
             return True
         current_sort_num += 1
-        session.query(models.Product).filter(models.Product.id==product.id).update({"sort_num":current_sort_num}, synchronize_session=False)
+        session.query(models.Product).filter(models.Product.id == product.id).update({"sort_num":current_sort_num}, synchronize_session=False)
     return True
 
 def set_keyword_sort_num(session, sort_num):
@@ -81,6 +78,14 @@ def set_keyword_sort_num(session, sort_num):
         current_sort_num += 1
         session.query(models.ProductKeyword).filter(models.ProductKeyword.id==keyword.id).update({"sort_num":current_sort_num}, synchronize_session=False)
     return True
+
+def get_pv_count(session, ip="", html=""):
+    query = session.query(models.Product_PV.ip, models.Product_PV.html, func.count(models.Product_PV.html))
+    if ip:
+        query = query.filter(models.Product_PV.ip == ip)
+    if html:
+        query = query.filter(models.Product_PV.html == html)
+    return query
 
 
 

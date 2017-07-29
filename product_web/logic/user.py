@@ -99,6 +99,8 @@ def verify_user(session, name="", email="", telephone=""):
             query = api.model_query(session, "User", {"telephone": [telephone]})
             if query.count()>0:
                 return 3
+        if not email and not name and not telephone:
+            return 4
         return 0
     except Exception as ex:
         gen_log.error("get available user error:%r"%ex)

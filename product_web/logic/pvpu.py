@@ -9,8 +9,17 @@ from db import api, models
 def get_pu(ip, html, query_date):
     pass
 
-def get_pv(ip, html):
-    pass
+def get_pv(ip="", html=""):
+    try:
+        session = get_session()
+        query = api.get_pv_count(ip, html)
+        results = query.all()
+        return [result.to_dict() for result in results]
+    except Exception as ex:
+        gen_log.error("pu query error:%r"%ex)
+        return 0
+    finally:
+        session.close()
 
 def pu_add(ip, html, product_id, product_name):
     try:
@@ -56,12 +65,12 @@ def pv_add(ip, html, product_id, product_name):
             "html": html,
             "product_id": product_id,
             "product_name": product_name,
-            "visit_date": visit_date
+            "visit_date": current_date
         }
         data = api.convert_model("Product_PV", data)
         session.add(data)
         session.commit()
-        return pu_count
+        return 1
     except Exception as ex:
         gen_log.error("pv error:%r"%ex)
         return 0
