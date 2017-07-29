@@ -387,8 +387,8 @@ $(document).ready(function(){
                     url:"/product/product_os",
                     async: false,
                     success: function(msg) {
-                        var data = JSON.parse(msg);
-                        console.log(data[0].product_name);
+                        // var data = JSON.parse(msg);
+                        console.log(msg);
                         $("#tbody").find("tr").remove();
                         var str="";
                          // for(i in msg){
