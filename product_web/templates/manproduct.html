@@ -390,6 +390,7 @@ $(document).ready(function(){
                         //var data = JSON.parse(msg);
                         console.log(msg);
                         $("#tbody").find("tr").remove();
+                        var str="";
                          for(i in msg){
 		                    	str+='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+index+
 									'</td><td class="userMessage">'+msg[i].name+'</td><td class="">'+msg[i].img_path+'</td><td>'+$("#add_source").val()+
