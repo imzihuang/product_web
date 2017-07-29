@@ -27,7 +27,8 @@ class ProductHandler(RequestHandler):
 
     def put(self):
         """"add product"""
-        upload_path = os.path.join(os.path.dirname(__file__), 'static')
+        upload_path = os.path.abspath(os.path.dirname(__file__)+os.path.sep+"..")
+        upload_path = os.path.join(upload_path, 'static')
         file_metas = self.request.files.get('product_img', 'file')
 
         # save img

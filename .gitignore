@@ -6,4 +6,6 @@
 *.log
 *.xml
 product_web/nohup.out
+product_web/static/product_img/
+product_web/static/keyword_img/
 .idea/

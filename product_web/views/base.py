@@ -14,7 +14,7 @@ def entry_id_data_args(func):
         user_level = torn_self.get_secure_cookie('user_level')
         gen_log.info("entry:%s,%s"%(user_name, user_level))
         #if not user_name or user_level=="1":
-        if not user_name:
+        if True:
             torn_self.redirect('/')
             return
         func(torn_self)
