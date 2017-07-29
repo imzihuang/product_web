@@ -382,45 +382,26 @@ $(document).ready(function(){
                   $(".product_img_error").html("图片不能为空!");
                 }
                 else{
-					 console.log("11111");
-					 // $.ajax({
-			   //              type: "GET",
-			   //              url:"/product/product_os",
-			   //              dataType:'json',
-			   //              async: false,
-			   //              contentType:'application/json',
-			   //              success: function(msg) {
-			   //                  //var Msg = JSON.parse(msg);
-			   //                  console.log(msg);
-			   //                  $("#tbody").find("tr").remove();
-			   //                  var str="";
-			   //              }
-
-                    // for(i in msg){
-                    // 	str+=
-                    // }     
-                //}
-                // error:function(){
-                //     console.log("error");
-                // }
-          //  });
 			    $.ajax({
                     type: "GET",
                     url:"/product/product_os",
                     async: false,
-                   // data:data,
                     success: function(msg) {
                         //var data = JSON.parse(msg);
                         console.log(msg);
-                        // if(data.state==0){
-                        // window.location.href="/product/home.html";
-                        // }
-                        // else if(data.state==1){
-                        //   $("#confirmMsg").html("用户名不存在！");
-                        // }
-                        // else{
-                        //   $("#confirmpassword").html("密码错误！");
-                        // }     
+                        $("#tbody").find("tr").remove();
+                         for(i in msg){
+		                    	str+='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+index+
+									'</td><td class="userMessage">'+msg[i].name+'</td><td class="">'+msg[i].img_path+'</td><td>'+$("#add_source").val()+
+									'</td><td class="center">'+msg[i].source+'</td><td class="center">'+msg[i].ori_price+
+									'</td><td class="center">'+msg[i].con_price+'</td><td class="center">'+msg[i].postage_price+
+									'</td><td class="center">'+msg[i].description+'</td><td class="center">'+msg[i].links+
+									'</td><td class="center">'+msg[i].sort_num+
+									'</td><td class="center">'+msg[i].recommend+
+									'</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>'
+		                        	$("#tbody").append(str);
+		                        	$('input').val("");console.log(2);
+		                    }   
                     },
                     // error:function(){
                     //     console.log("error");
