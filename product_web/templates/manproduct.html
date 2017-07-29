@@ -389,11 +389,12 @@ $(document).ready(function(){
                     success: function(msg) {
                         // var data = JSON.parse(msg);
                         console.log(msg);
+                        console.log(msg.data[3].name);
                         $("#tbody").find("tr").remove();
                         var str="";
                          // for(i in msg){
 		                    	str+='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+i+
-									'</td><td class="userMessage">'+msg[i].product_name+'</td><td class="">'+msg[i].product_img+'</td><td>'+msg[i].source+
+									'</td><td class="userMessage">'+msg.data[i].name+'</td><td class="">'+msg[i].product_img+'</td><td>'+msg[i].source+
 									'</td><td class="center">'+msg[i].theme+'</td><td class="center">'+msg[i].ori_price+
 									'</td><td class="center">'+msg[i].con_price+'</td><td class="center">'+msg[i].postage_price+
 									'</td><td class="center">'+msg[i].description+'</td><td class="center">'+msg[i].links+
