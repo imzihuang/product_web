@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from db.base import get_session, get_engine
 from db import api
+from common.log_client import gen_log
 
 def get_company():
     try:

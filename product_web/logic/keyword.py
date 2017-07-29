@@ -34,10 +34,11 @@ def verify_keyword(session, name):
     :param name:
     :return:
     """
-    if name:
-        query = api.model_query(session, "ProductKeyword", {"name": [name]})
-        if query.count() > 0:
-            return 1
+    if not name:
+        return 0
+    query = api.model_query(session, "ProductKeyword", {"name": [name]})
+    if query.count() > 0:
+        return 1
     return 0
 
 def add_keyword(keywordinfo):

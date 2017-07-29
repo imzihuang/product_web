@@ -53,10 +53,11 @@ def verify_product(session, name):
     :param name:
     :return:
     """
-    if name:
-        query = api.model_query(session, "Product", {"name": [name]})
-        if query.count()>0:
-            return 1
+    if not name:
+        return 0
+    query = api.model_query(session, "Product", {"name": [name]})
+    if query.count()>0:
+        return 1
     return 0
 
 def add_product(productinfo):
@@ -67,7 +68,7 @@ def add_product(productinfo):
         if _ != 0:
             return False
         sort_num = productinfo.get("sort_num", 10000)
-        if sort_num == 0:
+        if sort_num <= 0:
             productinfo.update({"sort_num": 10000})
         if sort_num > 0 and sort_num<10000:
             api.set_product_sort_num(session, sort_num)
