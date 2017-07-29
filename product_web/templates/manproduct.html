@@ -290,14 +290,6 @@
 				var layerIndex;
 				//添加
 				$('#addInfo').click(function(){
-					$("#add_name").html("");
-                    $("#add_theme").html("");
-                    $("#add_source").html("");
-                    $("#add_ori_price").html("");
-                    $("#add_postage_price").html("");
-                    $("#add_description").html("");
-                    $("#add_links").html("");
-                    $("#add_sort_num").html("");
 					layerIndex=layer.open({
 					title:'添加产品',
 					  type: 1,
@@ -399,7 +391,15 @@
 							    	icon: 1,
 								    time: 800//2s后自动关闭
 								  });
-                        	alert('i = ' + index + ', id = ' + previewId + ', file = ' + data.response.message);
+							    $("#add_name").html("");
+			                    $("#add_theme").html("");
+			                    $("#add_source").html("");
+			                    $("#add_ori_price").html("");
+			                    $("#add_postage_price").html("");
+			                    $("#add_description").html("");
+			                    $("#add_links").html("");
+			                    $("#add_sort_num").html("");
+                        	// alert('i = ' + index + ', id = ' + previewId + ', file = ' + data.response.message);
                         }   
 				
 		    });
