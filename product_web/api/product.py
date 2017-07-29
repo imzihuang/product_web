@@ -6,6 +6,7 @@ from tornado.web import RequestHandler
 from datetime import datetime
 from common.convert import bs2utf8
 from logic import product as loc_product
+from common.log_client import gen_log
 
 class ProductHandler(RequestHandler):
     def get(self, *args, **kwargs):
@@ -34,6 +35,7 @@ class ProductHandler(RequestHandler):
         # save img
         img_path = ""
         product_name = bs2utf8(self.get_argument("product_name"))
+        gen_log.info('lzh----product name:%s'%product_name)
         if not product_name:
             self.finish({'state': '3', 'message': 'product name is none', 'error': 'product name is none'})
             return
