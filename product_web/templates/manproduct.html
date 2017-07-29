@@ -336,7 +336,7 @@
 		</script>
 	<script>
 	        $(".layui-layer-btn0").click(function(){
-	        	fileuploaded();
+
 	        });
 		    $('#file-zh_add').fileinput({
 		        uploadUrl: '/product/product_os',
@@ -367,7 +367,7 @@
 		    }).on('fileuploaded', function(event, data, previewId, index) {
                         if($("#add_name").val()==""){
                            $(".add_name_error").html("产品名不能为空!");
-                           $('input').val("");console.log(2);
+                           $('input').val("");
                         }
                         else if($("#add_source_error").val()==""){
                            $(".add_name_error").html("来源不能为空!");
@@ -381,7 +381,7 @@
 							   //  	icon: 1,
 								  //   time: 800//2s后自动关闭
 								  // });
-							 console.log(2);
+							 console.log("xx");
 			                 $.ajax({
 				                    type: "GET",
 				                    url:"/product/product_os",
