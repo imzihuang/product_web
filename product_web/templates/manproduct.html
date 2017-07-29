@@ -64,22 +64,7 @@
 									</tr>
 								</thead>
 								<tbody id="tbody">
-									<tr class="gradeX">
-										<td><input type="checkbox" class="zx_checkedBtn"></td>
-										<td class="centerSort">
-											1
-										</td>
-										<td class="userMessage">我是一件商品</td>
-										<td class="">1.jpg</td>
-										<td>亚马逊</td>
-										<td class="center">90</td>
-										<td class="center">50</td>
-										<td class="center">10</td>
-										<td class="center">20:25:1</td>
-										<td class="center">是</td>
-										<td class="center">200</td>
-										<td><i class="fa fa-pencil areapen" title="修改"></i></td>
-									</tr>
+									<tr></tr>
 								</tbody>
 							</table>
 						</div>
@@ -404,7 +389,7 @@
 									'</td><td class="center">'+obj.sort_num+
 									'</td><td class="center">'+obj.recommend+
 									'</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>'
-                        	$("#tbody").append(str);
+                        	$("#tbody tr:last-child").append(str);
                         }   
 				
 		    });
