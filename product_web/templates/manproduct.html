@@ -57,7 +57,7 @@
 										<th>优惠价</th>
 										<th>邮费</th>
 										<th>描述</th>
-										<th>产品的外部链接</th>
+										<th>链接</th>
 										<th>排列顺序</th>
 										<th>进入推荐栏</th>
 										<th>操作</th>
@@ -143,8 +143,8 @@
 			<div style="margin: 10px 0;">
 				<span>进入推荐栏：</span>
 				<select style="width: 154px; height: 27px; border: 1px solid #ddd;margin-left:-5px;">
-					<option>是</option>
-					<option>否</option>
+					<option>yes</option>
+					<option>no</option>
 				</select>
 			</div>
 			<div style="margin: 10px 0;">
@@ -170,7 +170,7 @@
 					}
 					allchk();
 				});
-
+ 
 				$("#tbody :checkbox").click(function(){
 					allchk();
 				})
@@ -217,7 +217,7 @@
 							time:600
 						    });
 						    $('#delInfo').attr("disabled","disabled");
-						     $('#delInfo').attr('class','btn btn-default btn-myown');
+						    $('#delInfo').attr('class','btn btn-default btn-myown');
 						},
 						 function() {
 						});
@@ -241,42 +241,12 @@
 					}
 				}
 				
-				$('#delInfo1').click(function() {
-					var valArr1 = new Array;
-					getValArr1(valArr1);
-					if(valArr1.length > 0) {
-						layer.confirm('您确定删除吗？', {
-							btn: ['确定', '取消'] //按钮
-						}, function() {
-							console.log(valArr1)
-							delData1(valArr1);
-							layer.closeAll();
-							$('#delInfo1').attr("disabled","disabled");
-							$('#delInfo1').attr('class','btn btn-default btn-myown');
-						}, function() {});
-					} else {
-						$('#delInfo1').attr("disabled","disabled");
-					}
-				});
-				
-				function getValArr1(valArr1) {
-					$("#tbodyAll :checkbox").each(function(indexe, elee) {
-						if($(elee).prop("checked")) {
-							valArr1.push(indexe);
-						}
-					});
-				}
-				
-				function delData1(valArr1){
-					for(var i=0;i<valArr1.length;i++){
-						$('#trIdAll_'+valArr1[i]).remove();
-					}
-				}
 				
 				//==========
 				var layerIndex;
 				//添加
 				$('#addInfo').click(function(){
+					$(".file-drop-zone").html('<div class="file-drop-zone-title">Drag &amp; drop files here …</div><div class="file-preview-thumbnails"></div><div class="clearfix"></div><div class="file-preview-status text-center text-success"></div><div class="kv-fileinput-error file-error-message" style="display: none;"></div>');
 					layerIndex=layer.open({
 					title:'添加产品',
 					  type: 1,
@@ -296,6 +266,7 @@
 					});
 				});
 				$('.areapen').click(function(){
+					$(".file-drop-zone").html('<div class="file-drop-zone-title">Drag &amp; drop files here …</div><div class="file-preview-thumbnails"></div><div class="clearfix"></div><div class="file-preview-status text-center text-success"></div><div class="kv-fileinput-error file-error-message" style="display: none;"></div>');
 					layerIndex=layer.open({
 					title:'修改产品信息',
 					  type: 1,
@@ -362,7 +333,7 @@ $(document).ready(function(){
                 
             });
 	}
- 
+
     $('#file-zh_add').fileinput({
         uploadUrl: '/product/product_os',
         //language: 'zh',
@@ -403,7 +374,7 @@ $(document).ready(function(){
                 else{
 			      productadd();
 			      $('input').val("");
-			      $(".file-drop-zone").attr('<div class="file-drop-zone-title">Drag &amp; drop files here …</div><div class="file-preview-thumbnails"></div><div class="clearfix"></div>    <div class="file-preview-status text-center text-success"></div><div class="kv-fileinput-error file-error-message" style="display: none;"></div>');
+			      $(".file-drop-zone").html('<div class="file-drop-zone-title">Drag &amp; drop files here …</div><div class="file-preview-thumbnails"></div><div class="clearfix"></div><div class="file-preview-status text-center text-success"></div><div class="kv-fileinput-error file-error-message" style="display: none;"></div>');
 	                    layer.closeAll();
 						    layer.msg('添加成功', {
 						    	icon: 1,
@@ -452,14 +423,7 @@ $(document).ready(function(){
     $(".btn-info").on('click', function() {
         $('#file-4').fileinput('refresh', {previewClass:'bg-info'});
     });
-    /*
-    $('#file-4').on('fileselectnone', function() {
-        alert('Huh! You selected no files.');
-    });
-    $('#file-4').on('filebrowse', function() {
-        alert('File browse clicked for #file-4');
-    });
-    */
+   
     $(document).ready(function() {
         $("#test-upload").fileinput({
             'showPreview' : false,
@@ -472,14 +436,7 @@ $(document).ready(function(){
         });
         */
     });
-    // function get_token() {
-    //     $.ajax({
-    //       url: url,
-    //       data: data,
-    //       success: success,
-    //       dataType: dataType
-    //     });
-    // }
+  
 });
 </script>
 	</body>
