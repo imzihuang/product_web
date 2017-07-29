@@ -290,6 +290,14 @@
 				var layerIndex;
 				//添加
 				$('#addInfo').click(function(){
+					$("#add_name").html("");
+                    $("#add_theme").html("");
+                    $("#add_source").html("");
+                    $("#add_ori_price").html("");
+                    $("#add_postage_price").html("");
+                    $("#add_description").html("");
+                    $("#add_links").html("");
+                    $("#add_sort_num").html("");
 					layerIndex=layer.open({
 					title:'添加产品',
 					  type: 1,
@@ -377,13 +385,13 @@
 		            }
 		    }).on('fileuploaded', function(event, data, previewId, index) {
                         if($("#add_name").val()==""){
-                           $(".add_name_error").html("产品名不能为空");
+                           $(".add_name_error").html("产品名不能为空!");
                         }
                         else if($("#add_source_error").val()==""){
-                           $(".add_name_error").html("来源不能为空");
+                           $(".add_name_error").html("来源不能为空!");
                         }
                         else if($("#file-zh_add").val()==""){
-                          $(".product_img_error").html("图片为空");
+                          $(".product_img_error").html("图片不能为空!");
                         }
                         else{
                         	 layer.closeAll();
