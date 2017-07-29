@@ -85,40 +85,40 @@
 		
 		<div id="addInfoContent" style="display: none; min-width: 100px; padding: 20px;">
 			<div style="margin: 10px 0;">
-				<span>关键字名：</span><input type="text" />
+				<span>关键字名：</span><input type="text" id="keyword_name"/>
 			</div>
 			<form enctype="multipart/form-data">
 	            <span class="f_left">上传图片：</span>
-	            <input id="file-zh_add" name="file-zh[]_add" type="file" multiple>
+	            <input id="file-zh_add" name="keyword_img" type="file" multiple>
 	        </form>
 			<div style="margin: 10px 0;">
-				<span>来源：</span><input type="text" />
+				<span>来源：</span><input type="text" id="source" />
 			</div>
 			<div style="margin: 10px 0;">
-				<span>原价：</span><input type="text" />
+				<span>原价：</span><input type="number" id="ori_price" />
 			</div>
 			<div style="margin: 10px 0;">
-				<span>优惠价：</span><input type="text" />
+				<span>优惠价：</span><input type="number" id="con_price" />
 			</div>
 			<div style="margin: 10px 0;">
-				<span>邮费：</span><input type="text" />
+				<span>邮费：</span><input type="number"  id="postage_price" />
 			</div>
 			<div style="margin: 10px 0;">
 				<span>进入推荐栏：</span>
-				<select style="width: 154px; height: 27px; border: 1px solid #ddd;margin-left:-5px;">
+				<select style="width: 154px; height: 27px; border: 1px solid #ddd;margin-left:-5px;" id="recommend">
 					<option>是</option>
 					<option>否</option>
 				</select>
 			</div>
 			<div style="margin: 10px 0;">
-				<span>排列顺序：</span><input type="text" />
+				<span>排列顺序：</span><input type="number" id="sort_num" />
 			</div>
 			
 		</div>
 		
 		<div id="editAreaContent" style="display: none; min-width: 100px; padding: 20px;">
 			<div style="margin: 10px 0;">
-				<span>关键字名：</span><input type="text" />
+				<span>关键字名：</span><input type="text" id="" />
 			</div>
 			<form enctype="multipart/form-data">
 	            <span class="f_left">上传图片：</span>
@@ -148,7 +148,7 @@
 			</div>
 		</div>
 
-		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/jquery-1.7.2.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/layer.js"></script>
 		<script src="js/fileinput.js"></script>
