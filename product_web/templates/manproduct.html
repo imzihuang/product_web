@@ -115,8 +115,6 @@
 			<div style="margin: 10px 0;">
 				<span>显示顺序：</span><input id="add_sort_num" type="number" />
 			</div>
-			<button id="add_submit">确认</button>
-			<button id="add_cancel">取消</button>
 		</div>
 		
 		<div id="editAreaContent" style="display: none; min-width: 100px; padding: 20px;">
@@ -364,12 +362,7 @@ $(document).ready(function(){
                 
             });
 	}
-    $(".layui-layer-btn").on("click",".layui-layer-btn0",function(){console.log(3);
-    	$(".fileinput-upload-button").click();
-    })
-    $(".layui-layer-btn0").click(function(){
-    	console.log(5);
-    });
+ 
     $('#file-zh_add').fileinput({
         uploadUrl: '/product/product_os',
         //language: 'zh',
