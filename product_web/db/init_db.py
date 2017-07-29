@@ -1,3 +1,5 @@
+# coding:utf-8
+
 from models import register_db
 from api import convert_model
 from base import get_session

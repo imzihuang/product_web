@@ -31,7 +31,7 @@ _ip_port_pat = re.compile(
     ''.join(('^', '(?P<ip>', _ip_pat.pattern[1:-1], '|[-_\da-z.]+):(?P<port>', _port_pat.pattern[1:-1], ')$')))
 _cn_mobile_pat = re.compile(r'^\d{9,13}$')
 _cn_mobile_cdma = re.compile(r'^(?:(?:(?:133|153|177|18[019])\d{1})|1700|173\d)\d{7}$') #电信
-
+_user_name = re.compile(r'^[a-zA-Z][a-zA-Z\d\-_]{5,11}$') # 用户名
 
 def parse_ip_port(s):
     """
@@ -255,6 +255,11 @@ def is_email(v):
     if not v or not isinstance(v, str):
         return False
     return _email_pat.search(v)
+
+def is_user_name(v):
+    if not v or not isinstance(v, str):
+        return False
+    return _user_name.search(v)
 
 
 def is_uuidhex(v):
