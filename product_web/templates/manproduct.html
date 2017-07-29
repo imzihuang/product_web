@@ -338,10 +338,7 @@
 		</script>
 <script>
 $(document).ready(function(){
-   // function productAdd(){
-
-   // }
-    $(".layui-layer-btn0").on("click",function(){
+    $(".layui-layer-btn").on("click",".layui-layer-btn0",function(){
     	$(".fileinput-upload-button").click();
     })
     $('#file-zh_add').fileinput({
@@ -387,9 +384,6 @@ $(document).ready(function(){
                     url:"/product/product_os",
                     async: false,
                     success: function(msg) {
-                        // var data = JSON.parse(msg);
-                        console.log(msg);
-                        console.log(msg.data[1].name);
                         $("#tbody").find("tr").remove();
                          var str;
                         for(var i=0;i<msg.data.length;i++){
