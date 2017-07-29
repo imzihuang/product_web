@@ -382,24 +382,8 @@
 								  //   time: 800//2s后自动关闭
 								  // });
 							 console.log("xx");
-			                 $.ajax({
-				                    type: "GET",
-				                    url:"/product/product_os",
-				                    async: false,
-				                    data:data,
-				                    success: function(msg) {
-				                        var data = JSON.parse(msg);
-				                        console.log(msg);
-				                        $("#taby").find("tr").remove();
-				                        var str="";
-				                        // for(i in msg){
-				                        // 	str+=
-				                        // }     
-				                    },
-				                    error:function(){
-				                        console.log("error");
-				                    }
-				                });
+							 productAdd();
+			                 
                         	// alert('i = ' + index + ', id = ' + previewId + ', file = ' + data.response.message);
          //                	        '<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+index+
 									// '</td><td class="userMessage">'+$("#add_name").val()+'</td><td class="">'+img_path+'</td><td>'+$("#add_source").val()+
@@ -414,6 +398,26 @@
                         }   
 				
 		    });
+		    function productAdd(){
+		    	$.ajax({
+	                    type: "GET",
+	                    url:"/product/product_os",
+	                    async: false,
+	                    data:data,
+	                    success: function(msg) {
+	                        var data = JSON.parse(msg);
+	                        console.log(msg);
+	                        $("#taby").find("tr").remove();
+	                        var str="";
+	                        // for(i in msg){
+	                        // 	str+=
+	                        // }     
+	                    },
+	                    error:function(){
+	                        console.log("error");
+	                    }
+	                });
+		    }
 		    $("#file-0").fileinput({
 		        'allowedFileExtensions' : ['jpg', 'png','gif'],
 		    });
