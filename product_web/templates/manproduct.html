@@ -399,18 +399,18 @@
 				
 		    });
 		    function productAdd(){
-		    	var data = {
+		    	// /var data1 = {
                     
-                }
+               // };
 		    	$.ajax({
 	                    type: "GET",
 	                    url:"/product/product_os",
 	                    async: false,
-	                    data:data,
+	                    //data:data1,
 	                    success: function(msg) {
-	                        var data = JSON.parse(msg);
+	                        var Msg = JSON.parse(msg);
 	                        console.log(msg);
-	                        $("#taby").find("tr").remove();
+	                        $("#tbody").find("tr").remove();
 	                        var str="";
 	                        // for(i in msg){
 	                        // 	str+=
