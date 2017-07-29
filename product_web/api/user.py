@@ -3,7 +3,7 @@
 from tornado.web import RequestHandler
 import json
 from random import randint
-from common.convert import bs2utf8, is_email
+from common.convert import is_email, is_user_name
 from common.log_client import gen_log
 from logic import user as loc_user
 from common.encrypt_md5 import encry_md5
@@ -21,8 +21,8 @@ com_cookie_time = com_dic.get('cookie_time', 'max_time')
 
 class LoginHandler(RequestHandler):
     def post(self):
-        user_name = bs2utf8(self.get_argument('user_name'))
-        pwd = bs2utf8(self.get_argument('pwd'))
+        user_name = self.get_argument('user_name')
+        pwd = self.get_argument('pwd')
 
         user_info = loc_user.get_available_user(name=user_name)
         if not user_info:
@@ -49,11 +49,14 @@ class LogoutHandler(RequestHandler):
 
 class SignInHandler(RequestHandler):
     def post(self):
-        user_name = bs2utf8(self.get_argument('user_name', ''))
-        email = bs2utf8(self.get_argument('email', ''))
+        user_name = self.get_argument('user_name', '')
+        if not is_user_name(user_name):
+            self.finish(json.dumps({'state': 5, "message": "Email address already exists"}))
+            return
+        email = self.get_argument('email', '')
         # telephone = bs2utf8(self.get_argument('telephone', ''))
-        pwd = bs2utf8(self.get_argument('pwd', ''))
-        affirm_pwd = bs2utf8(self.get_argument('affirm_pwd', ''))
+        pwd = self.get_argument('pwd', '')
+        affirm_pwd = self.get_argument('affirm_pwd', '')
         real_ip =self.request.headers.get("x-real-ip", self.request.headers.get("x-forwarded-for", ""))
 
         if pwd != affirm_pwd:
@@ -63,7 +66,6 @@ class SignInHandler(RequestHandler):
         if not is_email(email):
             self.finish(json.dumps({'state': 2, "message": "Email format error"}))
             return
-        # 验证有户名和邮箱是否重复
 
         # 根据邮箱获取账号，判断账号是否已经注册
         if loc_user.is_exit_avai_email(email):
@@ -126,9 +128,9 @@ class SignInRegCodeHandler(RequestHandler):
         验证路径
         :return:
         """
-        user_name = bs2utf8(self.get_argument('user_name', ''))
-        val_code = bs2utf8(self.get_argument("val_code", ""))
-        redirect_url = bs2utf8(self.get_argument("redirect_url", ""))
+        user_name = self.get_argument('user_name', '')
+        val_code = self.get_argument("val_code", "")
+        redirect_url = self.get_argument("redirect_url", "")
         gen_log.error("test%s,%s"%(user_name, val_code))
         if not redirect_url:
             redirect_url = "home.html"

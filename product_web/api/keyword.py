@@ -4,7 +4,6 @@ import json
 import os
 from tornado.web import RequestHandler
 from datetime import datetime
-from common.convert import bs2utf8
 from logic import keyword as loc_keywod
 
 class KeywordHandler(RequestHandler):
