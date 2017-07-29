@@ -57,7 +57,7 @@
 										<th>优惠价</th>
 										<th>邮费</th>
 										<th>描述</th>
-										<th>产品的外部链接</th>
+										<th>链接</th>
 										<th>排列顺序</th>
 										<th>进入推荐栏</th>
 										<th>操作</th>
@@ -143,8 +143,8 @@
 			<div style="margin: 10px 0;">
 				<span>进入推荐栏：</span>
 				<select style="width: 154px; height: 27px; border: 1px solid #ddd;margin-left:-5px;">
-					<option>是</option>
-					<option>否</option>
+					<option>yes</option>
+					<option>no</option>
 				</select>
 			</div>
 			<div style="margin: 10px 0;">
@@ -170,7 +170,7 @@
 					}
 					allchk();
 				});
-
+ 
 				$("#tbody :checkbox").click(function(){
 					allchk();
 				})
@@ -217,7 +217,7 @@
 							time:600
 						    });
 						    $('#delInfo').attr("disabled","disabled");
-						     $('#delInfo').attr('class','btn btn-default btn-myown');
+						    $('#delInfo').attr('class','btn btn-default btn-myown');
 						},
 						 function() {
 						});
@@ -241,37 +241,6 @@
 					}
 				}
 				
-				$('#delInfo1').click(function() {
-					var valArr1 = new Array;
-					getValArr1(valArr1);
-					if(valArr1.length > 0) {
-						layer.confirm('您确定删除吗？', {
-							btn: ['确定', '取消'] //按钮
-						}, function() {
-							console.log(valArr1)
-							delData1(valArr1);
-							layer.closeAll();
-							$('#delInfo1').attr("disabled","disabled");
-							$('#delInfo1').attr('class','btn btn-default btn-myown');
-						}, function() {});
-					} else {
-						$('#delInfo1').attr("disabled","disabled");
-					}
-				});
-				
-				function getValArr1(valArr1) {
-					$("#tbodyAll :checkbox").each(function(indexe, elee) {
-						if($(elee).prop("checked")) {
-							valArr1.push(indexe);
-						}
-					});
-				}
-				
-				function delData1(valArr1){
-					for(var i=0;i<valArr1.length;i++){
-						$('#trIdAll_'+valArr1[i]).remove();
-					}
-				}
 				
 				//==========
 				var layerIndex;
@@ -287,12 +256,18 @@
 					  content: $('#addInfoContent'),
 					   yes: function(){
                          $(".fileinput-upload-button").click();
-					  	//layer.closeAll();
-					    //layer.msg('添加成功', {
-					    //	icon: 1,
-						//    time: 800//2s后自动关闭
-						//  });
+						  	if($("#add_name").val()==""){
+			                   $(".add_name_error").html("产品名不能为空!");
+			                   $('input').val("");
+			                }
+			                if($("#add_source_error").val()==""){
+			                   $(".add_name_error").html("来源不能为空!");
+			                }
+			                if($("#file-zh_add").val()==""){
+			                  $(".product_img_error").html("图片不能为空!");
+			                }
 					  }
+					
 					});
 				});
 				$('.areapen').click(function(){
@@ -362,7 +337,7 @@ $(document).ready(function(){
                 
             });
 	}
- 
+
     $('#file-zh_add').fileinput({
         uploadUrl: '/product/product_os',
         //language: 'zh',
@@ -372,16 +347,36 @@ $(document).ready(function(){
         enctype: 'multipart/form-data',
         uploadExtraData: function(previewId, index) {   //额外参数的关键点
 			var obj = {};
+			if($("#add_name").val()!=""){
 			obj.product_name = $("#add_name").val();
+		    }
+		    if($("#add_source").val()!=""){
 			obj.source = $("#add_source").val();
+		    }
+		    if($("#add_theme").val()!=""){
 			obj.theme = $("#add_theme").val();
+		    }
+		    if($("#add_ori_price").val()!=""){
 			obj.ori_price = $("#add_ori_price").val();
+	    	}
+	    	if($("#add_con_price").val()!=""){
 			obj.con_price = $("#add_con_price").val();
+	    	}
+	    	if($("#add_postage_price").val()!=""){
 			obj.postage_price = $("#add_postage_price").val();
+		    }
+		    if($("#add_description").val()!=""){
 			obj.description = $("#add_description").val();
+		    }
+		    if($("#add_links").val()!=""){
 			obj.links = $("#add_links").val();
+		    }
+		    if($("#add_sort_num").val()!=""){
 			obj.sort_num = $("#add_sort_num").val();
-			obj.recommend = $("#add_recommend").val();
+		    }
+			if($("#add_recommend").val()=="是")
+			   {obj.recommend = 1;}
+			else{obj.recommend = 0;}
 			return obj;
 		},
         ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
@@ -394,16 +389,15 @@ $(document).ready(function(){
                    $(".add_name_error").html("产品名不能为空!");
                    $('input').val("");
                 }
-                else if($("#add_source_error").val()==""){
+                if($("#add_source_error").val()==""){
                    $(".add_name_error").html("来源不能为空!");
                 }
-                else if($("#file-zh_add").val()==""){
+                if($("#file-zh_add").val()==""){
                   $(".product_img_error").html("图片不能为空!");
                 }
-                else{
+                if($("#add_name").val()!=""&&$("#add_source_error").val()!=""&&$("#file-zh_add").val()!=""){
 			      productadd();
 			      $('input').val("");
-			      $(".file-drop-zone").attr('<div class="file-drop-zone-title">Drag &amp; drop files here …</div><div class="file-preview-thumbnails"></div><div class="clearfix"></div>    <div class="file-preview-status text-center text-success"></div><div class="kv-fileinput-error file-error-message" style="display: none;"></div>');
 	                    layer.closeAll();
 						    layer.msg('添加成功', {
 						    	icon: 1,
@@ -452,14 +446,7 @@ $(document).ready(function(){
     $(".btn-info").on('click', function() {
         $('#file-4').fileinput('refresh', {previewClass:'bg-info'});
     });
-    /*
-    $('#file-4').on('fileselectnone', function() {
-        alert('Huh! You selected no files.');
-    });
-    $('#file-4').on('filebrowse', function() {
-        alert('File browse clicked for #file-4');
-    });
-    */
+   
     $(document).ready(function() {
         $("#test-upload").fileinput({
             'showPreview' : false,
@@ -472,14 +459,7 @@ $(document).ready(function(){
         });
         */
     });
-    // function get_token() {
-    //     $.ajax({
-    //       url: url,
-    //       data: data,
-    //       success: success,
-    //       dataType: dataType
-    //     });
-    // }
+  
 });
 </script>
 	</body>
