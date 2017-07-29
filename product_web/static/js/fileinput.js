@@ -3052,7 +3052,7 @@
             self._raise('filedisabled');
             self.$element.attr('disabled', 'disabled');
             self.$container.find(".kv-fileinput-caption").addClass("file-caption-disabled");
-            self.$container.find(".btn-file, .fileinput-remove, .fileinput-upload, .file-preview-frame button").attr(
+            self.$container.find(".btn-file, .fileinput-remove, .file-preview-frame button").attr(
                 "disabled",
                 true);
             self._initDragDrop();
