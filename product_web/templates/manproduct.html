@@ -49,15 +49,17 @@
 									<tr class="zx_thTitle">
 										<th><input type="checkbox" class="zx_checkedBtn" id="zx_checkedAllBtn" name="allcheck" value="allCheck"></th>
 										<th>序号</th>
-										<th>标题</th>
-										<th>图片</th>
+										<th>产品名称</th>
+										<th>产品图</th>
 										<th>来源</th>
+										<th>主题</th>
 										<th>原价</th>
 										<th>优惠价</th>
 										<th>邮费</th>
-										<th>倒计时</th>
-										<th>是否进入推荐栏</th>
-										<th>点赞数</th>
+										<th>描述</th>
+										<th>产品的外部链接</th>
+										<th>排列顺序</th>
+										<th>进入推荐栏</th>
 										<th>操作</th>
 									</tr>
 								</thead>
@@ -76,7 +78,7 @@
 										<td class="center">20:25:1</td>
 										<td class="center">是</td>
 										<td class="center">200</td>
-										<td><i class="fa fa-pencil areapen" title="修改"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-close" title="删除"></i></td>
+										<td><i class="fa fa-pencil areapen" title="修改"></i></td>
 									</tr>
 								</tbody>
 							</table>
@@ -366,8 +368,7 @@
 					obj.description = $("#add_description").val();
 					obj.links = $("#add_links").val();
 					obj.sort_num = $("#add_sort_num").val();
-
-					//obj.recommend = $("#add_recommend").val();
+					obj.recommend = $("#add_recommend").val();
 					return obj;
 				},
 		        ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
@@ -378,6 +379,7 @@
 		    }).on('fileuploaded', function(event, data, previewId, index) {
                         if($("#add_name").val()==""){
                            $(".add_name_error").html("产品名不能为空!");
+                           $('input').val("");console.log(2);
                         }
                         else if($("#add_source_error").val()==""){
                            $(".add_name_error").html("来源不能为空!");
@@ -394,6 +396,15 @@
 							    
 			                     $('input').val("");console.log(2);
                         	// alert('i = ' + index + ', id = ' + previewId + ', file = ' + data.response.message);
+                        	str='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+index+
+									'</td><td class="userMessage">'+obj.product_name+'</td><td class="">'+img_path+'</td><td>'+obj.source+
+									'</td><td class="center">'+obj.theme+'</td><td class="center">'+obj.ori_price+
+									'</td><td class="center">'+obj.con_price+'</td><td class="center">'+obj.postage_price+
+									'</td><td class="center">'+obj.description+'</td><td class="center">'+obj.links+
+									'</td><td class="center">'+obj.sort_num+
+									'</td><td class="center">'+obj.recommend+
+									'</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>'
+                        	$("#tbody").append(str);
                         }   
 				
 		    });
