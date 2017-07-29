@@ -338,27 +338,9 @@
 		</script>
 <script>
 $(document).ready(function(){
-    function productAdd(){
-    	$.ajax({
-                type: "GET",
-                url:"/product/product_os",
-                dataType:'json',
-                async: false,
-                contentType:'application/json',
-                success: function(msg) {
-                    var Msg = JSON.parse(msg);
-                    console.log(msg);
-                    $("#tbody").find("tr").remove();
-                    var str="";
-                    // for(i in msg){
-                    // 	str+=
-                    // }     
-                }
-                // error:function(){
-                //     console.log("error");
-                // }
-            });
-    }
+   // function productAdd(){
+
+   // }
     $(".layui-layer-btn0").on("click",function(){
     	$(".fileinput-upload-button").click();
     })
@@ -401,7 +383,26 @@ $(document).ready(function(){
                 }
                 else{
 					 console.log("xx");
-					 productAdd();	
+					 $.ajax({
+			                type: "GET",
+			                url:"/product/product_os",
+			                dataType:'json',
+			                async: false,
+			                contentType:'application/json',
+			                success: function(msg) {
+			                    var Msg = JSON.parse(msg);
+			                    console.log(msg);
+			                    $("#tbody").find("tr").remove();
+			                    var str="";
+			                }
+                    // for(i in msg){
+                    // 	str+=
+                    // }     
+                }
+                // error:function(){
+                //     console.log("error");
+                // }
+            });
                 }   
 		
     });
