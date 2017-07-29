@@ -8,7 +8,7 @@ from logic import keyword as loc_keywod
 
 class KeywordHandler(RequestHandler):
     def get(self, *args, **kwargs):
-        keyword_name = bs2utf8(self.get_argument("keyword_name", ""))
+        keyword_name = self.get_argument("keyword_name", "")
         offset = int(self.get_argument("offset", 0))
         limit = int(self.get_argument("limit", 0))
         if keyword_name:
@@ -26,9 +26,13 @@ class KeywordHandler(RequestHandler):
 
         # save img
         img_path = ""
-        keyword_name = bs2utf8(self.get_argument("keyword_name"))
+        keyword_name = self.get_argument("keyword_name")
+        theme = self.get_argument("theme", '')
         if not keyword_name:
             self.finish({'state': '3', 'message': 'keyword name is none', 'error': 'product name is none'})
+            return
+        if not theme:
+            self.finish({'state': '4', 'message': 'keyword theme is none', 'error': 'product theme is none'})
             return
         for meta in file_metas:
             filename = meta['filename']
@@ -43,12 +47,12 @@ class KeywordHandler(RequestHandler):
             return
         data = {
             "name": keyword_name,
-            "source": bs2utf8(self.get_argument("source", '')),
-            "theme": bs2utf8(self.get_argument("theme", '')),
+            "source": self.get_argument("source", ''),
+            "theme": self.get_argument("theme", ''),
             "ori_price": int(self.get_argument("ori_price", 0)),
             "con_price": int(self.get_argument("con_price", 0)),
             "postage_price": int(self.get_argument("postage_price", 0)),
-            "description": bs2utf8(self.get_argument("description", "")),
+            "description": self.get_argument("description", ""),
             "sort_num": int(self.get_argument("sort_num", 10000)),
             "img_path": img_path,
             "recommend": int(self.get_argument("recommend", 0)),
@@ -63,7 +67,7 @@ class KeywordHandler(RequestHandler):
 
     def post(self):
         """update keyword"""
-        keyword_name = bs2utf8(self.get_argument("keyword_name"))
+        keyword_name = self.get_argument("keyword_name")
         update_data = {}
         file_metas = self.request.files.get('keyword_img', 'file')
         if file_metas:
@@ -81,38 +85,38 @@ class KeywordHandler(RequestHandler):
                 return
             update_data = {"img_path": img_path}
 
-        new_keyword_name = bs2utf8(self.get_argument("new_name", ""))
+        new_keyword_name = self.get_argument("new_name", "")
         if new_keyword_name:
             update_data.update({"name": new_keyword_name})
-        source = bs2utf8(self.get_argument("source", ''))
+        source = self.get_argument("source", '')
         if source:
             update_data.update({"source": source})
-        theme = bs2utf8(self.get_argument("theme", ''))
+        theme = self.get_argument("theme", '')
         if theme:
             update_data.update({"theme": theme}) 
-        ori_price = self.get_argument("ori_price", -1)
+        ori_price = int(self.get_argument("ori_price", -1))
         if ori_price > -1:
             update_data.update({"ori_price": ori_price})
-        con_price = self.get_argument("con_price", -1)
+        con_price = int(self.get_argument("con_price", -1))
         if con_price > -1:
             update_data.update({"con_price": con_price})
-        postage_price = self.get_argument("postage_price", -1)
+        postage_price = int(self.get_argument("postage_price", -1))
         if postage_price > -1:
             update_data.update({"postage_price": postage_price})
 
-        count_down_at = bs2utf8(self.get_argument("count_down_at", ""))
+        count_down_at = self.get_argument("count_down_at", "")
         if count_down_at:
             update_data.update({"count_down_at": count_down_at})
-        description = bs2utf8(self.get_argument("description", ""))
+        description = self.get_argument("description", "")
         if description:
             update_data.update({"description": description})
-        like_add_count = self.get_argument("like_add_count", -1)
+        like_add_count = int(self.get_argument("like_add_count", -1))
         if like_add_count > -1:
             update_data.update({"like_add_count": like_add_count})
-        sort_num = self.get_argument("sort_num", -1)
+        sort_num = int(self.get_argument("sort_num", -1))
         if sort_num > -1:
             update_data.update({"sort_num": sort_num})
-        recommend = self.get_argument("recommend", -1)
+        recommend = int(self.get_argument("recommend", -1))
         if recommend > -1:
             update_data.update({"recommend": recommend})
 
@@ -124,7 +128,7 @@ class KeywordHandler(RequestHandler):
         self.finish({'state': '0', 'message': 'ok'})
 
     def delete(self):
-        keyword_name = bs2utf8(self.get_argument("keyword_name"))
+        keyword_name = self.get_argument("keyword_name")
         _ = loc_keywod.del_keyword(keyword_name)
         if not _:
             self.finish({'state': '1', 'message': 'delete keyword faild'})

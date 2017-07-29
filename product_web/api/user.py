@@ -51,7 +51,7 @@ class SignInHandler(RequestHandler):
     def post(self):
         user_name = self.get_argument('user_name', '')
         if not is_user_name(user_name):
-            self.finish(json.dumps({'state': 5, "message": "Email address already exists"}))
+            self.finish(json.dumps({'state': 6, "message": "User name format error"}))
             return
         email = self.get_argument('email', '')
         # telephone = bs2utf8(self.get_argument('telephone', ''))

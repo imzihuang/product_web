@@ -35,9 +35,13 @@ class ProductHandler(RequestHandler):
         # save img
         img_path = ""
         product_name = self.get_argument("product_name")
+        theme = self.get_argument("theme", '')
         gen_log.info('lzh----product name:%s'%product_name)
         if not product_name:
-            self.finish({'state': '3', 'message': 'product name is none', 'error': 'product name is none'})
+            self.finish({'state': '3', 'message': 'Product name is none', 'error': 'Product name is none'})
+            return
+        if not theme:
+            self.finish({'state': '4', 'message': 'Product theme is none', 'error': 'Product theme is none'})
             return
         for meta in file_metas:
             filename = meta['filename']
@@ -53,7 +57,7 @@ class ProductHandler(RequestHandler):
         data = {
             "name": product_name,
             "source": self.get_argument("source", ''),
-            "theme": self.get_argument("theme", ''),
+            "theme": theme,
             "ori_price": int(self.get_argument("ori_price", 0)),
             "con_price": int(self.get_argument("con_price", 0)),
             "postage_price": int(self.get_argument("postage_price", 0)),
@@ -100,13 +104,13 @@ class ProductHandler(RequestHandler):
         theme = self.get_argument("theme", '')
         if theme:
             update_data.update({"theme": theme}) 
-        ori_price = self.get_argument("ori_price", -1)
+        ori_price = int(self.get_argument("ori_price", -1))
         if ori_price > -1:
             update_data.update({"ori_price": ori_price})
-        con_price = self.get_argument("con_price", -1)
+        con_price = int(self.get_argument("con_price", -1))
         if con_price > -1:
             update_data.update({"con_price": con_price})
-        postage_price = self.get_argument("postage_price", -1)
+        postage_price = int(self.get_argument("postage_price", -1))
         if postage_price > -1:
             update_data.update({"postage_price": postage_price})
 
@@ -116,16 +120,16 @@ class ProductHandler(RequestHandler):
         description = self.get_argument("description", "")
         if description:
             update_data.update({"description": description})
-        like_add_count = self.get_argument("like_add_count", -1)
+        like_add_count = int(self.get_argument("like_add_count", -1))
         if like_add_count>-1:
             update_data.update({"like_add_count": like_add_count})
         links = self.get_argument("links", "")
         if links:
             update_data.update({"links": links})
-        sort_num = self.get_argument("sort_num", -1)
+        sort_num = int(self.get_argument("sort_num", -1))
         if sort_num > -1:
             update_data.update({"sort_num": sort_num})
-        recommend = self.get_argument("recommend", -1)
+        recommend = int(self.get_argument("recommend", -1))
         if recommend > -1:
             update_data.update({"recommend": recommend})
 
