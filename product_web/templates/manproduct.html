@@ -338,6 +338,32 @@
 		</script>
 <script>
 $(document).ready(function(){
+	productadd();
+	function productadd(){
+	 $.ajax({
+            type: "GET",
+            url:"/product/product_os",
+            async: false,
+            success: function(msg) {
+                $("#tbody").find("tr").remove();
+                 var str;
+                for(var i=0;i<msg.data.length;i++){
+					str+='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+i+
+					'</td><td class="userMessage">'+msg.data[i].name+'</td><td class="center">'+msg.data[i].img_path+
+					'</td><td class="center">'+msg.data[i].source+'</td><td class="center">'+msg.data[i].theme+
+					'</td><td class="center">'+msg.data[i].ori_price+'</td><td class="center">'+msg.data[i].con_price+
+					'</td><td class="center">'+msg.data[i].postage_price+'</td><td class="center">'+msg.data[i].description+
+					'</td><td class="center">'+msg.data[i].links+
+					'</td><td class="center">'+msg.data[i].sort_num+
+					'</td><td class="center">'+msg.data[i].recommend+
+					'</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>';	
+                   }   
+                    $("#tbody").append(str);
+                    
+            },
+                
+            });
+	}
     $(".layui-layer-btn").on("click",".layui-layer-btn0",function(){console.log(3);
     	$(".fileinput-upload-button").click();
     })
@@ -380,34 +406,13 @@ $(document).ready(function(){
                   $(".product_img_error").html("图片不能为空!");
                 }
                 else{
-			    $.ajax({
-                    type: "GET",
-                    url:"/product/product_os",
-                    async: false,
-                    success: function(msg) {
-                        $("#tbody").find("tr").remove();
-                         var str;
-                        for(var i=0;i<msg.data.length;i++){
-							str+='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+i+
-							'</td><td class="userMessage">'+msg.data[i].name+'</td><td class="center">'+msg.data[i].img_path+
-							'</td><td class="center">'+msg.data[i].source+'</td><td class="center">'+msg.data[i].theme+
-							'</td><td class="center">'+msg.data[i].ori_price+'</td><td class="center">'+msg.data[i].con_price+
-							'</td><td class="center">'+msg.data[i].postage_price+'</td><td class="center">'+msg.data[i].description+
-							'</td><td class="center">'+msg.data[i].links+
-							'</td><td class="center">'+msg.data[i].sort_num+
-							'</td><td class="center">'+msg.data[i].recommend+
-							'</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>';	
-		                   }   
-		                    $("#tbody").append(str);
-		                    $('input').val("");
-		                    layer.closeAll();
-							    layer.msg('添加成功', {
-							    	icon: 1,
-								    time: 800//2s后自动关闭
-								  });
-                    },
-                    
-                });
+			      productadd();
+			      $('input').val("");
+	                    layer.closeAll();
+						    layer.msg('添加成功', {
+						    	icon: 1,
+							    time: 800//2s后自动关闭
+							  });
                 }   
 		
     });
