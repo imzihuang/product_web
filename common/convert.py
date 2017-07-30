@@ -252,7 +252,7 @@ def is_num(v):
 
 
 def is_email(v):
-    if not v or not isinstance(v, str):
+    if not v or not isinstance(v, basestring):
         return False
     return _email_pat.search(v)
 
