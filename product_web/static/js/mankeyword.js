@@ -148,7 +148,9 @@ $(function() {
 		});
 	});
 	$('body').on("click",".areapen",function(){
+        var old_name=$(this).parent().parent().find(".userMessage").html();
         $('input').val("");
+        $("#edit_keyword_name").val(old_name);
 		layerIndex=layer.open({
 		title:'修改关键字信息',
 		  type: 1,
@@ -161,6 +163,7 @@ $(function() {
 		   yes: function(){
              //
              var data = {
+             	    new_name:$("#edit_new_name").val(),
                     keyword_name:$("#edit_keyword_name").val(),
                     source:$("#edit_source").val(),
                     theme:$("#edit_theme").val(),
