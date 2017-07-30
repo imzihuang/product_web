@@ -65,7 +65,7 @@
 									</tr>
 								</thead>
 								<tbody id="tbody">
-									<tr></tr>
+									<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">0</td><td class="userMessage">但事实上</td><td class="center">product_img/但事实上.jpg</td><td class="center">by jingdong</td><td class="center"></td><td class="center">10</td><td class="center">10</td><td class="center">10</td><td class="center">5</td><td class="center">sddd</td><td class="center">1</td><td class="center">true</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>
 								</tbody>
 							</table>
 						</div>
@@ -219,14 +219,13 @@
 							for(var j=0;j<nameStr.length;j++){
 								nameDelete=nameDelete+nameStr[j]+'/';
 							}
-							
 							//
 							var data = {
 			                    product_name:nameDelete
 			                }
 			                console.log(data);
 							$.ajax({
-			                    type: "delete",
+			                    type: "DELETE",
 			                    url:"/product/product_os",
 			                    async: false,
 			                    data:data,
@@ -358,7 +357,7 @@ $(document).ready(function(){
             url:"/product/product_os",
             async: false,
             success: function(msg) {
-                $("#tbody").find("tr").remove();
+                // $("#tbody").find("tr").remove();
                  var str;
                 for(var i=0;i<msg.data.length;i++){
 					str+='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+i+
