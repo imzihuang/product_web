@@ -424,5 +424,5 @@ $(document).ready(function(){
    
 });
 function gomp(){
-	    		 window.location.href="/manage/mankeyword.html";
+	    		 window.location.href="/manage/manproduct.html";
 	    	}
