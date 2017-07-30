@@ -46,7 +46,7 @@ def api_handlers():
         (prefix + r'signin$', api.SignInHandler),
         (prefix + r'regcode_signin$', api.SignInRegCodeHandler, default_settings),
         (prefix + r'product_os$', api.ProductHandler),
-        (prefix + r'keyword_os', api.KeywordHandler)
+        (prefix + r'keyword_os$', api.KeywordHandler)
     ]
 
 class My_Application(Application):
