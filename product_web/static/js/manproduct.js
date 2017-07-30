@@ -145,6 +145,7 @@ $(function() {
 		});
 	});
 	$('body').on("click",".areapen",function(){
+        $('input').val("");
 		layerIndex=layer.open({
 		title:'修改产品信息',
 		  type: 1,
@@ -155,11 +156,48 @@ $(function() {
 		  btn: ['确定', '取消'] ,//按钮
 		  content: $('#editAreaContent'),
 		   yes: function(){
-		  	layer.closeAll();
-		    layer.msg('添加成功', {
-		    	icon: 1,
-			    time: 800//2s后自动关闭
-			  });
+             //
+             var data = {
+                    product_name:$("#edit_product_name").val(),
+                    source:$("#edit_source").val(),
+                    theme:$("#edit_theme").val(),
+                    ori_price:$("#edit_ori_price").val(),
+                    con_price:$("#edit_con_price").val(),
+                    postage_price:$("#edit_postage_price").val(),
+                    count_down_at:$("#edit_count_down_at").val(),
+                    description:$("#edit_description").val(),
+                    like_add_count:$("#edit_like_add_count").val(),
+                    links:$("#edit_links").val(),
+                    sort_num:$("#edit_sort_num").val(),
+                    recommend:$("#edit_recommend").val()
+                }
+              $.ajax({
+                    type: "POST",
+                    url:"product/product_os",
+                    async: false,
+                    data:data,
+                    success: function(msg) {
+                        var data = JSON.parse(msg);
+                        console.log(msg);
+                        layer.closeAll();
+						    layer.msg('添加成功', {
+						    	icon: 1,
+							    time: 800//2s后自动关闭
+							  });
+						productadd();
+                        
+                    },
+                    error:function(){
+                        console.log("error");
+                        	layer.closeAll();
+						    layer.msg('添加失败', {
+						    	icon: 1,
+							    time: 800//2s后自动关闭
+							  });
+                    }
+                });
+             //
+		  
 		  }
 		});
 	});
