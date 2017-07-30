@@ -148,7 +148,7 @@ $(function() {
 		});
 	});
 	$('body').on("click",".areapen",function(){
-		var old_name=$(this).parent().find(".userMessage").val();console.log(old_name);
+		var old_name=$(this).parent().find(".userMessage").val();console.log($(this).parent().val());console.log($(this).val());
         $('input').val("");
         $("#edit_product_name").html(old_name);
 		layerIndex=layer.open({
