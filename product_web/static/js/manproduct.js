@@ -356,7 +356,7 @@ $(document).ready(function(){
             }
     }).on('fileuploaded', function(event, data, previewId, index) {
 			      
-			      if((".file-drop-zone-title").val()=="Drag & drop files here …"){
+			      if((".file-drop-zone-title").val()=="Drag & drop files here …"){console.log(000);
 			      	$(".editphoto_error").html("请上传图片！");
 			      }
 			      else{
