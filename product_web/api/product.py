@@ -16,7 +16,7 @@ class ProductHandler(RequestHandler):
         limit = int(self.get_argument("limit", 0))
         if is_like_query == 1:
             keyword = self.get_argument("keyword")
-            product_list = loc_product.get_product_like_name(keyword, offset, limit)
+            product_list = loc_product.get_product_like_theme(keyword, offset, limit)
             self.finish({'state': '0', 'data': product_list})
             return
         if product_name:

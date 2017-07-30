@@ -280,7 +280,7 @@ $(document).ready(function(){
         uploadExtraData: function(previewId, index) {   //额外参数的关键点
 			var obj = {};
 			if($("#add_keyword_name").val()!=""){
-			obj.product_name = $("#add_keyword_name").val();
+			obj.keyword_name = $("#add_keyword_name").val();
 		    }
 		    if($("#add_source").val()!=""){
 			obj.source = $("#add_source").val();

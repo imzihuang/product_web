@@ -42,13 +42,13 @@ def model_query(session, class_name, query_dict):
         raise ex
 
 
-def get_product_like_name(session, product_keyword):
+def get_product_like_theme(session, product_keyword):
     """
-    模糊查询
+    模糊查询，产品主题
     :param product_keyword:
     :return:
     """
-    query = session.query(models.Product).filter(models.Product.name.like("%"+product_keyword+"%"))
+    query = session.query(models.Product).filter(models.Product.theme.like("%"+product_keyword+"%"))
     return query
 
 def set_product_sort_num(session, sort_num):
@@ -70,7 +70,7 @@ def set_product_sort_num(session, sort_num):
 
 def set_keyword_sort_num(session, sort_num):
     query = session.query(models.ProductKeyword).filter(models.ProductKeyword.sort_num>=sort_num)
-    keywords = query.all()
+    keywords = query.order_by("sort_num").all()
     current_sort_num = sort_num
     for keyword in keywords:
         if keyword.sort_num > current_sort_num:

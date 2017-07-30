@@ -28,7 +28,7 @@ def get_product(**kwargs):
     finally:
         session.close()
 
-def get_product_like_name(product_keyword, offset=0, limit=0):
+def get_product_like_theme(product_keyword, offset=0, limit=0):
     """
     获取产品列表，根据关键字模糊查询
     :param product_keyword:
@@ -38,7 +38,7 @@ def get_product_like_name(product_keyword, offset=0, limit=0):
         if not product_keyword:
             return
         session = get_session()
-        query = api.get_product_like_name(session, product_keyword)
+        query = api.get_product_like_theme(session, product_keyword)
         results = query.order_by("sort_num").all()
         return [result.to_dict() for result in results]
     except Exception as ex:

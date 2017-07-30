@@ -59,7 +59,7 @@ class SignInHandler(RequestHandler):
         affirm_pwd = self.get_argument('affirm_pwd', '')
         real_ip =self.request.headers.get("x-real-ip", self.request.headers.get("x-forwarded-for", ""))
 
-        if pwd != affirm_pwd:
+        if not pwd or pwd != affirm_pwd:
             self.finish(json.dumps({'state': 1, "message": "The two passwords don't match"}))
             return
 
@@ -159,4 +159,55 @@ class SignInRegCodeHandler(RequestHandler):
         #跳转
         self.redirect(self.prefix + redirect_url, permanent=True)
 
+class ReSetUserPwdHandler(RequestHandler):
+    def initialize(self, static_path, templates_path, product_prefix, **kwds):
+        self.static_path = static_path
+        self.templates_path = templates_path
 
+        if product_prefix[-1] != '/':
+            product_prefix += '/'
+        self.prefix = product_prefix
+
+    def post(self):
+        user_name = self.get_argument('user_name', '')
+        email = self.get_argument('email', '')
+        new_pwd = self.get_argument('new_pwd', '')
+        affirm_pwd = self.get_argument('affirm_pwd', '')
+        if not new_pwd or new_pwd != affirm_pwd:
+            self.finish(json.dumps({'state': 1, "message": "The two passwords don't match"}))
+
+        if not is_email(email):
+            self.finish(json.dumps({'state': 1, "message": "Email format error"}))
+            return
+
+        user_info = loc_user.get_available_user(name=user_name)
+        if user_info.email != email:
+            self.finish(json.dumps({'state': 2, "message": "The user name and email don't match"}))
+            return
+        # 生成验证码
+        val_code = ''.join((str(randint(0, 9)) for _ in xrange(6)))
+        redirect_url = "http://%(ip)s:%(port)s/product/regcode_reset?user_name=%(name)s&val_code=%(val_code)s"%{
+            "ip": ser_url,
+            "port": ser_port,
+            "name": user_name,
+            "val_code": val_code
+        }
+        html = """
+            <html>
+              <head></head>
+              <body>
+                <p>Hi!<br>
+                   <a href="%(redirect_url)s">Please verify email. </a>
+                </p>
+              </body>
+            </html>
+            """
+        if not send_email(email, html%{"redirect_url":redirect_url}, "Verify email"):
+            self.finish(json.dumps({'state': 3, "message": "send email faild"}))
+            return
+        self.finish(json.dumps({'state': 3, "message": "Reset ok"}))
+
+    def get(self):
+        user_name = self.get_argument('user_name', '')
+        val_code = self.get_argument("val_code", "")
+        redirect_url = self.get_argument("redirect_url", "")
