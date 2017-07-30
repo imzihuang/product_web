@@ -44,6 +44,7 @@ def api_handlers():
         (prefix + r'login$', api.LoginHandler),
         (prefix + r'logout', api.LogoutHandler),
         (prefix + r'signin$', api.SignInHandler),
+        (prefix + r'reset_pwd$', api.ReSetUserPwdHandler, default_settings),
         (prefix + r'regcode_signin$', api.SignInRegCodeHandler, default_settings),
         (prefix + r'product_os$', api.ProductHandler),
         (prefix + r'keyword_os$', api.KeywordHandler)
