@@ -67,7 +67,7 @@ $(function() {
                     async: false,
                     data:data,
                     success: function(msg) {
-                        var data = JSON.parse(msg);
+                        // var data = JSON.parse(msg);
                         console.log(msg);
                         delData(valArr);
                         layer.closeAll();
@@ -177,7 +177,7 @@ $(function() {
                     async: false,
                     data:data,
                     success: function(msg) {
-                        var data = JSON.parse(msg);
+                        // var data = JSON.parse(msg);
                         console.log(msg);
                         layer.closeAll();
 						    layer.msg('添加成功', {
