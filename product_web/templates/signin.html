@@ -119,22 +119,24 @@
                         console.log(data);
                         console.log(data.state);
                         if(data.state==0){
-                        window.location.href="/product/signin_notice.html";
+                            window.location.href="/product/signin_notice.html";
                         }
                         else if(data.state==1){
-                          $("#confirmRe").html("密码不一致或者不满足格式！");
+                            $("#confirmRe").html("密码不一致或者不满足格式！");
                         }
                         else if(data.state==2){
-                          $("#confirmMsg").html("邮箱格式错误！");
+                            $("#confirmMsg").html("邮箱格式错误！");
                         }
                         else if(data.state==3){
-                         window.location.href="/product/signin_notice.html";
+                            window.location.href="/product/signin_notice.html";
                         }
                         else if(data.state==4){
-                          $("#confirmerror").html("创建用户失败，可能用户名或邮箱已经存在！");
+                            $("#confirmerror").html("创建用户失败，可能用户名或邮箱已经存在！");
                         }
-                        else{
+                        else if(data.state==5){
                           $("#confirmerror").html("发送邮件失败,请重新提交");
+                        }else if(data.state==6){
+                            $("#confirmname").html("用户名格式对，字母开头，只允许字母数字-_，6-12个字符")
                         }
 
                     },
