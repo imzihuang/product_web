@@ -36,7 +36,7 @@ class LoginHandler(RequestHandler):
         self.set_secure_cookie("user_name", user_info.name, max_age = com_cookie_time)
         self.set_secure_cookie("user_level", str(user_info.level), max_age = com_cookie_time)
 
-        self.finish(json.dumps({'state': 0, 'message': 'ok'}))
+        self.finish(json.dumps({'state': 0, 'message': 'ok', "level": user_info.level}))
 
 class LogoutHandler(RequestHandler):
     def post(self):

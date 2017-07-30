@@ -85,7 +85,11 @@
                         var data = JSON.parse(msg);
                         console.log(msg);
                         if(data.state==0){
-                        window.location.href="/product/home.html";
+                            if(data.level==0){
+                            window.location.href="/manage/manproduct.html";
+                            }else{
+                                window.location.href="/product/home.html";
+                            }
                         }
                         else if(data.state==1){
                           $("#confirmMsg").html("用户名不存在！");
