@@ -355,12 +355,13 @@ $(document).ready(function(){
                 }
             }
     }).on('fileuploaded', function(event, data, previewId, index) {
-			      productadd();
+			      
 			      if((".file-drop-zone-title").val()=="Drag & drop files here …"){
 			      	$(".editphoto_error").html("请上传图片！");
 			      }
 			      else{
 			      	$(".rm_html").html("");
+			      	productadd();
 			      }
 			      $(".fileinput-remove-button").click();
 	                    layer.closeAll();
