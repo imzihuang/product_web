@@ -316,7 +316,7 @@ $(document).ready(function(){
                     xhr.setRequestHeader('X-CSRFToken', '1234');
                 }
             }
-    }).on('fileuploaded', function(event, data, previewId, index) {console.log(200);
+    }).on('fileuploaded', function(event, data, previewId, index) {
                 if($("#add_name").val()==""){
                    $(".add_name_error").html("产品名不能为空!");
                 }
@@ -356,19 +356,20 @@ $(document).ready(function(){
             }
     }).on('fileuploaded', function(event, data, previewId, index) {
 			      
-			      if((".file-drop-zone-title").val()=="Drag & drop files here …"){console.log(000);
+			      if((".file-drop-zone-title").val()=="Drag & drop files here …"){
 			      	$(".editphoto_error").html("请上传图片！");
 			      }
 			      else{
 			      	$(".rm_html").html("");
-			      	productadd();console.log(100);
-			      }
-			      $(".fileinput-remove-button").click();
+			      	productadd();
+			      	$(".fileinput-remove-button").click();
 	                    layer.closeAll();
 						    layer.msg('添加成功', {
 						    	icon: 1,
 							    time: 800//2s后自动关闭
 							  });
+			      }
+			     
     });
     $("#file-0").fileinput({
         'allowedFileExtensions' : ['jpg', 'png','gif'],
