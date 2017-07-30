@@ -173,7 +173,7 @@ $(function() {
                 }
               $.ajax({
                     type: "POST",
-                    url:"product/product_os",
+                    url:"/product/product_os",
                     async: false,
                     data:data,
                     success: function(msg) {
