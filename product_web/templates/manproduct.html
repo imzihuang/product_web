@@ -120,36 +120,48 @@
 		
 		<div id="editAreaContent" style="display: none; min-width: 100px; padding: 20px;">
 			<div style="margin: 10px 0;">
-				<span>标题：</span><input type="text" />
+				<span>产品名：</span><input type="text" id="edit_product_name"/>
 			</div>
 			<!-- <form enctype="multipart/form-data">
 	            <span class="f_left">上传图片：</span>
 	            <input id="file-zh" name="file-zh[]" type="file" multiple>
 	        </form> -->
 			<div style="margin: 10px 0;">
-				<span>来源：</span><input type="text" />
+				<span>来源：</span><input type="text" id="edit_source"/>
 			</div>
 			<div style="margin: 10px 0;">
-				<span>原价：</span><input type="text" />
+				<span>主题：</span><input type="text" id="edit_theme"/>
 			</div>
 			<div style="margin: 10px 0;">
-				<span>优惠价：</span><input type="text" />
+				<span>原价：</span><input type="text" id="edit_ori_price"/>
 			</div>
 			<div style="margin: 10px 0;">
-				<span>邮费：</span><input type="text" />
+				<span>优惠价：</span><input type="text" id="edit_con_price"/>
 			</div>
 			<div style="margin: 10px 0;">
-				<span>倒计时：</span><input type="text" />
+				<span>邮费：</span><input type="text" id="edit_postage_price"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>优惠截止时间：</span><input type="text" id="edit_count_down_at"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>描述：</span><input type="text" id="edit_description"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>统计外点赞数：</span><input type="text" id="edit_like_add_count"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>链接：</span><input type="text" id="edit_links"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>排列顺序：</span><input type="text" id="edit_sort_num"/>
 			</div>
 			<div style="margin: 10px 0;">
 				<span>进入推荐栏：</span>
-				<select style="width: 154px; height: 27px; border: 1px solid #ddd;margin-left:-5px;">
+				<select  id="edit_recommend" style="width: 154px; height: 27px; border: 1px solid #ddd;margin-left:-5px;">
 					<option>是</option>
 					<option>否</option>
 				</select>
-			</div>
-			<div style="margin: 10px 0;">
-				<span>点赞数：</span><input type="text" />
 			</div>
 		</div>
 
