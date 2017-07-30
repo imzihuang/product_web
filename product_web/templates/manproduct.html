@@ -212,41 +212,39 @@
 						function() {
 							console.log(valArr);
 							var nameStr=new Array;
-							console.log($("#trId_valArr[0]").val());
-							
 							for(var i=0;i<valArr.length;i++){
-
+                             nameStr[i]=$("#tbody tr").eq(valArr[i]).find("userMessage").val();
 							}
-							
+							console.log(nameStr);
 							//
-							var data = {
-			                    product_name:$("#form-username").val()
-			                }
-							$.ajax({
-			                    type: "delete",
-			                    url:"/product/product_os",
-			                    async: false,
-			                    data:data,
-			                    success: function(msg) {
-			                        var data = JSON.parse(msg);
-			                        console.log(msg);
-			                        delData(valArr);
-			                        layer.closeAll();
-									layer.msg('删除成功', {
-									icon: 1,
-									time:600
-								    });
-								    productadd();
+							// var data = {
+			    //                 product_name:$("#form-username").val()
+			    //             }
+							// $.ajax({
+			    //                 type: "delete",
+			    //                 url:"/product/product_os",
+			    //                 async: false,
+			    //                 data:data,
+			    //                 success: function(msg) {
+			    //                     var data = JSON.parse(msg);
+			    //                     console.log(msg);
+			    //                     delData(valArr);
+			    //                     layer.closeAll();
+							// 		layer.msg('删除成功', {
+							// 		icon: 1,
+							// 		time:600
+							// 	    });
+							// 	    productadd();
 			                       
-			                    },
-			                    error:function(){
-			                        layer.closeAll();
-									layer.msg('删除失败', {
-									icon: 1,
-									time:600
-								    });
-			                    }
-			                });
+			    //                 },
+			    //                 error:function(){
+			    //                     layer.closeAll();
+							// 		layer.msg('删除失败', {
+							// 		icon: 1,
+							// 		time:600
+							// 	    });
+			    //                 }
+			    //             });
 							//
 							
 							
