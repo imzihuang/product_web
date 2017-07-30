@@ -135,10 +135,12 @@ $(function() {
              $(".fileinput-upload-button").click();
 			  	if($("#add_name").val()==""){
                    $(".add_name_error").html("产品名不能为空!");
-                   $('input').val("");
                 }
                 if($("#add_source").val()==""){
                    $(".add_source_error").html("来源不能为空!");
+                }
+                if($("#add_theme").val()==""){
+                   $(".add_theme_error").html("主题不能为空!");
                 }
 		  }
 		
@@ -315,12 +317,14 @@ $(document).ready(function(){
     }).on('fileuploaded', function(event, data, previewId, index) {
                 if($("#add_name").val()==""){
                    $(".add_name_error").html("产品名不能为空!");
-                   $('input').val("");
                 }
                 if($("#add_source").val()==""){
                    $(".add_source_error").html("来源不能为空!");
                 }
-                if($("#add_name").val()!=""&&$("#add_source").val()!=""){
+                if($("#add_theme").val()==""){
+                   $(".add_theme_error").html("主题不能为空!");
+                }
+                if($("#add_name").val()!=""&&$("#add_source").val()!=""&&$("#add_theme").val()!=""){
 			      productadd();
 			      $('input').val("");
 			      $(".fileinput-remove-button").click();
