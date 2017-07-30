@@ -257,7 +257,7 @@ def is_email(v):
     return _email_pat.search(v)
 
 def is_user_name(v):
-    if not v or not isinstance(v, str):
+    if not v or not isinstance(v, basestring):
         return False
     return _user_name.search(v)
 
