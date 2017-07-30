@@ -70,7 +70,8 @@ class KeywordHandler(RequestHandler):
     def post(self):
         """update keyword"""
         keyword_name = self.get_argument("keyword_name", "")
-        if not keyword_name:
+        new_keyword_name = self.get_argument("new_name", "")
+        if not keyword_name or new_keyword_name:
             self.finish({'state': '3', 'message': 'keyword name is none'})
             return
         update_data = {}
@@ -90,7 +91,6 @@ class KeywordHandler(RequestHandler):
                 return
             update_data = {"img_path": img_path}
 
-        new_keyword_name = self.get_argument("new_name", "")
         if new_keyword_name:
             update_data.update({"name": new_keyword_name})
         source = self.get_argument("source", '')

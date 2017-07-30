@@ -160,13 +160,17 @@ class SignInRegCodeHandler(RequestHandler):
         self.redirect(self.prefix + redirect_url, permanent=True)
 
 class ReSetUserPwdHandler(RequestHandler):
-    def initialize(self, static_path, templates_path, product_prefix, **kwds):
+    def initialize(self, static_path, templates_path, product_prefix, manage_prefix, **kwds):
         self.static_path = static_path
         self.templates_path = templates_path
 
         if product_prefix[-1] != '/':
             product_prefix += '/'
         self.prefix = product_prefix
+
+        if manage_prefix[-1] != '/':
+            manage_prefix += '/'
+        self.manage_prefix = manage_prefix
 
     def post(self):
         user_name = self.get_argument('user_name', '')
@@ -177,37 +181,72 @@ class ReSetUserPwdHandler(RequestHandler):
             self.finish(json.dumps({'state': 1, "message": "The two passwords don't match"}))
 
         if not is_email(email):
-            self.finish(json.dumps({'state': 1, "message": "Email format error"}))
+            self.finish(json.dumps({'state': 2, "message": "Email format error"}))
             return
 
         user_info = loc_user.get_available_user(name=user_name)
         if user_info.email != email:
-            self.finish(json.dumps({'state': 2, "message": "The user name and email don't match"}))
+            self.finish(json.dumps({'state': 3, "message": "The user name and email don't match"}))
             return
         # 生成验证码
         val_code = ''.join((str(randint(0, 9)) for _ in xrange(6)))
+        try:
+            loc_user.update_user({"valcode": val_code, "reset_pwd": new_pwd}, {"name": [user_name]})
+        except Exception as e:
+            self.finish(json.dumps({'state': 4, "message": str(e)}))
+            return
         redirect_url = "http://%(ip)s:%(port)s/product/regcode_reset?user_name=%(name)s&val_code=%(val_code)s"%{
             "ip": ser_url,
             "port": ser_port,
             "name": user_name,
-            "val_code": val_code
+            "val_code": val_code,
         }
         html = """
             <html>
               <head></head>
               <body>
                 <p>Hi!<br>
-                   <a href="%(redirect_url)s">Please verify email. </a>
+                   <a href="%(redirect_url)s">Please reset password. </a>
                 </p>
               </body>
             </html>
             """
         if not send_email(email, html%{"redirect_url":redirect_url}, "Verify email"):
-            self.finish(json.dumps({'state': 3, "message": "send email faild"}))
+            self.finish(json.dumps({'state': 5, "message": "send email faild"}))
             return
-        self.finish(json.dumps({'state': 3, "message": "Reset ok"}))
+        self.finish(json.dumps({'state': 0, "message": "Reset ok"}))
 
     def get(self):
         user_name = self.get_argument('user_name', '')
         val_code = self.get_argument("val_code", "")
         redirect_url = self.get_argument("redirect_url", "")
+
+        if not redirect_url:
+            redirect_url = "home.html"
+
+        user_info = loc_user.get_creating_user(name=user_name)
+        if not user_info:
+            gen_log.error("user info is none")
+            redirect_url = "login.html"
+            self.redirect(self.prefix + redirect_url, permanent=True)
+            return
+
+        #判断验证码
+        if user_info.valcode != val_code:
+            gen_log.error("val code:%s,%s"%(user_info.valcode, val_code))
+            redirect_url = "login.html"
+            self.redirect(self.prefix + redirect_url, permanent=True)
+            return
+
+        #更新用户密码
+        loc_user.update_user({"pwd": encry_md5(user_info.reset_pwd), "reset_pwd": ""}, {"name": [user_name]})
+
+        # 设置cookie，注册的，默认都是1
+        self.set_secure_cookie("user_name", user_name, max_age = com_cookie_time)
+        self.set_secure_cookie("user_level", str(user_info.level), max_age = com_cookie_time)
+
+        # 管理员跳转管理页面
+        if user_info.level == 0:
+            self.redirect(self.manage_prefix + "manproduct.html")
+            return
+        self.redirect(self.prefix + redirect_url, permanent=True)
