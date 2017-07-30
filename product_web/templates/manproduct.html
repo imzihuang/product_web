@@ -18,6 +18,7 @@
 	    <![endif]-->
 	</head>
 	<style type="text/css">
+	.rm_html{font-size: 12px;text-align: center;}
 	@media (min-width: 500px){
 		#addInfoContent input,#editAreaContent input{
               width: 300px;
@@ -265,11 +266,8 @@
 			                   $(".add_name_error").html("产品名不能为空!");
 			                   $('input').val("");
 			                }
-			                if($("#add_source_error").val()==""){
+			                if($("#add_source").val()==""){
 			                   $(".add_source_error").html("来源不能为空!");
-			                }
-			                if($("#file-zh_add").val()==""){
-			                  $(".product_img_error").html("图片不能为空!");
 			                }
 					  }
 					
@@ -394,13 +392,10 @@ $(document).ready(function(){
                    $(".add_name_error").html("产品名不能为空!");
                    $('input').val("");
                 }
-                if($("#add_source_error").val()==""){
+                if($("#add_source").val()==""){
                    $(".add_source_error").html("来源不能为空!");
                 }
-                if($("#file-zh_add").val()==""){
-                  $(".product_img_error").html("图片不能为空!");
-                }
-                if($("#add_name").val()!=""&&$("#add_source_error").val()!=""&&$("#file-zh_add").val()!=""){
+                if($("#add_name").val()!=""&&$("#add_source").val()!=""){
 			      productadd();
 			      $('input').val("");
 			      $(".fileinput-remove-button").click();
