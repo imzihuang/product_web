@@ -259,7 +259,6 @@ $(document).ready(function(){
 					'</td><td class="center">'+msg.data[i].ori_price+'</td><td class="center">'+msg.data[i].con_price+
 					'</td><td class="center">'+msg.data[i].postage_price+'</td><td class="center">'+msg.data[i].description+
 					'</td><td class="center">'+msg.data[i].links+
-					'</td><td class="center">'+msg.data[i].sort_num+
 					'</td><td class="center">'+msg.data[i].recommend+
 					'</td><td><i class="fa fa-pencil areapen" title="更新信息"></i>&nbsp;&nbsp;<i class="fa fa-pencil photopen" title="更新信息"></i></td></tr>';	
                    }   
@@ -299,9 +298,6 @@ $(document).ready(function(){
 		    }
 		    if($("#add_description").val()!=""){
 			obj.description = $("#add_description").val();
-		    }
-		    if($("#add_like_add_count").val()!=""){
-			obj.links = $("#add_like_add_count").val();
 		    }
 		    if($("#add_sort_num").val()!=""){
 			obj.sort_num = $("#add_sort_num").val();
@@ -424,5 +420,8 @@ $(document).ready(function(){
         });
         */
     });
-  
+   
 });
+function gomp(){
+	    		 window.location.href="/manage/manproduct.html";
+	    	}

@@ -138,7 +138,10 @@
 		
 		<div id="editAreaContent" style="display: none; min-width: 100px; padding: 20px;">
 			<div style="margin: 10px 0;">
-				<span>产品名：</span><input type="text" id="edit_product_name"/>
+				<span>产品名：</span><input type="text" id="edit_product_name" readonly="readonly" />
+			</div>
+			<div style="margin: 10px 0;">
+				<span>新产品名：</span><input type="text" id="edit_new_name"/>
 			</div>
 			<div style="margin: 10px 0;">
 				<span>来源：</span><input type="text" id="edit_source"/>
@@ -192,10 +195,5 @@
 		<script src="js/fileinput.js"></script>
 		<script src="js/zh.js"></script>
 		<script src="js/manproduct.js"></script>
-	    <script type="text/javascript">
-	    	function gomk(){
-	    		 window.location.href="/manage/mankeyword.html";
-	    	}
-	    </script>
 	</body>
 </html>
