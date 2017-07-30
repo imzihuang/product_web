@@ -192,7 +192,7 @@
 						$("input[name=allcheck]").prop("checked", false);
 					}
 					if(chk>=1){
-							$('#delInfo').attr('class','btn btn-primary btn-myown');
+							$('#delInfo').attr('class','btn btn-primary btn-myown');console.log(11);
 					}else{
 						$('#delInfo').attr('class','btn btn-default btn-myown');
 					}
@@ -210,7 +210,26 @@
 							btn: ['确定', '取消'] //按钮
 						}, 
 						function() {
-							console.log(valArr)
+							console.log(valArr);
+							//
+							// var data = {
+			    //                 product_name:$("#form-username").val()
+			    //             }
+							// $.ajax({
+			    //                 type: "delete",
+			    //                 url:"/product/product_os",
+			    //                 async: false,
+			    //                 data:data,
+			    //                 success: function(msg) {
+			    //                     var data = JSON.parse(msg);
+			    //                     console.log(msg);
+			                       
+			    //                 },
+			    //                 error:function(){
+			    //                     console.log("error");
+			    //                 }
+			    //             });
+							//
 							delData(valArr);
 							layer.closeAll();
 							layer.msg('删除成功', {
@@ -315,6 +334,8 @@
 <script>
 $(document).ready(function(){
 	productadd();
+	$(".zx_checkedAllBtn").click();
+	$(".zx_checkedAllBtn").click();
 	function productadd(){
 	 $.ajax({
             type: "GET",
