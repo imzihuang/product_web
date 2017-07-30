@@ -59,7 +59,7 @@ def set_product_sort_num(session, sort_num):
     :return:
     """
     query = session.query(models.Product).filter(models.Product.sort_num>=sort_num)
-    products = query.all()
+    products = query.order_by("sort_num").all()
     current_sort_num = sort_num
     for product in products:
         if product.sort_num > current_sort_num:
