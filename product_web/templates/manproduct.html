@@ -246,6 +246,7 @@
 				var layerIndex;
 				//添加
 				$('#addInfo').click(function(){
+					$(".fileinput-remove-button").click();
 					layerIndex=layer.open({
 					title:'添加产品',
 					  type: 1,
@@ -398,6 +399,7 @@ $(document).ready(function(){
                 if($("#add_name").val()!=""&&$("#add_source_error").val()!=""&&$("#file-zh_add").val()!=""){
 			      productadd();
 			      $('input').val("");
+			      $(".fileinput-remove-button").click();
 	                    layer.closeAll();
 						    layer.msg('添加成功', {
 						    	icon: 1,
