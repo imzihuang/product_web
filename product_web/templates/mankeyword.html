@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>keyword</title>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>mankeyword</title>
 		<meta name="keywords" content="">
 		<meta name="description" content="">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -17,6 +18,7 @@
 	    <![endif]-->
 	</head>
 	<style type="text/css">
+	.rm_html{font-size: 12px;text-align: center;}
 	@media (min-width: 500px){
 		#addInfoContent input,#editAreaContent input{
               width: 300px;
@@ -49,32 +51,21 @@
 										<th><input type="checkbox" class="zx_checkedBtn" id="zx_checkedAllBtn" name="allcheck" value="allCheck"></th>
 										<th>序号</th>
 										<th>关键字名</th>
-										<th>图片</th>
+										<th>关键字图片</th>
 										<th>来源</th>
+										<th>主题</th>
 										<th>原价</th>
 										<th>优惠价</th>
 										<th>邮费</th>
-										<th>是否进入推荐栏</th>
+										<th>描述</th>
+										<th>统计外点赞数</th>
 										<th>排列顺序</th>
+										<th>进入推荐栏</th>
 										<th>操作</th>
 									</tr>
 								</thead>
 								<tbody id="tbody">
-									<tr class="gradeX">
-										<td><input type="checkbox" class="zx_checkedBtn"></td>
-										<td class="centerSort">
-											1
-										</td>
-										<td class="userMessage">我是一件商品</td>
-										<td class="">1.jpg</td>
-										<td>亚马逊</td>
-										<td class="center">90</td>
-										<td class="center">50</td>
-										<td class="center">10</td>
-										<td class="center">是</td>
-										<td class="center">顺序</td>
-										<td><i class="fa fa-pencil areapen" title="修改"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-close" title="删除"></i></td>
-									</tr>
+									<tr></tr>
 								</tbody>
 							</table>
 						</div>
@@ -85,67 +76,95 @@
 		
 		<div id="addInfoContent" style="display: none; min-width: 100px; padding: 20px;">
 			<div style="margin: 10px 0;">
-				<span>关键字名：</span><input type="text" id="keyword_name"/>
+				<span>关键字名：</span><input id="add_keyword_name" type="text" />
 			</div>
+			<div class="add_name_error rm_html"></div>
 			<form enctype="multipart/form-data">
 	            <span class="f_left">上传图片：</span>
 	            <input id="file-zh_add" name="keyword_img" type="file" multiple>
 	        </form>
+	        <div class="product_img_error rm_html"></div>
 			<div style="margin: 10px 0;">
-				<span>来源：</span><input type="text" id="source" />
+				<span>来源：</span><input id="add_source" type="text" />
+			</div>
+			<div class="add_source_error rm_html"></div>
+			<div style="margin: 10px 0;">
+				<span>主题：</span><input id="add_theme" type="text" />
+			</div>
+			<div class="add_theme_error rm_html"></div>
+			<div style="margin: 10px 0;">
+				<span>原价：</span><input id="add_ori_price" type="number" />
 			</div>
 			<div style="margin: 10px 0;">
-				<span>原价：</span><input type="number" id="ori_price" />
+				<span>优惠价：</span><input id="add_con_price" type="number" />
 			</div>
 			<div style="margin: 10px 0;">
-				<span>优惠价：</span><input type="number" id="con_price" />
+				<span>邮费：</span><input id="add_postage_price" type="number" />
 			</div>
 			<div style="margin: 10px 0;">
-				<span>邮费：</span><input type="number"  id="postage_price" />
+				<span>描述：</span><input id="add_description" type="text" />
+			</div>
+			<div style="margin: 10px 0;">
+				<span>统计外点赞数：</span><input id="add_like_add_count" type="text" />
+			</div>
+			<div style="margin: 10px 0;">
+				<span>排列顺序：</span><input id="add_sort_num" type="number" />
 			</div>
 			<div style="margin: 10px 0;">
 				<span>进入推荐栏：</span>
-				<select style="width: 154px; height: 27px; border: 1px solid #ddd;margin-left:-5px;" id="recommend">
+				<select id="add_recommend" style="width: 154px; height: 27px; border: 1px solid #ddd;margin-left:-5px;">
 					<option>是</option>
 					<option>否</option>
 				</select>
-			</div>
-			<div style="margin: 10px 0;">
-				<span>排列顺序：</span><input type="number" id="sort_num" />
 			</div>
 			
 		</div>
 		
 		<div id="editAreaContent" style="display: none; min-width: 100px; padding: 20px;">
 			<div style="margin: 10px 0;">
-				<span>关键字名：</span><input type="text" id="" />
-			</div>
-			<form enctype="multipart/form-data">
-	            <span class="f_left">上传图片：</span>
-	            <input id="file-zh" name="file-zh[]" type="file" multiple>
-	        </form>
-			<div style="margin: 10px 0;">
-				<span>来源：</span><input type="text" />
+				<span>关键字名：</span><input type="text" id="edit_keyword_name"/>
 			</div>
 			<div style="margin: 10px 0;">
-				<span>原价：</span><input type="text" />
+				<span>来源：</span><input type="text" id="edit_source"/>
 			</div>
 			<div style="margin: 10px 0;">
-				<span>优惠价：</span><input type="text" />
+				<span>主题：</span><input type="text" id="edit_theme"/>
 			</div>
 			<div style="margin: 10px 0;">
-				<span>邮费：</span><input type="text" />
+				<span>原价：</span><input type="text" id="edit_ori_price"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>优惠价：</span><input type="text" id="edit_con_price"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>邮费：</span><input type="text" id="edit_postage_price"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>优惠截止时间：</span><input type="text" id="edit_count_down_at"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>描述：</span><input type="text" id="edit_description"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>链接：</span><input type="text" id="edit_links"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>排列顺序：</span><input type="text" id="edit_sort_num"/>
 			</div>
 			<div style="margin: 10px 0;">
 				<span>进入推荐栏：</span>
-				<select style="width: 154px; height: 27px; border: 1px solid #ddd;margin-left:-5px;">
+				<select  id="edit_recommend" style="width: 154px; height: 27px; border: 1px solid #ddd;margin-left:-5px;">
 					<option>是</option>
 					<option>否</option>
 				</select>
 			</div>
-			<div style="margin: 10px 0;">
-				<span>排列顺序：</span><input type="text" />
-			</div>
+		</div>
+		<div id="editphoto" style="display: none; min-width: 100px; padding: 20px;">
+			<form enctype="multipart/form-data">
+	            <span class="f_left">上传图片：</span>
+	            <input id="file-zh_edit" name="product_img" type="file" multiple>
+	        </form>
+	        <div class="editphoto_error rm_html"></div>
 		</div>
 
 		<script src="js/jquery-1.11.1.min.js"></script>
@@ -153,8 +172,7 @@
 		<script src="js/layer.js"></script>
 		<script src="js/fileinput.js"></script>
 		<script src="js/zh.js"></script>
-		<script src="js/mankeyword.js"></script>
+		<script src="js/manproduct.js"></script>
 	
 	</body>
-
 </html>
