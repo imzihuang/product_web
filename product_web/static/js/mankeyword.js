@@ -329,7 +329,7 @@ $(document).ready(function(){
                 if($("#add_theme").val()==""){
                    $(".add_theme_error").html("主题不能为空!");
                 }
-                if($("#add_name").val()!=""&&$("#add_source").val()!=""&&$("#add_theme").val()!=""){
+                if($("#add_keyword_name").val()!=""&&$("#add_source").val()!=""&&$("#add_theme").val()!=""){
 			      productadd();
 			      $('input').val("");
 			      $(".fileinput-remove-button").click();
@@ -358,21 +358,19 @@ $(document).ready(function(){
                 }
             }
     }).on('fileuploaded', function(event, data, previewId, index) {
-			      
-			      if((".file-drop-zone-title").val()=="Drag & drop files here …"){
-			      	$(".editphoto_error").html("请上传图片！");
-			      }
-			      else{
-			      	$(".rm_html").html("");
-			      	productadd();
-			      	$(".fileinput-remove-button").click();
-	                    layer.closeAll();
-						    layer.msg('添加成功', {
-						    	icon: 1,
-							    time: 800//2s后自动关闭
-							  });
-			      }
-			     
+		if((".file-drop-zone-title").val()=="Drag & drop files here …"){
+		$(".editphoto_error").html("请上传图片！");
+		}
+		else{
+		$(".rm_html").html("");
+		productadd();
+		$(".fileinput-remove-button").click();
+			layer.closeAll();
+				layer.msg('添加成功', {
+					icon: 1,
+					time: 800//2s后自动关闭
+				  });
+		}
     });
     $("#file-0").fileinput({
         'allowedFileExtensions' : ['jpg', 'png','gif'],
