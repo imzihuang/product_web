@@ -32,6 +32,19 @@
 		    margin-left: -120px!important;
 		}
 	}
+	.tab_part button{
+            float: left;
+		    font-size: 12px;
+		    color: #232f3e;
+		    padding: 8px 12px;
+		    background: #ecf0f3;
+		    border: none;
+		    border-top: 3px solid #232f3e;
+	}
+	.tab_part .now{
+            border-top: 3px solid #f3a847;
+	}
+	.btn{font-size: 12px !important;}
 	</style>
 	<body class="gray-bg">
 		<div class="wrapper wrapper-content animated fadeIn">
@@ -39,6 +52,10 @@
 				<div class="col-sm-12">
 					<div class="bgBackground">
 						<div class="ibox-content">
+						<div class="tab_part">
+						    <button class="now">关键字管理</button>
+						    <button onclick="gomp()">产品管理</button>
+						</div>
 							<table class="table table-striped table-bordered table-hover dataTables-example">
 								<thead>
 									<tr class="zx_checkedAll">
