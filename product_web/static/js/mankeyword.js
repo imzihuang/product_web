@@ -1,3 +1,4 @@
+$(document).ready(function(){
 $(function() {
 	//全选按钮
 	$("#zx_checkedAllBtn").click(function() {
@@ -242,7 +243,7 @@ $(function() {
 });
 });
 
-$(document).ready(function(){
+
 	productadd();
 	$("#zx_checkedAllBtn").click();
 	$("#zx_checkedAllBtn").click();
