@@ -201,6 +201,22 @@ $(function() {
 		  }
 		});
 	});
+	$('body').on("click",".photopen",function(){
+        $('input').val("");
+		layerIndex=layer.open({
+		title:'修改图片信息',
+		  type: 1,
+		  skin: 'layui-layer-demo', //样式类名
+		  closeBtn: 0, //不显示关闭按钮
+		  anim: 2,
+		  shadeClose: true, //开启遮罩关闭
+		  btn: ['确定', '取消'] ,//按钮
+		  content: $('#editphoto'),
+		   yes: function(){
+		   	$(".fileinput-upload-button").click();
+		  }
+		});
+	});
 		
 	$('.fa-exclamation-circle').mouseover(function() {
 		$(this).next('.hiddenIntroduce').show();
@@ -242,7 +258,7 @@ $(document).ready(function(){
 					'</td><td class="center">'+msg.data[i].links+
 					'</td><td class="center">'+msg.data[i].sort_num+
 					'</td><td class="center">'+msg.data[i].recommend+
-					'</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>';	
+					'</td><td><i class="fa fa-pencil areapen" title="更新信息"></i>&nbsp;&nbsp;<i class="fa fa-pencil photopen" title="更新信息"></i></td></tr>';	
                    }   
                     $("#tbody").append(str);
                     
