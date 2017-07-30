@@ -213,8 +213,7 @@
 							console.log(valArr);
 							var nameStr=new Array;
 							for(var i=0;i<valArr.length;i++){
-							console.log($("#tbody tr").eq(valArr[i]).html());
-                             nameStr[i]=$("#tbody tr").eq(valArr[i]).find("td:child(3)").val();
+                             nameStr[i]=$("#tbody tr").eq(valArr[i]).find("td:eq(2)").html();
 							}
 							console.log(nameStr);
 							//
