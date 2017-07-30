@@ -192,7 +192,7 @@
 						$("input[name=allcheck]").prop("checked", false);
 					}
 					if(chk>=1){
-							$('#delInfo').attr('class','btn btn-primary btn-myown');console.log(11);
+							$('#delInfo').attr('class','btn btn-primary btn-myown');
 					}else{
 						$('#delInfo').attr('class','btn btn-default btn-myown');
 					}
@@ -211,31 +211,45 @@
 						}, 
 						function() {
 							console.log(valArr);
+							var nameStr=new Array;
+							console.log($("#trId_valArr[0]").val());
+							
+							for(var i=0;i<valArr.length;i++){
+
+							}
+							
 							//
-							// var data = {
-			    //                 product_name:$("#form-username").val()
-			    //             }
-							// $.ajax({
-			    //                 type: "delete",
-			    //                 url:"/product/product_os",
-			    //                 async: false,
-			    //                 data:data,
-			    //                 success: function(msg) {
-			    //                     var data = JSON.parse(msg);
-			    //                     console.log(msg);
+							var data = {
+			                    product_name:$("#form-username").val()
+			                }
+							$.ajax({
+			                    type: "delete",
+			                    url:"/product/product_os",
+			                    async: false,
+			                    data:data,
+			                    success: function(msg) {
+			                        var data = JSON.parse(msg);
+			                        console.log(msg);
+			                        delData(valArr);
+			                        layer.closeAll();
+									layer.msg('删除成功', {
+									icon: 1,
+									time:600
+								    });
+								    productadd();
 			                       
-			    //                 },
-			    //                 error:function(){
-			    //                     console.log("error");
-			    //                 }
-			    //             });
+			                    },
+			                    error:function(){
+			                        layer.closeAll();
+									layer.msg('删除失败', {
+									icon: 1,
+									time:600
+								    });
+			                    }
+			                });
 							//
-							delData(valArr);
-							layer.closeAll();
-							layer.msg('删除成功', {
-							icon: 1,
-							time:600
-						    });
+							
+							
 						    $('#delInfo').attr("disabled","disabled");
 						    $('#delInfo').attr('class','btn btn-default btn-myown');
 						},
@@ -256,6 +270,7 @@
 				}
 				
 				function delData(valArr){
+					console.log(valArr);
 					for(var i=0;i<valArr.length;i++){
 						$('#trId_'+valArr[i]).remove();
 					}
