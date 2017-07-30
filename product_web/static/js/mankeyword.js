@@ -1,4 +1,3 @@
-
 $(function() {
 	//全选按钮
 	$("#zx_checkedAllBtn").click(function() {
@@ -44,22 +43,57 @@ $(function() {
 		getValArr(valArr);
 		
 		if(valArr.length > 0) {
-			
 			layer.confirm('您确定删除吗？', {
 				btn: ['确定', '取消'] //按钮
-			}, function() {
-				console.log(valArr)
-				delData(valArr);
-				layer.closeAll();
-				layer.msg('删除成功', {
-				icon: 1,
-				time:600
+			}, 
+			function() {
+				console.log(valArr);
+				var nameStr=new Array;
+				for(var i=0;i<valArr.length;i++){
+                 nameStr[i]=$("#tbody tr").eq(valArr[i]).find("td:eq(2)").html();
+				}
+				var nameDelete="";
+				for(var j=0;j<nameStr.length;j++){
+					nameDelete=nameDelete+nameStr[j]+'/';
+				}
+				//
+				var data = {
+                    product_name:nameDelete
+                }
+                console.log(data);
+				$.ajax({
+                    type: "DELETE",
+                    url:"/product/product_os",
+                    async: false,
+                    data:data,
+                    success: function(msg) {
+                        // var data = JSON.parse(msg);
+                        console.log(msg);
+                        delData(valArr);
+                        layer.closeAll();
+						layer.msg('删除成功', {
+						icon: 1,
+						time:600
+					    });
+					    productadd();
+                       
+                    },
+                    error:function(){
+                        layer.closeAll();
+						layer.msg('删除失败', {
+						icon: 1,
+						time:600
+					    });
+                    }
+                });
+				//
+			    $('#delInfo').attr("disabled","disabled");
+			    $('#delInfo').attr('class','btn btn-default btn-myown');
+			},
+			 function() {
 			});
-			$('#delInfo').attr("disabled","disabled");
-			$('#delInfo').attr('class','btn btn-default btn-myown');
-			}, function() {
-			});
-		} else {
+		} 
+		else {
 			$('#delInfo').attr("disabled","disabled");
 		}
 	});
@@ -73,47 +107,22 @@ $(function() {
 	}
 	
 	function delData(valArr){
+		console.log(valArr);
 		for(var i=0;i<valArr.length;i++){
 			$('#trId_'+valArr[i]).remove();
 		}
 	}
 	
-	$('#delInfo1').click(function() {
-		var valArr1 = new Array;
-		getValArr1(valArr1);
-		if(valArr1.length > 0) {
-			layer.confirm('您确定删除吗？', {
-				btn: ['确定', '取消'] //按钮
-			}, function() {
-				console.log(valArr1)
-				delData1(valArr1);
-				layer.closeAll();
-				$('#delInfo1').attr("disabled","disabled");
-				$('#delInfo1').attr('class','btn btn-default btn-myown');
-			}, function() {});
-		} else {
-			$('#delInfo1').attr("disabled","disabled");
-		}
-	});
-	
-	function getValArr1(valArr1) {
-		$("#tbodyAll :checkbox").each(function(indexe, elee) {
-			if($(elee).prop("checked")) {
-				valArr1.push(indexe);
-			}
-		});
-	}
-	
-	function delData1(valArr1){
-		for(var i=0;i<valArr1.length;i++){
-			$('#trIdAll_'+valArr1[i]).remove();
-		}
-	}
 	
 	//==========
 	var layerIndex;
 	//添加
 	$('#addInfo').click(function(){
+		$('input').val("");
+		$(".fileinput-remove-button").click();
+		$(".rm_html").html("");
+		$(".btn-file").removeAttr("disabled");
+		$(".fileinput-cancel-button").addClass("hide");
 		layerIndex=layer.open({
 		title:'添加关键字',
 		  type: 1,
@@ -123,17 +132,25 @@ $(function() {
 		  btn: ['确定', '取消'] ,//按钮
 		  content: $('#addInfoContent'),
 		   yes: function(){
-		  	layer.closeAll();
-		    layer.msg('添加成功', {
-		    	icon: 1,
-			    time: 800//2s后自动关闭
-			  });
+             $(".fileinput-upload-button").click();
+             $(".rm_html").html("");
+			  	if($("#add_keyword_name").val()==""){
+                   $(".add_name_error").html("关键字名不能为空!");
+                }
+                if($("#add_source").val()==""){
+                   $(".add_source_error").html("来源不能为空!");
+                }
+                if($("#add_theme").val()==""){
+                   $(".add_theme_error").html("主题不能为空!");
+                }
 		  }
+		
 		});
 	});
-	$('.areapen').click(function(){
+	$('body').on("click",".areapen",function(){
+        $('input').val("");
 		layerIndex=layer.open({
-		title:'修改关键字',
+		title:'修改关键字信息',
 		  type: 1,
 		  skin: 'layui-layer-demo', //样式类名
 		  closeBtn: 0, //不显示关闭按钮
@@ -142,11 +159,63 @@ $(function() {
 		  btn: ['确定', '取消'] ,//按钮
 		  content: $('#editAreaContent'),
 		   yes: function(){
-		  	layer.closeAll();
-		    layer.msg('添加成功', {
-		    	icon: 1,
-			    time: 800//2s后自动关闭
-			  });
+             //
+             var data = {
+                    keyword_name:$("#edit_keyword_name").val(),
+                    source:$("#edit_source").val(),
+                    theme:$("#edit_theme").val(),
+                    ori_price:$("#edit_ori_price").val(),
+                    con_price:$("#edit_con_price").val(),
+                    postage_price:$("#edit_postage_price").val(),
+                    count_down_at:$("#edit_count_down_at").val(),
+                    description:$("#edit_description").val(),
+                    links:$("#edit_links").val(),
+                    sort_num:$("#edit_sort_num").val(),
+                    recommend:$("#edit_recommend").val()
+                }
+              $.ajax({
+                    type: "POST",
+                    url:"/product/keyword_os",
+                    async: false,
+                    data:data,
+                    success: function(msg) {
+                        // var data = JSON.parse(msg);
+                        console.log(msg);
+                        layer.closeAll();
+						    layer.msg('添加成功', {
+						    	icon: 1,
+							    time: 800//2s后自动关闭
+							  });
+						productadd();
+                        
+                    },
+                    error:function(){
+                        console.log("error");
+                        	layer.closeAll();
+						    layer.msg('添加失败', {
+						    	icon: 1,
+							    time: 800//2s后自动关闭
+							  });
+                    }
+                });
+             //
+		  
+		  }
+		});
+	});
+	$('body').on("click",".photopen",function(){
+		$(".rm_html").html("");
+		layerIndex=layer.open({
+		title:'修改图片信息',
+		  type: 1,
+		  skin: 'layui-layer-demo', //样式类名
+		  closeBtn: 0, //不显示关闭按钮
+		  anim: 2,
+		  shadeClose: true, //开启遮罩关闭
+		  btn: ['确定', '取消'] ,//按钮
+		  content: $('#editphoto'),
+		   yes: function(){
+		   	$(".fileinput-upload-button").click();
 		  }
 		});
 	});
@@ -170,184 +239,189 @@ $(function() {
 });
 });
 
-$('#file-zh').fileinput({
-    uploadUrl: '/upload/upload',
-    language: 'zh',
-    allowedFileExtensions : ['jpg', 'png','gif', 'doc'],
-    maxFileCount: 1,
-    enctype: 'multipart/form-data',
-    uploadExtraData: function(previewId, index) {   //额外参数的关键点
-                var obj = {};
-                obj.bucket = '123456';
-                obj.a11123a = 'lzh----------------';
-                return obj;
+$(document).ready(function(){
+	productadd();
+	$("#zx_checkedAllBtn").click();
+	$("#zx_checkedAllBtn").click();
+	function productadd(){
+	 $.ajax({
+            type: "GET",
+            url:"/product/keyword_os",
+            async: false,
+            success: function(msg) {
+            	console.log(msg);
+                $("#tbody").find("tr").remove();
+                 var str;
+                for(var i=0;i<msg.data.length;i++){
+					str+='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+i+
+					'</td><td class="userMessage">'+msg.data[i].name+'</td><td class="center">'+msg.data[i].img_path+
+					'</td><td class="center">'+msg.data[i].source+'</td><td class="center">'+msg.data[i].theme+
+					'</td><td class="center">'+msg.data[i].ori_price+'</td><td class="center">'+msg.data[i].con_price+
+					'</td><td class="center">'+msg.data[i].postage_price+'</td><td class="center">'+msg.data[i].description+
+					'</td><td class="center">'+msg.data[i].links+
+					'</td><td class="center">'+msg.data[i].sort_num+
+					'</td><td class="center">'+msg.data[i].recommend+
+					'</td><td><i class="fa fa-pencil areapen" title="更新信息"></i>&nbsp;&nbsp;<i class="fa fa-pencil photopen" title="更新信息"></i></td></tr>';	
+                   }   
+                    $("#tbody").append(str);
+                    
             },
-    ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('X-CSRFToken', '1234');
-            }
-        }
-});
-$('#file-zh-TW').fileinput({
-    language: 'zh-TW',
-    uploadUrl: '#',
-    allowedFileExtensions : ['jpg', 'png','gif'],
-});
-$("#file-0").fileinput({
-    'allowedFileExtensions' : ['jpg', 'png','gif'],
-});
-$("#file-1").fileinput({
-    uploadUrl: '#', // you must set a valid URL here else you will get an error
-    allowedFileExtensions : ['jpg', 'png','gif'],
-    overwriteInitial: false,
-    maxFileSize: 1000,
-    maxFilesNum: 1,
-    //allowedFileTypes: ['image', 'video', 'flash'],
-    slugCallback: function(filename) {
-        return filename.replace('(', '_').replace(']', '_');
-    }
-});
-/*
-$(".file").on('fileselect', function(event, n, l) {
-    alert('File Selected. Name: ' + l + ', Num: ' + n);
-});
-*/
-$("#file-3").fileinput({
-	showUpload: false,
-	showCaption: false,
-	browseClass: "btn btn-primary btn-lg",
-	fileType: "any",
-    previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
-});
-$("#file-4").fileinput({
-	uploadExtraData: {kvId: '10'}
-});
-$(".btn-warning").on('click', function() {
-    if ($('#file-4').attr('disabled')) {
-        $('#file-4').fileinput('enable');
-    } else {
-        $('#file-4').fileinput('disable');
-    }
-});    
-$(".btn-info").on('click', function() {
-    $('#file-4').fileinput('refresh', {previewClass:'bg-info'});
-});
-/*
-$('#file-4').on('fileselectnone', function() {
-    alert('Huh! You selected no files.');
-});
-$('#file-4').on('filebrowse', function() {
-    alert('File browse clicked for #file-4');
-});
-*/
-$(document).ready(function() {
-    $("#test-upload").fileinput({
-        'showPreview' : false,
-        'allowedFileExtensions' : ['jpg', 'png','gif'],
-        'elErrorContainer': '#errorBlock'
-    });
-    /*
-    $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
-        alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
-    });
-    */
-});
-function get_token() {
-    $.ajax({
-      url: url,
-      data: data,
-      success: success,
-      dataType: dataType
-    });
-}
+                
+            });
+	}
 
-$('#file-zh_add').fileinput({
-    uploadUrl: '/upload/upload',
-    language: 'zh',
-    allowedFileExtensions : ['jpg', 'png','gif', 'doc'],
-    maxFileCount: 1,
-    enctype: 'multipart/form-data',
-    uploadExtraData: function(previewId, index) {   //额外参数的关键点
-                var obj = {};
-                obj.bucket = '123456';
-                obj.a11123a = 'lzh----------------';
-                return obj;
-            },
-    ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('X-CSRFToken', '1234');
+    $('#file-zh_add').fileinput({
+        uploadUrl: '/product/keyword_os',
+        //language: 'zh',
+        allowedFileExtensions : ['jpg', 'png','gif'],
+        maxFileCount: 1,
+		showCaption: false,
+        enctype: 'multipart/form-data',
+        uploadExtraData: function(previewId, index) {   //额外参数的关键点
+			var obj = {};
+			if($("#add_keyword_name").val()!=""){
+			obj.product_name = $("#add_keyword_name").val();
+		    }
+		    if($("#add_source").val()!=""){
+			obj.source = $("#add_source").val();
+		    }
+		    if($("#add_theme").val()!=""){
+			obj.theme = $("#add_theme").val();
+		    }
+		    if($("#add_ori_price").val()!=""){
+			obj.ori_price = $("#add_ori_price").val();
+	    	}
+	    	if($("#add_con_price").val()!=""){
+			obj.con_price = $("#add_con_price").val();
+	    	}
+	    	if($("#add_postage_price").val()!=""){
+			obj.postage_price = $("#add_postage_price").val();
+		    }
+		    if($("#add_description").val()!=""){
+			obj.description = $("#add_description").val();
+		    }
+		    if($("#add_like_add_count").val()!=""){
+			obj.links = $("#add_like_add_count").val();
+		    }
+		    if($("#add_sort_num").val()!=""){
+			obj.sort_num = $("#add_sort_num").val();
+		    }
+			if($("#add_recommend").val()=="是")
+			   {obj.recommend = 1;}
+			else{obj.recommend = 0;}
+			return obj;
+		},
+        ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('X-CSRFToken', '1234');
+                }
             }
-        }
-});
-$('#file-zh-TW').fileinput({
-    language: 'zh-TW',
-    uploadUrl: '#',
-    allowedFileExtensions : ['jpg', 'png','gif'],
-});
-$("#file-0").fileinput({
-    'allowedFileExtensions' : ['jpg', 'png','gif'],
-});
-$("#file-1").fileinput({
-    uploadUrl: '#', // you must set a valid URL here else you will get an error
-    allowedFileExtensions : ['jpg', 'png','gif'],
-    overwriteInitial: false,
-    maxFileSize: 1000,
-    maxFilesNum: 1,
-    //allowedFileTypes: ['image', 'video', 'flash'],
-    slugCallback: function(filename) {
-        return filename.replace('(', '_').replace(']', '_');
-    }
-});
-/*
-$(".file").on('fileselect', function(event, n, l) {
-    alert('File Selected. Name: ' + l + ', Num: ' + n);
-});
-*/
-$("#file-3").fileinput({
-	showUpload: false,
-	showCaption: false,
-	browseClass: "btn btn-primary btn-lg",
-	fileType: "any",
-    previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
-});
-$("#file-4").fileinput({
-	uploadExtraData: {kvId: '10'}
-});
-$(".btn-warning").on('click', function() {
-    if ($('#file-4').attr('disabled')) {
-        $('#file-4').fileinput('enable');
-    } else {
-        $('#file-4').fileinput('disable');
-    }
-});    
-$(".btn-info").on('click', function() {
-    $('#file-4').fileinput('refresh', {previewClass:'bg-info'});
-});
-/*
-$('#file-4').on('fileselectnone', function() {
-    alert('Huh! You selected no files.');
-});
-$('#file-4').on('filebrowse', function() {
-    alert('File browse clicked for #file-4');
-});
-*/
-$(document).ready(function() {
-    $("#test-upload").fileinput({
-        'showPreview' : false,
-        'allowedFileExtensions' : ['jpg', 'png','gif'],
-        'elErrorContainer': '#errorBlock'
+    }).on('fileuploaded', function(event, data, previewId, index) {
+                if($("#add_keyword_name").val()==""){
+                   $(".add_name_error").html("产品名不能为空!");
+                }
+                if($("#add_source").val()==""){
+                   $(".add_source_error").html("来源不能为空!");
+                }
+                if($("#add_theme").val()==""){
+                   $(".add_theme_error").html("主题不能为空!");
+                }
+                if($("#add_name").val()!=""&&$("#add_source").val()!=""&&$("#add_theme").val()!=""){
+			      productadd();
+			      $('input').val("");
+			      $(".fileinput-remove-button").click();
+	                    layer.closeAll();
+						    layer.msg('添加成功', {
+						    	icon: 1,
+							    time: 800//2s后自动关闭
+							  });
+                }   
+		
     });
+    $('#file-zh_edit').fileinput({
+        uploadUrl: '/product/product_os',
+        //language: 'zh',
+        allowedFileExtensions : ['jpg', 'png','gif'],
+        maxFileCount: 1,
+		showCaption: false,
+        enctype: 'multipart/form-data',
+        uploadExtraData: function(previewId, index) {   //额外参数的关键点
+			var obj = {};
+			return obj;
+		},
+        ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('X-CSRFToken', '1234');
+                }
+            }
+    }).on('fileuploaded', function(event, data, previewId, index) {
+			      
+			      if((".file-drop-zone-title").val()=="Drag & drop files here …"){
+			      	$(".editphoto_error").html("请上传图片！");
+			      }
+			      else{
+			      	$(".rm_html").html("");
+			      	productadd();
+			      	$(".fileinput-remove-button").click();
+	                    layer.closeAll();
+						    layer.msg('添加成功', {
+						    	icon: 1,
+							    time: 800//2s后自动关闭
+							  });
+			      }
+			     
+    });
+    $("#file-0").fileinput({
+        'allowedFileExtensions' : ['jpg', 'png','gif'],
+    });
+    $("#file-1").fileinput({
+        uploadUrl: '#', // you must set a valid URL here else you will get an error
+        allowedFileExtensions : ['jpg', 'png','gif'],
+        overwriteInitial: false,
+        maxFileSize: 1000,
+        maxFilesNum: 1,
+        //allowedFileTypes: ['image', 'video', 'flash'],
+        slugCallback: function(filename) {
+            return filename.replace('(', '_').replace(']', '_');
+        }
+	});
     /*
-    $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
-        alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
+    $(".file").on('fileselect', function(event, n, l) {
+        alert('File Selected. Name: ' + l + ', Num: ' + n);
     });
     */
-});
-function get_token() {
-    $.ajax({
-      url: url,
-      data: data,
-      success: success,
-      dataType: dataType
+	$("#file-3").fileinput({
+		showUpload: false,
+		showCaption: false,
+		browseClass: "btn btn-primary btn-lg",
+		fileType: "any",
+        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
+	});
+	$("#file-4").fileinput({
+		uploadExtraData: {kvId: '10'}
+	});
+    $(".btn-warning").on('click', function() {
+        if ($('#file-4').attr('disabled')) {
+            $('#file-4').fileinput('enable');
+        } else {
+            $('#file-4').fileinput('disable');
+        }
+    });    
+    $(".btn-info").on('click', function() {
+        $('#file-4').fileinput('refresh', {previewClass:'bg-info'});
     });
-}
+   
+    $(document).ready(function() {
+        $("#test-upload").fileinput({
+            'showPreview' : false,
+            'allowedFileExtensions' : ['jpg', 'png','gif'],
+            'elErrorContainer': '#errorBlock'
+        });
+        /*
+        $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
+            alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
+        });
+        */
+    });
+  
+});
