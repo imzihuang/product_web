@@ -65,7 +65,7 @@
 									</tr>
 								</thead>
 								<tbody id="tbody">
-									<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">0</td><td class="userMessage">但事实上</td><td class="center">product_img/但事实上.jpg</td><td class="center">by jingdong</td><td class="center"></td><td class="center">10</td><td class="center">10</td><td class="center">10</td><td class="center">5</td><td class="center">sddd</td><td class="center">1</td><td class="center">true</td><td><i class="fa fa-pencil areapen" title="修改"></i></td></tr>
+									<tr></tr>
 								</tbody>
 							</table>
 						</div>
@@ -122,10 +122,10 @@
 			<div style="margin: 10px 0;">
 				<span>标题：</span><input type="text" />
 			</div>
-			<form enctype="multipart/form-data">
+			<!-- <form enctype="multipart/form-data">
 	            <span class="f_left">上传图片：</span>
 	            <input id="file-zh" name="file-zh[]" type="file" multiple>
-	        </form>
+	        </form> -->
 			<div style="margin: 10px 0;">
 				<span>来源：</span><input type="text" />
 			</div>
@@ -357,7 +357,7 @@ $(document).ready(function(){
             url:"/product/product_os",
             async: false,
             success: function(msg) {
-                // $("#tbody").find("tr").remove();
+                $("#tbody").find("tr").remove();
                  var str;
                 for(var i=0;i<msg.data.length;i++){
 					str+='<tr class="gradeX"><td><input type="checkbox" class="zx_checkedBtn"></td><td class="centerSort">'+i+
