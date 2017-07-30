@@ -361,7 +361,7 @@ $(document).ready(function(){
 			      }
 			      else{
 			      	$(".rm_html").html("");
-			      	productadd();
+			      	productadd();console.log(100);
 			      }
 			      $(".fileinput-remove-button").click();
 	                    layer.closeAll();
