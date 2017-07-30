@@ -148,7 +148,9 @@ $(function() {
 		});
 	});
 	$('body').on("click",".areapen",function(){
+		var old_name=$(this).parent().find(".userMessage").html();
         $('input').val("");
+        $("#edit_product_name").html(old_name);
 		layerIndex=layer.open({
 		title:'修改产品信息',
 		  type: 1,
@@ -162,6 +164,7 @@ $(function() {
              //
              var data = {
                     product_name:$("#edit_product_name").val(),
+                    new_name:$("#edit_new_name").val(),
                     source:$("#edit_source").val(),
                     theme:$("#edit_theme").val(),
                     ori_price:$("#edit_ori_price").val(),
@@ -423,7 +426,7 @@ $(document).ready(function(){
         });
         */
     });
-   
+
   
 });
  function gomk(){
