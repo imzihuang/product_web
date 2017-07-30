@@ -133,6 +133,7 @@ $(function() {
 		  content: $('#addInfoContent'),
 		   yes: function(){
              $(".fileinput-upload-button").click();
+             $(".rm_html").html("");
 			  	if($("#add_name").val()==""){
                    $(".add_name_error").html("产品名不能为空!");
                 }
