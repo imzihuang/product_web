@@ -150,7 +150,7 @@ $(function() {
 	$('body').on("click",".areapen",function(){
 		var old_name=$(this).parent().parent().find(".userMessage").html();
         $('input').val("");
-        $("#edit_product_name").attr(old_name);
+        $("#edit_product_name").value(old_name);
 		layerIndex=layer.open({
 		title:'修改产品信息',
 		  type: 1,
