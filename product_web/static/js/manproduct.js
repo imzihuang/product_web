@@ -202,7 +202,6 @@ $(function() {
 		});
 	});
 	$('body').on("click",".photopen",function(){
-        $('input').val("");
 		layerIndex=layer.open({
 		title:'修改图片信息',
 		  type: 1,
@@ -333,7 +332,32 @@ $(document).ready(function(){
                 }   
 		
     });
-    
+    $('#file-zh_edit').fileinput({
+        uploadUrl: '/product/product_os',
+        //language: 'zh',
+        allowedFileExtensions : ['jpg', 'png','gif'],
+        maxFileCount: 1,
+		showCaption: false,
+        enctype: 'multipart/form-data',
+        uploadExtraData: function(previewId, index) {   //额外参数的关键点
+			var obj = {};
+			return obj;
+		},
+        ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('X-CSRFToken', '1234');
+                }
+            }
+    }).on('fileuploaded', function(event, data, previewId, index) {
+			      productadd();
+			      $('input').val("");
+			      $(".fileinput-remove-button").click();
+	                    layer.closeAll();
+						    layer.msg('添加成功', {
+						    	icon: 1,
+							    time: 800//2s后自动关闭
+							  });
+    });
     $("#file-0").fileinput({
         'allowedFileExtensions' : ['jpg', 'png','gif'],
     });
