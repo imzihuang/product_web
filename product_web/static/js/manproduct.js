@@ -316,7 +316,7 @@ $(document).ready(function(){
                     xhr.setRequestHeader('X-CSRFToken', '1234');
                 }
             }
-    }).on('fileuploaded', function(event, data, previewId, index) {
+    }).on('fileuploaded', function(event, data, previewId, index) {console.log(200);
                 if($("#add_name").val()==""){
                    $(".add_name_error").html("产品名不能为空!");
                 }
