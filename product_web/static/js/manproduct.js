@@ -205,6 +205,7 @@ $(function() {
 		});
 	});
 	$('body').on("click",".photopen",function(){
+		$(".rm_html").html("");
 		layerIndex=layer.open({
 		title:'修改图片信息',
 		  type: 1,
@@ -355,7 +356,12 @@ $(document).ready(function(){
             }
     }).on('fileuploaded', function(event, data, previewId, index) {
 			      productadd();
-			      $('input').val("");
+			      if((".file-drop-zone-title").val()=="Drag & drop files here …"){
+			      	$(".editphoto_error").html("请上传图片！");
+			      }
+			      else{
+			      	$(".rm_html").html("");
+			      }
 			      $(".fileinput-remove-button").click();
 	                    layer.closeAll();
 						    layer.msg('添加成功', {
