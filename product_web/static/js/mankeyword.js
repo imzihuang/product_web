@@ -300,9 +300,6 @@ $(document).ready(function(){
 		    if($("#add_description").val()!=""){
 			obj.description = $("#add_description").val();
 		    }
-		    if($("#add_like_add_count").val()!=""){
-			obj.links = $("#add_like_add_count").val();
-		    }
 		    if($("#add_sort_num").val()!=""){
 			obj.sort_num = $("#add_sort_num").val();
 		    }
@@ -424,7 +421,8 @@ $(document).ready(function(){
         });
         */
     });
-   function gomp(){
+   
+});
+function gomp(){
 	    		 window.location.href="/manage/mankeyword.html";
 	    	}
-});
