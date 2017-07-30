@@ -423,8 +423,9 @@ $(document).ready(function(){
         });
         */
     });
-    function gomk(){
-	    		 window.location.href="/manage/mankeyword.html";
-	    	}
+   
   
 });
+ function gomk(){
+	    		 window.location.href="/manage/mankeyword.html";
+	    	}
