@@ -249,7 +249,7 @@
 					$('input').val("");
 					$(".fileinput-remove-button").click();
 					$(".rm_html").html("");
-					$(".btn-file").disabled=false;
+					$(".btn-file").removeAttr("disabled");
 					$(".fileinput-cancel-button").addClass("hide");
 					layerIndex=layer.open({
 					title:'添加产品',
