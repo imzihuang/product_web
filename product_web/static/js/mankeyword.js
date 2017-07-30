@@ -63,7 +63,7 @@ $(function() {
                 console.log(data);
 				$.ajax({
                     type: "DELETE",
-                    url:"/product/product_os",
+                    url:"/product/keyword_os",
                     async: false,
                     data:data,
                     success: function(msg) {
@@ -306,9 +306,12 @@ $(document).ready(function(){
 		    if($("#add_sort_num").val()!=""){
 			obj.sort_num = $("#add_sort_num").val();
 		    }
-			if($("#add_recommend").val()=="是")
-			   {obj.recommend = 1;}
-			else{obj.recommend = 0;}
+			if($("#add_recommend").val()=="是"){
+				obj.recommend = 1;
+			}
+			else{
+				obj.recommend = 0;
+			}
 			return obj;
 		},
         ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
@@ -318,7 +321,7 @@ $(document).ready(function(){
             }
     }).on('fileuploaded', function(event, data, previewId, index) {
                 if($("#add_keyword_name").val()==""){
-                   $(".add_name_error").html("产品名不能为空!");
+                   $(".add_name_error").html("关键字名不能为空!");
                 }
                 if($("#add_source").val()==""){
                    $(".add_source_error").html("来源不能为空!");
@@ -339,7 +342,7 @@ $(document).ready(function(){
 		
     });
     $('#file-zh_edit').fileinput({
-        uploadUrl: '/product/product_os',
+        uploadUrl: '/product/keyword_os',
         //language: 'zh',
         allowedFileExtensions : ['jpg', 'png','gif'],
         maxFileCount: 1,

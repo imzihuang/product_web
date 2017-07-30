@@ -5,6 +5,7 @@ import os
 from tornado.web import RequestHandler
 from datetime import datetime
 from logic import keyword as loc_keywod
+from common.log_client import gen_log
 
 class KeywordHandler(RequestHandler):
     def get(self, *args, **kwargs):
@@ -28,11 +29,12 @@ class KeywordHandler(RequestHandler):
         img_path = ""
         keyword_name = self.get_argument("keyword_name", "")
         theme = self.get_argument("theme", '')
+        gen_log.info("--------name, theme:%s, %s"%(keyword_name, theme))
         if not keyword_name:
-            self.finish({'state': '3', 'message': 'keyword name is none', 'error': 'product name is none'})
+            self.finish({'state': '3', 'message': 'keyword name is none', 'error': 'keyword name is none'})
             return
         if not theme:
-            self.finish({'state': '4', 'message': 'keyword theme is none', 'error': 'product theme is none'})
+            self.finish({'state': '4', 'message': 'keyword theme is none', 'error': 'keyword theme is none'})
             return
         for meta in file_metas:
             filename = meta['filename']
@@ -69,7 +71,7 @@ class KeywordHandler(RequestHandler):
         """update keyword"""
         keyword_name = self.get_argument("keyword_name", "")
         if not keyword_name:
-            self.finish({'state': '3', 'message': 'product name is none'})
+            self.finish({'state': '3', 'message': 'keyword name is none'})
             return
         update_data = {}
         file_metas = self.request.files.get('keyword_img', 'file')
@@ -79,7 +81,7 @@ class KeywordHandler(RequestHandler):
             for meta in file_metas:
                 filename = meta['filename']
                 filename = keyword_name + "." + filename.rpartition(".")[-1] #rename img meta
-                img_path = os.path.join("product_img", filename)
+                img_path = os.path.join("keyword_img", filename)
                 filepath = os.path.join(upload_path, img_path)
                 with open(filepath, 'wb') as up:
                     up.write(meta['body'])
@@ -124,7 +126,7 @@ class KeywordHandler(RequestHandler):
             update_data.update({"recommend": recommend})
 
         if update_data:
-            _ = loc_keywod.update_product(update_data, {"name": [keyword_name]})
+            _ = loc_keywod.update_keyword(update_data, {"name": [keyword_name]})
             if not _:
                 self.finish({'state': '2', 'message': 'update keyword faild'})
                 return
