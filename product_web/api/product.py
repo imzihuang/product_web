@@ -34,7 +34,7 @@ class ProductHandler(RequestHandler):
 
         # save img
         img_path = ""
-        product_name = self.get_argument("product_name")
+        product_name = self.get_argument("product_name", "")
         theme = self.get_argument("theme", '')
         gen_log.info('lzh----product name:%s'%product_name)
         if not product_name:

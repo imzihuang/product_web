@@ -5,6 +5,7 @@ import os
 from tornado.web import RequestHandler
 from datetime import datetime
 from logic import keyword as loc_keywod
+from common.log_client import gen_log
 
 class KeywordHandler(RequestHandler):
     def get(self, *args, **kwargs):
@@ -28,6 +29,7 @@ class KeywordHandler(RequestHandler):
         img_path = ""
         keyword_name = self.get_argument("keyword_name", "")
         theme = self.get_argument("theme", '')
+        gen_log.info("--------name, theme:%s, %s"%(keyword_name, theme))
         if not keyword_name:
             self.finish({'state': '3', 'message': 'keyword name is none', 'error': 'keyword name is none'})
             return
