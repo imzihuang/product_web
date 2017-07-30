@@ -77,7 +77,10 @@ class ProductHandler(RequestHandler):
 
     def post(self):
         """update product"""
-        product_name = self.get_argument("product_name")
+        product_name = self.get_argument("product_name", "")
+        if not product_name:
+            self.finish({'state': '3', 'message': 'product name is none'})
+            return
         update_data = {}
         file_metas = self.request.files.get('product_img', 'file')
         if file_metas:

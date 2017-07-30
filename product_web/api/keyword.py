@@ -26,7 +26,7 @@ class KeywordHandler(RequestHandler):
 
         # save img
         img_path = ""
-        keyword_name = self.get_argument("keyword_name")
+        keyword_name = self.get_argument("keyword_name", "")
         theme = self.get_argument("theme", '')
         if not keyword_name:
             self.finish({'state': '3', 'message': 'keyword name is none', 'error': 'product name is none'})
@@ -67,7 +67,10 @@ class KeywordHandler(RequestHandler):
 
     def post(self):
         """update keyword"""
-        keyword_name = self.get_argument("keyword_name")
+        keyword_name = self.get_argument("keyword_name", "")
+        if not keyword_name:
+            self.finish({'state': '3', 'message': 'product name is none'})
+            return
         update_data = {}
         file_metas = self.request.files.get('keyword_img', 'file')
         if file_metas:
