@@ -1,4 +1,4 @@
-$(document).ready(function(){
+// $(document).ready(function(){
 $(function() {
 	//全选按钮
 	$("#zx_checkedAllBtn").click(function() {
@@ -60,7 +60,7 @@ $(function() {
 				//
 				var data = {
                     keyword_name:nameDelete
-                }
+                };
                 console.log(data);
 				$.ajax({
                     type: "DELETE",
@@ -479,7 +479,7 @@ $(function() {
         */
     });
    
-});
+
 function gomp(){
 	    		 window.location.href="/manage/manproduct.html";
 	    	}
