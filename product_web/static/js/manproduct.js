@@ -305,6 +305,7 @@ $(function() {
 	}
 
     $('#file-zh_add').fileinput({
+    	type: "PUT",
         uploadUrl: '/product/product_os',
         //language: 'zh',
         allowedFileExtensions : ['jpg', 'png','gif'],
@@ -373,6 +374,7 @@ $(function() {
 		
     });
     $('#file-zh_edit').fileinput({
+    	type: "POST",
         uploadUrl: '/product/product_os',
         //language: 'zh',
         allowedFileExtensions : ['jpg', 'png','gif'],
