@@ -115,7 +115,7 @@ def update_product(productinfo, con_dic):
 def del_product(product_name):
     try:
         session = get_session()
-        query = api.model_query(session, "Product", {"name": [product_name]})
+        query = api.model_query(session, "Product", {"name": product_name if isinstance(product_name, list) else [product_name]})
         query.delete(synchronize_session=False)
         session.commit()
         return True

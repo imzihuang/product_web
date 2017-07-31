@@ -91,7 +91,7 @@ def update_keyword(keywordinfo, con_dic):
 def del_keyword(keyword_name):
     try:
         session = get_session()
-        query = api.model_query(session, "ProductKeyword", {"name": [keyword_name]})
+        query = api.model_query(session, "ProductKeyword", {"name": keyword_name if isinstance(keyword_name, list) else [keyword_name]})
         query.delete(synchronize_session=False)
         session.commit()
         return True

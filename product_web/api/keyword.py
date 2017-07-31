@@ -135,6 +135,7 @@ class KeywordHandler(RequestHandler):
 
     def delete(self):
         keyword_name = self.get_argument("keyword_name")
+        keyword_name = keyword_name.split("|")
         _ = loc_keywod.del_keyword(keyword_name)
         if not _:
             self.finish({'state': '1', 'message': 'delete keyword faild'})

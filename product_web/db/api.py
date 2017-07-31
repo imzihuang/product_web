@@ -85,7 +85,6 @@ def get_pv_count(session, ip="", html=""):
         query = query.filter(models.Product_PV.ip == ip)
     if html:
         query = query.filter(models.Product_PV.html == html)
-    return query
-
+    return query.group_by(models.Product_PV.ip).group_by(models.Product_PV.html)
 
 
