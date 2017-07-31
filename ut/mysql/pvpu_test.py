@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from datetime import datetime
+import datetime
 from logic import pvpu
 
 class SqlTestCase(unittest.TestCase):
@@ -19,6 +19,7 @@ class SqlTestCase(unittest.TestCase):
         current_date = datetime.datetime.now().strftime('%Y-%m-%d')+ " 00:00:00"
         #_ = pvpu.get_pu("ip", "html", current_month)
         _ = pvpu.get_pv("ip", "html")
+        print _
 
 
 
