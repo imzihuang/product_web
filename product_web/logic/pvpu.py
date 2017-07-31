@@ -40,7 +40,7 @@ def pu_add(ip, html, product_id="", product_name=""):
         else:
             current_pu = query.first()
             query.update({
-                models.Product_PU.pu_count: current_pu +1
+                models.Product_PU.pu_count: current_pu.pu_count +1
             })
         session.commit()
         return True
