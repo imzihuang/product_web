@@ -241,7 +241,7 @@ img { max-width: 100%; }
 .all-items .row{margin: 0px;padding-left:10px;padding-right: 10px; }
 .all-items .col-sm-6,.all-items .col-md-3{padding-left:0px;padding-right: 0px;}
 .likeList{height:22px;width: 100%;}
-.likeList a img{height: 75%;width: auto;float: right;}
+.likeList a img{height: 75% !important;width: auto!important;float: right;}
 .likeList span{float: right;color: #febd69;}
 .aboutHelp a{color: #0066c0;text-decoration: underline;}
 .all-items .timedown{margin: 0;font-size: 12px;font-weight: bold;}
