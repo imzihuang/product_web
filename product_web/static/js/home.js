@@ -21,7 +21,7 @@ $(document).ready(function(){
                    msg.data[i].postage_price+'</span></p><a><span class="timedown">Start for you in：</span><ul class="countdown"><li> <span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a><p class="aboutHelp"><a>how to claim it?</a></p><div class="likeList"><span class="f_left"><a>share</a></span><span class="likecount">100</span><a ><img src="img/unlike.png"></a></div></div></div></div>'
                     	
                    }   
-                    $(".listPart").append(str);    
+                    $("#listPart").append(str);    
             },
         });
     }
