@@ -9,6 +9,7 @@ $(document).ready(function(){
             async: false,
             success: function(msg) {
                 $(".listPart").find("col-sm-6").remove();
+                console.log(msg);
                  var str;
                 for(var i=0;i<msg.data.length;i++){
 					str+='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].keyword_img+
