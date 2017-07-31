@@ -10,6 +10,11 @@ ul,li{
 	padding: 0;
 	list-style: none;
 }
+.thumbnail a>img, .thumbnail>img{
+	height: 100px;
+	width: auto;
+	max-width: 100%;
+}
 #addInfoContent span{
 	text-align: right;
 	width: 85px;
