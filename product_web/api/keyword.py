@@ -75,7 +75,7 @@ class KeywordHandler(RequestHandler):
             self.finish({'state': '3', 'message': 'keyword name is none'})
             return
         update_data = {}
-        file_metas = self.request.files.get('keyword_img', 'file')
+        file_metas = self.request.files.get('keyword_img', '')
         if file_metas:
             img_path = ""
             upload_path = os.path.join(os.path.dirname(__file__), 'static')
