@@ -67,7 +67,7 @@ def add_keyword(keywordinfo):
 def update_keyword(keywordinfo, con_dic):
     try:
         session = get_session()
-        name = productinfo.get("name", "")
+        name = keywordinfo.get("name", "")
         _ = verify_keyword(session, name)
         if _ != 0:
             return False
