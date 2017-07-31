@@ -1,4 +1,4 @@
-$(document).ready(function(){
+
 $(function() {
 	//全选按钮
 	$("#zx_checkedAllBtn").click(function() {
@@ -60,7 +60,7 @@ $(function() {
 				//
 				var data = {
                     product_name:nameDelete
-                }
+                };
                 console.log(data);
 				$.ajax({
                     type: "DELETE",
@@ -485,7 +485,7 @@ $(function() {
     });
 
   
-});
+
  function gomk(){
 	    		 window.location.href="/manage/mankeyword.html";
 	    	}
