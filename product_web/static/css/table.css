@@ -11,9 +11,9 @@ ul,li{
 	list-style: none;
 }
 .thumbnail a>img, .thumbnail>img{
-	height: 100px;
-	width: auto;
-	max-width: 100%;
+	height: 100px !important;
+	width: auto !important;
+	max-width: 100% !important;
 }
 .fa-photo{color: #f3a847;}
 #addInfoContent span{
