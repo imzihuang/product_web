@@ -8,7 +8,7 @@ $(document).ready(function(){
             url:"/product/keyword_os",
             async: false,
             success: function(msg) {
-                $("#listPart").find("div").remove();
+                // $("#listPart").find("div").remove();
                 console.log(msg);
                  var str;
                 for(var i=0;i<msg.data.length;i++){
