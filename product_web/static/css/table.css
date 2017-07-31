@@ -15,6 +15,7 @@ ul,li{
 	width: auto;
 	max-width: 100%;
 }
+.fa-photo{color: #f3a847;}
 #addInfoContent span{
 	text-align: right;
 	width: 85px;
