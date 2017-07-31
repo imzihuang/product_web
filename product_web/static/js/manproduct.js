@@ -374,7 +374,10 @@ $(function() {
 		showCaption: false,
         enctype: 'multipart/form-data',
         uploadExtraData: function(previewId, index) {   //额外参数的关键点
+        	var old_name=$(this).parent().parent().find(".userMessage").html();
+	        $("#edit_product_name").val(old_name);
 			var obj = {};
+			obj.product_name = $("#edit_product_name").val();
 			return obj;
 		},
         ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
