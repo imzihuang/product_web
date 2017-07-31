@@ -234,6 +234,9 @@ $(function() {
 	});
 	$('body').on("click",".photopen",function(){
 		$(".rm_html").html("");
+		var p_name=$(this).parent().parent().find(".userMessage").html();
+        $("#editphoto_product_name").val(p_name);
+        
 		layerIndex=layer.open({
 		title:'修改图片信息',
 		  type: 1,
@@ -374,11 +377,8 @@ $(function() {
 		showCaption: false,
         enctype: 'multipart/form-data',
         uploadExtraData: function(previewId, index) {   //额外参数的关键点
-        	var old_name=$(this).parent().parent().find(".userMessage").html();
-	        var old_nameval=$("#editphoto_product_name").val(old_name);
-	        console.log(old_nameval);
 			var obj = {};
-			obj.product_name = old_nameval;
+			obj.product_name = $("#editphoto_product_name").val();
 			return obj;
 		},
         ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
@@ -386,8 +386,7 @@ $(function() {
                     xhr.setRequestHeader('X-CSRFToken', '1234');
                 }
             }
-    }).on('fileuploaded', function(event, data, previewId, index) {
-			      
+    }).on('fileuploaded', function(event, data, previewId, index) {console.log(111);
 			      if((".file-drop-zone-title").val()=="Drag & drop files here …"){
 			      	$(".editphoto_error").html("请上传图片！");
 			      }
