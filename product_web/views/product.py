@@ -3,6 +3,7 @@
 import tornado
 from common.convert import bs2utf8
 from common.log_client import gen_log
+from base import record_pv_pu
 
 class ProductHandler(tornado.web.RequestHandler):
     def initialize(self, static_path, templates_path, **kwds):

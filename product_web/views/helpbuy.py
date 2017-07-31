@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import tornado
+from base import record_pv_pu
 
 class HelpBuyHandler(tornado.web.RequestHandler):
     def initialize(self, static_path, templates_path, **kwds):
