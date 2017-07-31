@@ -3,7 +3,7 @@
 
 import datetime
 from common.log_client import gen_log
-from db.base import get_session, get_engine
+from db.base import get_session, get_engine, json_dumps_alchemy
 from db import api, models
 
 def get_pu(ip, html, query_date):
@@ -12,9 +12,9 @@ def get_pu(ip, html, query_date):
 def get_pv(ip="", html=""):
     try:
         session = get_session()
-        query = api.get_pv_count(ip, html)
+        query = api.get_pv_count(session, ip, html)
         results = query.all()
-        return [result.to_dict() for result in results]
+        return json_dumps_alchemy(results)
     except Exception as ex:
         gen_log.error("pu query error:%r"%ex)
         return 0
