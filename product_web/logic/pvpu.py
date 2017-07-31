@@ -27,7 +27,10 @@ def pu_add(ip, html, product_id="", product_name=""):
         session = get_session()
         suffix_name = datetime.datetime.now().strftime('%Y%m')
         Product_PU = models.get_product_pu(suffix_name)
-        Product_PU.metadata.create_all(engine)
+        # If table don't exist, Create.
+        if not engine.dialect.has_table(engine, Product_PU):
+            Product_PU.metadata.create_all(engine)
+
         query = session.query(Product_PU.pu_count)
         query = query.filter(Product_PU.ip == ip and Product_PU.html == html and Product_PU.product_id == product_id)
         result = query.first()
