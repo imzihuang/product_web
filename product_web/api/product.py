@@ -144,7 +144,9 @@ class ProductHandler(RequestHandler):
                 return
         self.finish({'state': '0', 'message': 'ok'})
 
-    def delete(self):
+
+class DeleteProductHandler(RequestHandler):
+    def post(self):
         product_name = self.get_argument("product_name")
         product_name = product_name.slit("|")
         _ = loc_product.del_product(product_name)
