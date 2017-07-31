@@ -55,7 +55,7 @@ $(function() {
 				}
 				var nameDelete="";
 				for(var j=0;j<nameStr.length;j++){
-					nameDelete=nameDelete+nameStr[j]+'/';
+					nameDelete=nameDelete+nameStr[j]+'|';
 				}
 				//
 				var data = {
