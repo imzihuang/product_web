@@ -185,6 +185,7 @@ $(function() {
                     data:data,
                     success: function(msg) {
                         // var data = JSON.parse(msg);
+
                         console.log(msg);
                         layer.closeAll();
 						    layer.msg('添加成功', {
@@ -265,7 +266,7 @@ $(function() {
 					'</td><td class="center">'+msg.data[i].links+
 					'</td><td class="center">'+msg.data[i].sort_num+
 					'</td><td class="center">'+msg.data[i].recommend+
-					'</td><td><i class="fa fa-pencil areapen" title="更新信息"></i>&nbsp;&nbsp;<i class="fa fa-pencil photopen" title="更新信息"></i></td></tr>';	
+					'</td><td><i class="fa fa-pencil areapen" title="更新信息"></i>&nbsp;&nbsp;<i class="fa fa-photo photopen" title="更新图片"></i></td></tr>';	
                    }   
                     $("#tbody").append(str);
                     
