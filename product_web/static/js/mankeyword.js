@@ -59,7 +59,7 @@ $(function() {
 				}
 				//
 				var data = {
-                    keyword_name:nameDelete;
+                    keyword_name:nameDelete
                 };
                 console.log(data);
 				$.ajax({
