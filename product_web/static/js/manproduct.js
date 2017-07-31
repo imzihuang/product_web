@@ -162,22 +162,6 @@ $(function() {
 		  btn: ['确定', '取消'] ,//按钮
 		  content: $('#editAreaContent'),
 		   yes: function(){
-             //
-             // var data = {
-             //        product_name:$("#edit_product_name").val(),
-             //        new_name:$("#edit_new_name").val(),
-             //        source:$("#edit_source").val(),
-             //        theme:$("#edit_theme").val(),
-             //        ori_price:$("#edit_ori_price").val(),
-             //        con_price:$("#edit_con_price").val(),
-             //        postage_price:$("#edit_postage_price").val(),
-             //        count_down_at:$("#edit_count_down_at").val(),
-             //        description:$("#edit_description").val(),
-             //        like_add_count:$("#edit_like_add_count").val(),
-             //        links:$("#edit_links").val(),
-             //        sort_num:$("#edit_sort_num").val(),
-             //        recommend:$("#edit_recommend").val()
-             //    }
               var data = {};
                 if($("#edit_product_name").val()!=""){
                    data.product_name=$("#edit_product_name").val();
