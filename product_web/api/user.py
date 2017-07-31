@@ -57,7 +57,6 @@ class SignInHandler(RequestHandler):
         # telephone = bs2utf8(self.get_argument('telephone', ''))
         pwd = self.get_argument('pwd', '')
         affirm_pwd = self.get_argument('affirm_pwd', '')
-        real_ip =self.request.headers.get("x-real-ip", self.request.headers.get("x-forwarded-for", ""))
 
         if not pwd or pwd != affirm_pwd:
             self.finish(json.dumps({'state': 1, "message": "The two passwords don't match"}))

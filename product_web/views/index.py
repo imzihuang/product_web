@@ -28,8 +28,7 @@ class HomeHandler(tornado.web.RequestHandler):
         return self.templates_path
 
     def get(self):
-        forwarded = self.request.headers.get("x-forwarded-for", "")
-        real_iP =self.request.headers.get("x-real-ip", "")
-        gen_log.info("home:%s,%s"%(forwarded, real_iP))
+        real_ip = self.request.headers.get("x-real-ip", self.request.headers.get("x-forwarded-for", ""))
+        record_pv_pu(real_ip, "home.html")
 
         self.render('home.html', user_name=self.get_secure_cookie('user_name', ''))

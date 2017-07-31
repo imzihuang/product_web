@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 from common.log_client import gen_log
+from logic import pvpu
 
 
 def entry_id_data_args(func):
@@ -19,3 +20,13 @@ def entry_id_data_args(func):
         #    return
         func(torn_self)
     return __
+
+def record_pv_pu(ip, html):
+    try:
+        pvpu.pu_add(ip, html)
+    except Exception as ex:
+        gen_log.error("record pu error:%r"%ex)
+    try:
+        pvpu.pv_add(ip, html)
+    except Exception as ex:
+        gen_log.error("record pv error:%r" % ex)
