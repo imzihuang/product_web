@@ -404,7 +404,6 @@ $(function() {
 		showCaption: false,
         enctype: 'multipart/form-data',
         uploadExtraData: function(previewId, index) {   //额外参数的关键点
-        	console.log(112);
 			var obj = {};
 			obj.product_name = $("#editphoto_product_name").val();
 			return obj;
