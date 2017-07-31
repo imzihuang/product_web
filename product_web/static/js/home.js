@@ -12,6 +12,12 @@ $(document).ready(function(){
                 console.log(msg);
                 var str="";
                 for(var i=0;i<msg.data.length;i++){
+                	$('.countdown').downCount({
+						date: msg.data[i].count_down_at,
+						offset: +10
+					}, function () {
+						alert('倒计时结束!');
+					});  
 					str+='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
                    '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a>'+
                    msg.data[i].name+'</a></p><p class="color_gray">'+
