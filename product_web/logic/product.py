@@ -56,7 +56,7 @@ def verify_product(session, name):
     if not name:
         return 0
     query = api.model_query(session, "Product", {"name": [name]})
-    if query.count()>0:
+    if query.count() > 0:
         return 1
     return 0
 
@@ -92,10 +92,15 @@ def update_product(productinfo, con_dic):
     try:
         session = get_session()
         sort_num = productinfo.get("sort_num", 10000)
-        if sort_num==0:
+        if sort_num == 0:
             productinfo.update({"sort_num": 10000})
         if sort_num > 0 and sort_num<10000:
             api.set_product_sort_num(session, sort_num)
+
+        name = productinfo.get("name", "")
+        _ = verify_product(session, name)
+        if _ != 0:
+            return False
 
         query = api.model_query(session, "Product", con_dic)
         query.update(productinfo, synchronize_session=False)

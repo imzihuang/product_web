@@ -67,6 +67,11 @@ def add_keyword(keywordinfo):
 def update_keyword(keywordinfo, con_dic):
     try:
         session = get_session()
+        name = productinfo.get("name", "")
+        _ = verify_keyword(session, name)
+        if _ != 0:
+            return False
+
         sort_num = keywordinfo.get("sort_num", 10000)
         if sort_num == 0:
             keywordinfo.update({"sort_num": 10000})

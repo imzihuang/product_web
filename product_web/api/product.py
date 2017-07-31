@@ -78,6 +78,7 @@ class ProductHandler(RequestHandler):
     def post(self):
         """update product"""
         product_name = self.get_argument("product_name", "")
+        new_product_name = self.get_argument("new_name", "")
         if not product_name:
             self.finish({'state': '3', 'message': 'product name is none'})
             return
@@ -88,7 +89,8 @@ class ProductHandler(RequestHandler):
             upload_path = os.path.join(os.path.dirname(__file__), 'static')
             for meta in file_metas:
                 filename = meta['filename']
-                filename = product_name + "." + filename.rpartition(".")[-1] #rename img meta
+                pre_file = new_product_name or product_name
+                filename = pre_file + "." + filename.rpartition(".")[-1] #rename img meta
                 img_path = os.path.join("product_img", filename)
                 filepath = os.path.join(upload_path, img_path)
                 with open(filepath, 'wb') as up:
@@ -98,7 +100,6 @@ class ProductHandler(RequestHandler):
                 return
             update_data = {"img_path": img_path}
 
-        new_product_name = self.get_argument("new_name", "")
         if new_product_name:
             update_data.update({"name": new_product_name})
         source = self.get_argument("source", '')
