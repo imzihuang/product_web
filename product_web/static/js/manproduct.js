@@ -250,95 +250,7 @@ $(function() {
 		  content: $('#editphoto'),
 		   yes: function(){
 		   	$(".fileinput-upload-button").click();
-		   	//
-		   	$('#file-zh_edit').fileinput({
-		        uploadUrl: '/product/product_os',
-		        //language: 'zh',
-		        allowedFileExtensions : ['jpg', 'png','gif'],
-		        maxFileCount: 1,
-				showCaption: false,
-		        enctype: 'multipart/form-data',
-		        uploadExtraData: function(previewId, index) {   //额外参数的关键点
-		        	console.log(112);
-					var obj = {};
-					obj.product_name = $("#editphoto_product_name").val();
-					return obj;
 
-				},
-		        ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
-		                beforeSend: function (xhr) {
-		                    xhr.setRequestHeader('X-CSRFToken', '1234');
-		                }
-		            }
-		    }).on('fileuploaded', function(event, data, previewId, index) {console.log(111);
-					      if((".file-drop-zone-title").val()=="Drag & drop files here …"){
-					      	$(".editphoto_error").html("请上传图片！");
-					      }
-					      else{
-					      	$(".rm_html").html("");
-					      	productadd();
-					      	$(".fileinput-remove-button").click();
-			                    layer.closeAll();
-								    layer.msg('添加成功', {
-								    	icon: 1,
-									    time: 800//2s后自动关闭
-									  });
-					      }
-					     
-		    });
-		       $("#file-0").fileinput({
-			        'allowedFileExtensions' : ['jpg', 'png','gif'],
-			    });
-			    $("#file-1").fileinput({
-			        uploadUrl: '#', // you must set a valid URL here else you will get an error
-			        allowedFileExtensions : ['jpg', 'png','gif'],
-			        overwriteInitial: false,
-			        maxFileSize: 1000,
-			        maxFilesNum: 1,
-			        //allowedFileTypes: ['image', 'video', 'flash'],
-			        slugCallback: function(filename) {
-			            return filename.replace('(', '_').replace(']', '_');
-			        }
-				});
-			    /*
-			    $(".file").on('fileselect', function(event, n, l) {
-			        alert('File Selected. Name: ' + l + ', Num: ' + n);
-			    });
-			    */
-				$("#file-3").fileinput({
-					showUpload: false,
-					showCaption: false,
-					browseClass: "btn btn-primary btn-lg",
-					fileType: "any",
-			        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>"
-				});
-				$("#file-4").fileinput({
-					uploadExtraData: {kvId: '10'}
-				});
-			    $(".btn-warning").on('click', function() {
-			        if ($('#file-4').attr('disabled')) {
-			            $('#file-4').fileinput('enable');
-			        } else {
-			            $('#file-4').fileinput('disable');
-			        }
-			    });    
-			    $(".btn-info").on('click', function() {
-			        $('#file-4').fileinput('refresh', {previewClass:'bg-info'});
-			    });
-			   
-			    $(document).ready(function() {
-			        $("#test-upload").fileinput({
-			            'showPreview' : false,
-			            'allowedFileExtensions' : ['jpg', 'png','gif'],
-			            'elErrorContainer': '#errorBlock'
-			        });
-			        /*
-			        $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
-			            alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
-			        });
-			        */
-			    });
-            //
 		  }
 		});
 	});
@@ -460,7 +372,41 @@ $(function() {
                 }   
 		
     });
-    
+    $('#file-zh_edit').fileinput({
+        uploadUrl: '/product/product_os',
+        //language: 'zh',
+        allowedFileExtensions : ['jpg', 'png','gif'],
+        maxFileCount: 1,
+		showCaption: false,
+        enctype: 'multipart/form-data',
+        uploadExtraData: function(previewId, index) {   //额外参数的关键点
+        	console.log(112);
+			var obj = {};
+			obj.product_name = $("#editphoto_product_name").val();
+			return obj;
+
+		},
+        ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('X-CSRFToken', '1234');
+                }
+            }
+    }).on('fileuploaded', function(event, data, previewId, index) {console.log(111);
+			      if((".file-drop-zone-title").val()=="Drag & drop files here …"){
+			      	$(".editphoto_error").html("请上传图片！");
+			      }
+			      else{
+			      	$(".rm_html").html("");
+			      	productadd();
+			      	$(".fileinput-remove-button").click();
+	                    layer.closeAll();
+						    layer.msg('添加成功', {
+						    	icon: 1,
+							    time: 800//2s后自动关闭
+							  });
+			      }
+			     
+    });
     $("#file-0").fileinput({
         'allowedFileExtensions' : ['jpg', 'png','gif'],
     });
