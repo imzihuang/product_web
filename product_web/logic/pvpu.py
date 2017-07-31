@@ -24,7 +24,7 @@ def get_pv(ip="", html=""):
 def pu_add(ip, html, product_id="", product_name=""):
     try:
         session = get_session()
-        current_month = datetime.datetime.now().strftime('%Y-%m')
+        current_month = datetime.datetime.now().strftime('%Y-%m')+"-00 00:00:00"
         query = api.model_query(session, "Product_PU", {"ip": [ip], "html": [html], "visit_date": [current_month]})
         if query.count() == 0:
             data = {
@@ -35,10 +35,9 @@ def pu_add(ip, html, product_id="", product_name=""):
                 "pu_count": 1,
                 "visit_date": current_month
             }
-            data = api.convert_model("Product_PV", data)
+            data = api.convert_model("Product_PU", data)
             session.add(data)
         else:
-            pu_count = result[0] + 1
             query.update({
                 models.Product_PU.pu_count: models.Product_PU.pu_count +1
             })
@@ -53,7 +52,8 @@ def pu_add(ip, html, product_id="", product_name=""):
 def pv_add(ip, html, product_id="", product_name=""):
     try:
         session = get_session()
-        current_date = datetime.datetime.now().strftime('%Y-%m-%d')
+        current_date = datetime.datetime.now().strftime('%Y-%m-%d')+ " 00:00:00"
+        gen_log.info("----------------current_date:%s"%current_date)
         query = api.model_query(session, "Product_PV", {"ip": [ip], "html": [html], "visit_date": [current_date]})
         if query.count() > 0:
             return 0
