@@ -386,8 +386,7 @@ $(function() {
                     xhr.setRequestHeader('X-CSRFToken', '1234');
                 }
             }
-    }).on('fileuploaded', function(event, data, previewId, index) {
-			      
+    }).on('fileuploaded', function(event, data, previewId, index) {console.log(111);
 			      if((".file-drop-zone-title").val()=="Drag & drop files here …"){
 			      	$(".editphoto_error").html("请上传图片！");
 			      }
