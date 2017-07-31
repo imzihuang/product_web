@@ -8,7 +8,7 @@ $(document).ready(function(){
             url:"/product/keyword_os",
             async: false,
             success: function(msg) {
-                $(".listPart").html("");
+                $("#listPart").html("");
                 console.log(msg);
                  var str;
                 for(var i=0;i<msg.data.length;i++){
