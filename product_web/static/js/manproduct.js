@@ -59,7 +59,7 @@ $(function() {
 				}
 				//
 				var data = {
-                    product_name:nameDelete
+                    product_name:nameDelete;
                 };
                 console.log(data);
 				$.ajax({
