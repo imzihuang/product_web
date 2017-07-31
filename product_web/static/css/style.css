@@ -35,8 +35,8 @@ img { max-width: 100%; }
 ::-moz-selection { background: #febd69; color: #fff; text-shadow: none; }
 ::selection { background: #febd69; color: #fff; text-shadow: none; }
 
-.thumbnail a>img, .thumbnail>img{
-	height: 100px;
+#listPart .thumbnail a>img,#listPart  .thumbnail>img{
+	height: 120px;
 	width: auto;
 	max-width: 100%;
 }
