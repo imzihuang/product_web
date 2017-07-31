@@ -16,7 +16,7 @@ $(document).ready(function(){
 						date: msg.data[i].count_down_at,
 						offset: +10
 					}, function () {
-						if (date=="") {return false;}
+						
 					});  
 					str+='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
                    '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a>'+
@@ -41,12 +41,12 @@ $(document).ready(function(){
 			$(this).attr("src","img/unlike.png");
 		}
 	});
-	$('.countdown').downCount({
-		date: '12/24/2017 12:44:00',
-		offset: +10
-	}, function () {
-		alert('倒计时结束!');
-	});  
+	// $('.countdown').downCount({
+	// 	date: '12/24/2017 12:44:00',
+	// 	offset: +10
+	// }, function () {
+	// 	alert('倒计时结束!');
+	// });  
 });
 	
 function search(){
