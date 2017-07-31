@@ -71,7 +71,7 @@ class KeywordHandler(RequestHandler):
         """update keyword"""
         keyword_name = self.get_argument("keyword_name", "")
         new_keyword_name = self.get_argument("new_name", "")
-        if not keyword_name or new_keyword_name:
+        if not keyword_name:
             self.finish({'state': '3', 'message': 'keyword name is none'})
             return
         update_data = {}
@@ -81,7 +81,8 @@ class KeywordHandler(RequestHandler):
             upload_path = os.path.join(os.path.dirname(__file__), 'static')
             for meta in file_metas:
                 filename = meta['filename']
-                filename = keyword_name + "." + filename.rpartition(".")[-1] #rename img meta
+                pre_file = new_keyword_name or keyword_name
+                filename = pre_file + "." + filename.rpartition(".")[-1] #rename img meta
                 img_path = os.path.join("keyword_img", filename)
                 filepath = os.path.join(upload_path, img_path)
                 with open(filepath, 'wb') as up:
