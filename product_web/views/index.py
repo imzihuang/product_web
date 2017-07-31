@@ -3,6 +3,7 @@
 
 import tornado
 from common.log_client import gen_log
+from base import record_pv_pu
 
 class DefaultHandler(tornado.web.RequestHandler):
     def initialize(self, static_path, templates_path, product_prefix, **kwds):
