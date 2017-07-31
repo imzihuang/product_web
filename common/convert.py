@@ -599,4 +599,3 @@ def zip_list_by2(l):
     for i in xrange(len(l) / 2):
         yield l[i * 2: (i + 1) * 2]
 
-
