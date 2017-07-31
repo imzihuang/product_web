@@ -39,15 +39,19 @@ def qq_send_email(to_email, message, subject):
 
 """smtp-mail.outlook.com"""
 hot_dic_con=_conf.get_fields('hotmail')
-hot_email_user = _dic_con.get("email_user")
-hot_email_pwd  = _dic_con.get("email_pwd")
+hot_email_user = hot_dic_con.get("email_user")
+hot_email_pwd  = hot_dic_con.get("email_pwd")
 def hot_send_email(to_email, message, subject):
     try:
-        service_smtp = smtplib.SMTP_SSL("smtp-mail.outlook.com", 587)
+        #service_smtp = smtplib.SMTP("smtp-mail.outlook.com", 587)
+        service_smtp = smtplib.SMTP("smtp.live.com",587)
         msg = MIMEText(message, 'html')
         msg["Subject"] = subject
         msg["From"] = hot_email_user
         msg["To"] = to_email
+        service_smtp.ehlo() # Hostname to send for this command defaults to the fully qualified domain name of the local host.
+        service_smtp.starttls() #Puts connection to SMTP server in TLS mode
+        service_smtp.ehlo()
         service_smtp.login(hot_email_user, hot_email_pwd)
         service_smtp.sendmail(hot_email_user, to_email, msg.as_string())
         return True
