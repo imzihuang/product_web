@@ -39,9 +39,10 @@ def pu_add(ip, html, product_id="", product_name=""):
             session.add(data)
         else:
             current_pu = query.first()
-            query.update({
-                models.Product_PU.pu_count: current_pu.pu_count +1
-            })
+            current_pu.pu_count += 1
+            #query.update({
+            #    models.Product_PU.pu_count: current_pu.pu_count +1
+            #})
         session.commit()
         return True
     except Exception as ex:
