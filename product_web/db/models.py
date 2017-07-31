@@ -119,22 +119,24 @@ class Product_PV(BaseModel):
     product_name = Column(CHAR(30))
     visit_date = Column(DateTime, default=datetime.utcnow)
 
-def get_product_pu(suffix_name):
-    class Product_PU(DynamicDModel):
-        __tablename__ = "product_pu_%s"%suffix_name
-        mysql_engine='InnoDB'
-        id = Column(Integer, primary_key=True)
-        ip = Column(VARCHAR(30))
-        html = Column(VARCHAR(20))
-        product_id = Column(CHAR(36))
-        product_name = Column(CHAR(30))
-        pu_count = Column(Integer)
-
-        def to_dict(self):
-            return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
+    def to_dict(self):
+        return {c.name: getattr(self, c.name, None).strftime('%Y-%m-%d %H:%M:%S') if isinstance(getattr(self, c.name, None), datetime) else getattr(self, c.name, None) for c in self.__table__.columns}
 
 
-    return Product_PU
+class Product_PU(DynamicDModel):
+    __tablename__ = "product_pu"
+    mysql_engine = 'InnoDB'
+    id = Column(Integer, primary_key=True)
+    ip = Column(VARCHAR(30))
+    html = Column(VARCHAR(20))
+    product_id = Column(CHAR(36))
+    product_name = Column(CHAR(30))
+    pu_count = Column(Integer)
+    visit_date = Column(DateTime, default=datetime.utcnow)
+
+    def to_dict(self):
+        return {c.name: getattr(self, c.name, None).strftime('%Y-%m-%d %H:%M:%S') if isinstance(getattr(self, c.name, None), datetime) else getattr(self, c.name, None) for c in self.__table__.columns}
+
 
 
 def register_db():
