@@ -305,7 +305,30 @@ $(function() {
 	}
 
     $('#file-zh_add').fileinput({
-    	type: "PUT",
+			_ajaxSubmit: function (fnBefore, fnSuccess, fnComplete, fnError, previewId, index) {
+            var self = this, settings;
+            self._raise('filepreajax', [previewId, index]);
+            self._uploadExtra(previewId, index);
+            settings = $.extend(true, {}, {
+                xhr: function () {
+                    var xhrobj = $.ajaxSettings.xhr();
+                    return self._initXhr(xhrobj, previewId, self.getFileStack().length);
+                },
+                url: self.uploadUrl,
+                type: 'POST',
+                dataType: 'json',
+                data: self.formdata,
+                cache: false,
+                processData: false,
+                contentType: false,
+                beforeSend: fnBefore,
+                success: fnSuccess,
+                complete: fnComplete,
+                error: fnError
+            }, self.ajaxSettings);
+            self.ajaxRequests.push($.ajax(settings));
+        },
+
         uploadUrl: '/product/product_os',
         //language: 'zh',
         allowedFileExtensions : ['jpg', 'png','gif'],
