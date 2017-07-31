@@ -12,7 +12,7 @@ def get_pu(ip, html, query_date):
 def get_pv(ip="", html=""):
     try:
         session = get_session()
-        query = api.get_pv_count(ip, html)
+        query = api.get_pv_count(session, ip, html)
         results = query.all()
         return [result.to_dict() for result in results]
     except Exception as ex:
