@@ -16,7 +16,7 @@ $(document).ready(function(){
 						date: msg.data[i].count_down_at,
 						offset: +10
 					}, function () {
-						
+						if (!settings.date) {return false;}
 					});  
 					str+='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
                    '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a>'+
