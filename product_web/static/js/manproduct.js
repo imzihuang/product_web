@@ -301,74 +301,74 @@ $(function() {
             });
 	}
 
-    $('#file-zh_add').fileinput({
-        uploadUrl: '/product/product_os',
-        //language: 'zh',
-        allowedFileExtensions : ['jpg', 'png','gif'],
-        maxFileCount: 1,
-		showCaption: false,
-        enctype: 'multipart/form-data',
-        uploadExtraData: function(previewId, index) {   //额外参数的关键点
-			var obj = {};
-			if($("#add_name").val()!=""){
-			obj.product_name = $("#add_name").val();
-		    }
-		    if($("#add_source").val()!=""){
-			obj.source = $("#add_source").val();
-		    }
-		    if($("#add_theme").val()!=""){
-			obj.theme = $("#add_theme").val();
-		    }
-		    if($("#add_ori_price").val()!=""){
-			obj.ori_price = $("#add_ori_price").val();
-	    	}
-	    	if($("#add_con_price").val()!=""){
-			obj.con_price = $("#add_con_price").val();
-	    	}
-	    	if($("#add_postage_price").val()!=""){
-			obj.postage_price = $("#add_postage_price").val();
-		    }
-		    if($("#add_description").val()!=""){
-			obj.description = $("#add_description").val();
-		    }
-		    if($("#add_links").val()!=""){
-			obj.links = $("#add_links").val();
-		    }
-		    if($("#add_sort_num").val()!=""){
-			obj.sort_num = $("#add_sort_num").val();
-		    }
-			if($("#add_recommend").val()=="是")
-			   {obj.recommend = 1;}
-			else{obj.recommend = 0;}
-			return obj;
-		},
-        ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader('X-CSRFToken', '1234');
-                }
-            }
-    }).on('fileuploaded', function(event, data, previewId, index) {
-                if($("#add_name").val()==""){
-                   $(".add_name_error").html("产品名不能为空!");
-                }
-                if($("#add_source").val()==""){
-                   $(".add_source_error").html("来源不能为空!");
-                }
-                if($("#add_theme").val()==""){
-                   $(".add_theme_error").html("主题不能为空!");
-                }
-                if($("#add_name").val()!=""&&$("#add_source").val()!=""&&$("#add_theme").val()!=""){
-			      productadd();
-			      $('input').val("");
-			      $(".fileinput-remove-button").click();
-	                    layer.closeAll();
-						    layer.msg('添加成功', {
-						    	icon: 1,
-							    time: 800//2s后自动关闭
-							  });
-                }   
+  //   $('#file-zh_add').fileinput({
+  //       uploadUrl: '/product/product_os',
+  //       //language: 'zh',
+  //       allowedFileExtensions : ['jpg', 'png','gif'],
+  //       maxFileCount: 1,
+		// showCaption: false,
+  //       enctype: 'multipart/form-data',
+  //       uploadExtraData: function(previewId, index) {   //额外参数的关键点
+		// 	var obj = {};
+		// 	if($("#add_name").val()!=""){
+		// 	obj.product_name = $("#add_name").val();
+		//     }
+		//     if($("#add_source").val()!=""){
+		// 	obj.source = $("#add_source").val();
+		//     }
+		//     if($("#add_theme").val()!=""){
+		// 	obj.theme = $("#add_theme").val();
+		//     }
+		//     if($("#add_ori_price").val()!=""){
+		// 	obj.ori_price = $("#add_ori_price").val();
+	 //    	}
+	 //    	if($("#add_con_price").val()!=""){
+		// 	obj.con_price = $("#add_con_price").val();
+	 //    	}
+	 //    	if($("#add_postage_price").val()!=""){
+		// 	obj.postage_price = $("#add_postage_price").val();
+		//     }
+		//     if($("#add_description").val()!=""){
+		// 	obj.description = $("#add_description").val();
+		//     }
+		//     if($("#add_links").val()!=""){
+		// 	obj.links = $("#add_links").val();
+		//     }
+		//     if($("#add_sort_num").val()!=""){
+		// 	obj.sort_num = $("#add_sort_num").val();
+		//     }
+		// 	if($("#add_recommend").val()=="是")
+		// 	   {obj.recommend = 1;}
+		// 	else{obj.recommend = 0;}
+		// 	return obj;
+		// },
+  //       ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
+  //               beforeSend: function (xhr) {
+  //                   xhr.setRequestHeader('X-CSRFToken', '1234');
+  //               }
+  //           }
+  //   }).on('fileuploaded', function(event, data, previewId, index) {
+  //               if($("#add_name").val()==""){
+  //                  $(".add_name_error").html("产品名不能为空!");
+  //               }
+  //               if($("#add_source").val()==""){
+  //                  $(".add_source_error").html("来源不能为空!");
+  //               }
+  //               if($("#add_theme").val()==""){
+  //                  $(".add_theme_error").html("主题不能为空!");
+  //               }
+  //               if($("#add_name").val()!=""&&$("#add_source").val()!=""&&$("#add_theme").val()!=""){
+		// 	      productadd();
+		// 	      $('input').val("");
+		// 	      $(".fileinput-remove-button").click();
+	 //                    layer.closeAll();
+		// 				    layer.msg('添加成功', {
+		// 				    	icon: 1,
+		// 					    time: 800//2s后自动关闭
+		// 					  });
+  //               }   
 		
-    });
+  //   });
     $('#file-zh_edit').fileinput({
         uploadUrl: '/product/product_os',
         //language: 'zh',
