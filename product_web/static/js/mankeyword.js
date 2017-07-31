@@ -1,4 +1,4 @@
-$(document).ready(function(){
+// $(document).ready(function(){
 $(function() {
 	//全选按钮
 	$("#zx_checkedAllBtn").click(function() {
@@ -479,7 +479,7 @@ $(function() {
         */
     });
    
-});
+
 function gomp(){
 	    		 window.location.href="/manage/manproduct.html";
 	    	}
