@@ -6,8 +6,8 @@ class SqlTestCase(unittest.TestCase):
         pass
 
     def test_pu_add(self):
-        _ = pvpu.pu_add("ip", "html", "product_id", "product_name")
-        self.assertTrue(_>0)
+        _ = pvpu.pu_add("ip", "html")
+        self.assertTrue(_ > 0)
 
 
 

@@ -42,10 +42,10 @@ def pu_add(ip, html, product_id="", product_name=""):
                 models.Product_PU.pu_count: models.Product_PU.pu_count +1
             })
         session.commit()
-        return pu_count
+        return True
     except Exception as ex:
         gen_log.error("pu add error:%r" % ex)
-        return 0
+        return False
     finally:
         session.close()
 
@@ -56,7 +56,7 @@ def pv_add(ip, html, product_id="", product_name=""):
         gen_log.info("----------------current_date:%s"%current_date)
         query = api.model_query(session, "Product_PV", {"ip": [ip], "html": [html], "visit_date": [current_date]})
         if query.count() > 0:
-            return 0
+            return False
         data = {
             "ip": ip,
             "html": html,
@@ -67,10 +67,10 @@ def pv_add(ip, html, product_id="", product_name=""):
         data = api.convert_model("Product_PV", data)
         session.add(data)
         session.commit()
-        return 1
+        return True
     except Exception as ex:
         gen_log.error("pv error:%r"%ex)
-        return 0
+        return False
     finally:
         session.close()
 
