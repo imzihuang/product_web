@@ -123,7 +123,7 @@ class Product_PV(BaseModel):
         return {c.name: getattr(self, c.name, None).strftime('%Y-%m-%d %H:%M:%S') if isinstance(getattr(self, c.name, None), datetime) else getattr(self, c.name, None) for c in self.__table__.columns}
 
 
-class Product_PU(DynamicDModel):
+class Product_PU(BaseModel):
     __tablename__ = "product_pu"
     mysql_engine = 'InnoDB'
     id = Column(Integer, primary_key=True)
@@ -136,7 +136,6 @@ class Product_PU(DynamicDModel):
 
     def to_dict(self):
         return {c.name: getattr(self, c.name, None).strftime('%Y-%m-%d %H:%M:%S') if isinstance(getattr(self, c.name, None), datetime) else getattr(self, c.name, None) for c in self.__table__.columns}
-
 
 
 def register_db():
