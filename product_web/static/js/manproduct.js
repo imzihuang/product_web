@@ -165,40 +165,40 @@ $(function() {
              //
              var data = {};
                 if($("#edit_product_name").val()!=""){
-                   data.product_name:$("#edit_product_name").val();
+                   data.product_name=$("#edit_product_name").val();
                 }
                 if($("#edit_new_name").val()!=""){
-                   data.new_name:$("#edit_new_name").val();
+                   data.new_name=$("#edit_new_name").val();
                 }
                 if($("#edit_source").val()!=""){
-                   data.source:$("#edit_source").val();
+                   data.source=$("#edit_source").val();
                 }
                 if($("#edit_theme").val()!=""){
-                   data.theme:$("#edit_theme").val();
+                   data.theme=$("#edit_theme").val();
                 }
                 if($("#edit_ori_price").val()!=""){
-                   data.ori_price:$("#edit_ori_price").val();
+                   data.ori_price=$("#edit_ori_price").val();
                 }
                 if($("#edit_con_price").val()!=""){
-                   data.con_price:$("#edit_con_price").val();
+                   data.con_price=$("#edit_con_price").val();
                 }
                 if($("#edit_postage_price").val()!=""){
-                   data.postage_price:$("#edit_postage_price").val();
+                   data.postage_price=$("#edit_postage_price").val();
                 }
                 if($("#edit_count_down_at").val()!=""){
-                   data.count_down_at:$("#edit_count_down_at").val();
+                   data.count_down_at=$("#edit_count_down_at").val();
                 }
                 if($("#edit_description").val()!=""){
-                   data.description:$("#edit_description").val();
+                   data.description=$("#edit_description").val();
                 }
                 if($("#edit_like_add_count").val()!=""){
-                   data.like_add_count:$("#edit_like_add_count").val();
+                   data.like_add_count=$("#edit_like_add_count").val();
                 }
                 if($("#edit_links").val()!=""){
-                   data.like_links:$("#edit_links").val();
+                   data.like_links=$("#edit_links").val();
                 }
                  if($("#edit_sort_num").val()!=""){
-                   data.sort_num:$("#edit_sort_num").val();
+                   data.sort_num=$("#edit_sort_num").val();
                 }
                 if($("#edit_recommend").val()=="是"){data.recommend = 1;}
 				else{data.recommend = 0;}
