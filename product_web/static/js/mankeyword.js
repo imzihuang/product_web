@@ -264,7 +264,7 @@ $(function() {
 					'</td><td class="center">'+msg.data[i].postage_price+'</td><td class="center">'+msg.data[i].description+
 					'</td><td class="center">'+msg.data[i].links+
 					'</td><td class="center">'+msg.data[i].recommend+
-					'</td><td><i class="fa fa-pencil areapen" title="更新信息"></i>&nbsp;&nbsp;<i class="fa fa-pencil photopen" title="更新信息"></i></td></tr>';	
+					'</td><td><i class="fa fa-pencil areapen" title="更新信息"></i>&nbsp;&nbsp;<i class="fa fa-photo photopen" title="更新图片"></i></td></tr>';	
                    }   
                     $("#tbody").append(str);
                     
