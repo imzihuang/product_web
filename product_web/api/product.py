@@ -82,7 +82,7 @@ class ProductHandler(RequestHandler):
             self.finish({'state': '3', 'message': 'product name is none'})
             return
         update_data = {}
-        file_metas = self.request.files.get('product_img', 'file')
+        file_metas = self.request.files.get('product_img', '')
         if file_metas:
             img_path = ""
             upload_path = os.path.join(os.path.dirname(__file__), 'static')
