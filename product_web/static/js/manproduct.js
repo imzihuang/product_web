@@ -151,6 +151,7 @@ $(function() {
 	$('body').on("click",".areapen",function(){
 		var old_name=$(this).parent().parent().find(".userMessage").html();
         $('input').val("");
+        $(".btn-file").removeAttr("disabled");
         $("#edit_product_name").val(old_name);
 		layerIndex=layer.open({
 		title:'修改产品信息',
