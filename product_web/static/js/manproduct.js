@@ -233,7 +233,7 @@ $(function() {
 		});
 	});
 	$('body').on("click",".photopen",function(){
-		$("#file-zh_edit").attr("disabled",true);
+		$("#file-zh_edit").removeAttr("disabled");
 		$(".rm_html").html("");
 		var p_name=$(this).parent().parent().find(".userMessage").html();
         $("#editphoto_product_name").val(p_name);
