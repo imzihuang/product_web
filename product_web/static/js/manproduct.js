@@ -180,7 +180,7 @@ $(function() {
              //    }
               var data = {};
                 if($("#edit_product_name").val()!=""){
-                   data.product_name=$("#edit_product_name").val(),
+                   data.product_name=$("#edit_product_name").val();
                 }
                 if($("#edit_new_name").val()!=""){
                    data.new_name=$("#edit_new_name").val();
