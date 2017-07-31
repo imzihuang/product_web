@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>findpwd</title>
+        <title>Findpwd</title>
         <!-- CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/form-elements.css">
+        <link rel="stylesheet" href="css/form-elements.css">
         <link rel="stylesheet" href="css/style.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -26,43 +26,37 @@
                     
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 form-box">
-                        	<div class="form-top">
-                        		<div class="form-top-left">
-                        			<h3>找回密码</h3>
-                            		<p>请输入用户名、邮箱找回密码</p>
-                        		</div>
-                        		<div class="form-top-right">
-                        			<i class="fa fa-reply"></i>
-                        		</div>
+                            <div class="form-top">
+                                <h1>Retrieve password</h1>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="" method="post" class="login-form">
-			                    	<div class="form-group">
-			                    		<label class="sr-only" for="form-username">用户名</label>
-			                        	<input type="text" name="form-username" placeholder="用户名" class="form-username form-control" id="form-username">
-			                        </div>
-                                    <div class="">
-                                        <div class="form-group">
-                                            <label class="sr-only" for="form-email">邮箱</label>
-                                            <input type="text" name="form-email" placeholder="邮箱" class="form-email form-control" id="form-email">
-                                        </div>
+                                    <div class="form-group">
+                                    <div id="confirmerror"></div>
+                                        <label class="sr_only" for="form-username">Your name</label>
+                                        <input type="text" name="form-username" placeholder="Your name" class="form-username form-control" id="sign_form-username">
+                                        <div id="confirmname"></div>
                                     </div>
-                                    <div style="display:block">
-    			                        <div class="form-group">
-    			                        	<label class="sr-only" for="form-password">密码</label>
-    			                        	<input type="password" name="form-password" placeholder="密码" class="form-password form-control" id="form-password">
-    			                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="form-password">确认密码</label>
-                                            <input type="password" name="form-password" placeholder="确认密码" class="form-password form-control" id="form-password">
-                                        </div>
+                                    <div class="form-group">
+                                        <label class="sr_only" for="form-email">Email</label>
+                                        <input type="text" name="form-email" placeholder="Email" class="form-Email form-control" id="sign_form-Email">
+                                        <div id="confirmMsg"></div>
                                     </div>
-			                        <button type="submit" class="btn">确定</button>
-			                    </form>
-		                    </div>
+                                    <div class="form-group">
+                                        <label class="sr_only" for="form-password">Password</label>
+                                        <input type="password" name="form-password" placeholder="Password" class="form-password form-control" id="sign_form-password">
+                                        <div id="confirmpassword"></div>
+                                    </div>
+                                     <div class="form-group">
+                                        <label class="sr_only" for="form-Re-enter">Re-enter password</label>
+                                        <input type="password" name="form-Re-enter" placeholder="Re-enter password" class="form-Re-enter form-control" id="form-Re-enter">
+                                        <div id="confirmRe"></div>
+                                    </div>
+                                   
+                                    <button class="btn submitbtn" onclick="submit()">Submit</button>
+                            </div>
                         </div>
                     </div>
-                    
+                   <!---->
                 </div>
             </div>    
         </div>
@@ -74,5 +68,79 @@
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
         <![endif]-->
+         <script type="text/javascript">
+            function submit(){
+                $("#confirmRe").html("");
+                $("#confirmpassword").html("");
+                $("#confirmMsg").html("");
+                $("#confirmname").html("");
+                if ($("#form-Re-enter").val() == "") {
+                    $("#confirmRe").html("Password不能为空！");
+                    $("#form-Re-enter").focus(); 
+                }
+                if ($("#form-Re-enter").val() != $("#sign_form-password").val()) {
+                    $("#confirmRe").html("密码不统一！");
+                    $("#form-Re-enter").focus(); 
+                }
+                if ($("#sign_form-password").val() == "") {
+                    $("#confirmpassword").html("Password不能为空！");
+                    $("#sign_form-password").focus();    
+                }
+                 if ($("#sign_form-Email").val() == "") {
+                    $("#confirmMsg").html("邮箱地址不能为空！");
+                    $("#sign_form-Email").focus();  
+                }
+                if($("#sign_form-Email").val()!='' && !/.+@.+\.[a-zA-z]{2,4}$/.test($("#sign_form-Email").val())) {
+                    $("#confirmMsg").html("邮箱格式不正确！请重新输入！");
+                    $("#sign_form-Email").focus();  
+                }
+                if ($("#sign_form-username").val() == "") {
+                    $("#confirmname").html("Name不能为空！");
+                    $("#sign_form-username").focus();
+                }
+                 
+                var data = {
+                    user_name:$("#sign_form-username").val(),
+                    email:$("#sign_form-Email").val(),
+                    pwd:$("#sign_form-password").val(),
+                    affirm_pwd:$("#form-Re-enter").val()
+                }
+               
+                $.ajax({
+                    type: "POST",
+                    url:"/product/reset_pwd",
+                    async: false,
+                    data:data,
+                    success: function(msg) {
+                        console.log(msg);
+                        var data = JSON.parse(msg);
+                        console.log(data);
+                        console.log(data.state);
+                        if(data.state==0){
+                            window.location.href="/product/signin_notice.html";
+                        }
+                        else if(data.state==1){
+                            $("#confirmRe").html("密码不一致或者不满足格式！");
+                        }
+                        else if(data.state==2){
+                            $("#confirmMsg").html("邮箱格式错误！");
+                        }
+                        else if(data.state==3){
+                            $("#confirmMsg").html("邮箱和用户注册邮箱不匹配！");
+                        }
+                        else if(data.state==4){
+                            $("#confirmerror").html("创建用户失败，可能用户名或邮箱已经存在！");
+                        }
+                        else if(data.state==5){
+                          $("#confirmerror").html("发送邮件失败,请重新提交");
+                        }
+
+                    },
+                    error:function(){
+                        console.log("error");
+                    }
+                });
+            }
+        </script>
     </body>
 </html>
