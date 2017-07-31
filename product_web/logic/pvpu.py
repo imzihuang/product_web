@@ -14,7 +14,14 @@ def get_pv(ip="", html=""):
         session = get_session()
         query = api.get_pv_count(session, ip, html)
         results = query.all()
-        return json_dumps_alchemy(results)
+        _ = []
+        for result in results:
+            _.append({
+                "ip": result.ip,
+                "html": result.html,
+                "count": result[2]
+            })
+        return _
     except Exception as ex:
         gen_log.error("pu query error:%r"%ex)
         return 0
@@ -55,7 +62,6 @@ def pv_add(ip, html, product_id="", product_name=""):
     try:
         session = get_session()
         current_date = datetime.datetime.now().strftime('%Y-%m-%d')+ " 00:00:00"
-        gen_log.info("----------------current_date:%s"%current_date)
         query = api.model_query(session, "Product_PV", {"ip": [ip], "html": [html], "visit_date": [current_date]})
         if query.count() > 0:
             return False
