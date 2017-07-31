@@ -10,11 +10,7 @@ ul,li{
 	padding: 0;
 	list-style: none;
 }
-.thumbnail a>img, .thumbnail>img{
-	height: 100px !important;
-	width: auto !important;
-	max-width: 100% !important;
-}
+
 .fa-photo{color: #f3a847;}
 #addInfoContent span{
 	text-align: right;
