@@ -117,7 +117,7 @@ class Product_PV(BaseModel):
     html = Column(VARCHAR(20))
     product_id = Column(CHAR(36))
     product_name = Column(CHAR(30))
-    visit_date = Column(VARCHAR(20))
+    visit_date = Column(DateTime, default=datetime.utcnow)
 
 def get_product_pu(suffix_name):
     class Product_PU(DynamicDModel):

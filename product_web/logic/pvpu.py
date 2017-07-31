@@ -21,7 +21,7 @@ def get_pv(ip="", html=""):
     finally:
         session.close()
 
-def pu_add(ip, html, product_id, product_name):
+def pu_add(ip, html, product_id="", product_name=""):
     try:
         engine = get_engine()
         session = get_session()
@@ -29,7 +29,7 @@ def pu_add(ip, html, product_id, product_name):
         Product_PU = models.get_product_pu(suffix_name)
         Product_PU.metadata.create_all(engine)
         query = session.query(Product_PU.pu_count)
-        query = query.filter(Product_PU.ip == ip and Product_PU.html==html and Product_PU.product_id==product_id)
+        query = query.filter(Product_PU.ip == ip and Product_PU.html == html and Product_PU.product_id == product_id)
         result = query.first()
         pu_count = 1
         if not result:
@@ -53,7 +53,7 @@ def pu_add(ip, html, product_id, product_name):
     finally:
         session.close()
 
-def pv_add(ip, html, product_id, product_name):
+def pv_add(ip, html, product_id="", product_name=""):
     try:
         session = get_session()
         current_date = datetime.datetime.now().strftime('%Y%m%d')
