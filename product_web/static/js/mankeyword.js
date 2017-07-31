@@ -230,7 +230,13 @@ $(function() {
 		});
 	});
 	$('body').on("click",".photopen",function(){
+		$("#file-zh_edit").removeAttr("disabled");
 		$(".rm_html").html("");
+		var p_name=$(this).parent().parent().find(".userMessage").html();
+        $("#editphoto_product_name").val(p_name);
+        $(".fileinput-remove-button").click();
+		$(".btn-file").removeAttr("disabled");
+		$(".fileinput-cancel-button").addClass("hide");
 		layerIndex=layer.open({
 		title:'修改图片信息',
 		  type: 1,
@@ -242,6 +248,7 @@ $(function() {
 		  content: $('#editphoto'),
 		   yes: function(){
 		   	$(".fileinput-upload-button").click();
+
 		  }
 		});
 	});
@@ -284,7 +291,7 @@ $(function() {
 					'</td><td class="center">'+msg.data[i].source+'</td><td class="center">'+msg.data[i].theme+
 					'</td><td class="center">'+msg.data[i].ori_price+'</td><td class="center">'+msg.data[i].con_price+
 					'</td><td class="center">'+msg.data[i].postage_price+'</td><td class="center">'+msg.data[i].description+
-					'</td><td class="center">'+msg.data[i].links+
+					'</td><td class="center">'+msg.data[i].num+
 					'</td><td class="center">'+msg.data[i].recommend+
 					'</td><td><i class="fa fa-pencil areapen" title="更新信息"></i>&nbsp;&nbsp;<i class="fa fa-photo photopen" title="更新图片"></i></td></tr>';	
                    }   
@@ -364,6 +371,29 @@ $(function() {
 		
     });
     $('#file-zh_edit').fileinput({
+    	_ajaxSubmit: function (fnBefore, fnSuccess, fnComplete, fnError, previewId, index) {
+            var self = this, settings;
+            self._raise('filepreajax', [previewId, index]);
+            self._uploadExtra(previewId, index);
+            settings = $.extend(true, {}, {
+                xhr: function () {
+                    var xhrobj = $.ajaxSettings.xhr();
+                    return self._initXhr(xhrobj, previewId, self.getFileStack().length);
+                },
+                url: self.uploadUrl,
+                type: 'POST',
+                dataType: 'json',
+                data: self.formdata,
+                cache: false,
+                processData: false,
+                contentType: false,
+                beforeSend: fnBefore,
+                success: fnSuccess,
+                complete: fnComplete,
+                error: fnError
+            }, self.ajaxSettings);
+            self.ajaxRequests.push($.ajax(settings));
+        },
         uploadUrl: '/product/keyword_os',
         //language: 'zh',
         allowedFileExtensions : ['jpg', 'png','gif'],
@@ -372,6 +402,7 @@ $(function() {
         enctype: 'multipart/form-data',
         uploadExtraData: function(previewId, index) {   //额外参数的关键点
 			var obj = {};
+			obj.product_name = $("#editphoto_product_name").val();
 			return obj;
 		},
         ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
@@ -380,10 +411,10 @@ $(function() {
                 }
             }
     }).on('fileuploaded', function(event, data, previewId, index) {
-		if((".file-drop-zone-title").val()=="Drag & drop files here …"){
-		$(".editphoto_error").html("请上传图片！");
-		}
-		else{
+		// if((".file-drop-zone-title").val()=="Drag & drop files here …"){
+		// $(".editphoto_error").html("请上传图片！");
+		// }
+		// else{
 		$(".rm_html").html("");
 		productadd();
 		$(".fileinput-remove-button").click();
@@ -392,7 +423,7 @@ $(function() {
 					icon: 1,
 					time: 800//2s后自动关闭
 				  });
-		}
+		// }
     });
     $("#file-0").fileinput({
         'allowedFileExtensions' : ['jpg', 'png','gif'],
