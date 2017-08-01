@@ -152,7 +152,7 @@ class DeleteKeywordHandler(RequestHandler):
             upload_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "..")
             upload_path = os.path.join(upload_path, 'static')
             for keyword in _all_keyword:
-                os.remove(os.path.join(upload_path, keyword.img_path))
+                os.remove(os.path.join(upload_path, keyword.get("img_path")))
         except Exception as ex:
             gen_log.error("del product img error:%r"%ex)
         self.finish({'state': '0', 'message': 'delete keyword ok'})
