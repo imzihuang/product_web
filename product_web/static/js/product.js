@@ -18,10 +18,10 @@ $(document).ready(function(){
             async: false,
             data:data,
             success: function(msg) {
-                  var str="";
-                  var str_="";
+                  var str1="";
+                  var str1_="";
                   for(var i=0;i<msg.data.length;i++){
-                  str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
+                  str1_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
                    '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os()>'+
                    msg.data[i].name+'</a></p><p class="color_gray">'+
                    msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
@@ -32,17 +32,17 @@ $(document).ready(function(){
                    '<div class="likeList"><span class="f_left"><a class="share share_face"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter"><i class="fa fa-twitter areapen" title="twitter"></i></a><a class="share share_google"><i class="fa fa-google areapen" title="google"></i></a><a class="share share_envelope"><i class="fa fa-envelope areapen" title="envelope"></i></a></span>'+
                    '<span class="likecount">100</span><a ><img src="img/unlike.png"></a></div></div></div></div>'
                    
-                   str=str+str_;
+                   str1=str1+str1_;
                    }   
-                    $("#listPart").append(str);console.log(222);
+                    $("#listPart").append(str1);console.log(222);
                     for(var j=0;j<msg.data.length;j++){
-                      var strname="";
-                      var strclass="";
-                      var strclass='.countdown'+j;
-                      strname=msg.data[j].count_down_at;
-                      console.log(strname);
-                      $(strclass).downCount({
-                      date: strname,
+                      var str1name="";
+                      var str1class="";
+                      var str1class='.countdown'+j;
+                      str1name=msg.data[j].count_down_at;
+                      console.log(str1name);
+                      $(str1class).downCount({
+                      date: str1name,
                       offset: +10
                     }, function () {
                       $("#timedown").html('<span class="timedown">Start!</span>');
