@@ -34,9 +34,9 @@ $(document).ready(function(){
                    
                    str1=str1+str1_;
                    }   
-                    $("#listPart").append(str1);console.log(222);
+                    $("#listPart").append(str1);
                     for(var j=0;j<msg.data.length;j++){
-                      var str1name="";
+                      var str1name="";console.log(222);
                       var str1class="";
                       var str1class='.countdown'+j;
                       str1name=msg.data[j].count_down_at;
