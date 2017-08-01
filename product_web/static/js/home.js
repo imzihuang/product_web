@@ -33,7 +33,6 @@ $(document).ready(function(){
 							date: strname,
 							offset: +10
 						}, function () {
-							console.log(date);
 						}); 
 					}  
             },
