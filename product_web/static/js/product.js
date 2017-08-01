@@ -16,6 +16,7 @@ $(document).ready(function(){
                     url:"/product/product_os",
                     async: false,
                     data:data,
+                    like_query:1,
                     success: function(msg) {
                     },
                     error:function(){
@@ -29,7 +30,6 @@ $(document).ready(function(){
             type: "GET",
             url:"/product/product_os",
             async: false,
-            like_query:1,
             success: function(msg) {
                 // $("#listPart").find("div").remove();
                 console.log(msg);
