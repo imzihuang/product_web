@@ -6,6 +6,7 @@ from tornado.web import RequestHandler
 from common.convert import bs2utf8
 from logic import operation as loc_operation
 from logic import baseinfo as loc_base
+from logic import pvpu as loc_pvpu
 from common.log_client import gen_log
 from base import verify_api_login
 
@@ -84,5 +85,18 @@ class CompanyHandler(RequestHandler):
         self.finish({'state': '0', 'message': 'Update company ok'})
 
 
+class PVPUHandler(RequestHandler):
+    def get(self, *args, **kwargs):
+        method = self.get_argument("method", "")
+        if not method:
+            self.finish({'state': "1", 'message': 'Not Method', 'data': []})
+            return
+        _html = self.get_argument("page")
+        if method == "pv":
+            _ = loc_pvpu.get_pv(html=_html)
+            self.finish({'state': "0", 'message': 'Get pv ok', 'data': _})
+            return
 
+        if method == "pu":
+            pass
 

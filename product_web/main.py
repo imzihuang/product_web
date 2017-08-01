@@ -53,6 +53,7 @@ def api_handlers():
         (prefix + r'like_product$', api.LikeProductHandler),
         (prefix + r'like_keyword$', api.LikeKeywordHandler),
         (prefix + r'company_os$', api.CompanyHandler),
+        (prefix + r'pvpu_os', api.PVPUHandler)
     ]
 
 class My_Application(Application):
