@@ -9,7 +9,7 @@ $(document).ready(function(){
     }
     function putkeyword(){
        var data = {
-            product_name:$("#current_keyword").val(),
+            keyword:$("#current_keyword").val(),
             like_query:1
         }
         $.ajax({
