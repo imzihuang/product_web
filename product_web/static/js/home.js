@@ -25,11 +25,8 @@ $(document).ready(function(){
                     $("#listPart").append(str);  
                     for(var j=0;j<msg.data.length;j++){
                     	var strclass='.countdown'+j;
-                    	console.log(strclass);
-                    	console.log(msg.data[j].count_down_at);
-                    	var strmain=msg.data[j].count_down_at
 	                    $(strclass).downCount({
-							date: '12/24/2017 12:44:00',
+							date: "'"+msg.data[j].count_down_at+"'",
 							offset: +10
 						}, function () {
 							
