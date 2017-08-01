@@ -145,6 +145,9 @@ $(function() {
                 if($("#add_theme").val()==""){
                    $(".add_theme_error").html("主题不能为空!");
                 }
+                if($(".file-drop-zone-title").html()!="Drag & drop files here …"){
+                	$(".product_img_error rm_html").html("请上传图片！");
+                }
 		  }
 		
 		});
@@ -386,7 +389,10 @@ $(function() {
                 if($("#add_theme").val()==""){
                    $(".add_theme_error").html("主题不能为空!");
                 }
-                if($("#add_name").val()!=""&&$("#add_source").val()!=""&&$("#add_theme").val()!=""){
+                if($(".file-drop-zone-title").html()!="Drag & drop files here …"){
+                	$(".product_img_error rm_html").html("请上传图片！");
+                }
+                if($("#add_name").val()!=""&&$("#add_source").val()!=""&&$("#add_theme").val()!=""&&$(".file-drop-zone-title").html()!="Drag & drop files here …"){
 			      productadd();
 			      $('input').val("");
 			      $(".fileinput-remove-button").click();
