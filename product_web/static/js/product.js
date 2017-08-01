@@ -1,13 +1,15 @@
 
 $(document).ready(function(){
-	  // if($("#current_keyword").val()==""){console.log(1);
-   //    apply();
-   //  }
-    // else{
-
+	  if($("#current_keyword").val()==""){console.log(1);
+      apply();
+    }
+    else{
+        var keyword=$("#current_keyword").val();
+        var newhref='/product/product.html?keyword=='+keyword;
+        window.location.href=newhref;
         putkeyword();console.log(2);
         apply();
-    // }
+    }
     function putkeyword(){
        var data = {
                     product_name:$("#current_keyword").val()
