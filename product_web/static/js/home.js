@@ -29,7 +29,7 @@ $(document).ready(function(){
 							date: "'"+msg.data[j].count_down_at+"'",
 							offset: +10
 						}, function () {
-							
+							console.log(date);
 						}); 
 					}  
             },
