@@ -28,7 +28,7 @@ $(document).ready(function(){
                     	console.log(strclass);
                     	console.log(msg.data[j].count_down_at);
 	                    $(strclass).downCount({
-							date: msg.data[j].count_down_at,
+							date: 'msg.data[j].count_down_at',
 							offset: +10
 						}, function () {
 							
