@@ -1,12 +1,13 @@
 
 $(document).ready(function(){
-	  if($("#current_keyword").val()==""){console.log(1);
-      apply();
-    }
-    else{console.log(2);
-        putkeyword();
+	  // if($("#current_keyword").val()==""){console.log(1);
+   //    apply();
+   //  }
+    // else{
+      
+        putkeyword();console.log(2);
         apply();
-    }
+    // }
     function putkeyword(){
        var data = {
                     product_name:$("#current_keyword").val()
