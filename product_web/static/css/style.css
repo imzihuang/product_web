@@ -405,11 +405,17 @@ p{margin: 0px;}
            width: 350px;
            margin: 0 auto;
 	}
+	.home.popular-items{
+		display: none;
+	}
 }
 @media (min-width: 320px) and (max-width: 349px){
 	.top-content .col-sm-6{
            width: 90%;
            margin: 0 auto;
+	}
+	.home.popular-items{
+		display: none;
 	}
 }
 @media (min-width: 320px) and (max-width: 639px){
@@ -434,6 +440,6 @@ p{margin: 0px;}
 
 @media(max-width: 767px){
 	.home.popular-items{
-		display: none;
+		display: none !important;
 	}
 }
