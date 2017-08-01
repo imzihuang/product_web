@@ -23,7 +23,7 @@ class KeywordHandler(RequestHandler):
         """"add keyword"""
         upload_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "..")
         upload_path = os.path.join(upload_path, 'static')
-        file_metas = self.request.files.get('keyword_img', 'file')
+        file_metas = self.request.files.get('keyword_img', '')
 
         # save img
         img_path = ""
@@ -78,7 +78,8 @@ class KeywordHandler(RequestHandler):
         file_metas = self.request.files.get('keyword_img', '')
         if file_metas:
             img_path = ""
-            upload_path = os.path.join(os.path.dirname(__file__), 'static')
+            upload_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "..")
+            upload_path = os.path.join(upload_path, 'static')
             for meta in file_metas:
                 filename = meta['filename']
                 pre_file = new_keyword_name or keyword_name
