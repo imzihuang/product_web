@@ -99,6 +99,7 @@ class Company(BaseModel):
     province = Column(VARCHAR(20))
     city = Column(VARCHAR(20))
     description = Column(VARCHAR(200))
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow,
                         nullable=True, onupdate=datetime.utcnow)
 
