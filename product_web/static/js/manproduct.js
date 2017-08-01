@@ -54,17 +54,18 @@ $(function() {
                  nameStr[i]=$("#tbody tr").eq(valArr[i]).find("td:eq(2)").html();
 				}
 				var nameDelete="";
-				for(var j=0;j<nameStr.length;j++){
+				for(var j=0;j<nameStr.length-1;j++){
 					nameDelete=nameDelete+nameStr[j]+'|';
 				}
+				nameDelete=nameDelete+nameStr[nameStr.length-1];
 				//
 				var data = {
                     product_name:nameDelete
                 };
                 console.log(data);
 				$.ajax({
-                    type: "DELETE",
-                    url:"/product/product_os",
+                    type: "post",
+                    url:"/product/product_os_del",
                     async: false,
                     data:data,
                     success: function(msg) {
