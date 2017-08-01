@@ -350,10 +350,26 @@ p{margin: 0px;}
     border-radius: 4px;
     font-size: 13px;
     display: block;
+    float: left;
+    margin-right: 3px;
 }
 .share_face{
     padding-right: 3px;
     background-color: #3b5998;
+    color: #fff;
+}
+.share_twitter{
+    padding-right: 3px;
+    background-color: #55ACEE;
+    color: #fff;
+}
+.share_google{
+    padding-right: 3px;
+    background-color: #DD4B39;
+    color: #fff;
+}
+.share_envelope{
+    background-color: #0072bc;
     color: #fff;
 }
 /***** Media queries *****/
