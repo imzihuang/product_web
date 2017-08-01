@@ -178,6 +178,7 @@ class ReSetUserPwdHandler(RequestHandler):
         affirm_pwd = self.get_argument('affirm_pwd', '')
         if not new_pwd or new_pwd != affirm_pwd:
             self.finish(json.dumps({'state': 1, "message": "The two passwords don't match"}))
+            return
 
         if not is_email(email):
             self.finish(json.dumps({'state': 2, "message": "Email format error"}))
@@ -194,7 +195,7 @@ class ReSetUserPwdHandler(RequestHandler):
         except Exception as e:
             self.finish(json.dumps({'state': 4, "message": str(e)}))
             return
-        redirect_url = "http://%(ip)s:%(port)s/product/regcode_reset?user_name=%(name)s&val_code=%(val_code)s"%{
+        redirect_url = "http://%(ip)s:%(port)s/product/reset_pwd?user_name=%(name)s&val_code=%(val_code)s"%{
             "ip": ser_url,
             "port": ser_port,
             "name": user_name,
@@ -214,6 +215,7 @@ class ReSetUserPwdHandler(RequestHandler):
             self.finish(json.dumps({'state': 5, "message": "send email faild"}))
             return
         self.finish(json.dumps({'state': 0, "message": "Reset ok"}))
+        return
 
     def get(self):
         user_name = self.get_argument('user_name', '')
