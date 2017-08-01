@@ -1,12 +1,36 @@
 
 $(document).ready(function(){
-	apply();
+	  if($("#current_keyword").val()==""){
+      apply();
+    }
+    else{
+        putkeyword();
+        apply();
+    }
+    function putkeyword(){
+       var data = {
+                    product_name:$("#current_keyword").val()
+                }
+                $.ajax({
+                    type: "POST",
+                    url:"/product/product_os",
+                    async: false,
+                    data:data,
+                    success: function(msg) {
+                        var data = JSON.parse(msg);
+                    },
+                    error:function(){
+                        console.log("error");
+                    }
+                });
+    }
     //ajax
     function apply(){
       $.ajax({
             type: "GET",
             url:"/product/product_os",
             async: false,
+            like_query:1,
             success: function(msg) {
                 // $("#listPart").find("div").remove();
                 console.log(msg);
