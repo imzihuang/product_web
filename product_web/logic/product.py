@@ -5,6 +5,7 @@ from common.log_client import gen_log
 from db.base import get_session
 from db import api
 
+
 def get_product(**kwargs):
     id = kwargs.get("id", "")
     name = kwargs.get("name", "")
@@ -24,7 +25,18 @@ def get_product(**kwargs):
         results = query.order_by("sort_num").all()
         return [result.to_dict() for result in results]
     except Exception as ex:
-        gen_log.error("get product error:%r"%ex)
+        gen_log.error("Get product error:%r"%ex)
+    finally:
+        session.close()
+
+def get_product_by_names(product_names):
+    try:
+        session = get_session()
+        query = api.model_query(session, "Product", {"name": product_names if isinstance(product_names, list) else [product_names]})
+        results = query.all()
+        return [result.to_dict() for result in results]
+    except Exception as ex:
+        gen_log.error("Get product by name error:%r"%ex)
     finally:
         session.close()
 
@@ -112,10 +124,10 @@ def update_product(productinfo, con_dic):
     finally:
         session.close()
 
-def del_product(product_name):
+def del_product(product_names):
     try:
         session = get_session()
-        query = api.model_query(session, "Product", {"name": product_name if isinstance(product_name, list) else [product_name]})
+        query = api.model_query(session, "Product", {"name": product_names if isinstance(product_names, list) else [product_names]})
         query.delete(synchronize_session=False)
         session.commit()
         return True

@@ -154,9 +154,19 @@ class DeleteProductHandler(RequestHandler):
     @verify_api_login
     def post(self):
         product_name = self.get_argument("product_name")
-        product_name = product_name.split("|")
-        _ = loc_product.del_product(product_name)
+        _p_names = product_name.split("|")
+        _all_product = loc_product.get_product_by_names(_p_names)
+        _ = loc_product.del_product(_p_names)
         if not _:
             self.finish({'state': '1', 'message': 'delete product faild'})
             return
+        # del img
+        try:
+            upload_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "..")
+            upload_path = os.path.join(upload_path, 'static')
+            for product in _all_product:
+                os.remove(os.path.join(upload_path, product.img_path))
+        except Exception as ex:
+            gen_log.error("del product img error:%r"%ex)
+
         self.finish({'state': '0', 'message': 'delete product ok'})
