@@ -125,9 +125,11 @@ $(function() {
 		// $(".fileinput-remove-button").click();
 		$(".rm_html").html("");
 		$("#file-zh_add").removeAttr("disabled");
+		$(".fileinput-remove-button").removeClass("hide");
+		$(".fileinput-remove-button").css("display","none");
 		$(".fileinput-remove-button").removeAttr("disabled");
 		$(".btn-file").removeAttr("disabled");
-		// $(".fileinput-cancel-button").addClass("hide");
+		$(".fileinput-cancel-button").addClass("hide");
 		layerIndex=layer.open({
 		title:'添加产品',
 		  type: 1,
