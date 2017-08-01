@@ -431,3 +431,9 @@ p{margin: 0px;}
     .home .all-items .timedown,.home ul.countdown li span{font-size: 12px !important;}
     .home .likeList{height: 17px;}
 }
+
+@media(max-width: 767px){
+	.home.popular-items{
+		display: none;
+	}
+}
