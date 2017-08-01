@@ -84,6 +84,6 @@ $(document).ready(function(){
 // 	});
 // }
 function keyword_os(){
-
+   console.log($(".aboutkeyword").html());
 }
 
