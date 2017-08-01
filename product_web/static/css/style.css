@@ -240,7 +240,7 @@ img { max-width: 100%; }
 .all-items{width: 80%;float: left;display: inline-block;border-left: 1px solid #ccc;}
 .all-items .row{margin: 0px;padding-left:10px;padding-right: 10px; }
 .all-items .col-sm-6,.all-items .col-md-3{padding-left:0px;padding-right: 0px;}
-.likeList{height:22px;width: 100%;}
+.likeList{height:25px;width: 100%;padding-top: 5px;}
 .likeList a img{height: 100% !important;width: auto!important;float: right;}
 .likeList span{float: right;color: #febd69;}
 .aboutHelp a{color: #0066c0;text-decoration: underline;}
@@ -291,7 +291,7 @@ ul.countdown li p {
 .color_red a{color: #bf0303 !important;}
 .color_gray_block a{color: #444 !important;}
 .f_left{float: left !important;}
-.likecount{line-height: 20px;}
+.likecount{line-height: 25px;}
 .goSigninbtn
 {
     height: 30px;
@@ -456,5 +456,8 @@ p{margin: 0px;}
 	.home .searchPart input,.home .searchPart .btn{height:35px;line-height: 35px;}
 	body{font-size: 12px !important;}
     .home .all-items .timedown,.home ul.countdown li span{font-size: 12px !important;}
-    .home .likeList{height: 17px;}
+    .home .likeList{
+    	height: 25px;
+        padding-top: 5px;
+    }
 }
