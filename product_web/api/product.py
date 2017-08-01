@@ -148,7 +148,7 @@ class ProductHandler(RequestHandler):
 class DeleteProductHandler(RequestHandler):
     def post(self):
         product_name = self.get_argument("product_name")
-        product_name = product_name.slit("|")
+        product_name = product_name.split("|")
         _ = loc_product.del_product(product_name)
         if not _:
             self.finish({'state': '1', 'message': 'delete product faild'})
