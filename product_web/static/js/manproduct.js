@@ -387,15 +387,16 @@ $(function() {
                    $(".add_theme_error").html("主题不能为空!");
                 }
                 if($("#add_name").val()!=""&&$("#add_source").val()!=""&&$("#add_theme").val()!=""){
-			      productadd();
-			      $('input').val("");
-			      $(".fileinput-remove-button").click();
+			      
+			      // $('input').val("");
+			      // $(".fileinput-remove-button").click();
 	                    layer.closeAll();
 						    layer.msg('添加成功', {
 						    	icon: 1,
 							    time: 800//2s后自动关闭
 							  });
 						 window.location.reload();
+						 productadd();
                 }   
 		
     });
@@ -445,15 +446,16 @@ $(function() {
 			      // 	$(".editphoto_error").html("请上传图片！");
 			      // }
 			      // else{
-			      	$(".rm_html").html("");
+			      	// $(".rm_html").html("");  
+			      	window.location.reload();
 			      	productadd();
-			      	$(".fileinput-remove-button").click();
+			      	// $(".fileinput-remove-button").click();
 	                    layer.closeAll();
 						    layer.msg('添加成功', {
 						    	icon: 1,
 							    time: 800//2s后自动关闭
 							  });
-				     window.location.reload();
+
 			      // }
 			     
     });
