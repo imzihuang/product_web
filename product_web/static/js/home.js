@@ -36,14 +36,19 @@ $(document).ready(function(){
 							date: strname,
 							offset: +10
 						}, function () {
-							$("#timedown").html("<span>Start!</span>");
+							$("#timedown").html('<span class="timedown">Start!</span>');
 						}); 
 					}  
             },
         });
     }
     //ajax
-
+    //分享到新浪微博
+	//参数：要分享的链接
+	function shareSina(hrefName){
+	    window.open('http://v.t.sina.com.cn/share/share.php?url=' + encodeURIComponent(hrefName));
+	    return false;
+	}
 	$('.likeList a img').click(function(){
 		if($(this).attr("src")==="img/unlike.png"){
 			$(this).attr("src","img/like.png");
