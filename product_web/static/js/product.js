@@ -1,11 +1,38 @@
 
 $(document).ready(function(){
-	apply();
+	  if($("#current_keyword").val()==""){console.log(1);
+      apply();
+    }
+    else{
+        putkeyword();console.log(2);
+        
+    }
+    function putkeyword(){
+       var data = {
+            keyword:$("#current_keyword").val(),
+            like_query:1
+        }
+        $.ajax({
+            type: "GET",
+            url:"/product/product_os",
+            async: false,
+            data:data,
+            success: function(msg) {
+              apply();
+              // if($("#listPart").val()==""){
+              //   $("#listPart").html("没有匹配项");
+              // }
+            },
+            error:function(){
+                console.log("error");
+            }
+        });
+    }
     //ajax
     function apply(){
       $.ajax({
             type: "GET",
-            url:"/product/keyword_os",
+            url:"/product/product_os",
             async: false,
             success: function(msg) {
                 // $("#listPart").find("div").remove();
@@ -13,7 +40,7 @@ $(document).ready(function(){
                 var str="";
                 for(var i=0;i<msg.data.length;i++){
 					str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-                   '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os("'+ msg.data[i].name +'")>'+
+                   '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os()>'+
                    msg.data[i].name+'</a></p><p class="color_gray">'+
                    msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
                    msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>'+
@@ -43,12 +70,7 @@ $(document).ready(function(){
         });
     }
     //ajax
-    //分享到新浪微博
-	//参数：要分享的链接
-	function shareSina(hrefName){
-	    window.open('http://v.t.sina.com.cn/share/share.php?url=' + encodeURIComponent(hrefName));
-	    return false;
-	}
+
 	$('.likeList a img').click(function(){
 		if($(this).attr("src")==="img/unlike.png"){
 			$(this).attr("src","img/like.png");
@@ -83,7 +105,5 @@ $(document).ready(function(){
 // 	    }
 // 	});
 // }
-function keyword_os(keyword){
-  window.location.href='/product/product.html?keyword='+keyword;
-}
+
 
