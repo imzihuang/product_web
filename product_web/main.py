@@ -50,6 +50,8 @@ def api_handlers():
         (prefix + r'product_os_del$', api.DeleteProductHandler),
         (prefix + r'keyword_os$', api.KeywordHandler),
         (prefix + r'keyword_os_del$', api.DeleteKeywordHandler),
+        (prefix + r'like_product$', api.LikeProductHandler),
+        (prefix + r'like_keyword$', api.LikeKeywordHandler),
     ]
 
 class My_Application(Application):

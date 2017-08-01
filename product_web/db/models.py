@@ -99,9 +99,12 @@ class Company(BaseModel):
     province = Column(VARCHAR(20))
     city = Column(VARCHAR(20))
     description = Column(VARCHAR(200))
+    updated_at = Column(DateTime, default=datetime.utcnow,
+                        nullable=True, onupdate=datetime.utcnow)
 
     def to_dict(self):
-       return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
+        return {c.name: getattr(self, c.name, None).strftime('%Y-%m-%d %H:%M:%S') if isinstance(getattr(self, c.name, None), datetime) else getattr(self, c.name, None) for c in self.__table__.columns}
+
 
 
 class Like(BaseModel):
@@ -110,9 +113,10 @@ class Like(BaseModel):
     user_name = Column(VARCHAR(30), nullable=False)
     keyword_id = Column(Integer)
     product_id = Column(Integer)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     def to_dict(self):
-       return {c.name: getattr(self, c.name, None) for c in self.__table__.columns}
+        return {c.name: getattr(self, c.name, None).strftime('%Y-%m-%d %H:%M:%S') if isinstance(getattr(self, c.name, None), datetime) else getattr(self, c.name, None) for c in self.__table__.columns}
 
 class Product_PV(BaseModel):
     __tablename__ = "product_pv"
