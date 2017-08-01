@@ -13,7 +13,7 @@ $(document).ready(function(){
                 var str="";
                 for(var i=0;i<msg.data.length;i++){
 					str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-                   '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a>'+
+                   '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os()>'+
                    msg.data[i].name+'</a></p><p class="color_gray">'+
                    msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
                    msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>'+
@@ -30,7 +30,7 @@ $(document).ready(function(){
                     	strname="'"+msg.data[j].count_down_at+"'";
                         console.log(strname);
 	                    $(strclass).downCount({
-							date:strname ,
+							date:strname,
 							offset: +10
 						}, function () {
 							console.log(date);
@@ -57,23 +57,25 @@ $(document).ready(function(){
 	// });  
 });
 	
-function search(){
-	var data = {
-	    product_name:$("#homeSearch").val()
-	}
-	$.ajax({
-	    type: "GET",
-	    url:"/product/product_os",
-	    async: false,
-	    data:data,
-	    success: function(msg) {
-	        var data = JSON.parse(msg);
-	        console.log(msg);    
-	    },
-	    error:function(){
-	        console.log("error");
-	    }
-	});
+// function search(){
+// 	var data = {
+// 	    product_name:$("#homeSearch").val()
+// 	}
+// 	$.ajax({
+// 	    type: "GET",
+// 	    url:"/product/product_os",
+// 	    async: false,
+// 	    data:data,
+// 	    success: function(msg) {
+// 	        var data = JSON.parse(msg);
+// 	        console.log(msg);    
+// 	    },
+// 	    error:function(){
+// 	        console.log("error");
+// 	    }
+// 	});
+// }
+function keyword_os(){
+	
 }
-
 
