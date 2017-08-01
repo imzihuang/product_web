@@ -121,10 +121,10 @@ $(function() {
 	//添加
 	$('#addInfo').click(function(){
 		$('input').val("");
-		$(".fileinput-remove-button").click();
+		// $(".fileinput-remove-button").click();
 		$(".rm_html").html("");
-		$(".btn-file").removeAttr("disabled");
-		$(".fileinput-cancel-button").addClass("hide");
+		// $(".btn-file").removeAttr("disabled");
+		// $(".fileinput-cancel-button").addClass("hide");
 		layerIndex=layer.open({
 		title:'添加产品',
 		  type: 1,
@@ -144,9 +144,6 @@ $(function() {
                 }
                 if($("#add_theme").val()==""){
                    $(".add_theme_error").html("主题不能为空!");
-                }
-                if($(".file-drop-zone-title").val()=="Drag & drop files here …"){
-                	$(".product_img_error rm_html").html("请上传图片！");
                 }
 		  }
 		
@@ -238,13 +235,13 @@ $(function() {
 		});
 	});
 	$('body').on("click",".photopen",function(){
-		$("#file-zh_edit").removeAttr("disabled");
+		// $("#file-zh_edit").removeAttr("disabled");
 		$(".rm_html").html("");
 		var p_name=$(this).parent().parent().find(".userMessage").html();
         $("#editphoto_product_name").val(p_name);
         $(".fileinput-remove-button").click();
-		$(".btn-file").removeAttr("disabled");
-		$(".fileinput-cancel-button").addClass("hide");
+		// $(".btn-file").removeAttr("disabled");
+		// $(".fileinput-cancel-button").addClass("hide");
 		layerIndex=layer.open({
 		title:'修改图片信息',
 		  type: 1,
@@ -389,10 +386,7 @@ $(function() {
                 if($("#add_theme").val()==""){
                    $(".add_theme_error").html("主题不能为空!");
                 }
-                if($(".file-drop-zone-title").val()=="Drag & drop files here …"){
-                	$(".product_img_error rm_html").html("请上传图片！");
-                }
-                if($("#add_name").val()!=""&&$("#add_source").val()!=""&&$("#add_theme").val()!=""&&$(".file-drop-zone-title").html()!="Drag & drop files here …"){
+                if($("#add_name").val()!=""&&$("#add_source").val()!=""&&$("#add_theme").val()!=""){
 			      productadd();
 			      $('input').val("");
 			      $(".fileinput-remove-button").click();
@@ -401,6 +395,7 @@ $(function() {
 						    	icon: 1,
 							    time: 800//2s后自动关闭
 							  });
+						 window.location.reload();
                 }   
 		
     });
@@ -458,6 +453,7 @@ $(function() {
 						    	icon: 1,
 							    time: 800//2s后自动关闭
 							  });
+				     window.location.reload();
 			      // }
 			     
     });
