@@ -25,6 +25,8 @@ $(document).ready(function(){
                     $("#listPart").append(str);  
                     for(var j=0;j<msg.data.length;j++){
                     	var strclass='.countdown'+j;
+                    	console.log(strclass);
+                    	console.log($(strclass).html());
 	                    $(strclass).downCount({
 							date: msg.data[j].count_down_at,
 							offset: +10
