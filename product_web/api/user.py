@@ -174,7 +174,7 @@ class ReSetUserPwdHandler(RequestHandler):
     def post(self):
         user_name = self.get_argument('user_name', '')
         email = self.get_argument('email', '')
-        new_pwd = self.get_argument('new_pwd', '')
+        new_pwd = self.get_argument('pwd', '')
         affirm_pwd = self.get_argument('affirm_pwd', '')
         if not new_pwd or new_pwd != affirm_pwd:
             self.finish(json.dumps({'state': 1, "message": "The two passwords don't match"}))
