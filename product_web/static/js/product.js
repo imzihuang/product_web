@@ -1,9 +1,9 @@
 
 $(document).ready(function(){
-	  if($("#current_keyword").val()==""){
+	  if($("#current_keyword").val()==""){console.log(1);
       apply();
     }
-    else{
+    else{console.log(2);
         putkeyword();
         apply();
     }
