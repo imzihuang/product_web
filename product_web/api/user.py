@@ -223,7 +223,7 @@ class ReSetUserPwdHandler(RequestHandler):
         if not redirect_url:
             redirect_url = "home.html"
 
-        user_info = loc_user.get_creating_user(name=user_name)
+        user_info = loc_user.get_available_user(name=user_name)
         if not user_info:
             gen_log.error("user info is none")
             redirect_url = "login.html"
@@ -232,7 +232,7 @@ class ReSetUserPwdHandler(RequestHandler):
 
         #判断验证码
         if user_info.valcode != val_code:
-            gen_log.error("val code:%s,%s"%(user_info.valcode, val_code))
+            gen_log.error("val code:%s,%s" % (user_info.valcode, val_code))
             redirect_url = "login.html"
             self.redirect(self.prefix + redirect_url, permanent=True)
             return
@@ -241,8 +241,8 @@ class ReSetUserPwdHandler(RequestHandler):
         loc_user.update_user({"pwd": encry_md5(user_info.reset_pwd), "reset_pwd": ""}, {"name": [user_name]})
 
         # 设置cookie，注册的，默认都是1
-        self.set_secure_cookie("user_name", user_name, max_age = com_cookie_time)
-        self.set_secure_cookie("user_level", str(user_info.level), max_age = com_cookie_time)
+        self.set_secure_cookie("user_name", user_name, max_age=com_cookie_time)
+        self.set_secure_cookie("user_level", str(user_info.level), max_age=com_cookie_time)
 
         # 管理员跳转管理页面
         if user_info.level == 0:
