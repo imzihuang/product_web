@@ -32,8 +32,8 @@ $(document).ready(function(){
                    '<div class="likeList"><span class="f_left"><a class="share share_face"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter"><i class="fa fa-twitter areapen" title="twitter"></i></a><a class="share share_google"><i class="fa fa-google areapen" title="google"></i></a><a class="share share_envelope"><i class="fa fa-envelope areapen" title="envelope"></i></a></span>'+
                    '<span class="likecount">100</span><a ><img src="img/unlike.png"></a></div></div></div></div>'
                    
-                   str1=str1+str1_;
-                   }   console.log(str1);
+                   str1=str1+str1_;console.log(str1);
+                   }   
                     $("#listPart").append(str1);
                     for(var j=0;j<msg.data.length;j++){
                       var str1name="";
@@ -64,6 +64,7 @@ $(document).ready(function(){
                 // $("#listPart").find("div").remove();
                 console.log(msg);
                 var str="";
+                var str_"";
                 for(var i=0;i<msg.data.length;i++){
 					str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
                    '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os()>'+
