@@ -4,6 +4,28 @@ from db.base import get_session, get_engine
 from db import api
 from common.log_client import gen_log
 
+def get_keyword_like_count(keyword_id):
+    try:
+        session = get_session()
+        query = api.model_query(session, "Like", {"keyword_id": [keyword_id]})
+        return query.count()
+    except Exception as ex:
+        gen_log.log("Query keyword like count error:%r."%ex)
+        return 0
+    finally:
+        session.close()
+
+def get_product_like_count(product_id):
+    try:
+        session = get_session()
+        query = api.model_query(session, "Like", {"product_id": [product_id]})
+        return query.count()
+    except Exception as ex:
+        gen_log.log("Query product like count error:%r."%ex)
+        return 0
+    finally:
+        session.close()
+
 def like_keyword(keyword_id, user_name):
     try:
         session = get_session()

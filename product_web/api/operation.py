@@ -16,10 +16,11 @@ class LikeProductHandler(RequestHandler):
             self.finish({'state': '1', 'message': 'Not login or without product_id'})
             return
         _ = loc_operation.like_product(product_id, user_name)
+        _count = loc_operation.get_product_like_count(product_id)
         if not _:
-            self.finish({'state': '2', 'message': 'The user has already clicked.'})
+            self.finish({'state': '2', 'message': 'The user has already clicked.', 'count': _count})
             return
-        self.finish({'state': '0', 'message': 'ok'})
+        self.finish({'state': '0', 'message': 'Click product ok', 'count': _count})
 
 class LikeKeywordHandler(RequestHandler):
     def post(self, *args, **kwargs):
@@ -29,8 +30,9 @@ class LikeKeywordHandler(RequestHandler):
             self.finish({'state': '1', 'message': 'Not login or without keyword_id'})
             return
         _ = loc_operation.like_keyword(keyword_id, user_name)
+        _count = loc_operation.get_keyword_like_count(keyword_id)
         if not _:
-            self.finish({'state': '2', 'message': ' The user has already clicked.'})
+            self.finish({'state': '2', 'message': ' The user has already clicked.' ,'count': _count})
             return
-        self.finish({'state': '0', 'message': 'ok'})
+        self.finish({'state': '0', 'message': 'Click keyword ok', 'count': _count})
 
