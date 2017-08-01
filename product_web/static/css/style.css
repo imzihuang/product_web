@@ -385,7 +385,7 @@ p{margin: 0px;}
            width: 350px;
            margin: 0 auto;
 	}
-	.home.popular-items{
+	.home .popular-items{
 		display: none;
 	}
 }
@@ -394,7 +394,7 @@ p{margin: 0px;}
            width: 90%;
            margin: 0 auto;
 	}
-	.home.popular-items{
+	.home .popular-items{
 		display: none;
 	}
 }
@@ -405,10 +405,10 @@ p{margin: 0px;}
 	.home .col-sm-1,.home .col-sm-10,.home .col-sm-11,.home .col-sm-12,.home .col-sm-2,.home .col-sm-3,.home .col-sm-4,.home .col-sm-5,.home .col-sm-6,.home .col-sm-7,.home .col-sm-8,.home .col-sm-9 {
 	    float: left;
 	}
-	.home.popular-items{
+	.home .popular-items{
 		display: none;
 	}
-	.home.all-items{
+	.home .all-items{
 		width: 100%;
 		border-left: none;
 	}
@@ -419,7 +419,7 @@ p{margin: 0px;}
 }
 
 @media(max-width: 767px){
-	.home.popular-items{
+	.home .popular-items{
 		display: none !important;
 	}
 }
