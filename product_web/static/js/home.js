@@ -27,10 +27,10 @@ $(document).ready(function(){
                     	var strname="";
                     	var strclass="";
                     	var strclass='.countdown'+j;
-                    	strname="'"+msg.data[j].count_down_at+"'";
+                    	strname=;
                         console.log(strname);
 	                    $(strclass).downCount({
-							date: '12/24/2017 12:44:00',
+							date: "'"+msg.data[j].count_down_at+"'",
 							offset: +10
 						}, function () {
 							console.log(date);
