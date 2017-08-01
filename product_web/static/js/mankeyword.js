@@ -65,7 +65,7 @@ $(function() {
                 console.log(data);
 				$.ajax({
                     type: "post",
-                    url:"/product/product_os_del",
+                    url:"/product/keyword_os_del",
                     async: false,
                     data:data,
                     success: function(msg) {
