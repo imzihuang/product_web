@@ -18,7 +18,7 @@ $(document).ready(function(){
                    msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
                    msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>'+
                    msg.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">'+
-                   msg.data[i].postage_price+'</span></p><a><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="years">00</span><span> 年</span><span class="mouths">00</span><span> 月</span><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a><p class="aboutHelp"><a>how to claim it?</a></p><div class="likeList"><span class="f_left"><a>share</a></span><span class="likecount">100</span><a ><img src="img/unlike.png"></a></div></div></div></div>'
+                   msg.data[i].postage_price+'</span></p><a><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a><p class="aboutHelp"><a>how to claim it?</a></p><div class="likeList"><span class="f_left"><a>share</a></span><span class="likecount">100</span><a ><img src="img/unlike.png"></a></div></div></div></div>'
                    
                    str=str+str_;
                    }   
