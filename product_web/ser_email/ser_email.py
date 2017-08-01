@@ -24,9 +24,9 @@ def qq_send_email(to_email, message, subject):
     :param subject: 邮件标题
     :return:
     """
-    try:
-        global _LOCK
-        with _LOCK:
+    global _LOCK
+    with _LOCK:
+        try:
             service_smtp = smtplib.SMTP_SSL("smtp.qq.com", 465)
             msg = MIMEText(message, 'html')
             msg["Subject"] = subject
@@ -35,11 +35,11 @@ def qq_send_email(to_email, message, subject):
             service_smtp.login(qq_email_user, qq_email_pwd)
             service_smtp.sendmail(qq_email_user, to_email, msg.as_string())
             return True
-    except smtplib.SMTPException, e:
-        gen_log.error("send email error:%r"%e)
-        return False
-    finally:
-        service_smtp.quit()
+        except smtplib.SMTPException, e:
+            gen_log.error("send email error:%r"%e)
+            return False
+        finally:
+            service_smtp.quit()
 
 
 """smtp-mail.outlook.com"""
@@ -47,9 +47,9 @@ hot_dic_con=_conf.get_fields('hotmail')
 hot_email_user = hot_dic_con.get("email_user")
 hot_email_pwd  = hot_dic_con.get("email_pwd")
 def hot_send_email(to_email, message, subject):
-    try:
-        global _LOCK
-        with _LOCK:
+    global _LOCK
+    with _LOCK:
+        try:
             #service_smtp = smtplib.SMTP("smtp-mail.outlook.com", 587)
             service_smtp = smtplib.SMTP("smtp.live.com",587)
             msg = MIMEText(message, 'html')
@@ -62,11 +62,11 @@ def hot_send_email(to_email, message, subject):
             service_smtp.login(hot_email_user, hot_email_pwd)
             service_smtp.sendmail(hot_email_user, to_email, msg.as_string())
             return True
-    except smtplib.SMTPException, e:
-        gen_log.error("send email error:%r" % e)
-        return False
-    finally:
-        service_smtp.quit()
+        except smtplib.SMTPException, e:
+            gen_log.error("send email error:%r" % e)
+            return False
+        finally:
+            service_smtp.quit()
 
 
 

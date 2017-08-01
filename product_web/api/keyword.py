@@ -141,9 +141,18 @@ class DeleteKeywordHandler(RequestHandler):
     @verify_api_login
     def post(self):
         keyword_name = self.get_argument("keyword_name")
-        keyword_name = keyword_name.split("|")
-        _ = loc_keywod.del_keyword(keyword_name)
+        _k_names = keyword_name.split("|")
+        _all_keyword = loc_keywod.get_keyword_by_names(_k_names)
+        _ = loc_keywod.del_keyword(_k_names)
         if not _:
             self.finish({'state': '1', 'message': 'delete keyword faild'})
             return
+        # del img
+        try:
+            upload_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "..")
+            upload_path = os.path.join(upload_path, 'static')
+            for keyword in _all_keyword:
+                os.remove(os.path.join(upload_path, keyword.img_path))
+        except Exception as ex:
+            gen_log.error("del product img error:%r"%ex)
         self.finish({'state': '0', 'message': 'delete keyword ok'})

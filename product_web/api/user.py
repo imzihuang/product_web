@@ -185,7 +185,7 @@ class ReSetUserPwdHandler(RequestHandler):
             return
 
         user_info = loc_user.get_available_user(name=user_name)
-        if user_info.email != email:
+        if not user_info or user_info.email != email:
             self.finish(json.dumps({'state': 3, "message": "The user name and email don't match"}))
             return
         # 生成验证码

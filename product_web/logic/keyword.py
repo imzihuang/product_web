@@ -24,7 +24,18 @@ def get_keyword(**kwargs):
         results = query.order_by("sort_num").all()
         return [result.to_dict() for result in results]
     except Exception as ex:
-        gen_log.error("get product keyword error:%r"%ex)
+        gen_log.error("Get product keyword error:%r"%ex)
+    finally:
+        session.close()
+
+def get_keyword_by_names(keyword_names):
+    try:
+        session = get_session()
+        query = api.model_query(session, "ProductKeyword", {"name": keyword_names if isinstance(keyword_names, list) else [keyword_names]})
+        results = query.all()
+        return [result.to_dict() for result in results]
+    except Exception as ex:
+        gen_log.error("Get product keyword by name error:%r"%ex)
     finally:
         session.close()
 
