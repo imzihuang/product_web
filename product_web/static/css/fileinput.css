@@ -19,7 +19,7 @@
     background: transparent url('../img/loading.gif') top left no-repeat;
     border: none;
 }
-.fileinput-upload{position: absolute !important;z-index: -200;}
+.fileinput-upload{position: absolute !important;z-index: -200;top: -3000px;}
 .file-object {
     margin: 0 0 -5px 0;
     padding: 0;
