@@ -19,6 +19,9 @@ $(document).ready(function(){
             data:data,
             success: function(msg) {
               apply();
+              if($("#listPart").val()==""){
+                $("#listPart").html("没有匹配项");
+              }
             },
             error:function(){
                 console.log("error");
