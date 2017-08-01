@@ -5,24 +5,25 @@ $(document).ready(function(){
     }
     else{
         putkeyword();console.log(2);
-        apply();
+        
     }
     function putkeyword(){
        var data = {
-                    product_name:$("#current_keyword").val()
-                }
-                $.ajax({
-                    type: "POST",
-                    url:"/product/product_os",
-                    async: false,
-                    data:data,
-                    like_query:1,
-                    success: function(msg) {
-                    },
-                    error:function(){
-                        console.log("error");
-                    }
-                });
+            product_name:$("#current_keyword").val(),
+            like_query:1
+        }
+        $.ajax({
+            type: "GET",
+            url:"/product/product_os",
+            async: false,
+            data:data,
+            success: function(msg) {
+              apply();
+            },
+            error:function(){
+                console.log("error");
+            }
+        });
     }
     //ajax
     function apply(){
