@@ -30,7 +30,7 @@ class ProductHandler(RequestHandler):
         """"add product"""
         upload_path = os.path.abspath(os.path.dirname(__file__)+os.path.sep+"..")
         upload_path = os.path.join(upload_path, 'static')
-        file_metas = self.request.files.get('product_img', 'file')
+        file_metas = self.request.files.get('product_img', '')
 
         # save img
         img_path = ""
@@ -86,7 +86,9 @@ class ProductHandler(RequestHandler):
         file_metas = self.request.files.get('product_img', '')
         if file_metas:
             img_path = ""
-            upload_path = os.path.join(os.path.dirname(__file__), 'static')
+            upload_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "..")
+            upload_path = os.path.join(upload_path, 'static')
+            file_metas = self.request.files.get('product_img', '')
             for meta in file_metas:
                 filename = meta['filename']
                 pre_file = new_product_name or product_name
