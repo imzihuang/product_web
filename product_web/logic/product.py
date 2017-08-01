@@ -34,9 +34,9 @@ def get_product_like_theme(product_keyword, offset=0, limit=0):
     :param product_keyword:
     :return:
     """
+    if not product_keyword:
+        return
     try:
-        if not product_keyword:
-            return
         session = get_session()
         query = api.get_product_like_theme(session, product_keyword)
         results = query.order_by("sort_num").all()
