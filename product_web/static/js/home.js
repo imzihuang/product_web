@@ -27,7 +27,7 @@ $(document).ready(function(){
                     	var strname="";
                     	var strclass="";
                     	var strclass='.countdown'+j;
-                    	strname="'"+msg.data[j].count_down_at+"'";
+                    	strname=msg.data[j].count_down_at;
                         console.log(strname);
 	                    $(strclass).downCount({
 							date: strname,
