@@ -123,6 +123,8 @@ $(function() {
 		$('input').val("");
 		$(".fileinput-remove-button").click();
 		$(".rm_html").html("");
+		$("#file-zh_add").removeAttr("disabled");
+		$(".fileinput-remove-button").removeAttr("disabled");
 		$(".btn-file").removeAttr("disabled");
 		$(".fileinput-cancel-button").addClass("hide");
 		layerIndex=layer.open({
