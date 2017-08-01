@@ -33,10 +33,10 @@ $(document).ready(function(){
                    '<span class="likecount">100</span><a ><img src="img/unlike.png"></a></div></div></div></div>'
                    
                    str1=str1+str1_;
-                   }   
+                   }   console.log(str1);
                     $("#listPart").append(str1);
                     for(var j=0;j<msg.data.length;j++){
-                      var str1name="";console.log(222);
+                      var str1name="";
                       var str1class="";
                       var str1class='.countdown'+j;
                       str1name=msg.data[j].count_down_at;
