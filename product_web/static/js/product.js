@@ -18,10 +18,10 @@ $(document).ready(function(){
             async: false,
             data:data,
             success: function(msg) {
-              var str="";
-              var str_="";
-                   for(var i=0;i<msg.data.length;i++){
-          str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
+                  var str="";
+                  var str_="";
+                  for(var i=0;i<msg.data.length;i++){
+                  str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
                    '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os()>'+
                    msg.data[i].name+'</a></p><p class="color_gray">'+
                    msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
@@ -34,7 +34,7 @@ $(document).ready(function(){
                    
                    str=str+str_;
                    }   
-                    $("#listPart").append(str);  
+                    $("#listPart").append(str);console.log(222);
                     for(var j=0;j<msg.data.length;j++){
                       var strname="";
                       var strclass="";
