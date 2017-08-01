@@ -29,7 +29,7 @@ $(document).ready(function(){
                     	console.log(msg.data[j].count_down_at);
                     	var strmain=msg.data[j].count_down_at
 	                    $(strclass).downCount({
-							date: strmain,
+							date: '12/24/2017 12:44:00',
 							offset: +10
 						}, function () {
 							
