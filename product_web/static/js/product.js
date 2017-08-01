@@ -4,9 +4,6 @@ $(document).ready(function(){
       apply();
     }
     else{
-        var keyword=$("#current_keyword").val();
-        var newhref='/product/product.html?keyword=='+keyword;
-        window.location.href=newhref;
         putkeyword();console.log(2);
         apply();
     }
