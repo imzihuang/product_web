@@ -1,12 +1,12 @@
 
 $(document).ready(function(){
-	  if($("#current_keyword").val()==""){console.log(1);
+	  // if($("#current_keyword").val()==""){console.log(1);
       apply();
-    }
-    else{
-        putkeyword();console.log(2);
+    // }
+    // else{
+    //     putkeyword();console.log(2);
         
-    }
+    // }
     function putkeyword(){
        var data = {
             keyword:$("#current_keyword").val(),
