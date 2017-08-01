@@ -30,7 +30,7 @@ $(document).ready(function(){
                     	strname="'"+msg.data[j].count_down_at+"'";
                         console.log(strname);
 	                    $(strclass).downCount({
-							date:strname,
+							date: '12/24/2017 12:44:00',
 							offset: +10
 						}, function () {
 							console.log(date);
@@ -76,6 +76,6 @@ $(document).ready(function(){
 // 	});
 // }
 function keyword_os(){
-	
+
 }
 
