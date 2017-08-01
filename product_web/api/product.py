@@ -7,6 +7,7 @@ from datetime import datetime
 from common.convert import bs2utf8
 from logic import product as loc_product
 from common.log_client import gen_log
+from base import verify_api_login
 
 class ProductHandler(RequestHandler):
     def get(self, *args, **kwargs):
@@ -26,6 +27,7 @@ class ProductHandler(RequestHandler):
         product_list = loc_product.get_product(offset=offset, limit=limit)
         self.finish({'state': '0', 'data': product_list})
 
+    @verify_api_login
     def put(self):
         """"add product"""
         upload_path = os.path.abspath(os.path.dirname(__file__)+os.path.sep+"..")
@@ -75,6 +77,7 @@ class ProductHandler(RequestHandler):
 
         self.finish({'state': '0', 'message': 'add product ok'})
 
+    @verify_api_login
     def post(self):
         """update product"""
         product_name = self.get_argument("product_name", "")
@@ -144,10 +147,11 @@ class ProductHandler(RequestHandler):
             if not _:
                 self.finish({'state': '2', 'message': 'update product faild'})
                 return
-        self.finish({'state': '0', 'message': 'ok'})
+        self.finish({'state': '0', 'message': 'Update product ok'})
 
 
 class DeleteProductHandler(RequestHandler):
+    @verify_api_login
     def post(self):
         product_name = self.get_argument("product_name")
         product_name = product_name.split("|")

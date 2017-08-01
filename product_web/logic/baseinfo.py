@@ -8,7 +8,8 @@ def get_company():
     try:
         session = get_session()
         query = api.model_query(session, "Company", {})
-        return query.all()
+        _ = query.first()
+        return _.to_dict()
     except Exception as ex:
         gen_log.error("get all company error:%r"%ex)
     finally:

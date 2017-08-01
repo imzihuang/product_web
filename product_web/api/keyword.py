@@ -6,6 +6,7 @@ from tornado.web import RequestHandler
 from datetime import datetime
 from logic import keyword as loc_keywod
 from common.log_client import gen_log
+from base import verify_api_login
 
 class KeywordHandler(RequestHandler):
     def get(self, *args, **kwargs):
@@ -19,6 +20,7 @@ class KeywordHandler(RequestHandler):
         keyword_list = loc_keywod.get_keyword(offset=offset, limit=limit)
         self.finish({'state': '0', 'data': keyword_list})
 
+    @verify_api_login
     def put(self):
         """"add keyword"""
         upload_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "..")
@@ -67,6 +69,7 @@ class KeywordHandler(RequestHandler):
 
         self.finish({'state': '0', 'message': 'add keyword ok'})
 
+    @verify_api_login
     def post(self):
         """update keyword"""
         keyword_name = self.get_argument("keyword_name", "")
@@ -130,12 +133,12 @@ class KeywordHandler(RequestHandler):
         if update_data:
             _ = loc_keywod.update_keyword(update_data, {"name": [keyword_name]})
             if not _:
-                self.finish({'state': '2', 'message': 'update keyword faild'})
+                self.finish({'state': '2', 'message': 'Update keyword faild'})
                 return
-        self.finish({'state': '0', 'message': 'ok'})
+        self.finish({'state': '0', 'message': 'Update keyword ok'})
 
 class DeleteKeywordHandler(RequestHandler):
-
+    @verify_api_login
     def post(self):
         keyword_name = self.get_argument("keyword_name")
         keyword_name = keyword_name.split("|")
