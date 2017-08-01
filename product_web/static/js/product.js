@@ -64,7 +64,7 @@ $(document).ready(function(){
                 // $("#listPart").find("div").remove();
                 console.log(msg);
                 var str="";
-                var str_"";
+                var str_="";
                 for(var i=0;i<msg.data.length;i++){
 					str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
                    '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os()>'+
