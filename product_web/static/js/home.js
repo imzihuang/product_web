@@ -84,6 +84,6 @@ $(document).ready(function(){
 // 	});
 // }
 function keyword_os(){
-
+  window.location.href="/product/product.html";
 }
 
