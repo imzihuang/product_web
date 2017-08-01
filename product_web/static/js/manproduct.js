@@ -124,10 +124,10 @@ $(function() {
 		$(".fileinput-upload-button").css("display","block");
 		$(".fileinput-remove-button").click();
 		$(".rm_html").html("");
-		$("#file-zh_add").removeAttr("disabled");
-		$(".fileinput-remove-button").removeAttr("disabled");
-		$(".btn-file").removeAttr("disabled");
-		$(".fileinput-cancel-button").addClass("hide");
+		// $("#file-zh_add").removeAttr("disabled");
+		// $(".fileinput-remove-button").removeAttr("disabled");
+		// $(".btn-file").removeAttr("disabled");
+		// $(".fileinput-cancel-button").addClass("hide");
 		layerIndex=layer.open({
 		title:'添加产品',
 		  type: 1,
@@ -392,8 +392,9 @@ $(function() {
                 if($("#add_name").val()!=""&&$("#add_source").val()!=""&&$("#add_theme").val()!=""){
 			      productadd();
 			      $('input').val("");
-			      $(".fileinput-remove-button").click();
+			      // $(".fileinput-remove-button").click();
 	                    layer.closeAll();
+	                    window.location.reload();
 						    layer.msg('添加成功', {
 						    	icon: 1,
 							    time: 800//2s后自动关闭
