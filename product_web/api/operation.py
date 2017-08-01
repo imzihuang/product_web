@@ -91,7 +91,7 @@ class PVPUHandler(RequestHandler):
         if not method:
             self.finish({'state': "1", 'message': 'Not Method', 'data': []})
             return
-        _html = self.get_argument("page")
+        _html = self.get_argument("page", "")
         if method == "pv":
             _ = loc_pvpu.get_pv(html=_html)
             self.finish({'state': "0", 'message': 'Get pv ok', 'data': _})
