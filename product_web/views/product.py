@@ -18,5 +18,5 @@ class ProductHandler(tornado.web.RequestHandler):
         record_pv_pu(real_ip, "product.html")
 
         keyword = bs2utf8(self.get_argument('keyword', ""))
-        user_name = self.get_secure_cookie('user_name', '')
+        user_name = self.get_secure_cookie('user_name')
         self.render('product.html', keyword=keyword, user_name=user_name)
