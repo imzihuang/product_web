@@ -13,7 +13,7 @@ $(document).ready(function(){
                 var str="";
                 for(var i=0;i<msg.data.length;i++){
 					str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-                   '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os()>'+
+                   '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os('+ msg.data[i].name +')>'+
                    msg.data[i].name+'</a></p><p class="color_gray">'+
                    msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
                    msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>'+
@@ -83,7 +83,7 @@ $(document).ready(function(){
 // 	    }
 // 	});
 // }
-function keyword_os(){
-  window.location.href="/product/product.html";
+function keyword_os(keyword){
+  window.location.href='/product/product.html?keyword='+keyword;
 }
 
