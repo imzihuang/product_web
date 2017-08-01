@@ -165,7 +165,7 @@ class DeleteProductHandler(RequestHandler):
             upload_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "..")
             upload_path = os.path.join(upload_path, 'static')
             for product in _all_product:
-                os.remove(os.path.join(upload_path, product.img_path))
+                os.remove(os.path.join(upload_path, product.get("img_path")))
         except Exception as ex:
             gen_log.error("del product img error:%r"%ex)
 
