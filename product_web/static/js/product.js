@@ -4,7 +4,7 @@ $(document).ready(function(){
    //    apply();
    //  }
     // else{
-      
+
         putkeyword();console.log(2);
         apply();
     // }
@@ -18,7 +18,6 @@ $(document).ready(function(){
                     async: false,
                     data:data,
                     success: function(msg) {
-                        var data = JSON.parse(msg);
                     },
                     error:function(){
                         console.log("error");
