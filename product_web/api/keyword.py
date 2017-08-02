@@ -86,6 +86,7 @@ class UpdateKeywordHandler(RequestHandler):
             upload_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "..")
             upload_path = os.path.join(upload_path, 'static')
             for meta in file_metas:
+                gen_log.info('update keyword img:%s'%keyword_name)
                 filename = meta['filename']
                 pre_file = new_keyword_name or keyword_name
                 filename = pre_file + "." + filename.rpartition(".")[-1] #rename img meta
