@@ -77,6 +77,7 @@ $(function() {
 						icon: 1,
 						time:600
 					    });
+					    window.location.reload();
 					    productadd();
                        
                     },
