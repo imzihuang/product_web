@@ -62,7 +62,7 @@ $(document).ready(function(){
     var data = {
                 keyword_id:imgId
             };
-    
+    console.log(data);
     $.ajax({
             type: "post",
             url:"/product/like_keyword",
