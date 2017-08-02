@@ -15,7 +15,7 @@ class LikeProductHandler(RequestHandler):
     @verify_api_login
     def post(self, *args, **kwargs):
         product_id = int(self.get_argument("product_id", 0))
-        user_name = self.get_secure_cookie('user_name', '')
+        user_name = self.get_secure_cookie('user_name')
         if not product_id or not user_name:
             self.finish({'state': '1', 'message': 'ithout product_id'})
             return
@@ -30,7 +30,7 @@ class LikeKeywordHandler(RequestHandler):
     @verify_api_login
     def post(self, *args, **kwargs):
         keyword_id = int(self.get_argument("keyword_id", 0))
-        user_name = self.get_secure_cookie('user_name', '')
+        user_name = self.get_secure_cookie('user_name')
         if not keyword_id or not user_name:
             self.finish({'state': '1', 'message': 'Without keyword_id'})
             return
