@@ -135,7 +135,7 @@ $(function() {
 		  btn: ['确定', '取消'] ,//按钮
 		  content: $('#addInfoContent'),
 		   yes: function(){
-             $(".fileinput-upload-button").click();
+             $("#addInfoContent .fileinput-upload-button").click();
              $(".btn-file").removeAttr("disabled");
              $(".rm_html").html("");
 			  	if($("#add_name").val()==""){
@@ -254,7 +254,7 @@ $(function() {
 		  btn: ['确定', '取消'] ,//按钮
 		  content: $('#editphoto'),
 		   yes: function(){
-		   	$(".fileinput-upload-button").click();
+		   	$("#editphoto .fileinput-upload-button").click();
 		   	$(".btn-file").removeAttr("disabled");
 
 		  }
