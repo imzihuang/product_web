@@ -124,7 +124,7 @@ $(function() {
 		$(".fileinput-remove-button").click();
 		$(".rm_html").html("");
 		$(".btn-file").removeAttr("disabled");
-		$(".fileinput-cancel-button").addClass("hide");
+		// $(".fileinput-cancel-button").addClass("hide");
 		layerIndex=layer.open({
 		title:'添加产品',
 		  type: 1,
@@ -135,6 +135,7 @@ $(function() {
 		  content: $('#addInfoContent'),
 		   yes: function(){
              $(".fileinput-upload-button").click();
+             $(".btn-file").removeAttr("disabled");
              $(".rm_html").html("");
 			  	if($("#add_name").val()==""){
                    $(".add_name_error").html("产品名不能为空!");
@@ -235,13 +236,13 @@ $(function() {
 		});
 	});
 	$('body').on("click",".photopen",function(){
-		$("#file-zh_edit").removeAttr("disabled");
+		// $("#file-zh_edit").removeAttr("disabled");
 		$(".rm_html").html("");
 		var p_name=$(this).parent().parent().find(".userMessage").html();
         $("#editphoto_product_name").val(p_name);
         $(".fileinput-remove-button").click();
 		$(".btn-file").removeAttr("disabled");
-		$(".fileinput-cancel-button").addClass("hide");
+		// $(".fileinput-cancel-button").addClass("hide");
 		layerIndex=layer.open({
 		title:'修改图片信息',
 		  type: 1,
@@ -253,6 +254,7 @@ $(function() {
 		  content: $('#editphoto'),
 		   yes: function(){
 		   	$(".fileinput-upload-button").click();
+		   	$(".btn-file").removeAttr("disabled");
 
 		  }
 		});
@@ -395,6 +397,7 @@ $(function() {
 						    	icon: 1,
 							    time: 800//2s后自动关闭
 							  });
+						window.location.reload();
                 }   
 		
     });
@@ -448,10 +451,11 @@ $(function() {
 			      	productadd();
 			      	$(".fileinput-remove-button").click();
 	                    layer.closeAll();
-						    layer.msg('添加成功', {
+						    layer.msg('修改成功', {
 						    	icon: 1,
 							    time: 800//2s后自动关闭
 							  });
+				    window.location.reload();
 			      // }
 			     
     });
