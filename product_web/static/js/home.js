@@ -21,7 +21,7 @@ $(document).ready(function(){
                    msg.data[i].postage_price+'</span></p><a id="timedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
                    '<p class="aboutHelp"><a>how to claim it?</a></p>'+
                    '<div class="likeList"><span class="f_left"><a class="share share_face"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter"><i class="fa fa-twitter areapen" title="twitter"></i></a><a class="share share_google"><i class="fa fa-google areapen" title="google"></i></a><a class="share share_envelope"><i class="fa fa-envelope areapen" title="envelope"></i></a></span>'+
-                   '<span class="likecount">'+msg.data[i].like_count+'</span><a ><img src="img/unlike.png"></a></div></div></div></div>'
+                   '<span class="likecount">'+msg.data[i].like_count+'</span><a ><img src="img/unlike.png"'+msg.data[i].id+'></a></div></div></div></div>'
                    
                    str=str+str_;
                    }   
@@ -50,39 +50,50 @@ $(document).ready(function(){
 	    return false;
 	}
 	$('.likeList a img').click(function(){
+    var imgId=$(this);
+    console.log(imgId.id);
 		if($(this).attr("src")==="img/unlike.png"){
 			$(this).attr("src","img/like.png");
 		}
 		else{
 			$(this).attr("src","img/unlike.png");
 		}
+      //
+      var data = {
+                  keyword_id:nameDelete
+              };
+      
+      $.ajax({
+                  type: "post",
+                  url:"/product/like_keyword",
+                  async: false,
+                  data:data,
+                  success: function(msg) {
+                      // var data = JSON.parse(msg);
+                      console.log(msg);
+                      delData(valArr);
+                      layer.closeAll();
+          layer.msg('删除成功', {
+          icon: 1,
+          time:600
+            });
+            window.location.reload();
+            productadd();
+                     
+                  },
+                  error:function(){
+                      layer.closeAll();
+          layer.msg('删除失败', {
+          icon: 1,
+          time:600
+            });
+                  }
+              });
+      //
 	});
-	// $('.countdown').downCount({
-	// 	date: '12/24/2017 12:44:00',
-	// 	offset: +10
-	// }, function () {
-	// 	alert('倒计时结束!');
-	// });  
+	
 });
 	
-// function search(){
-// 	var data = {
-// 	    product_name:$("#homeSearch").val()
-// 	}
-// 	$.ajax({
-// 	    type: "GET",
-// 	    url:"/product/product_os",
-// 	    async: false,
-// 	    data:data,
-// 	    success: function(msg) {
-// 	        var data = JSON.parse(msg);
-// 	        console.log(msg);    
-// 	    },
-// 	    error:function(){
-// 	        console.log("error");
-// 	    }
-// 	});
-// }
 function keyword_os(keyword){
   window.location.href='/product/product.html?keyword='+keyword;
 }
