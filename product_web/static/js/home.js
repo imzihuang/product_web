@@ -58,38 +58,25 @@ $(document).ready(function(){
 		else{
 			$(this).attr("src","img/unlike.png");
 		}
-      //
-      var data = {
-                  keyword_id:imgId
-              };
-      
-      $.ajax({
-                  type: "post",
-                  url:"/product/like_keyword",
-                  async: false,
-                  data:data,
-                  success: function(msg) {
-                      // var data = JSON.parse(msg);
-                      console.log(msg);
-                      delData(valArr);
-                      layer.closeAll();
-          layer.msg('删除成功', {
-          icon: 1,
-          time:600
+    //
+    var data = {
+                keyword_id:imgId
+            };
+    
+    $.ajax({
+            type: "post",
+            url:"/product/like_keyword",
+            async: false,
+            data:data,
+            success: function(msg) {
+              console.log(msg);
+              $(".likecount").html(msg.count);
+                    },
+            error:function(){
+                           
+                 }
             });
-            window.location.reload();
-            productadd();
-                     
-                  },
-                  error:function(){
-                      layer.closeAll();
-          layer.msg('删除失败', {
-          icon: 1,
-          time:600
-            });
-                  }
-              });
-      //
+    //
 	});
 	
 });
