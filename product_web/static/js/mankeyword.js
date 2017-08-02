@@ -329,7 +329,7 @@ $(function() {
             }, self.ajaxSettings);
             self.ajaxRequests.push($.ajax(settings));
         },
-        uploadUrl: '/product/keyword_os_update',
+        uploadUrl: '/product/keyword_os',
         //language: 'zh',
         allowedFileExtensions : ['jpg', 'png','gif'],
         maxFileCount: 1,
@@ -409,7 +409,7 @@ $(function() {
                     return self._initXhr(xhrobj, previewId, self.getFileStack().length);
                 },
                 url: self.uploadUrl,
-                type: 'POST',
+                type: 'PUT',
                 dataType: 'json',
                 data: self.formdata,
                 cache: false,
@@ -422,7 +422,7 @@ $(function() {
             }, self.ajaxSettings);
             self.ajaxRequests.push($.ajax(settings));
         },
-        uploadUrl: '/product/keyword_os',
+        uploadUrl: '/product/keyword_os_update',
         //language: 'zh',
         allowedFileExtensions : ['jpg', 'png','gif'],
         maxFileCount: 1,
