@@ -50,8 +50,8 @@ $(document).ready(function(){
 	    return false;
 	}
 	$('.likeList a img').click(function(){
-    var imgId=$(this);
-    console.log(imgId.id);
+    var imgId=$(this).attr("id");
+    console.log(imgId);
 		if($(this).attr("src")==="img/unlike.png"){
 			$(this).attr("src","img/like.png");
 		}
@@ -60,7 +60,7 @@ $(document).ready(function(){
 		}
       //
       var data = {
-                  keyword_id:imgId.id
+                  keyword_id:imgId
               };
       
       $.ajax({
