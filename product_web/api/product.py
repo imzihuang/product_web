@@ -77,8 +77,10 @@ class ProductHandler(RequestHandler):
 
         self.finish({'state': '0', 'message': 'add product ok'})
 
+
+class UpdateProductHandler(RequestHandler):
     @verify_api_login
-    def post(self):
+    def put(self):
         """update product"""
         product_name = self.get_argument("product_name", "")
         new_product_name = self.get_argument("new_name", "")
@@ -112,7 +114,7 @@ class ProductHandler(RequestHandler):
             update_data.update({"source": source})
         theme = self.get_argument("theme", '')
         if theme:
-            update_data.update({"theme": theme}) 
+            update_data.update({"theme": theme})
         ori_price = int(self.get_argument("ori_price", -1))
         if ori_price > -1:
             update_data.update({"ori_price": ori_price})
@@ -148,7 +150,6 @@ class ProductHandler(RequestHandler):
                 self.finish({'state': '2', 'message': 'update product faild'})
                 return
         self.finish({'state': '0', 'message': 'Update product ok'})
-
 
 class DeleteProductHandler(RequestHandler):
     @verify_api_login
