@@ -79,12 +79,17 @@ def set_keyword_sort_num(session, sort_num):
         session.query(models.ProductKeyword).filter(models.ProductKeyword.id==keyword.id).update({"sort_num":current_sort_num}, synchronize_session=False)
     return True
 
-def get_pv_count(session, ip="", html=""):
+def get_pv_count(session, ip="", html="", start="", end=""):
     query = session.query(models.Product_PV.ip, models.Product_PV.html, func.count(models.Product_PV.html))
     if ip:
         query = query.filter(models.Product_PV.ip == ip)
     if html:
         query = query.filter(models.Product_PV.html == html)
+    if start:
+        query = query.filter(models.Product_PV.visit_date >= start)
+    if end:
+        query = query.filter(models.Product_PV.visit_date <= end)
     return query.group_by(models.Product_PV.ip).group_by(models.Product_PV.html)
+
 
 
