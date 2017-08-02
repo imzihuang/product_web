@@ -121,6 +121,8 @@
 <script type="text/javascript">
 	 //cookie
 function logout(){
+  checkCookie();
+  window.location.href='/product/login.html'
   function getCookie(c_name)
 	{
 	if (document.cookie.length>0)
