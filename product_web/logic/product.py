@@ -8,7 +8,7 @@ from db import api
 def init_like_count(session, product_list):
     result = []
     for product in product_list:
-        query = api.model_query(session, "Like", {"product_id": [product_id]})
+        query = api.model_query(session, "Like", {"product_id": [product.get("id")]})
         product.update({"like_count": query.count()})
         result.append(product)
     return result

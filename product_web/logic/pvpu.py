@@ -24,7 +24,7 @@ def get_pu(ip="", html="", start="", end=""):
             _.append({
                 "ip": result.ip,
                 "html": result.html,
-                "count": result[2]
+                "count": int(result[2])
             })
         return _
     except Exception as ex:
