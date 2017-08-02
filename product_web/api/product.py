@@ -91,6 +91,7 @@ class UpdateProductHandler(RequestHandler):
         update_data = {}
         file_metas = self.request.files.get('product_img', '')
         if file_metas:
+            gen_log.info('update product img:%s'%product_name)
             img_path = ""
             upload_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "..")
             upload_path = os.path.join(upload_path, 'static')
