@@ -87,21 +87,5 @@ function keyword_os(keyword){
   window.location.href='/product/product.html?keyword='+keyword;
 }
 function logout(){
-  function clearCookie(name) {  
-    setCookie(name, "", -1);  
-  }  
-  function checkCookie() {
 
-      var user = getCookie("username");
-      if (user != "") {
-          alert("Welcome again " + user);
-      } else {
-          user = prompt("Please enter your name:", "");
-          if (user != "" && user != null) {
-              setCookie("username", user, 365);
-          }
-      }
-  }
-  checkCookie(); console.log(1); 
-  window.location.href='/product/login.html';
 }
