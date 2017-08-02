@@ -9,10 +9,15 @@ from db import api, models
 def get_pu(ip, html, query_date):
     pass
 
-def get_pv(ip="", html=""):
+def get_pv(ip="", html="", start="", end=""):
     try:
         session = get_session()
-        query = api.get_pv_count(session, ip, html)
+        # verify date
+        if start and not is_date(start):
+            return []
+        if end and not is_date(end):
+            return []
+        query = api.get_pv_count(session, ip, html, start, end)
         results = query.all()
         _ = []
         for result in results:
@@ -24,7 +29,7 @@ def get_pv(ip="", html=""):
         return _
     except Exception as ex:
         gen_log.error("pu query error:%r"%ex)
-        return 0
+        return []
     finally:
         session.close()
 
