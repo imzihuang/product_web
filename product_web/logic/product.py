@@ -5,6 +5,13 @@ from common.log_client import gen_log
 from db.base import get_session
 from db import api
 
+def init_like_count(session, product_list):
+    result = []
+    for product in product_list:
+        query = api.model_query(session, "Like", {"product_id": [product_id]})
+        product.update({"like_count": query.count()})
+        result.append(product)
+    return result
 
 def get_product(**kwargs):
     id = kwargs.get("id", "")
@@ -23,7 +30,8 @@ def get_product(**kwargs):
             return result.to_dict()
         query = api.model_query(session, "Product", {})
         results = query.order_by("sort_num").all()
-        return [result.to_dict() for result in results]
+        results = [result.to_dict() for result in results]
+        return init_like_count(session, results)
     except Exception as ex:
         gen_log.error("Get product error:%r"%ex)
     finally:

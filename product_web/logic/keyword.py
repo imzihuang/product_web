@@ -5,6 +5,14 @@ from common.log_client import gen_log
 from db.base import get_session
 from db import api
 
+def init_like_count(session, keyword_list):
+    result = []
+    for keyword in keyword_list:
+        query = api.model_query(session, "Like", {"keyword_id": [keyword_id]})
+        keyword.update({"like_count": query.count()})
+        result.append(keyword)
+    return result
+
 def get_keyword(**kwargs):
     id = kwargs.get("id", "")
     name = kwargs.get("name", "")
@@ -22,7 +30,8 @@ def get_keyword(**kwargs):
             return result.to_dict()
         query = api.model_query(session, "ProductKeyword", {})
         results = query.order_by("sort_num").all()
-        return [result.to_dict() for result in results]
+        results = [result.to_dict() for result in results]
+        return init_like_count(session, results)
     except Exception as ex:
         gen_log.error("Get product keyword error:%r"%ex)
     finally:
