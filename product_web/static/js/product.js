@@ -100,38 +100,28 @@ $(document).ready(function(){
     //ajax
 
 	$('.likeList a img').click(function(){
-		if($(this).attr("src")==="img/unlike.png"){
-			$(this).attr("src","img/like.png");
-		}
-		else{
-			$(this).attr("src","img/unlike.png");
-		}
-	});
-	// $('.countdown').downCount({
-	// 	date: '12/24/2017 12:44:00',
-	// 	offset: +10
-	// }, function () {
-	// 	alert('倒计时结束!');
-	// });  
+    var imgId=$(this).attr("id");
+    console.log(imgId);
+    $(this).attr("src","img/like.png");
+    //
+    var data = {
+                product_id:imgId
+            };
+    console.log(data);
+    $.ajax({
+            type: "post",
+            url:"/product/like_product",
+            async: false,
+            data:data,
+            success: function(msg) {
+              console.log(msg);
+              $(".likecount").html(msg.count);
+                    },
+            error:function(){
+                           
+                 }
+            });
+    //
+  });
 });
 	
-// function search(){
-// 	var data = {
-// 	    product_name:$("#homeSearch").val()
-// 	}
-// 	$.ajax({
-// 	    type: "GET",
-// 	    url:"/product/product_os",
-// 	    async: false,
-// 	    data:data,
-// 	    success: function(msg) {
-// 	        var data = JSON.parse(msg);
-// 	        console.log(msg);    
-// 	    },
-// 	    error:function(){
-// 	        console.log("error");
-// 	    }
-// 	});
-// }
-
-
