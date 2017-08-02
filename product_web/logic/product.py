@@ -66,7 +66,8 @@ def get_product_like_theme(product_keyword, offset=0, limit=0):
         session = get_session()
         query = api.get_product_like_theme(session, product_keyword)
         results = query.order_by("sort_num").all()
-        return [result.to_dict() for result in results]
+        results = [result.to_dict() for result in results]
+        return init_like_count(session, results)
     except Exception as ex:
         gen_log.error("like query product error: %r"% ex)
     finally:
