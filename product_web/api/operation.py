@@ -100,5 +100,9 @@ class PVPUHandler(RequestHandler):
             return
 
         if method == "pu":
-            pass
+            _ = loc_pvpu.get_pu(html=_html, start=_start, end=_end)
+            self.finish({'state': "0", 'message': 'Get pu ok', 'data': _})
+            return
+        self.finish({'state': "2", 'message': 'Method error', 'data': []})
+        return
 
