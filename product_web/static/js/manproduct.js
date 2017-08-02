@@ -151,6 +151,7 @@ $(function() {
 		
 		});
 	});
+
 	$('body').on("click",".areapen",function(){
 		var old_name=$(this).parent().parent().find(".userMessage").html();
         $('input').val("");
@@ -318,6 +319,7 @@ $(function() {
 		showCaption: false,
         enctype: 'multipart/form-data',
         uploadExtraData: function(previewId, index) {   //额外参数的关键点
+        	alert("add");
 			var obj = {};
 			if($("#add_name").val()!=""){
 			obj.product_name = $("#add_name").val();
@@ -387,6 +389,7 @@ $(function() {
 		showCaption: false,
         enctype: 'multipart/form-data',
         uploadExtraData: function(previewId, index) {   //额外参数的关键点
+        	alert("update");
 			var obj = {};
 			obj.product_name = $("#editphoto_product_name").val();
 			return obj;

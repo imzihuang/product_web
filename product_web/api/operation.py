@@ -106,3 +106,6 @@ class PVPUHandler(RequestHandler):
         self.finish({'state': "2", 'message': 'Method error', 'data': []})
         return
 
+class ExcelHandler():
+    pass
+
