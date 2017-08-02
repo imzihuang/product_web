@@ -86,4 +86,21 @@ $(document).ready(function(){
 function keyword_os(keyword){
   window.location.href='/product/product.html?keyword='+keyword;
 }
-
+function logout(){
+  function clearCookie(name) {  
+    setCookie(name, "", -1);  
+  }  
+  function checkCookie() {
+    window.location.href='/product/login.html';
+      var user = getCookie("username");
+      if (user != "") {
+          alert("Welcome again " + user);
+      } else {
+          user = prompt("Please enter your name:", "");
+          if (user != "" && user != null) {
+              setCookie("username", user, 365);
+          }
+      }
+  }
+  checkCookie(); 
+}
