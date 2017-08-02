@@ -210,7 +210,7 @@ $(function() {
                         // var data = JSON.parse(msg);
                         console.log(msg);
                         layer.closeAll();
-						    layer.msg('添加成功', {
+						    layer.msg('修改成功', {
 						    	icon: 1,
 							    time: 800//2s后自动关闭
 							  });
@@ -220,7 +220,7 @@ $(function() {
                     error:function(){
                         console.log("error");
                         	layer.closeAll();
-						    layer.msg('添加失败', {
+						    layer.msg('修改失败', {
 						    	icon: 1,
 							    time: 800//2s后自动关闭
 							  });
@@ -387,11 +387,13 @@ $(function() {
 			      productadd();
 			      $('input').val("");
 			      $(".fileinput-remove-button").click();
+			      $(".btn-file").removeAttr("disabled");
 	                    layer.closeAll();
 						    layer.msg('添加成功', {
 						    	icon: 1,
 							    time: 800//2s后自动关闭
 							  });
+			      window.location.reload();
                 }   
 		
     });
@@ -443,11 +445,13 @@ $(function() {
 		$(".rm_html").html("");
 		productadd();
 		$(".fileinput-remove-button").click();
+		$(".btn-file").removeAttr("disabled");
 			layer.closeAll();
-				layer.msg('添加成功', {
+				layer.msg('修改成功', {
 					icon: 1,
 					time: 800//2s后自动关闭
 				  });
+			window.location.reload();
 		// }
     });
     $("#file-0").fileinput({
