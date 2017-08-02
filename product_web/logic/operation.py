@@ -33,7 +33,7 @@ def like_keyword(keyword_id, user_name):
         if query.count() > 0:
             gen_log.log("The user has already clicked.")
             return False
-        query = api.model_query(session, "ProductKeyword", {"keyword_id": [keyword_id]})
+        query = api.model_query(session, "ProductKeyword", {"id": [keyword_id]})
         if query.count() == 0:
             gen_log.log("Keyword id no exist.")
             return False
@@ -58,7 +58,7 @@ def like_product(product_id, user_name):
         if query.count() > 0:
             gen_log.log("The user has already clicked.")
             return False
-        query = api.model_query(session, "Product", {"product_id": [product_id]})
+        query = api.model_query(session, "Product", {"id": [product_id]})
         if query.count() == 0:
             gen_log.log("Product id no exist.")
             return False
