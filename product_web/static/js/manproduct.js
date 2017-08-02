@@ -212,6 +212,7 @@ $(function() {
                     data:data,
                     success: function(msg) {
                         // var data = JSON.parse(msg);
+
                         console.log(msg);
                         layer.closeAll();
 						    layer.msg('修改成功', {
@@ -219,6 +220,7 @@ $(function() {
 							    time: 800//2s后自动关闭
 							  });
 						productadd();
+                        
                     },
                     error:function(){
                         console.log("error");
@@ -302,12 +304,36 @@ $(function() {
 					'</td><td><i class="fa fa-pencil areapen" title="更新信息"></i>&nbsp;&nbsp;<i class="fa fa-photo photopen" title="更新图片"></i></td></tr>';	
                    }   
                     $("#tbody").append(str);
+                    
             },
                 
             });
 	}
 
     $('#file-zh_add').fileinput({
+    	 _ajaxSubmit: function (fnBefore, fnSuccess, fnComplete, fnError, previewId, index) {
+            var self = this, settings;
+            self._raise('filepreajax', [previewId, index]);
+            self._uploadExtra(previewId, index);
+            settings = $.extend(true, {}, {
+                xhr: function () {
+                    var xhrobj = $.ajaxSettings.xhr();
+                    return self._initXhr(xhrobj, previewId, self.getFileStack().length);
+                },
+                url: self.uploadUrl,
+                type: 'PUT',
+                dataType: 'json',
+                data: self.formdata,
+                cache: false,
+                processData: false,
+                contentType: false,
+                beforeSend: fnBefore,
+                success: fnSuccess,
+                complete: fnComplete,
+                error: fnError
+            }, self.ajaxSettings);
+            self.ajaxRequests.push($.ajax(settings));
+        },
         uploadUrl: '/product/product_os',
         //language: 'zh',
         allowedFileExtensions : ['jpg', 'png','gif'],
@@ -377,6 +403,29 @@ $(function() {
 		
     });
     $('#file-zh_edit').fileinput({
+    	_ajaxSubmit: function (fnBefore, fnSuccess, fnComplete, fnError, previewId, index) {
+            var self = this, settings;
+            self._raise('filepreajax', [previewId, index]);
+            self._uploadExtra(previewId, index);
+            settings = $.extend(true, {}, {
+                xhr: function () {
+                    var xhrobj = $.ajaxSettings.xhr();
+                    return self._initXhr(xhrobj, previewId, self.getFileStack().length);
+                },
+                url: self.uploadUrl,
+                type: 'PUT',
+                dataType: 'json',
+                data: self.formdata,
+                cache: false,
+                processData: false,
+                contentType: false,
+                beforeSend: fnBefore,
+                success: fnSuccess,
+                complete: fnComplete,
+                error: fnError
+            }, self.ajaxSettings);
+            self.ajaxRequests.push($.ajax(settings));
+        },
         uploadUrl: '/product/product_os_update',
         //language: 'zh',
         allowedFileExtensions : ['jpg', 'png','gif'],
@@ -395,6 +444,10 @@ $(function() {
                 }
             }
     }).on('fileuploaded', function(event, data, previewId, index) {console.log(111);
+			      // if((".file-drop-zone-title").val()=="Drag & drop files here …"){
+			      // 	$(".editphoto_error").html("请上传图片！");
+			      // }
+			      // else{
 			      	$(".rm_html").html("");
 			      	productadd();
 			      	$(".fileinput-remove-button").click();
@@ -421,6 +474,11 @@ $(function() {
             return filename.replace('(', '_').replace(']', '_');
         }
 	});
+    /*
+    $(".file").on('fileselect', function(event, n, l) {
+        alert('File Selected. Name: ' + l + ', Num: ' + n);
+    });
+    */
 	$("#file-3").fileinput({
 		showUpload: false,
 		showCaption: false,
@@ -448,6 +506,11 @@ $(function() {
             'allowedFileExtensions' : ['jpg', 'png','gif'],
             'elErrorContainer': '#errorBlock'
         });
+        /*
+        $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
+            alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
+        });
+        */
     });
 
   
