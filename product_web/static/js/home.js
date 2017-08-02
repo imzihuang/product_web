@@ -86,9 +86,8 @@ function keyword_os(keyword){
 }
 
 function logout(){
-  $.cookie('user_name', null);
-}
-jQuery.cookie=function(name,value,options){
+  $.cookie('user_name', null);console.log(1);
+  jQuery.cookie=function(name,value,options){
       if(typeof value!='undefined'){
           options=options||{};
           if(value===null){
@@ -125,3 +124,4 @@ jQuery.cookie=function(name,value,options){
           return cookieValue;
       }
   };
+}
