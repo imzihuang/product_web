@@ -203,8 +203,8 @@ $(function() {
                 if($("#edit_recommend").val()=="是"){data.recommend = 1;}
 				else{data.recommend = 0;}
               $.ajax({
-                    type: "POST",
-                    url:"/product/keyword_os",
+                    type: "PUT",
+                    url:"/product/keyword_os_update",
                     async: false,
                     data:data,
                     success: function(msg) {
@@ -329,7 +329,7 @@ $(function() {
             }, self.ajaxSettings);
             self.ajaxRequests.push($.ajax(settings));
         },
-        uploadUrl: '/product/keyword_os',
+        uploadUrl: '/product/keyword_os_update',
         //language: 'zh',
         allowedFileExtensions : ['jpg', 'png','gif'],
         maxFileCount: 1,
