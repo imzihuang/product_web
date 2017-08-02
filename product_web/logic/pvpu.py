@@ -15,10 +15,10 @@ def get_pv(ip="", html="", start="", end=""):
         session = get_session()
         # verify date
         if start and not is_date(start):
-            gen_log.info("start is format error:%s"%start)
+            gen_log.info("start format error:%s, %s"%(start, type(start)))
             return []
         if end and not is_date(end):
-            gen_log.info("end is format error:%s" % start)
+            gen_log.info("end format error:%s, %s" % (end, type(start)))
             return []
         query = api.get_pv_count(session, ip, html, start, end)
         results = query.all()
