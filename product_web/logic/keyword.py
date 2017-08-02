@@ -20,20 +20,26 @@ def get_keyword(**kwargs):
     limit = kwargs.get("limit", 0)
     try:
         session = get_session()
+        results = []
         if id:
             query = api.model_query(session, "ProductKeyword", {"id": [id]})
             result = query.first()
-            return result.to_dict()
+            if result:
+                results.append(result.to_dict())
+            return init_like_count(session, results)
         if name:
             query = api.model_query(session, "ProductKeyword", {"name": [name]})
             result = query.first()
-            return result.to_dict()
+            if result:
+                results.append(result.to_dict())
+            return init_like_count(session, results)
         query = api.model_query(session, "ProductKeyword", {})
         results = query.order_by("sort_num").all()
         results = [result.to_dict() for result in results]
         return init_like_count(session, results)
     except Exception as ex:
         gen_log.error("Get product keyword error:%r"%ex)
+        return []
     finally:
         session.close()
 
