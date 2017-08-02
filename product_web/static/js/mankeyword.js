@@ -306,29 +306,6 @@ $(function() {
 	}
 
     $('#file-zh_add').fileinput({
-    	 _ajaxSubmit: function (fnBefore, fnSuccess, fnComplete, fnError, previewId, index) {
-            var self = this, settings;
-            self._raise('filepreajax', [previewId, index]);
-            self._uploadExtra(previewId, index);
-            settings = $.extend(true, {}, {
-                xhr: function () {
-                    var xhrobj = $.ajaxSettings.xhr();
-                    return self._initXhr(xhrobj, previewId, self.getFileStack().length);
-                },
-                url: self.uploadUrl,
-                type: 'PUT',
-                dataType: 'json',
-                data: self.formdata,
-                cache: false,
-                processData: false,
-                contentType: false,
-                beforeSend: fnBefore,
-                success: fnSuccess,
-                complete: fnComplete,
-                error: fnError
-            }, self.ajaxSettings);
-            self.ajaxRequests.push($.ajax(settings));
-        },
         uploadUrl: '/product/keyword_os',
         //language: 'zh',
         allowedFileExtensions : ['jpg', 'png','gif'],
@@ -399,29 +376,6 @@ $(function() {
 		
     });
     $('#file-zh_edit').fileinput({
-    	_ajaxSubmit: function (fnBefore, fnSuccess, fnComplete, fnError, previewId, index) {
-            var self = this, settings;
-            self._raise('filepreajax', [previewId, index]);
-            self._uploadExtra(previewId, index);
-            settings = $.extend(true, {}, {
-                xhr: function () {
-                    var xhrobj = $.ajaxSettings.xhr();
-                    return self._initXhr(xhrobj, previewId, self.getFileStack().length);
-                },
-                url: self.uploadUrl,
-                type: 'PUT',
-                dataType: 'json',
-                data: self.formdata,
-                cache: false,
-                processData: false,
-                contentType: false,
-                beforeSend: fnBefore,
-                success: fnSuccess,
-                complete: fnComplete,
-                error: fnError
-            }, self.ajaxSettings);
-            self.ajaxRequests.push($.ajax(settings));
-        },
         uploadUrl: '/product/keyword_os_update',
         //language: 'zh',
         allowedFileExtensions : ['jpg', 'png','gif'],
@@ -439,10 +393,6 @@ $(function() {
                 }
             }
     }).on('fileuploaded', function(event, data, previewId, index) {
-		// if((".file-drop-zone-title").val()=="Drag & drop files here …"){
-		// $(".editphoto_error").html("请上传图片！");
-		// }
-		// else{
 		$(".rm_html").html("");
 		productadd();
 		$(".fileinput-remove-button").click();
@@ -452,8 +402,6 @@ $(function() {
 					icon: 1,
 					time: 800//2s后自动关闭
 				  });
-			window.location.reload();
-		// }
     });
     $("#file-0").fileinput({
         'allowedFileExtensions' : ['jpg', 'png','gif'],
@@ -469,11 +417,6 @@ $(function() {
             return filename.replace('(', '_').replace(']', '_');
         }
 	});
-    /*
-    $(".file").on('fileselect', function(event, n, l) {
-        alert('File Selected. Name: ' + l + ', Num: ' + n);
-    });
-    */
 	$("#file-3").fileinput({
 		showUpload: false,
 		showCaption: false,
@@ -501,11 +444,6 @@ $(function() {
             'allowedFileExtensions' : ['jpg', 'png','gif'],
             'elErrorContainer': '#errorBlock'
         });
-        /*
-        $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
-            alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
-        });
-        */
     });
    
 
