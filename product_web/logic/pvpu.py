@@ -7,18 +7,41 @@ from common.convert import is_date
 from db.base import get_session, get_engine, json_dumps_alchemy
 from db import api, models
 
-def get_pu(ip, html, query_date):
-    pass
+def get_pu(ip="", html="", start="", end=""):
+    try:
+        session = get_session()
+        # verify date
+        if start and not is_date(start):
+            gen_log.info("start format error:%s, %s"%(start, type(start)))
+            return []
+        if end and not is_date(end):
+            gen_log.info("end format error:%s, %s" % (end, type(start)))
+            return []
+        query = api.get_pu_count(session, ip, html, start, end)
+        results = query.all()
+        _ = []
+        for result in results:
+            _.append({
+                "ip": result.ip,
+                "html": result.html,
+                "count": result[2]
+            })
+        return _
+    except Exception as ex:
+        gen_log.error("pu query error:%r"%ex)
+        return []
+    finally:
+        session.close()
 
 def get_pv(ip="", html="", start="", end=""):
     try:
         session = get_session()
         # verify date
         if start and not is_date(start):
-            gen_log.info("start is format error:%s"%start)
+            gen_log.info("start format error:%s, %s"%(start, type(start)))
             return []
         if end and not is_date(end):
-            gen_log.info("end is format error:%s" % start)
+            gen_log.info("end format error:%s, %s" % (end, type(start)))
             return []
         query = api.get_pv_count(session, ip, html, start, end)
         results = query.all()
@@ -31,7 +54,7 @@ def get_pv(ip="", html="", start="", end=""):
             })
         return _
     except Exception as ex:
-        gen_log.error("pu query error:%r"%ex)
+        gen_log.error("pv query error:%r"%ex)
         return []
     finally:
         session.close()
