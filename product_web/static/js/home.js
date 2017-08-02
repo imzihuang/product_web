@@ -91,7 +91,7 @@ function logout(){
     setCookie(name, "", -1);  
   }  
   function checkCookie() {
-    window.location.href='/product/login.html';
+
       var user = getCookie("username");
       if (user != "") {
           alert("Welcome again " + user);
@@ -102,5 +102,6 @@ function logout(){
           }
       }
   }
-  checkCookie(); 
+  checkCookie(); console.log(1); 
+  window.location.href='/product/login.html';
 }
