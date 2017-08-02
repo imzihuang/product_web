@@ -208,7 +208,6 @@ $(function() {
                     async: false,
                     data:data,
                     success: function(msg) {
-                        // var data = JSON.parse(msg);
                         console.log(msg);
                         layer.closeAll();
 						    layer.msg('修改成功', {
@@ -299,7 +298,6 @@ $(function() {
 					'</td><td><i class="fa fa-pencil areapen" title="更新信息"></i>&nbsp;&nbsp;<i class="fa fa-photo photopen" title="更新图片"></i></td></tr>';	
                    }   
                     $("#tbody").append(str);
-                    
             },
                 
             });
@@ -393,10 +391,6 @@ $(function() {
                 }
             }
     }).on('fileuploaded', function(event, data, previewId, index) {
-		// if((".file-drop-zone-title").val()=="Drag & drop files here …"){
-		// $(".editphoto_error").html("请上传图片！");
-		// }
-		// else{
 		$(".rm_html").html("");
 		productadd();
 		$(".fileinput-remove-button").click();
@@ -407,7 +401,6 @@ $(function() {
 					time: 800//2s后自动关闭
 				  });
 			window.location.reload();
-		// }
     });
     $("#file-0").fileinput({
         'allowedFileExtensions' : ['jpg', 'png','gif'],
@@ -423,11 +416,6 @@ $(function() {
             return filename.replace('(', '_').replace(']', '_');
         }
 	});
-    /*
-    $(".file").on('fileselect', function(event, n, l) {
-        alert('File Selected. Name: ' + l + ', Num: ' + n);
-    });
-    */
 	$("#file-3").fileinput({
 		showUpload: false,
 		showCaption: false,
@@ -455,11 +443,6 @@ $(function() {
             'allowedFileExtensions' : ['jpg', 'png','gif'],
             'elErrorContainer': '#errorBlock'
         });
-        /*
-        $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
-            alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
-        });
-        */
     });
    
 
