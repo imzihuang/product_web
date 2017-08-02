@@ -53,12 +53,7 @@ $(document).ready(function(){
 	$('.likeList a img').click(function(){
     var imgId=$(this).attr("id");
     console.log(imgId);
-		if($(this).attr("src")==="img/unlike.png"){
-			$(this).attr("src","img/like.png");
-		}
-		else{
-			$(this).attr("src","img/unlike.png");
-		}
+    $(this).attr("src","img/like.png");
     //
     var data = {
                 keyword_id:imgId
@@ -78,7 +73,7 @@ $(document).ready(function(){
                  }
             });
     //
-	});
+  });
 	
 });
 	
