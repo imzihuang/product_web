@@ -38,7 +38,7 @@ class ProductHandler(RequestHandler):
         img_path = ""
         product_name = self.get_argument("product_name", "")
         theme = self.get_argument("theme", '')
-        gen_log.info('lzh----product name:%s'%product_name)
+        gen_log.info('add product name:%s'%product_name)
         if not product_name:
             self.finish({'state': '3', 'message': 'Product name is none', 'error': 'Product name is none'})
             return
@@ -84,6 +84,7 @@ class UpdateProductHandler(RequestHandler):
         """update product"""
         product_name = self.get_argument("product_name", "")
         new_product_name = self.get_argument("new_name", "")
+        gen_log.info('update product name:%s'%product_name)
         if not product_name:
             self.finish({'state': '3', 'message': 'product name is none'})
             return
