@@ -206,8 +206,8 @@ $(function() {
                 if($("#edit_recommend").val()=="是"){data.recommend = 1;}
 				else{data.recommend = 0;}
               $.ajax({
-                    type: "POST",
-                    url:"/product/product_os",
+                    type: "PUT",
+                    url:"/product/product_os_update",
                     async: false,
                     data:data,
                     success: function(msg) {
@@ -413,7 +413,7 @@ $(function() {
                     return self._initXhr(xhrobj, previewId, self.getFileStack().length);
                 },
                 url: self.uploadUrl,
-                type: 'POST',
+                type: 'PUT',
                 dataType: 'json',
                 data: self.formdata,
                 cache: false,
@@ -426,7 +426,7 @@ $(function() {
             }, self.ajaxSettings);
             self.ajaxRequests.push($.ajax(settings));
         },
-        uploadUrl: '/product/product_os',
+        uploadUrl: '/product/product_os_update',
         //language: 'zh',
         allowedFileExtensions : ['jpg', 'png','gif'],
         maxFileCount: 1,
