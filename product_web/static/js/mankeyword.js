@@ -135,7 +135,7 @@ $(function() {
 		  btn: ['确定', '取消'] ,//按钮
 		  content: $('#addInfoContent'),
 		   yes: function(){
-             $(".fileinput-upload-button").click();
+             $("#addInfoContent .fileinput-upload-button").click();
              $(".rm_html").html("");
 			  	if($("#add_keyword_name").val()==""){
                    $(".add_name_error").html("关键字名不能为空!");
@@ -250,7 +250,7 @@ $(function() {
 		  btn: ['确定', '取消'] ,//按钮
 		  content: $('#editphoto'),
 		   yes: function(){
-		   	$(".fileinput-upload-button").click();
+		   	$("#editphoto .fileinput-upload-button").click();
 
 		  }
 		});
