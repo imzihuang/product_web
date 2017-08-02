@@ -17,6 +17,7 @@ ul,li{
 	width: 85px;
 	font-size: 12px;
     display: inline-block;
+    float: left;
 }
 #editAreaContent span{
 	text-align: right;
