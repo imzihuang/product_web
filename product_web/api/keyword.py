@@ -69,8 +69,10 @@ class KeywordHandler(RequestHandler):
 
         self.finish({'state': '0', 'message': 'add keyword ok'})
 
+
+class UpdateKeywordHandler(RequestHandler):
     @verify_api_login
-    def post(self):
+    def put(self, *args, **kwargs):
         """update keyword"""
         keyword_name = self.get_argument("keyword_name", "")
         new_keyword_name = self.get_argument("new_name", "")
@@ -103,7 +105,7 @@ class KeywordHandler(RequestHandler):
             update_data.update({"source": source})
         theme = self.get_argument("theme", '')
         if theme:
-            update_data.update({"theme": theme}) 
+            update_data.update({"theme": theme})
         ori_price = int(self.get_argument("ori_price", -1))
         if ori_price > -1:
             update_data.update({"ori_price": ori_price})
