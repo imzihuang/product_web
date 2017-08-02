@@ -20,20 +20,26 @@ def get_product(**kwargs):
     limit = kwargs.get("limit", 0)
     try:
         session = get_session()
+        results = []
         if id:
             query = api.model_query(session, "Product", {"id": [id]})
             result = query.first()
-            return result.to_dict()
+            if result:
+                results.append(result.to_dict())
+            return init_like_count(session, results)
         if name:
             query = api.model_query(session, "Product", {"name": [name]})
             result = query.first()
-            return result.to_dict()
+            if result:
+                results.append(result.to_dict())
+            return init_like_count(session, results)
         query = api.model_query(session, "Product", {})
         results = query.order_by("sort_num").all()
         results = [result.to_dict() for result in results]
         return init_like_count(session, results)
     except Exception as ex:
         gen_log.error("Get product error:%r"%ex)
+        return []
     finally:
         session.close()
 
