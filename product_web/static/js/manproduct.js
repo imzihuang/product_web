@@ -398,10 +398,6 @@ $(function() {
                 }
             }
     }).on('fileuploaded', function(event, data, previewId, index) {console.log(111);
-			      // if((".file-drop-zone-title").val()=="Drag & drop files here …"){
-			      // 	$(".editphoto_error").html("请上传图片！");
-			      // }
-			      // else{
 			      	$(".rm_html").html("");
 			      	productadd();
 			      	$(".fileinput-remove-button").click();
@@ -411,7 +407,6 @@ $(function() {
 							    time: 800//2s后自动关闭
 							  });
 				    window.location.reload();
-			      // }
 			     
     });
     $("#file-0").fileinput({
@@ -428,11 +423,6 @@ $(function() {
             return filename.replace('(', '_').replace(']', '_');
         }
 	});
-    /*
-    $(".file").on('fileselect', function(event, n, l) {
-        alert('File Selected. Name: ' + l + ', Num: ' + n);
-    });
-    */
 	$("#file-3").fileinput({
 		showUpload: false,
 		showCaption: false,
@@ -460,11 +450,6 @@ $(function() {
             'allowedFileExtensions' : ['jpg', 'png','gif'],
             'elErrorContainer': '#errorBlock'
         });
-        /*
-        $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
-            alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
-        });
-        */
     });
 
   
