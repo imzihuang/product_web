@@ -13,7 +13,7 @@ $(document).ready(function(){
                 console.log(msg);
                 var str="";
                 for(var i=0;i<msg.data.length;i++){
-					str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
+					      str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
                    '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os("'+ msg.data[i].name +'")>'+
                    msg.data[i].name+'</a></p><p class="color_gray">'+
                    msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
@@ -81,7 +81,7 @@ function keyword_os(keyword){
   window.location.href='/product/product.html?keyword='+keyword;
 }
 function logout(){
-  $.cookie('user_name', '', { expires: -1 });console.log(123);
+  $.removeCookie('user_name', '', { expires: -1 });console.log(123);
   
   window.location.href='/product/login.html';console.log(user_name);
 }
