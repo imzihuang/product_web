@@ -93,11 +93,11 @@ function shareQZone(hrefName){
   return false;
 }
 
-function search(){console.log(22);
+function search(){
   var str="";
   var str_="";
-  for(var i=0;i<dataAll.data.length;i++){console.log(dataAll.data[i].name);
-    if(dataAll.data[i].name==$("#homeSearch").val()){console.log(23);
+  for(var i=0;i<dataAll.data.length;i++){
+    if(dataAll.data[i].name==$("#homeSearch").val()){
       str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
       '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os("'+ dataAll.data[i].name +'")>'+
       dataAll.data[i].name+'</a></p><p class="color_gray">'+
@@ -111,7 +111,7 @@ function search(){console.log(22);
       str=str+str_;
     }
   }
-  $("#listPart").html("");console.log(24);
+  $("#listPart").html("");
   $("#listPart").append(str);  
 }
 
