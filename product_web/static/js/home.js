@@ -1,4 +1,5 @@
 apply();
+var aboutOut=$(".track-sign-up").val();
 //ajax
 var dataAll;
 console.log(dataAll);
@@ -116,7 +117,7 @@ function search(){
 }
 
 $(".product_name a").click(function(){
-  if($(".track-sign-up").val()!="Log Out"){console.log($(".track-sign-up").val());
+  if(aboutOut!="Log Out"){console.log(aboutOut);
    window.location.href='/product/login.html';
  }
 });
