@@ -1,4 +1,4 @@
-$(document).ready(function(){
+
 var dataAll;
 var aboutOut=$(".track-sign-up").val();console.log(aboutOut);
 if($("#current_keyword").val()==""){
@@ -183,4 +183,3 @@ error:function(){
       }
      });
 
-});
