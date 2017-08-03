@@ -1,6 +1,6 @@
 apply();
 //ajax
-var dataALl;
+var dataAll;
 console.log(dataALl);
 function apply(){
   $.ajax({
@@ -10,7 +10,7 @@ function apply(){
     success: function(msg) {
             // $("#listPart").find("div").remove();
             console.log(msg);
-            dataALl=msg;
+            dataAll=msg;
             var str="";
             for(var i=0;i<msg.data.length;i++){
              str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
