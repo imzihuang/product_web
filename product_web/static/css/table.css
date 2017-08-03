@@ -232,6 +232,7 @@ p{
 .layui-layer-title{
 	background: none;
 	border: none;
+	text-align: left !important;
 }
 .hideDiv{
 	width: 400px;
