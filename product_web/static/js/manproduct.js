@@ -203,7 +203,7 @@ $(function() {
                    data.like_add_count=$("#edit_like_add_count").val();
                 }
                 if($("#edit_links").val()!=""){
-                   data.like_links=$("#edit_links").val();
+                   data.links=$("#edit_links").val();
                 }
                  if($("#edit_sort_num").val()!=""){
                    data.sort_num=$("#edit_sort_num").val();
