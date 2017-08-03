@@ -1,5 +1,5 @@
 var dataAll;
-var aboutOut=$(".track-sign-up").val();
+var aboutOut=$(".track-sign-up").val();console.log(aboutOut);
 if($("#current_keyword").val()==""){
   apply();
 }
@@ -132,8 +132,7 @@ error:function(){
       });
 
     }
-   
-
+  
     function productsearch(){
       var str="";
       var str_="";
