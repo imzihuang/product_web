@@ -235,7 +235,7 @@ $(function() {
 		$("#file-zh_edit").removeAttr("disabled");
 		$(".rm_html").html("");
 		var p_name=$(this).parent().parent().find(".userMessage").html();
-        $("#editphoto_product_name").val(p_name);
+        $("#editphoto_keyword_name").val(p_name);
         $(".fileinput-remove-button").click();
 		$(".btn-file").removeAttr("disabled");
 		$(".fileinput-cancel-button").addClass("hide");
@@ -382,7 +382,7 @@ $(function() {
         enctype: 'multipart/form-data',
         uploadExtraData: function(previewId, index) {   //额外参数的关键点
 			var obj = {};
-			obj.product_name = $("#editphoto_product_name").val();
+			obj.keyword_name = $("#editphoto_keyword_name").val();
 			return obj;
 		},
         ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
