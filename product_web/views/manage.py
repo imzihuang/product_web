@@ -37,4 +37,4 @@ class BaseInfoHandler(tornado.web.RequestHandler):
 
     @entry_id_data_args
     def get(self):
-        self.render('manbaseinfo.html')
+        self.render('manbase.html')

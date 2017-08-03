@@ -18,7 +18,7 @@ def get_all_user():
         _result = []
         for result in results:
             result.pwd = ""
-            _result.append(result.to_dict()) 
+            _result.append(result.to_dict())
         return _result
     except Exception as ex:
         gen_log.error("get all user error:%r"%ex)
