@@ -10,7 +10,7 @@ ul,li{
 	padding: 0;
 	list-style: none;
 }
-
+.layui-layer-title{text-align: left;}
 .fa-photo{color: #f3a847;}
 #addInfoContent span{
 	text-align: right;
