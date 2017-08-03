@@ -132,11 +132,7 @@ error:function(){
       });
 
     }
-    $(".product_name a").click(function(){
-      if(aboutOut=="Sign In"){
-       window.location.href='/product/login.html';
-     }
-   });
+   
 
     function productsearch(){
       var str="";
@@ -159,3 +155,28 @@ error:function(){
       $("#listPart").html("");
       $("#listPart").append(str);  
     }
+
+     $(".product_name a").click(function(){
+      if(aboutOut=="Sign In"){
+          $('#openlogin').click();
+          $('#openlogin').click(function(){
+            layerIndex=layer.open({
+            title:'请先登录',
+              type: 1,
+              skin: 'layui-layer-demo', //样式类名
+              anim: 2,
+              shadeClose: true, //开启遮罩关闭
+              btn: ['', ''] ,//按钮
+              content: $('#gologin'),
+               yes: function(){
+                layer.closeAll();
+                layer.msg('登录成功', {
+                  icon: 1,
+                  time: 800//2s后自动关闭
+                });
+              }
+            });
+        });
+      }
+     });
+   
