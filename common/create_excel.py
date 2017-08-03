@@ -18,10 +18,10 @@ def make_excel(data_array):
                 for k in data:
                     sheet.write(0, col, k)
                     col += 1
-            else:
-                for k, v in data.items():
-                    sheet.write(row, col, v)
-                    col += 1
+            col = 0
+            for k, v in data.items():
+                sheet.write(row, col, v)
+                col += 1
             row += 1
         sf = StringIO.StringIO()
         xls.save(sf)
