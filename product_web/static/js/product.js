@@ -141,7 +141,7 @@ error:function(){
       
     }
     $(".product_name a").click(function(){
-      if($(".track-sign-up").val()!="Log Out"){
+      if($(".track-sign-up").val()!="Log Out"){console.log(111);
        window.location.href='/product/login.html';
      }
    });

@@ -116,7 +116,7 @@ function search(){
 }
 
 $(".product_name a").click(function(){
-  if($(".track-sign-up").val()!="Log Out"){
+  if($(".track-sign-up").val()!="Log Out"){console.log($(".track-sign-up").val());
    window.location.href='/product/login.html';
  }
 });
