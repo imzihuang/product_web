@@ -234,6 +234,10 @@ p{
 	border: none;
 	text-align: left !important;
 }
+.thumbnail p{
+	height: auto;
+	line-height: 1.42857143;
+}
 .hideDiv{
 	width: 400px;
 	height: auto;
