@@ -90,7 +90,7 @@ class UpdateProductHandler(RequestHandler):
             return
         update_data = {}
         product_list = loc_product.get_product(name=product_name)
-        img_path = product_list[0].img_path if product_list else ""
+        img_path = product_list[0].get("img_path") if product_list else ""
         if not img_path:
             self.finish({'state': '3', 'message': 'product name is none'})
             return

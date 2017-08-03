@@ -82,7 +82,7 @@ class UpdateKeywordHandler(RequestHandler):
         update_data = {}
         file_metas = self.request.files.get('keyword_img', '')
         keyword_list = loc_keywod.get_keyword(name=keyword_name)
-        img_path = keyword_list[0].img_path if keyword_list else ""
+        img_path = keyword_list[0].get("img_path") if keyword_list else ""
         if not img_path:
             self.finish({'state': '3', 'message': 'keyword name is none'})
             return
