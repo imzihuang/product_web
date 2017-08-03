@@ -1,16 +1,12 @@
 apply();
 var aboutOut=$(".track-sign-up").val();
-//ajax
 var dataAll;
-console.log(dataAll);
 function apply(){
   $.ajax({
     type: "GET",
     url:"/product/keyword_os",
     async: false,
     success: function(msg) {
-            // $("#listPart").find("div").remove();
-            console.log(msg);
             dataAll=msg;
             var str="";
             for(var i=0;i<msg.data.length;i++){
@@ -24,7 +20,6 @@ function apply(){
              '<p class="aboutHelp"><a>how to claim it?</a></p>'+
              '<div class="likeList"><span class="f_left"><a class="share share_face"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-twitter areapen" title="twitter"></i></a><a class="share share_google"><i class="fa fa-google areapen" title="google"></i></a><a class="share share_envelope"><i class="fa fa-envelope areapen" title="envelope"></i></a></span>'+
              '<span class="likecount">'+msg.data[i].like_count+'</span><a ><img src="img/unlike.png" id="'+msg.data[i].id+'"></a></div></div></div></div>'
-
              str=str+str_;
            }   
            $("#listPart").append(str);  
@@ -33,7 +28,6 @@ function apply(){
              var strclass="";
              var strclass='.countdown'+j;
              strname=msg.data[j].count_down_at;
-             console.log(strname);
              $(strclass).downCount({
                date: strname,
                offset: +10
@@ -48,19 +42,16 @@ function apply(){
 
 $('.likeList a img').click(function(){
   var imgId=$(this).attr("id");
-  console.log(imgId);
   $(this).attr("src","img/like.png");
   var data = {
     keyword_id:imgId
   };
-  console.log(data);
   $.ajax({
     type: "post",
     url:"/product/like_keyword",
     async: false,
     data:data,
     success: function(msg) {
-      console.log(msg);
       $(".likecount").html(msg.count);
     },
     error:function(){
@@ -117,7 +108,7 @@ function search(){
 }
 
 $(".product_name a").click(function(){
-  if(aboutOut=="Sign In"){console.log(aboutOut);
+  if(aboutOut=="Sign In"){
    window.location.href='/product/login.html';
  }
 });
