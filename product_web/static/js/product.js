@@ -158,8 +158,8 @@ error:function(){
 
      
      function change(){
-      var aboutOut=$(".track-sign-up").val();console.log($(".track-sign-up").attr("href"));
-      if(aboutOut=="Sign In"){console.log(1);
+      var aboutOut=$(".track-sign-up").attr("href");
+      if(aboutOut=="signin.html"){console.log(1);
           $('#openlogin').click();
           $('#openlogin').click(function(){
             layerIndex=layer.open({
