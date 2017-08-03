@@ -70,7 +70,7 @@ $('.likeList a img').click(function(){
   });
 });
 
-});
+
 
 function keyword_os(keyword){
   window.location.href='/product/product.html?keyword='+keyword;
@@ -122,4 +122,6 @@ $(".product_name a").click(function(){
   if($(".track-sign-up").val()!="Log Out"){
    window.location.href='/product/login.html';
  }
+});
+
 });
