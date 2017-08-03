@@ -3,7 +3,7 @@
 import StringIO
 import xlwt as ExcelWrite  # 引入模块
 
-def make_excel(self, data_array):
+def make_excel(data_array):
         if not data_array:
             return ''
         xls = ExcelWrite.Workbook(style_compression=2)
