@@ -100,31 +100,32 @@
                 </div>
 			    <!-- list -->
 			    <div id="listPart"></div>
-			     <!-- <div class="col-sm-6 col-md-3">
-			        <div class="thumbnail">
-			            <img src="img/one.png"
-			                 alt="通用的占位符缩略图">
-			            <div class="caption text-left">
-			                <p class="product_name"><a>AmazonBasics 6-Outlet Surge Protector Power Strip, 790 Joule - Black</a></p>
-			                <p class="color_gray"> by AmazonBasics</p>
-			                <p class="howmuch"><span class="color_red"><a>$3.99</a></span>&nbsp;&nbsp;<span class="color_gray"><a>$6.999</a></span>&nbsp;&nbsp;<span class="color_gray_block">&Free shipping</span></p>
-			                <a><span class="timedown">Start for you in：</span>
-			                <ul class="countdown">
-								  <li> <span class="hours">00</span><span> :</span></li>
-								  <li> <span class="minutes">00</span><span> :</span></li>
-								  <li> <span class="seconds">00</span><span> </span></li>
-							</ul></a>
-			                <p class="aboutHelp"><a>how to claim it?</a></p>
-			                <div class="likeList"><span class="f_left"><a>share</a></span><span class="likecount">100</span><a ><img src="img/unlike.png"></a></div>
-			            </div>
-			        </div>
-			    </div> -->
-			   
-                <!-- list -->
-                
+			     
 			</div> 
 			
 		</div>
+	</div>
+	<a id="openlogin"></a>
+	<div id="gologin" style="display: none; min-width: 100px;">
+		 <div class="col-sm-6 col-sm-offset-3 form-box">
+            <div class="form-top">
+                <h1>Sign in</h1>
+            </div>
+            <div class="form-bottom">
+                    <div class="form-group">
+                        <label class="sr_only" for="form-username">Name</label>
+                        <input type="text" name="form-username" placeholder="Name" class="form-username form-control" id="form-username">
+                        <div id="confirmMsg"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr_only" for="form-password">Password</label><span class="forget"><a href="findpwd.html">Forgot your password?</a></span>
+                        <input type="password" name="form-password" placeholder="Password" class="form-password form-control" id="form-password">
+                        <div id="confirmpassword"></div>
+                    </div>
+                    <button type="submit" class="btn submitbtn" onclick="login()">Sign in</button>
+                    <button type="submit " class="btn goSigninbtn" onclick="signin()" style="margin-top:10px;">Create new Account</button>
+            </div>
+        </div>
 	</div>
 </div>
         <!-- Javascript -->
