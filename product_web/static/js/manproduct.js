@@ -70,6 +70,10 @@ $(function() {
                     data:data,
                     success: function(msg) {
                         // var data = JSON.parse(msg);
+                        if(data.state==10)
+                        {
+                        	window.location.href="/product/login.html";
+                        }else{
                         console.log(msg);
                         delData(valArr);
                         layer.closeAll();
@@ -79,7 +83,7 @@ $(function() {
 					    });
 					    window.location.reload();
 					    productadd();
-                       
+                        }
                     },
                     error:function(){
                         layer.closeAll();
@@ -213,7 +217,10 @@ $(function() {
                     data:data,
                     success: function(msg) {
                         // var data = JSON.parse(msg);
-
+                         if(data.state==10)
+                        {
+                        	window.location.href="/product/login.html";
+                        }else{
                         console.log(msg);
                         layer.closeAll();
 						    layer.msg('修改成功', {
@@ -221,7 +228,7 @@ $(function() {
 							    time: 800//2s后自动关闭
 							  });
 						productadd();
-                        
+                        }
                     },
                     error:function(){
                         console.log("error");
