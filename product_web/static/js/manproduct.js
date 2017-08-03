@@ -70,7 +70,7 @@ $(function() {
                     data:data,
                     success: function(msg) {
                         // var data = JSON.parse(msg);
-                        if(data.state==10)
+                        if(mag.state==10)
                         {
                         	window.location.href="/product/login.html";
                         }else{
@@ -217,7 +217,7 @@ $(function() {
                     data:data,
                     success: function(msg) {
                         // var data = JSON.parse(msg);
-                         if(data.state==10)
+                         if(msg.state==10)
                         {
                         	window.location.href="/product/login.html";
                         }else{
