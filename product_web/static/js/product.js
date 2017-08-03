@@ -124,4 +124,17 @@ $(document).ready(function(){
     //
   });
 });
-	
+function logout(){
+  $.ajax({
+            type: "post",
+            url:"/product/logout",
+            async: false,
+            success: function(msg) {
+              window.location.href='/product/login.html';
+                    },
+            error:function(){
+                           
+                 }
+            });
+  
+}
