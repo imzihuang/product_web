@@ -92,22 +92,13 @@ class UpdateProductHandler(RequestHandler):
         file_metas = self.request.files.get('product_img', '')
         if file_metas:
             gen_log.info('update product img:%s'%product_name)
-            img_path = ""
             upload_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "..")
             upload_path = os.path.join(upload_path, 'static')
-            file_metas = self.request.files.get('product_img', '')
+            product = loc_product.get_product(name=product_name)
             for meta in file_metas:
-                filename = meta['filename']
-                pre_file = new_product_name or product_name
-                filename = pre_file + "." + filename.rpartition(".")[-1] #rename img meta
-                img_path = os.path.join("product_img", filename)
-                filepath = os.path.join(upload_path, img_path)
+                filepath = os.path.join(upload_path, product.img_path)
                 with open(filepath, 'wb') as up:
                     up.write(meta['body'])
-            if not img_path:
-                self.finish({'state': '1', 'message': 'img is none'})
-                return
-            update_data = {"img_path": img_path}
 
         if new_product_name:
             update_data.update({"name": new_product_name})

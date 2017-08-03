@@ -82,22 +82,14 @@ class UpdateKeywordHandler(RequestHandler):
         update_data = {}
         file_metas = self.request.files.get('keyword_img', '')
         if file_metas:
-            img_path = ""
             upload_path = os.path.abspath(os.path.dirname(__file__) + os.path.sep + "..")
             upload_path = os.path.join(upload_path, 'static')
+            keyword_info = loc_keywod.get_keyword(name=keyword_name)
             for meta in file_metas:
                 gen_log.info('update keyword img:%s'%keyword_name)
-                filename = meta['filename']
-                pre_file = new_keyword_name or keyword_name
-                filename = pre_file + "." + filename.rpartition(".")[-1] #rename img meta
-                img_path = os.path.join("keyword_img", filename)
-                filepath = os.path.join(upload_path, img_path)
+                filepath = os.path.join(upload_path, keyword_info.img_path)
                 with open(filepath, 'wb') as up:
                     up.write(meta['body'])
-            if not img_path:
-                self.finish({'state': '1', 'message': 'img is none'})
-                return
-            update_data = {"img_path": img_path}
 
         if new_keyword_name:
             update_data.update({"name": new_keyword_name})
