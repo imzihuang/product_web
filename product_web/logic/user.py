@@ -15,7 +15,11 @@ def get_all_user():
         session = get_session()
         query = api.model_query(session, "User", {})
         results = query.all()
-        return [result.to_dict() for result in results]
+        _result = []
+        for result in results:
+            result.pwd = ""
+            _result.append(result.to_dict()) 
+        return _result
     except Exception as ex:
         gen_log.error("get all user error:%r"%ex)
         return []
