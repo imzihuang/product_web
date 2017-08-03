@@ -23,7 +23,7 @@ $(document).ready(function(){
                    var str_="";
                    for(var i=0;i<msg.data.length;i++){
                    str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-                   '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os()>'+
+                   '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a>'+
                    msg.data[i].name+'</a></p><p class="color_gray">'+
                    msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
                    msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>'+
@@ -68,7 +68,7 @@ $(document).ready(function(){
                 var str_="";
                 for(var i=0;i<msg.data.length;i++){
 					      str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-                   '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os()>'+
+                   '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a>'+
                    msg.data[i].name+'</a></p><p class="color_gray">'+
                    msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
                    msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>'+
@@ -138,3 +138,8 @@ function logout(){
             });
   
 }
+$(".product_name a").click(function(){
+  if($(".track-sign-up").val()!="Log Out"){
+     window.location.href='/product/login.html';
+  }
+});
