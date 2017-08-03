@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>manproduct</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/font-awesome.min.css" rel="stylesheet">
+		<link href="css/animate.min.css" rel="stylesheet">
+		<link href="css/table.css" rel="stylesheet">
+		<link href="js/css/layer.css" rel="stylesheet" type="text/css">
+		<!--[if lt IE 8]>
+	    <meta http-equiv="refresh" content="0;ie.html" />
+	    <![endif]-->
+	</head>
+	<style type="text/css">
+	
+	</style>
+	<body class="gray-bg">
+		<h4>公司信息</h4>
+		<div><label>公司名称：</label><input id="companyname" type="text" /></div>
+		<div><label>邮箱：</label><input id="companyname" type="text" /></div>
+		<div><label>电话号码：</label><input id="companyname" type="text" /></div>
+		<div><label>公司地址：</label><input id="companyname" type="text" /></div>
+		<div><label>国家：</label><input id="companyname" type="text" /></div>
+		<div><label>省份：</label><input id="companyname" type="text" /></div>
+		<div><label>城市：</label><input id="companyname" type="text" /></div>
+		<div><label>描述：</label><input id="companyname" type="text" /></div>
+			<!-- <div id="tab-1" class="tab-pane active">
+				<div class="col-sm-12">
+					<div class="bgBackground">
+						<div class="ibox-content">
+						<div class="tab_part">
+						    <button class="now">产品管理</button>
+						    <button onclick="gomk()">关键字管理</button>
+						</div>
+							<table class="table table-striped table-bordered table-hover dataTables-example">
+								<thead>
+									<tr class="zx_checkedAll">
+										<th colspan="6" style="text-align: left; background: none;">
+											<button class="btn btn-default btn-myown" id="delInfo" disabled="disabled"><i class="fa fa-trash"></i>&nbsp;删除选中项</button>
+											<button class="btn btn-primary btn-myown" id="addInfo">+添加产品</button>
+										</th>
+									</tr>
+									<tr class="zx_thTitle">
+										<th><input type="checkbox" class="zx_checkedBtn" id="zx_checkedAllBtn" name="allcheck" value="allCheck"></th>
+										<th>序号</th>
+										<th>产品名称</th>
+										<th>产品图</th>
+										<th>来源</th>
+										<th>主题</th>
+										<th>原价</th>
+										<th>优惠价</th>
+										<th>邮费</th>
+										<th>描述</th>
+										<th>链接</th>
+										<th>排列顺序</th>
+										<th>进入推荐栏</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="tbody">
+									<tr></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+            </div>
+		</div>
+		
+		<div id="addInfoContent" style="display: none; min-width: 100px; padding: 16px;">
+			<div style="margin: 10px 0;">
+				<span>产品名：</span><input id="add_name" type="text" />
+			</div>
+			<div class="add_name_error rm_html"></div>
+			<div style="margin: 10px 0;">
+				<span>主题：</span><input id="add_theme" type="text" />
+			</div>
+			<div class="add_theme_error rm_html"></div>
+			<form enctype="multipart/form-data">
+	            <span class="f_left">上传图片：</span>
+	            <input id="file-zh_add" name="product_img" type="file" multiple>
+	        </form>
+	        <div class="product_img_error rm_html"></div>
+			<div style="margin: 10px 0;">
+				<span>来源：</span><input id="add_source" type="text" />
+			</div>
+			<div class="add_source_error rm_html"></div>
+			<div style="margin: 10px 0;">
+				<span>原价：</span><input id="add_ori_price" type="number" />
+			</div>
+			<div style="margin: 10px 0;">
+				<span>优惠价：</span><input id="add_con_price" type="number" />
+			</div>
+			<div style="margin: 10px 0;">
+				<span>邮费：</span><input id="add_postage_price" type="number" />
+			</div>
+			<div style="margin: 10px 0;">
+				<span>描述：</span><input id="add_description" type="text" />
+			</div>
+			<div style="margin: 10px 0;">
+				<span>外链：</span><input id="add_links" type="text" />
+			</div>
+			<div style="margin: 10px 0;">
+				<span>进入推荐栏：</span>
+				<select id="add_recommend" style="width: 154px; height: 27px; border: 1px solid #ddd;">
+					<option>是</option>
+					<option>否</option>
+				</select>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>显示顺序：</span><input id="add_sort_num" type="number" />
+			</div>
+		</div>
+		
+		<div id="editAreaContent" style="display: none; min-width: 100px; padding: 16px;">
+			<div style="margin: 10px 0;">
+				<span>产品名：</span><input type="text" id="edit_product_name" readonly="readonly" />
+			</div>
+			<div style="margin: 10px 0;">
+				<span>新产品名：</span><input type="text" id="edit_new_name"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>来源：</span><input type="text" id="edit_source"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>主题：</span><input type="text" id="edit_theme"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>原价：</span><input type="text" id="edit_ori_price"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>优惠价：</span><input type="text" id="edit_con_price"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>邮费：</span><input type="text" id="edit_postage_price"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>优惠截止时间：</span><input type="text" id="edit_count_down_at"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>描述：</span><input type="text" id="edit_description"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>统计外点赞数：</span><input type="text" id="edit_like_add_count"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>链接：</span><input type="text" id="edit_links"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>排列顺序：</span><input type="text" id="edit_sort_num"/>
+			</div>
+			<div style="margin: 10px 0;">
+				<span>进入推荐栏：</span>
+				<select  id="edit_recommend" style="width: 154px; height: 27px; border: 1px solid #ddd;">
+					<option>是</option>
+					<option>否</option>
+				</select>
+			</div>
+		</div>
+		<div id="editphoto" style="display: none; min-width: 100px; padding: 16px;">
+		    <div style="margin: 10px 0;">
+				<span>产品名：</span><input type="text" id="editphoto_product_name" readonly="readonly" />
+			</div>
+			<form enctype="multipart/form-data">
+	            <span class="f_left">上传图片：</span>
+	            <input id="file-zh_edit" type="file" name="product_img" multiple>
+	        </form>
+	        <div class="editphoto_error rm_html"></div>
+		</div> -->
+
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/layer.js"></script>
+		<script src="js/zh.js"></script>
+		<script src="js/manbase.js"></script>
+	</body>
+</html>
