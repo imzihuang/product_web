@@ -96,7 +96,7 @@ function shareQZone(hrefName){
 }
 
 function search(){
-  var 
+
 }
 $(".product_name a").click(function(){
   if($(".track-sign-up").val()!="Log Out"){
