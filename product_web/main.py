@@ -32,7 +32,7 @@ def view_handlers():
         (prefix + r'(.*\.(css|png|gif|jpg|js|ttf|woff|woff2))', StaticFileHandler, {'path': default_settings.get('static_path')}),
         URLSpec(man_prefix + r'mankeyword.html$', views.ManKeywordHandler, default_settings),
         URLSpec(man_prefix + r'manproduct.html$', views.ManProductHandler, default_settings),
-        URLSpec(man_prefix + r'manbaseinfo.html$', views.ManBaseInfoHandler, default_settings),
+        URLSpec(man_prefix + r'manbase.html$', views.ManBaseInfoHandler, default_settings),
         (man_prefix + r'(.*\.(css|png|gif|jpg|js|ttf|woff|woff2))', StaticFileHandler, {'path': default_settings.get('static_path')}),
     ]
 
