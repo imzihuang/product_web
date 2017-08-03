@@ -209,4 +209,7 @@ error:function(){
         window.location.href=$(this).attr("href");
       }
      };
+    function signin(){
+                 window.location.href="/product/signin.html";
+          }
 
