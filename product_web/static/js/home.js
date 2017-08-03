@@ -1,7 +1,7 @@
 apply();
 //ajax
 var dataAll;
-console.log(dataALl);
+console.log(dataAll);
 function apply(){
   $.ajax({
     type: "GET",
