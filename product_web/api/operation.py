@@ -113,7 +113,7 @@ class PVPUHandler(RequestHandler):
         return
 
 from common.create_excel import make_excel
-class ExcelHandler():
+class ExcelHandler(RequestHandler):
     def get(self):
         method = self.get_argument("method", "")
         if not method:
