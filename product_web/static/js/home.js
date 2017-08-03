@@ -1,6 +1,4 @@
-
-$(document).ready(function(){
-  apply();
+apply();
 //ajax
 var dataALl;
 console.log(dataALl);
@@ -122,6 +120,4 @@ $(".product_name a").click(function(){
   if($(".track-sign-up").val()!="Log Out"){
    window.location.href='/product/login.html';
  }
-});
-
 });
