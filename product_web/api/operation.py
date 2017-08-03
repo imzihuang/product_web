@@ -114,16 +114,18 @@ class PVPUHandler(RequestHandler):
 
 from common.create_excel import make_excel
 class ExcelHandler(RequestHandler):
+
     def get(self):
         method = self.get_argument("method", "")
         if not method:
-            self.finish("")
+            self.finish()
             return
 
         if method == "user":
             _user_list = loc_user.get_all_user()
             _excel = make_excel(_user_list)
-            self.finish(_excel)
+            self.write(_excel)
+            self.finish()
             return
 
         _html = bs2utf8(self.get_argument("page", ""))
@@ -132,13 +134,15 @@ class ExcelHandler(RequestHandler):
         if method == "pv":
             _pv_list = loc_pvpu.get_pv(html=_html, start=_start, end=_end)
             _excel = make_excel(_pv_list)
-            self.finish(_excel)
+            self.write(_excel)
+            self.finish()
             return
         if method == "pu":
             _pu_list = loc_pvpu.get_pu(html=_html, start=_start, end=_end)
             _excel = make_excel(_pv_list)
-            self.finish(_excel)
+            self.write(_excel)
+            self.finish()
             return
-        self.finish("")
+        self.finish()
 
 
