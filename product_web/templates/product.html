@@ -45,7 +45,7 @@
                     {%if user_name%}
 						<div class="loginButtonContainer">
 							<a class="button track-login">{{ user_name }}</a>
-							<a class="button primary signIn track-sign-up" href="login.html">Log Out</a>
+							<a class="button primary signIn track-sign-up" onclick="logout()">Log Out</a>
 						</div>
 					{%else%}
 						<div class="loginButtonContainer">
@@ -92,7 +92,7 @@
 						<div class="input-group">
 							<input type="text" class="form-control">
 							<span class="input-group-btn">
-								<button class="btn btn-default" type="button">
+								<button class="btn btn-default" type="button" onclick="productsearch()">
 									<sapn><img src="img/search.png"></sapn>
 								</button>
 							</span>
