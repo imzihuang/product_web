@@ -81,6 +81,16 @@ function keyword_os(keyword){
   window.location.href='/product/product.html?keyword='+keyword;
 }
 function logout(){
-  window.location.href='/product/login.html';console.log(user_name);
-  $.removeCookie('user_name', '', { expires: -1 });console.log(123);
+  $.ajax({
+            type: "post",
+            url:"/product/logout",
+            async: false,
+            success: function(msg) {
+              window.location.href='/product/login.html';
+                    },
+            error:function(){
+                           
+                 }
+            });
+  
 }
