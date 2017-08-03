@@ -86,7 +86,7 @@ function shareQZone(hrefName){
 }
 
 function shareFacebook(hrefName){
-  window.open('http://www.facebook.com/sharer.php?u'+encodeURIComponent(hrefName));
+  window.open('http://www.facebook.com/sharer.php?url='+encodeURIComponent(hrefName));
   return false;
 }
 function search(){
