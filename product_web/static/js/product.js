@@ -157,7 +157,7 @@ error:function(){
     }
 
      $(".product_name a").click(function(){
-      if(aboutOut=="Sign In"){
+      if(aboutOut=="Sign In"){console.log(1);
           $('#openlogin').click();
           $('#openlogin').click(function(){
             layerIndex=layer.open({
