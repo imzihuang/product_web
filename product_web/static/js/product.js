@@ -167,7 +167,7 @@ error:function(){
               skin: 'layui-layer-demo', //样式类名
               anim: 2,
               shadeClose: true, //开启遮罩关闭
-              btn: ['', ''] ,//按钮
+              btn:false,//按钮
               content: $('#gologin'),
                yes: function(){
                 layer.closeAll();
