@@ -85,7 +85,6 @@ function logout(){
             type: "post",
             url:"/product/logout",
             async: false,
-            data:data,
             success: function(msg) {
               window.location.href='/product/login.html';
                     },
