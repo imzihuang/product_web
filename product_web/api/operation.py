@@ -120,7 +120,7 @@ class ExcelHandler(RequestHandler):
         if not method:
             self.finish()
             return
-        filename = method+".xlsx"
+        filename = method+".xls"
         if method == "user":
             _user_list = loc_user.get_all_user()
             _excel = make_excel(_user_list)
