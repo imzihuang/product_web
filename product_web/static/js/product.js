@@ -160,8 +160,7 @@ error:function(){
      function change(){
       var aboutOut=$(".track-sign-up").attr("href");
       if(aboutOut=="signin.html"){console.log(1);
-          $('#openlogin').click();
-          $('#openlogin').click(function(){
+          
             layerIndex=layer.open({
             title:'请先登录',
               type: 1,
@@ -177,7 +176,7 @@ error:function(){
                   time: 800//2s后自动关闭
                 });
               }
-            });
+            
         });
       }
       else{
