@@ -14,9 +14,11 @@ def get_all_user():
     try:
         session = get_session()
         query = api.model_query(session, "User", {})
-        return query.all()
+        results = query.all()
+        return [result.to_dict() for result in results]
     except Exception as ex:
         gen_log.error("get all user error:%r"%ex)
+        return []
     finally:
         session.close()
 

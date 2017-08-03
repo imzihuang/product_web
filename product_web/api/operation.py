@@ -7,6 +7,7 @@ from common.convert import bs2utf8
 from logic import operation as loc_operation
 from logic import baseinfo as loc_base
 from logic import pvpu as loc_pvpu
+from logic import user as loc_user
 from common.log_client import gen_log
 from base import verify_api_login
 
@@ -40,6 +41,11 @@ class LikeKeywordHandler(RequestHandler):
             self.finish({'state': '2', 'message': ' The user has already clicked.' ,'count': _count})
             return
         self.finish({'state': '0', 'message': 'Click keyword ok', 'count': _count})
+
+class UserHandler(RequestHandler):
+    def get(self):
+        _user_list = loc_user.get_all_user()
+        self.finish({'state': "0", 'message': 'Get user info ok', 'data': _user_list})
 
 class CompanyHandler(RequestHandler):
     def get(self, *args, **kwargs):
@@ -106,6 +112,33 @@ class PVPUHandler(RequestHandler):
         self.finish({'state': "2", 'message': 'Method error', 'data': []})
         return
 
+from common.create_excel import make_excel
 class ExcelHandler():
-    pass
+    def get(self):
+        method = self.get_argument("method", "")
+        if not method:
+            self.finish("")
+            return
+
+        if method == "user":
+            _user_list = loc_user.get_all_user()
+            _excel = make_excel(_user_list)
+            self.finish(_excel)
+            return
+
+        _html = bs2utf8(self.get_argument("page", ""))
+        _start = bs2utf8(self.get_argument("start", ""))
+        _end = bs2utf8(self.get_argument("end", ""))
+        if method == "pv":
+            _pv_list = loc_pvpu.get_pv(html=_html, start=_start, end=_end)
+            _excel = make_excel(_pv_list)
+            self.finish(_excel)
+            return
+        if method == "pu":
+            _pu_list = loc_pvpu.get_pu(html=_html, start=_start, end=_end)
+            _excel = make_excel(_pv_list)
+            self.finish(_excel)
+            return
+        self.finish("")
+
 
