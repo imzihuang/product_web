@@ -169,38 +169,7 @@ error:function(){
               btn:false,//按钮
               content: $('#gologin'),
                yes: function(){
-                var data = {
-                    user_name:$("#form-username").val(),
-                    pwd:$("#form-password").val()
-                }
-                $.ajax({
-                    type: "POST",
-                    url:"/product/login",
-                    async: false,
-                    data:data,
-                    success: function(msg) {
-                        var data = JSON.parse(msg);
-                        console.log(msg);
-                        if(data.state==0){
-                            layer.closeAll();
-                            layer.msg('登录成功', {
-                              icon: 1,
-                              time: 800//2s后自动关闭
-                            });
-                            window.location.reload();
-                        }
-                        else if(data.state==1){
-                          $("#confirmMsg").html("用户名不存在！");
-                        }
-                        else{
-                          $("#confirmpassword").html("密码错误！");
-                        }     
-                    },
-                    error:function(){
-                        console.log("error");
-                    }
-                });
-  
+           
               }
             
         });
@@ -209,6 +178,39 @@ error:function(){
         window.location.href=$(this).attr("href");
       }
      };
+    function login(){
+        var data = {
+            user_name:$("#form-username").val(),
+            pwd:$("#form-password").val()
+        }
+        $.ajax({
+            type: "POST",
+            url:"/product/login",
+            async: false,
+            data:data,
+            success: function(msg) {
+                var data = JSON.parse(msg);
+                console.log(msg);
+                if(data.state==0){
+                    layer.closeAll();
+                    layer.msg('登录成功', {
+                      icon: 1,
+                      time: 800//2s后自动关闭
+                    });
+                    window.location.reload();
+                }
+                else if(data.state==1){
+                  $("#confirmMsg").html("用户名不存在！");
+                }
+                else{
+                  $("#confirmpassword").html("密码错误！");
+                }     
+            },
+            error:function(){
+                console.log("error");
+            }
+        });
+    }
     function signin(){
                  window.location.href="/product/signin.html";
           }
