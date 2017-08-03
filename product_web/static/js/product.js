@@ -159,8 +159,7 @@ error:function(){
      
      function change(){
       var aboutOut=$(".track-sign-up").attr("href");
-      if(aboutOut=="signin.html"){console.log(1);
-          
+      if(aboutOut=="signin.html"){
             layerIndex=layer.open({
             title:'请先登录',
               type: 1,
@@ -170,11 +169,38 @@ error:function(){
               btn:false,//按钮
               content: $('#gologin'),
                yes: function(){
-                layer.closeAll();
-                layer.msg('登录成功', {
-                  icon: 1,
-                  time: 800//2s后自动关闭
+                var data = {
+                    user_name:$("#form-username").val(),
+                    pwd:$("#form-password").val()
+                }
+                $.ajax({
+                    type: "POST",
+                    url:"/product/login",
+                    async: false,
+                    data:data,
+                    success: function(msg) {
+                        var data = JSON.parse(msg);
+                        console.log(msg);
+                        if(data.state==0){
+                            layer.closeAll();
+                            layer.msg('登录成功', {
+                              icon: 1,
+                              time: 800//2s后自动关闭
+                            });
+                            window.location.reload();
+                        }
+                        else if(data.state==1){
+                          $("#confirmMsg").html("用户名不存在！");
+                        }
+                        else{
+                          $("#confirmpassword").html("密码错误！");
+                        }     
+                    },
+                    error:function(){
+                        console.log("error");
+                    }
                 });
+  
               }
             
         });
