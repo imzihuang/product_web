@@ -9,7 +9,7 @@ def make_excel(data_array):
         xls = ExcelWrite.Workbook(style_compression=2)
         sheet = xls.add_sheet("Sheet1")
         flag_header = False
-        row = 0
+        row = 1
         #填充每行的数据
         for data in data_array:
             col = 0
