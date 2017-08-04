@@ -108,8 +108,8 @@ class Company(BaseModel):
 
 
 
-class Like(BaseModel):
-    __tablename__ = 'like'
+class User_Like(BaseModel):
+    __tablename__ = 'user_like'
     id = Column(Integer, primary_key=True)
     user_name = Column(VARCHAR(30), nullable=False)
     keyword_id = Column(Integer)

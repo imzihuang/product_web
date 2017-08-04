@@ -11,7 +11,7 @@ def get_keyword_like_count(keyword_id):
         result = query.first()
         if not result:
             return 0
-        query = api.model_query(session, "Like", {"keyword_id": [keyword_id]})
+        query = api.model_query(session, "User_Like", {"keyword_id": [keyword_id]})
         real_count = query.count()
         return real_count + result.like_add_count
     except Exception as ex:
@@ -27,7 +27,7 @@ def get_product_like_count(product_id):
         result = query.first()
         if not result:
             return 0
-        query = api.model_query(session, "Like", {"product_id": [product_id]})
+        query = api.model_query(session, "User_Like", {"product_id": [product_id]})
         real_count = query.count()
         return real_count + result.like_add_count
     except Exception as ex:
@@ -39,7 +39,7 @@ def get_product_like_count(product_id):
 def like_keyword(keyword_id, user_name):
     try:
         session = get_session()
-        query = api.model_query(session, "Like", {"keyword_id": [keyword_id], "user_name": [user_name]})
+        query = api.model_query(session, "User_Like", {"keyword_id": [keyword_id], "user_name": [user_name]})
         if query.count() > 0:
             gen_log.log("The user has already clicked.")
             return False
@@ -51,8 +51,8 @@ def like_keyword(keyword_id, user_name):
             "user_name": user_name,
             "keyword_id": keyword_id
         }
-        model_user = api.convert_model("Like", data)
-        session.add(model_user)
+        model_like = api.convert_model("User_Like", data)
+        session.add(model_like)
         session.commit()
         return True
     except Exception as ex:
@@ -64,7 +64,7 @@ def like_keyword(keyword_id, user_name):
 def like_product(product_id, user_name):
     try:
         session = get_session()
-        query = api.model_query(session, "Like", {"product_id": [product_id], "user_name": [user_name]})
+        query = api.model_query(session, "User_Like", {"product_id": [product_id], "user_name": [user_name]})
         if query.count() > 0:
             gen_log.log("The user has already clicked.")
             return False
@@ -76,8 +76,8 @@ def like_product(product_id, user_name):
             "user_name": user_name,
             "product_id": product_id
         }
-        model_user = api.convert_model("Like", data)
-        session.add(model_user)
+        model_like = api.convert_model("User_Like", data)
+        session.add(model_like)
         session.commit()
         return True
     except Exception as ex:

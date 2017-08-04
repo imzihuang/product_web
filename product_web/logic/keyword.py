@@ -8,7 +8,7 @@ from db import api
 def init_like_count(session, keyword_list):
     result = []
     for keyword in keyword_list:
-        query = api.model_query(session, "Like", {"keyword_id": [keyword.get("id")]})
+        query = api.model_query(session, "User_Like", {"keyword_id": [keyword.get("id")]})
         keyword.update({"like_count": query.count()})
         result.append(keyword)
     return result
