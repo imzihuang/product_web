@@ -18,20 +18,27 @@
 	    <![endif]-->
 	</head>
 	<style type="text/css">
-	@media (min-width: 500px){
-		#editcompany input,#editcompany input{
-              width: 300px;
+		@media (min-width: 500px){
+			#editcompany input,#editcompany input{
+				width: 300px;
+			}
+			#editcompany select,#editcompany select{
+				width: 300px !important;
+			}
 		}
-		#editcompany select,#editcompany select{
-              width: 300px !important;
+		@media (max-width: 499px){
+			.layui-layer.layui-layer-page.layui-layer-demo.layer-anim-02 {
+				margin-left: -120px!important;
+			}
 		}
-	}
-	@media (max-width: 499px){
-        .layui-layer.layui-layer-page.layui-layer-demo.layer-anim-02 {
-		    margin-left: -120px!important;
+		.btn{font-size: 12px !important;}
+		#editcompany label{
+			text-align: right;
+			width: 85px;
+			font-size: 12px;
+			display: inline-block;
+			float: left;
 		}
-	}
-	.btn{font-size: 12px !important;}
 	</style>
 	<body class="gray-bg">
 		<h4>公司信息</h4>
