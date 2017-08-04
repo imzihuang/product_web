@@ -462,6 +462,10 @@ $(function() {
 
   
 
- function gomk(){
-	    		 window.location.href="/manage/mankeyword.html";
-	    	}
+function gomk(){
+	window.location.href="/manage/mankeyword.html";
+}
+
+function gobase(){
+	window.location.href="/manage/manbase.html";
+}
