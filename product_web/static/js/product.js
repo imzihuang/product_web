@@ -117,7 +117,7 @@ error:function(){
             async: false,
             data:data,
             success: function(msg) {
-                $(this).parent().find(".likecount").html(msg.count);
+                $(this).parent().parent().find(".likecount").html(msg.count);
             },
             error:function(){
           }
