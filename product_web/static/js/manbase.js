@@ -44,17 +44,16 @@ $('#editcompanyBtn').click(function(){
 		  				icon: 1,
 		  				time:600
 		  			});
-		  	},
-		  	error:function(){
-		  		layer.closeAll();
-		  		layer.msg('修改失败', {
-		  			icon: 1,
-		  			time:600
-		  		});
-		  	}
-		  });
+		  		},
+		  		error:function(){
+		  			layer.closeAll();
+		  			layer.msg('修改失败', {
+		  				icon: 1,
+		  				time:600
+		  			});
+		  		}
+		  	});
 		  	//ajax
-
 		  }
 		});
 });
@@ -80,3 +79,45 @@ function company_os(){
 
 	});
 }
+$('#showpvpu').click(function(){
+	layerIndex=layer.open({
+		title:'显示pv/pu',
+		type: 1,
+		  skin: 'layui-layer-demo', //样式类名
+		  anim: 2,
+		  shadeClose: true, //开启遮罩关闭
+		  btn: ['确定', '取消'] ,//按钮
+		  content: $('#editpvpu'),
+		  yes: function(){ 
+		  	//ajax
+		  	var data = {
+		  		method:$("#pvpumethod").val(),
+		  		page:$("#pvpupage").val(),
+		  		start:$("#pvpustart").val(),
+		  		end:$("#pvpuend").val()
+		  	};
+		  	$.ajax({
+		  		type: "get",
+		  		url:"/product/pvpu_os",
+		  		async: false,
+		  		data:data,
+		  		success: function(msg) {
+		  			console.log(msg);
+		  			layer.closeAll();
+		  			layer.msg('修改成功', {
+		  				icon: 1,
+		  				time:600
+		  			});
+		  		},
+		  		error:function(){
+		  			layer.closeAll();
+		  			layer.msg('修改失败', {
+		  				icon: 1,
+		  				time:600
+		  			});
+		  		}
+		  	});
+		  	//ajax
+		  }
+		});
+});
