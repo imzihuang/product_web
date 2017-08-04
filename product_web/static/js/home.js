@@ -29,14 +29,14 @@ function apply(){
        var strclass='.countdown'+j;
        strname=msg.data[j].count_down_at;
        if(strname==""){
-        $("#timedown").html('');
+        $("#timedown").html('');console.log(0);
       }
       else{
        $(strclass).downCount({
          date: strname,
          offset: +10
        }, function () {
-         $(this).parent().html('');
+         $("#timedown").html('');console.log(01);
        }); 
      }  
    }
@@ -120,14 +120,14 @@ function search(){
            var strclass='.countdown'+j;
            strname=dataAll.data[j].count_down_at;
            if(strname==""){
-             $(strclass).parent().html('');
+            $("#timedown").html('');console.log(02);
           }
           else{
            $(strclass).downCount({
              date: strname,
              offset: +10
            }, function () {
-             $(this).parent().html('');
+             $("#timedown").html('');console.log(02);
            }); 
          }  
        }  
