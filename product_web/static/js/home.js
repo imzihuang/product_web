@@ -35,7 +35,7 @@ function apply(){
        $(strclass).downCount({
          date: strname,
          offset: +10
-       }, function () {
+       }, function () {console.log($(strclass).parent().html());
          $(strclass).parent().html('');
        }); 
      }  
