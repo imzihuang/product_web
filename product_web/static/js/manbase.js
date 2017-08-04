@@ -148,14 +148,20 @@ $("#showuser").click(function(){
 		success: function(msg) {
 			console.log(msg);
 			$("#usertbody").find("tr").remove();
-			// var str;
-			// for(var i=0;i<msg.data.length;i++){
-			// 	str+='<tr class="gradeX"><td class="center">'+msg.data[i].count+
-			// 	'</td><td class="center">'+msg.data[i].html+
-			// 	'</td><td class="center">'+msg.data[i].ip+
-			// 	'</td></tr>';	
-			// }   
-			// $("#usertbody").append(str);
+			var str;
+			for(var i=0;i<msg.data.length;i++){
+				str+='<tr class="gradeX"><td class="center">'+msg.data[i].name+
+				'</td><td class="center">'+msg.data[i].pwd+
+				'</td><td class="center">'+msg.data[i].reset_pwd+
+				'</td><td class="center">'+msg.data[i].age+
+				'</td><td class="center">'+msg.data[i].telephone+
+				'</td><td class="center">'+msg.data[i].email+
+				'</td><td class="center">'+msg.data[i].birthday_at+
+				'</td><td class="center">'+msg.data[i].created_at+
+				'</td><td class="center">'+msg.data[i].updated_at+
+				'</td></tr>';	
+			}   
+			$("#usertbody").append(str);
 			layer.closeAll();
 			layer.msg('获取成功', {
 				icon: 1,
