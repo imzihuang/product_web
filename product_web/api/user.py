@@ -34,8 +34,8 @@ class LoginHandler(RequestHandler):
             return
 
         # 设置cookie
-        self.set_secure_cookie("user_name", user_info.name, expires=time.time()+com_cookie_time)
-        self.set_secure_cookie("user_level", str(user_info.level), expires=time.time()+com_cookie_time)
+        self.set_secure_cookie("user_name", user_info.name, expires=time.time()+float(com_cookie_time))
+        self.set_secure_cookie("user_level", str(user_info.level), expires=time.time()+float(com_cookie_time))
 
         self.finish(json.dumps({'state': 0, 'message': 'ok', "level": user_info.level}))
 
@@ -153,8 +153,8 @@ class SignInRegCodeHandler(RequestHandler):
         loc_user.update_user({"status": "available"}, {"name": [user_name]})
 
         # 设置cookie，注册的，默认都是1
-        self.set_secure_cookie("user_name", user_name, expires=time.time()+com_cookie_time)
-        self.set_secure_cookie("user_level", "1", expires=time.time()+com_cookie_time)
+        self.set_secure_cookie("user_name", user_name, expires=time.time()+float(com_cookie_time))
+        self.set_secure_cookie("user_level", "1", expires=time.time()+float(com_cookie_time))
 
         #跳转
         self.redirect(self.prefix + redirect_url, permanent=True)
@@ -244,8 +244,8 @@ class ReSetUserPwdHandler(RequestHandler):
         loc_user.update_user({"pwd": encry_md5(user_info.reset_pwd), "reset_pwd": ""}, {"name": [user_name]})
 
         # 设置cookie，注册的，默认都是1
-        self.set_secure_cookie("user_name", user_name, expires=time.time()+com_cookie_time)
-        self.set_secure_cookie("user_level", str(user_info.level), expires=time.time()+com_cookie_time)
+        self.set_secure_cookie("user_name", user_name, expires=time.time()+float(com_cookie_time))
+        self.set_secure_cookie("user_level", str(user_info.level), expires=time.time()+float(com_cookie_time))
 
         # 管理员跳转管理页面
         if user_info.level == 0:
