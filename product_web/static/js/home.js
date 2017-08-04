@@ -36,7 +36,7 @@ function apply(){
          date: strname,
          offset: +10
        }, function () {
-         $("#timedown").html('');
+         $(this).parent().html('');
        }); 
      }  
    }
@@ -120,14 +120,14 @@ function search(){
            var strclass='.countdown'+j;
            strname=dataAll.data[j].count_down_at;
            if(strname==""){
-            $("#timedown").html('');
+             $(strclass).parent().html('');
           }
           else{
            $(strclass).downCount({
              date: strname,
              offset: +10
            }, function () {
-             $("#timedown").html('<span class="timedown">Start!</span>');
+             $(this).parent().html('');
            }); 
          }  
        }  
