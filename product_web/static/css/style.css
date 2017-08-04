@@ -81,7 +81,7 @@ img { max-width: 100%; }
 }
 .btn-link-2:hover, .btn-link-2:focus, 
 .btn-link-2:active, .btn-link-2:active:focus { outline: 0; opacity: 0.6; background: rgba(0, 0, 0, 0.3); color: #fff; }
-
+.navbar-brand{padding: 15px 7px;}
 
 /***** Top content *****/
 
@@ -234,7 +234,7 @@ img { max-width: 100%; }
 }
 
 .navbar-default .navbar-nav>li>a,.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus{color: #ccc;font-size: 15px;}
-#example-navbar-collapse .nav:first-child{margin-left: 50px;}
+#example-navbar-collapse .nav:first-child{margin-left: 75px;}
 #example-navbar-collapse .nav:last-child{float: right;}
 .popular-items{width: 20%;float: left;display: inline-block;padding-left:5px;padding-right: 5px;}
 .popular-items .caption p{font-size: 12px;margin: 0px;}
@@ -273,7 +273,7 @@ ul.countdown li p {
 	color: #a7abb1;
 	font-size: 14px;
 }
-.today_popular{margin-top: 10px;font-weight: bold;font-size: 20px;}
+.today_popular{margin-top: 10px;font-weight: bold;font-size: 16px;text-align: left;padding-left: 16px;}
 .searchPart input{padding-left: 10px;border-radius: 5px 0 0 5px;height:35px;line-height: 35px;}
 .searchPart .btn{height: 35px;width: 45px;line-height: 32px;}
 .searchPart input{border: 1px solid #ccc;border-right: none;}
