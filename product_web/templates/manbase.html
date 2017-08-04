@@ -40,6 +40,7 @@
 			float: left;
 		}
 		h4{font-weight: bold;}
+		#showpvpu{margin-bottom: 10px;}
 	</style>
 	<body class="gray-bg">
 		<h4>公司信息</h4>
@@ -68,11 +69,10 @@
 					</tr>
 				</thead>
 				<tbody id="pvputbody">
-					<tr></tr>
+					<tr class="center">当前没有获取任何信息</tr>
 				</tbody>
 			</table>
 		</div>
-		
 		<div id="editpvpu" style="display: none; min-width: 100px; padding: 16px;">
 			<div style="margin: 10px 0;"><label>pv/pu：</label><input id="pvpumethod" type="text" /></div>
 			<div style="margin: 10px 0;"><label>被访问页面：</label><input id="pvpupage" type="text" /></div>
@@ -81,6 +81,30 @@
 			<div style="margin: 10px 0;"><label>结束时间段：</label><input id="pvpuend" type="text" /></div>
 			<p>格式：2017-01-01</p>
 		</div>
+
+		<h4>用户信息</h4>
+		<div id="usermain">
+			<button class="btn btn-primary btn-myown" id="showuser">获取所有用户信息</button>
+			<table class="table table-striped table-bordered table-hover dataTables-example">
+				<thead>
+					<tr class="zx_thTitle">
+						<th>用户名</th>
+						<th>密码</th>
+						<th>重置密码</th>
+						<th>年龄</th>
+						<th>手机号码</th>
+						<th>邮箱</th>
+						<th>生日</th>
+						<th>创建时间</th>
+						<th>更新时间</th>
+					</tr>
+				</thead>
+				<tbody id="usertbody">
+					<tr class="center">当前没有获取任何信息</tr>
+				</tbody>
+			</table>
+		</div>
+		
 			<!-- <div id="tab-1" class="tab-pane active">
 				<div class="col-sm-12">
 					<div class="bgBackground">
