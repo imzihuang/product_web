@@ -92,16 +92,13 @@ $('#showpvpu').click(function(){
 	  	if($("#pvpumethod").val()==""){
 	  		$("#pvpumethoderror").html("请输入pu/pv！");
 	  	}
-	  	if($("#pvpupage").val()==""){
-	  		$("#pvpupageerror").html("请输入页面！");
-	  	}
 	  	if($("#pvpustart").val()==""){
 	  		$("#pvpustarterror").html("请输入开始时间！");
 	  	}
 	  	if($("#pvpuend").val()==""){
 	  		$("#pvpuenderror").html("请输入截止时间！");
 	  	}
-	  	if($("#pvpumethod").val()!="" && $("#pvpupage").val()!="" && $("#pvpustart").val()!="" && $("#pvpuend").val()!=""){
+	  	if($("#pvpumethod").val()!="" && $("#pvpustart").val()!="" && $("#pvpuend").val()!=""){
 	  		var data = {
 	  			method:$("#pvpumethod").val(),
 	  			page:$("#pvpupage").val(),
