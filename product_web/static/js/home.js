@@ -33,7 +33,7 @@ function apply(){
          date: strname,
          offset: +10
        }, function () {console.log($(strclass).parent().html());
-         $(strclass).parent().html('');
+         $("#timedown").html('');
        }); 
        
    }
