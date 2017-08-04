@@ -11,7 +11,7 @@ function apply(){
       var str="";
       for(var i=0;i<msg.data.length;i++){
        str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-       '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os("'+ msg.data[i].name +'")>'+
+       '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os("'+ msg.data[i].theme +'")>'+
        msg.data[i].theme+'</a></p><p class="color_gray">'+
        msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
        msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>'+
@@ -95,7 +95,7 @@ function search(){
   for(var i=0;i<dataAll.data.length;i++){
     if(dataAll.data[i].theme==$("#homeSearch").val()){
       str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
-      '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os("'+ dataAll.data[i].name +'")>'+
+      '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os("'+ dataAll.data[i].theme +'")>'+
       dataAll.data[i].theme+'</a></p><p class="color_gray">'+
       dataAll.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
       dataAll.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>'+
