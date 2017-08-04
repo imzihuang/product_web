@@ -455,5 +455,8 @@ $(function() {
    
 
 function gomp(){
-	    		 window.location.href="/manage/manproduct.html";
-	    	}
+	window.location.href="/manage/manproduct.html";
+}
+function gobase(){
+	window.location.href="/manage/manbase.html";
+}

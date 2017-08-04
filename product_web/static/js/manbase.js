@@ -176,3 +176,11 @@ $("#showuser").click(function(){
 		}
 	});
 });
+
+function gomk(){
+	window.location.href="/manage/mankeyword.html";
+}
+
+function gomp(){
+	window.location.href="/manage/manproduct.html";
+}
