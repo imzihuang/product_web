@@ -40,7 +40,7 @@
 			float: left;
 		}
 		h4{font-weight: bold;}
-		#showpvpu{margin-bottom: 10px;}
+		#showpvpu,#editpvpu{margin-bottom: 10px;}
 	</style>
 	<body class="gray-bg">
 		<h4>公司信息</h4>
@@ -57,6 +57,7 @@
 			<div style="margin: 10px 0;"><label>城市：</label><input id="companyprovince" type="text" /></div>
 			<div style="margin: 10px 0;"><label>描述：</label><input id="companydescription" type="text" /></div>
 		</div>
+		</br>
 		<h4>pv/pu</h4>
 		<div id="pvpumain">
 			<button class="btn btn-primary btn-myown" id="showpvpu">获取pv/pu</button>
@@ -69,7 +70,7 @@
 					</tr>
 				</thead>
 				<tbody id="pvputbody">
-					<tr class="center">当前没有获取任何信息</tr>
+					<tr class="center"><p>当前没有获取任何信息</p></tr>
 				</tbody>
 			</table>
 		</div>
@@ -81,7 +82,7 @@
 			<div style="margin: 10px 0;"><label>结束时间段：</label><input id="pvpuend" type="text" /></div>
 			<p>格式：2017-01-01</p>
 		</div>
-
+        </br>
 		<h4>用户信息</h4>
 		<div id="usermain">
 			<button class="btn btn-primary btn-myown" id="showuser">获取所有用户信息</button>
@@ -100,7 +101,7 @@
 					</tr>
 				</thead>
 				<tbody id="usertbody">
-					<tr class="center">当前没有获取任何信息</tr>
+					<tr class="center"><p>当前没有获取任何信息</p></tr>
 				</tbody>
 			</table>
 		</div>
