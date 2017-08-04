@@ -8,6 +8,7 @@ function down_base(method){
     dowen_a.click();
 }
 $('#editcompanyBtn').click(function(){
+	$('input').val("");
 	$("#companyoldname").val(oldName);
 	layerIndex=layer.open({
 		title:'编辑公司信息',
