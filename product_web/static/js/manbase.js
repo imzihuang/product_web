@@ -1,4 +1,5 @@
 company_os();
+var oldName=$('#showname').val();
 function down_base(method){
 	var dowen_a = document.createElement('a');
 	var down_url = "/product/excel_os?method="+method;
@@ -6,8 +7,8 @@ function down_base(method){
     //dowen_a.download = "proposed_file_name";
     dowen_a.click();
 }
-$('#editcompanyBtn').click(function(){console.log($("#showname").val());
-	$("#companyoldname").html($("#showname").val());
+$('#editcompanyBtn').click(function(){
+	$("#companyoldname").attr(oldName);
 	layerIndex=layer.open({
 		title:'编辑公司信息',
 		type: 1,
@@ -65,7 +66,7 @@ function company_os(){
 		success: function(msg) {
 			console.log(msg);
 			var str="";
-			str='<div style="margin: 10px 0;"><label id="showname">公司名称：</label><span>'+msg.data.name+
+			str='<div style="margin: 10px 0;"><label>公司名称：</label><span id="showname">'+msg.data.name+
 			'</span></div><div style="margin: 10px 0;"><label>邮箱：</label><span>'+msg.data.email+
 			'</span></div><div style="margin: 10px 0;"><label>电话号码：</label><span>'+msg.data.telephone+
 			'</span></div><div style="margin: 10px 0;"><label>公司地址：</label><span>'+msg.data.address+
