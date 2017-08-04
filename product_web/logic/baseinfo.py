@@ -18,7 +18,7 @@ def get_company():
 def update_company(company_info, company_name):
     try:
         session = get_session()
-        query = api.model_query(session, "User", {"name": [company_name]})
+        query = api.model_query(session, "Company", {"name": [company_name]})
         query.update(company_info, synchronize_session=False)
         session.commit()
         return True
