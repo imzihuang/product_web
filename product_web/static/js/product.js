@@ -88,6 +88,10 @@ error:function(){
            var strclass="";
            var strclass='.countdown'+j;
            strname=msg.data[j].count_down_at;
+           if(strname==""){
+            $("#timedown").html('');
+          }
+          else{
            $(strclass).downCount({
              date: strname,
              offset: +10
@@ -95,8 +99,9 @@ error:function(){
              $("#timedown").html('<span class="timedown">Start!</span>');
            }); 
          }  
-       },
-     });
+       }
+     },
+   });
     }
     //ajax
 
@@ -156,7 +161,24 @@ error:function(){
         }
       }
       $("#listPart").html("");
-      $("#listPart").append(str);  
+      $("#listPart").append(str);
+      for(var j=0;j<msg.data.length;j++){
+           var strname="";
+           var strclass="";
+           var strclass='.countdown'+j;
+           strname=msg.data[j].count_down_at;
+           if(strname==""){
+            $("#timedown").html('');
+          }
+          else{
+           $(strclass).downCount({
+             date: strname,
+             offset: +10
+           }, function () {
+             $("#timedown").html('<span class="timedown">Start!</span>');
+           }); 
+         }  
+       }
     }
 
 
