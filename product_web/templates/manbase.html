@@ -40,7 +40,7 @@
 			float: left;
 		}
 		h4{font-weight: bold;}
-		#showpvpu,#editpvpu{margin-bottom: 10px;}
+		#showpvpu,#showuser{margin-bottom: 10px;}
 	</style>
 	<body class="gray-bg">
 		<h4>公司信息</h4>
@@ -76,11 +76,16 @@
 		</div>
 		<div id="editpvpu" style="display: none; min-width: 100px; padding: 16px;">
 			<div style="margin: 10px 0;"><label>pv/pu：</label><input id="pvpumethod" type="text" /></div>
+			<p style="padding-left:85px;font-size:12px;">输入pu/pv</p>
+			<div id="pvpumethoderror"></div>
 			<div style="margin: 10px 0;"><label>被访问页面：</label><input id="pvpupage" type="text" /></div>
+			<div id="pvpupageerror"></div>
 			<div style="margin: 10px 0;"><label>开始时间段：</label><input id="pvpustart" type="text" /></div>
-			<p>格式：2017-01-01</p>
+			<p style="padding-left:85px;font-size:12px;">格式：2017-01-01</p>
+			<div id="pvpustarterror"></div>
 			<div style="margin: 10px 0;"><label>结束时间段：</label><input id="pvpuend" type="text" /></div>
-			<p>格式：2017-01-01</p>
+			<p style="padding-left:85px;font-size:12px;">格式：2017-01-01</p>
+			<div id="pvpuenderror"></div>
 		</div>
         </br>
 		<h4>用户信息</h4>
