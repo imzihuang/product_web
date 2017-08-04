@@ -27,18 +27,19 @@ function apply(){
        var strname="";
        var strclass="";
        var strclass='.countdown'+j;
+       console.log(strclass);
        strname=msg.data[j].count_down_at;
-       if(strname==""){
-        $("#timedown").html('');console.log(0);
-      }
-      else{
+      //  if(strname==""){
+      //   $("#timedown").html('');console.log(0);
+      // }
+      // else{
        $(strclass).downCount({
          date: strname,
          offset: +10
-       }, function () {console.log($(strclass).parent().html());
+       }, function () {//console.log($(strclass).parent().html());
          $(strclass).parent().html('');
        }); 
-     }  
+     // }  
    }
  },
 });
