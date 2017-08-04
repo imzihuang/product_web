@@ -145,7 +145,6 @@ $("#showuser").click(function(){
 		type: "get",
 		url:"/product/user_all",
 		async: false,
-		data:data,
 		success: function(msg) {
 			console.log(msg);
 			$("#usertbody").find("tr").remove();
