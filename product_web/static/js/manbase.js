@@ -1,4 +1,4 @@
-
+company_os();
 function down_base(method){
 	var dowen_a = document.createElement('a');
 	var down_url = "/product/excel_os?method="+method;
@@ -17,5 +17,18 @@ $('#editcompanyBtn').click(function(){
 		  content: $('#editcompany'),
 		  yes: function(){ 	
 		  }
-	});
+		});
 });
+function company_os(){
+	$.ajax({
+		type: "GET",
+		url:"/product/company_os",
+		async: false,
+		success: function(msg) {
+			console.log(msg);
+			var str="";
+			$("#companymain").append(str);
+		},
+
+	});
+}
