@@ -162,11 +162,11 @@ error:function(){
       }
       $("#listPart").html("");
       $("#listPart").append(str);
-      for(var j=0;j<msg.data.length;j++){
+      for(var j=0;j<dataAll.data.length;j++){
            var strname="";
            var strclass="";
            var strclass='.countdown'+j;
-           strname=msg.data[j].count_down_at;
+           strname=dataAll.data[j].count_down_at;
            if(strname==""){
             $("#timedown").html('');
           }
