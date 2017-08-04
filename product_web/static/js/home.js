@@ -28,14 +28,17 @@ function apply(){
        var strclass="";
        var strclass='.countdown'+j;
        strname=msg.data[j].count_down_at;
-       
+       if(strname==""){
+        $("#timedown").html('');console.log(0);
+      }
+      else{
        $(strclass).downCount({
          date: strname,
          offset: +10
-       }, function () {console.log($(strclass).parent().html());
-         $("#timedown").html('');
+       }, function () {
+         $(strclass).parent().html('');
        }); 
-       
+     }  
    }
  },
 });
