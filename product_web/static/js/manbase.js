@@ -7,6 +7,7 @@ function down_base(method){
     dowen_a.click();
 }
 $('#editcompanyBtn').click(function(){
+	$("#companyoldname").attr($("#showname").val());
 	layerIndex=layer.open({
 		title:'编辑公司信息',
 		type: 1,
@@ -15,7 +16,45 @@ $('#editcompanyBtn').click(function(){
 		  shadeClose: true, //开启遮罩关闭
 		  btn: ['确定', '取消'] ,//按钮
 		  content: $('#editcompany'),
-		  yes: function(){ 	
+		  yes: function(){ 
+		  	//ajax
+		  	var data = {
+		  		old_name:$("#companyoldname").val();
+		  		new_name:$("#companyname").val();
+		  		email:$("#companyemail").val();
+		  		telephone:$("#companytelephone").val();
+		  		address:$("#companyaddress").val();
+		  		country:$("#companycountry").val();
+		  		province:$("#companyprovince").val();
+		  		city:$("#companycity").val();
+		  		description:$("#companydescription").val();
+		  	};
+		  	console.log(data);
+		  	$.ajax({
+		  		type: "post",
+		  		url:"/product/company_os",
+		  		async: false,
+		  		data:data,
+		  		success: function(msg) {
+		  			console.log(msg);
+		  			company_os();
+		  			layer.closeAll();
+		  			layer.msg('删除成功', {
+		  				icon: 1,
+		  				time:600
+		  			});
+		  		}
+		  	},
+		  	error:function(){
+		  		layer.closeAll();
+		  		layer.msg('删除失败', {
+		  			icon: 1,
+		  			time:600
+		  		});
+		  	}
+		  });
+		  	//ajax
+
 		  }
 		});
 });
@@ -27,7 +66,7 @@ function company_os(){
 		success: function(msg) {
 			console.log(msg);
 			var str="";
-			str='<div style="margin: 10px 0;"><label>公司名称：</label><span>'+msg.data.name+
+			str='<div style="margin: 10px 0;"><label id="showname">公司名称：</label><span>'+msg.data.name+
 			'</span></div><div style="margin: 10px 0;"><label>邮箱：</label><span>'+msg.data.email+
 			'</span></div><div style="margin: 10px 0;"><label>电话号码：</label><span>'+msg.data.telephone+
 			'</span></div><div style="margin: 10px 0;"><label>公司地址：</label><span>'+msg.data.address+
