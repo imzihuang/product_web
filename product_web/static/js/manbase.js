@@ -103,6 +103,15 @@ $('#showpvpu').click(function(){
 		  		data:data,
 		  		success: function(msg) {
 		  			console.log(msg);
+		  			$("#pvputbody").find("tr").remove();
+		  			var str;
+		  			for(var i=0;i<msg.data.length;i++){
+		  				str+='<tr class="gradeX"><td class="center">'+msg.data[i].count+
+		  				'</td><td class="center">'+msg.data[i].html+
+		  				'</td><td class="center">'+msg.data[i].ip+
+		  				'</td></tr>';	
+		  			}   
+		  			$("#pvputbody").append(str);
 		  			layer.closeAll();
 		  			layer.msg('修改成功', {
 		  				icon: 1,
