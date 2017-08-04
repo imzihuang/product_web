@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>manproduct</title>
-		<meta name="keywords" content="">
-		<meta name="description" content="">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/font-awesome.min.css" rel="stylesheet">
-		<link href="css/animate.min.css" rel="stylesheet">
-		<link href="css/table.css" rel="stylesheet">
-		<link href="js/css/layer.css" rel="stylesheet" type="text/css">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>manbase</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/animate.min.css" rel="stylesheet">
+	<link href="css/table.css" rel="stylesheet">
+	<link href="js/css/layer.css" rel="stylesheet" type="text/css">
 		<!--[if lt IE 8]>
 	    <meta http-equiv="refresh" content="0;ie.html" />
 	    <![endif]-->
 	</head>
 	<style type="text/css">
-	
+
 	</style>
 	<body class="gray-bg">
 		<h4>公司信息</h4>
-		<div><label>公司名称：</label><input id="companyname" type="text" /></div>
-		<div><label>邮箱：</label><input id="companyname" type="text" /></div>
-		<div><label>电话号码：</label><input id="companyname" type="text" /></div>
-		<div><label>公司地址：</label><input id="companyname" type="text" /></div>
-		<div><label>国家：</label><input id="companyname" type="text" /></div>
-		<div><label>省份：</label><input id="companyname" type="text" /></div>
-		<div><label>城市：</label><input id="companyname" type="text" /></div>
-		<div><label>描述：</label><input id="companyname" type="text" /></div>
+		<div id="companymain"></div>
+		<button class="btn btn-primary btn-myown" id="editcompanyBtn">编辑公司信息</button>
+		<div id="editcompany" style="display: none; min-width: 100px; padding: 16px;">
+			<div><label>公司名称：</label><input id="companyname" type="text" /></div>
+			<div><label>邮箱：</label><input id="companyname" type="text" /></div>
+			<div><label>电话号码：</label><input id="companyname" type="text" /></div>
+			<div><label>公司地址：</label><input id="companyname" type="text" /></div>
+			<div><label>国家：</label><input id="companyname" type="text" /></div>
+			<div><label>省份：</label><input id="companyname" type="text" /></div>
+			<div><label>城市：</label><input id="companyname" type="text" /></div>
+			<div><label>描述：</label><input id="companyname" type="text" /></div>
+		</div>
 			<!-- <div id="tab-1" class="tab-pane active">
 				<div class="col-sm-12">
 					<div class="bgBackground">
@@ -171,17 +175,17 @@
 	            <input id="file-zh_edit" type="file" name="product_img" multiple>
 	        </form>
 	        <div class="editphoto_error rm_html"></div>
-		</div> -->
+	    </div> -->
 
-		<button onclick="down_base('user')">下载用户信息</button>
-		<button onclick="down_base('pv')">下载pv</button>
-		<button onclick="down_base('pu')">下载pv</button>
+	    <button onclick="down_base('user')">下载用户信息</button>
+	    <button onclick="down_base('pv')">下载pv</button>
+	    <button onclick="down_base('pu')">下载pv</button>
 
 
-		<script src="js/jquery-1.11.1.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/layer.js"></script>
-		<script src="js/zh.js"></script>
-		<script src="js/manbase.js"></script>
+	    <script src="js/jquery-1.11.1.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script src="js/layer.js"></script>
+	    <script src="js/zh.js"></script>
+	    <script src="js/manbase.js"></script>
 	</body>
-</html>
+	</html>
