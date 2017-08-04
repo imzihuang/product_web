@@ -79,6 +79,7 @@ function company_os(){
 	});
 }
 $('#showpvpu').click(function(){
+	$('input').val("");
 	layerIndex=layer.open({
 	  title:'显示pv/pu',
 	  type: 1,
