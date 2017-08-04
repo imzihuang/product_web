@@ -107,17 +107,19 @@ error:function(){
 
     $('.likeList a img').click(function(){
         var imgId=$(this).attr("id");
-        $(this).attr("src","img/like.png");
+        var current_obj = $(this);
+        current_obj.attr("src","img/like.png");
         var data = {
             product_id:imgId
         };
+
         $.ajax({
             type: "post",
             url:"/product/like_product",
             async: false,
             data:data,
             success: function(msg) {
-                $(this).parent().parent().find(".likecount").html(msg.count);
+                current_obj.parent().parent().find(".likecount").html(msg.count);
             },
             error:function(){
           }
