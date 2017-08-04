@@ -6,8 +6,8 @@ function down_base(method){
     //dowen_a.download = "proposed_file_name";
     dowen_a.click();
 }
-$('#editcompanyBtn').click(function(){
-	$("#companyoldname").attr($("#showname").val());
+$('#editcompanyBtn').click(function(){console.log($("#showname").val());
+	$("#companyoldname").html($("#showname").val());
 	layerIndex=layer.open({
 		title:'编辑公司信息',
 		type: 1,
@@ -36,6 +36,7 @@ $('#editcompanyBtn').click(function(){
 		  		data:data,
 		  		success: function(msg) {
 		  			console.log(msg);
+		  			$("#companymain").attr("");
 		  			company_os();
 		  			layer.closeAll();
 		  			layer.msg('删除成功', {
