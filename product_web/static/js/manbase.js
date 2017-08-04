@@ -37,17 +37,17 @@ $('#editcompanyBtn').click(function(){
 		  		data:data,
 		  		success: function(msg) {
 		  			console.log(msg);
-		  			$("#companymain").attr("");
+		  			$("#companymain").find("div").remove();
 		  			company_os();
 		  			layer.closeAll();
-		  			layer.msg('删除成功', {
+		  			layer.msg('修改成功', {
 		  				icon: 1,
 		  				time:600
 		  			});
 		  	},
 		  	error:function(){
 		  		layer.closeAll();
-		  		layer.msg('删除失败', {
+		  		layer.msg('修改失败', {
 		  			icon: 1,
 		  			time:600
 		  		});
