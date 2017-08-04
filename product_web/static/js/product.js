@@ -42,14 +42,14 @@ $.ajax({
     var strclass='.countdown'+j;
     strname=msg.data[j].count_down_at;
     if(strname==""){
-      $("#timedown").html('');
+       $(strclass).parent().html('');
     }
     else{
       $(strclass).downCount({
         date: strname,
         offset: +10
       }, function () {
-        $("#timedown").html('');
+        $(this).parent().html('');
       }); 
     }
   } 
@@ -89,14 +89,14 @@ error:function(){
            var strclass='.countdown'+j;
            strname=msg.data[j].count_down_at;
            if(strname==""){
-            $("#timedown").html('');
+            $(strclass).parent().html('');
           }
           else{
            $(strclass).downCount({
              date: strname,
              offset: +10
            }, function () {
-             $("#timedown").html('<span class="timedown">Start!</span>');
+             $(this).parent().html('');
            }); 
          }  
        }
@@ -168,14 +168,14 @@ error:function(){
            var strclass='.countdown'+j;
            strname=dataAll.data[j].count_down_at;
            if(strname==""){
-            $("#timedown").html('');
+           $(strclass).parent().html('');
           }
           else{
            $(strclass).downCount({
              date: strname,
              offset: +10
            }, function () {
-             $("#timedown").html('<span class="timedown">Start!</span>');
+            $(this).parent().html('');
            }); 
          }  
        }
