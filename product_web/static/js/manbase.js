@@ -38,31 +38,21 @@ $('#editcompanyBtn').click(function(){
 		  		success: function(msg) {
 		  			console.log(msg);
 		  			$("#companymain").find("div").remove();
-		  			var str="";
-		  			str='<div style="margin: 10px 0;"><label>公司名称：</label><span id="showname">'+msg.data.name+
-		  			'</span></div><div style="margin: 10px 0;"><label>邮箱：</label><span>'+msg.data.email+
-		  			'</span></div><div style="margin: 10px 0;"><label>电话号码：</label><span>'+msg.data.telephone+
-		  			'</span></div><div style="margin: 10px 0;"><label>公司地址：</label><span>'+msg.data.address+
-		  			'</span></div><div style="margin: 10px 0;"><label>国家：</label><span>'+msg.data.country+
-		  			'</span></div><div style="margin: 10px 0;"><label>省份：</label><span>'+msg.data.city+
-		  			'</span></div><div style="margin: 10px 0;"><label>城市：</label><span>'+msg.data.province+
-		  			'</span></div><div style="margin: 10px 0;"><label>描述：</label><span>'+msg.data.description+
-		  			'</span></div>'
-		  			$("#companymain").append(str);
+		  			company_os();
 		  			layer.closeAll();
 		  			layer.msg('修改成功', {
 		  				icon: 1,
 		  				time:600
 		  			});
-		  		},
-		  		error:function(){
-		  			layer.closeAll();
-		  			layer.msg('修改失败', {
-		  				icon: 1,
-		  				time:600
-		  			});
-		  		}
-		  	});
+		  	},
+		  	error:function(){
+		  		layer.closeAll();
+		  		layer.msg('修改失败', {
+		  			icon: 1,
+		  			time:600
+		  		});
+		  	}
+		  });
 		  	//ajax
 
 		  }
