@@ -18,7 +18,7 @@ function apply(){
        msg.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">'+
        msg.data[i].postage_price+'</span></p><a id="timedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
        '<p class="aboutHelp"><a>how to claim it?</a></p>'+
-       '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+msg.data[i].like_count+'</span><a ><img src="img/unlike.png" id="'+msg.data[i].id+'"></a></div>'+
+       '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+(parseInt(msg.data[i].like_count)+parseInt(msg.data[i].like_add_count))+'</span><a ><img src="img/unlike.png" id="'+msg.data[i].id+'"></a></div>'+
        '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-twitter areapen" title="twitter"></i></a><a class="share share_google"><i class="fa fa-google areapen" title="google"></i></a></span></div></div></div></div></div>'
        str=str+str_;
      }   
@@ -49,23 +49,24 @@ function apply(){
 //ajax
 
 $('.likeList a img').click(function(){
-  var imgId=$(this).attr("id");
-  $(this).attr("src","img/like.png");
-  var data = {
-    keyword_id:imgId
-  };
-  $.ajax({
-    type: "post",
-    url:"/product/like_keyword",
-    async: false,
-    data:data,
-    success: function(msg) {
-      $(".likecount").html(msg.count);
-    },
-    error:function(){
+    var imgId=$(this).attr("id");
+    var current_obj = $(this);
+    current_obj.attr("src","img/like.png");
+    var data = {
+        keyword_id:imgId
+    };
+    $.ajax({
+        type: "post",
+        url:"/product/like_keyword",
+        async: false,
+        data:data,
+        success: function(msg) {
+            current_obj.parent().parent().find(".likecount").html(msg.count);
+        },
+        error:function(){
 
-    }
-  });
+        }
+    });
 });
 
 
@@ -110,7 +111,7 @@ function search(){
       dataAll.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">'+
       dataAll.data[i].postage_price+'</span></p><a id="timedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
       '<p class="aboutHelp"><a>how to claim it?</a></p>'+
-      '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+dataAll.data[i].like_count+'</span><a ><img src="img/unlike.png" id="'+dataAll.data[i].id+'"></a></div>'+
+      '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+(parseInt(dataAll.data[i].like_count)+parseInt(dataAll.data[i].like_add_count))+'</span><a ><img src="img/unlike.png" id="'+dataAll.data[i].id+'"></a></div>'+
       '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-twitter areapen" title="twitter"></i></a><a class="share share_google"><i class="fa fa-google areapen" title="google"></i></a></span></div></div></div></div></div>'
       str=str+str_;
     }
