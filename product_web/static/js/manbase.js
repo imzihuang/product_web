@@ -18,7 +18,6 @@ $('#editcompanyBtn').click(function(){
 		  btn: ['确定', '取消'] ,//按钮
 		  content: $('#editcompany'),
 		  yes: function(){ 
-		  	//ajax
 		  	var data = {
 		  		old_name:$("#companyoldname").val(),
 		  		new_name:$("#companyname").val(),
@@ -53,7 +52,6 @@ $('#editcompanyBtn').click(function(){
 		  			});
 		  		}
 		  	});
-		  	//ajax
 		  }
 		});
 });
@@ -81,52 +79,82 @@ function company_os(){
 }
 $('#showpvpu').click(function(){
 	layerIndex=layer.open({
-		title:'显示pv/pu',
-		type: 1,
-		  skin: 'layui-layer-demo', //样式类名
-		  anim: 2,
-		  shadeClose: true, //开启遮罩关闭
-		  btn: ['确定', '取消'] ,//按钮
-		  content: $('#editpvpu'),
-		  yes: function(){ 
-		  	//ajax
-		  	var data = {
-		  		method:$("#pvpumethod").val(),
-		  		page:$("#pvpupage").val(),
-		  		start:$("#pvpustart").val(),
-		  		end:$("#pvpuend").val()
-		  	};
-		  	$.ajax({
-		  		type: "get",
-		  		url:"/product/pvpu_os",
-		  		async: false,
-		  		data:data,
-		  		success: function(msg) {
-		  			console.log(msg);
-		  			$("#pvputbody").find("tr").remove();
-		  			var str;
-		  			for(var i=0;i<msg.data.length;i++){
-		  				str+='<tr class="gradeX"><td class="center">'+msg.data[i].count+
-		  				'</td><td class="center">'+msg.data[i].html+
-		  				'</td><td class="center">'+msg.data[i].ip+
-		  				'</td></tr>';	
-		  			}   
-		  			$("#pvputbody").append(str);
-		  			layer.closeAll();
-		  			layer.msg('修改成功', {
-		  				icon: 1,
-		  				time:600
-		  			});
-		  		},
-		  		error:function(){
-		  			layer.closeAll();
-		  			layer.msg('修改失败', {
-		  				icon: 1,
-		  				time:600
-		  			});
-		  		}
-		  	});
-		  	//ajax
-		  }
-		});
+	  title:'显示pv/pu',
+	  type: 1,
+	  skin: 'layui-layer-demo', //样式类名
+	  anim: 2,
+	  shadeClose: true, //开启遮罩关闭
+	  btn: ['确定', '取消'] ,//按钮
+	  content: $('#editpvpu'),
+	  yes: function(){ 
+	  	var data = {
+	  		method:$("#pvpumethod").val(),
+	  		page:$("#pvpupage").val(),
+	  		start:$("#pvpustart").val(),
+	  		end:$("#pvpuend").val()
+	  	};
+	  	$.ajax({
+	  		type: "get",
+	  		url:"/product/pvpu_os",
+	  		async: false,
+	  		data:data,
+	  		success: function(msg) {
+	  			console.log(msg);
+	  			$("#pvputbody").find("tr").remove();
+	  			var str;
+	  			for(var i=0;i<msg.data.length;i++){
+	  				str+='<tr class="gradeX"><td class="center">'+msg.data[i].count+
+	  				'</td><td class="center">'+msg.data[i].html+
+	  				'</td><td class="center">'+msg.data[i].ip+
+	  				'</td></tr>';	
+	  			}   
+	  			$("#pvputbody").append(str);
+	  			layer.closeAll();
+	  			layer.msg('获取成功', {
+	  				icon: 1,
+	  				time:600
+	  			});
+	  		},
+	  		error:function(){
+	  			layer.closeAll();
+	  			layer.msg('获取失败', {
+	  				icon: 1,
+	  				time:600
+	  			});
+	  		}
+	  	});
+	  }
+	});
+});
+$("#showuser").click(function(){
+	$.ajax({
+		type: "get",
+		url:"/product/user_all",
+		async: false,
+		data:data,
+		success: function(msg) {
+			console.log(msg);
+			$("#usertbody").find("tr").remove();
+			// var str;
+			// for(var i=0;i<msg.data.length;i++){
+			// 	str+='<tr class="gradeX"><td class="center">'+msg.data[i].count+
+			// 	'</td><td class="center">'+msg.data[i].html+
+			// 	'</td><td class="center">'+msg.data[i].ip+
+			// 	'</td></tr>';	
+			// }   
+			// $("#usertbody").append(str);
+			layer.closeAll();
+			layer.msg('获取成功', {
+				icon: 1,
+				time:600
+			});
+		},
+		error:function(){
+			layer.closeAll();
+			layer.msg('获取失败', {
+				icon: 1,
+				time:600
+			});
+		}
+	});
 });
