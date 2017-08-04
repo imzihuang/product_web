@@ -19,15 +19,15 @@ $('#editcompanyBtn').click(function(){
 		  yes: function(){ 
 		  	//ajax
 		  	var data = {
-		  		old_name:$("#companyoldname").val();
-		  		new_name:$("#companyname").val();
-		  		email:$("#companyemail").val();
-		  		telephone:$("#companytelephone").val();
-		  		address:$("#companyaddress").val();
-		  		country:$("#companycountry").val();
-		  		province:$("#companyprovince").val();
-		  		city:$("#companycity").val();
-		  		description:$("#companydescription").val();
+		  		old_name:$("#companyoldname").val(),
+		  		new_name:$("#companyname").val(),
+		  		email:$("#companyemail").val(),
+		  		telephone:$("#companytelephone").val(),
+		  		address:$("#companyaddress").val(),
+		  		country:$("#companycountry").val(),
+		  		province:$("#companyprovince").val(),
+		  		city:$("#companycity").val(),
+		  		description:$("#companydescription").val()
 		  	};
 		  	console.log(data);
 		  	$.ajax({
