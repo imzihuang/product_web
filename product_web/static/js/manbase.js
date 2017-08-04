@@ -87,42 +87,56 @@ $('#showpvpu').click(function(){
 	  btn: ['确定', '取消'] ,//按钮
 	  content: $('#editpvpu'),
 	  yes: function(){ 
-	  	var data = {
-	  		method:$("#pvpumethod").val(),
-	  		page:$("#pvpupage").val(),
-	  		start:$("#pvpustart").val(),
-	  		end:$("#pvpuend").val()
-	  	};
-	  	$.ajax({
-	  		type: "get",
-	  		url:"/product/pvpu_os",
-	  		async: false,
-	  		data:data,
-	  		success: function(msg) {
-	  			console.log(msg);
-	  			$("#pvputbody").find("tr").remove();
-	  			var str;
-	  			for(var i=0;i<msg.data.length;i++){
-	  				str+='<tr class="gradeX"><td class="center">'+msg.data[i].count+
-	  				'</td><td class="center">'+msg.data[i].html+
-	  				'</td><td class="center">'+msg.data[i].ip+
-	  				'</td></tr>';	
-	  			}   
-	  			$("#pvputbody").append(str);
-	  			layer.closeAll();
-	  			layer.msg('获取成功', {
-	  				icon: 1,
-	  				time:600
-	  			});
-	  		},
-	  		error:function(){
-	  			layer.closeAll();
-	  			layer.msg('获取失败', {
-	  				icon: 1,
-	  				time:600
-	  			});
-	  		}
-	  	});
+	  	if($("#pvpumethod").val()==""){
+	  		$("#pvpumethoderror").html("请输入pu/pv！");
+	  	}
+	  	if($("#pvpupage").val()==""){
+	  		$("#pvpupageerror").html("请输入页面！");
+	  	}
+	  	if($("#pvpustart").val()==""){
+	  		$("#pvpustarterror").html("请输入开始时间！");
+	  	}
+	  	if($("#pvpuend").val()==""){
+	  		$("#pvpuenderror").html("请输入截止时间！");
+	  	}
+	  	if($("#pvpumethod").val()!="" && $("#pvpupage").val()!="" && $("#pvpustart").val()!="" && $("#pvpuend").val()!=""){
+	  		var data = {
+	  			method:$("#pvpumethod").val(),
+	  			page:$("#pvpupage").val(),
+	  			start:$("#pvpustart").val(),
+	  			end:$("#pvpuend").val()
+	  		};
+	  		$.ajax({
+	  			type: "get",
+	  			url:"/product/pvpu_os",
+	  			async: false,
+	  			data:data,
+	  			success: function(msg) {
+	  				console.log(msg);
+	  				$("#pvputbody").find("tr").remove();
+	  				var str;
+	  				for(var i=0;i<msg.data.length;i++){
+	  					str+='<tr class="gradeX"><td class="center">'+msg.data[i].count+
+	  					'</td><td class="center">'+msg.data[i].html+
+	  					'</td><td class="center">'+msg.data[i].ip+
+	  					'</td></tr>';	
+	  				}   
+	  				$("#pvputbody").append(str);
+	  				layer.closeAll();
+	  				layer.msg('获取成功', {
+	  					icon: 1,
+	  					time:600
+	  				});
+	  			},
+	  			error:function(){
+	  				layer.closeAll();
+	  				layer.msg('获取失败', {
+	  					icon: 1,
+	  					time:600
+	  				});
+	  			}
+	  		});
+	  	}
 	  }
 	});
 });
