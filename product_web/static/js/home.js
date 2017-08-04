@@ -30,7 +30,7 @@ function apply(){
        strname=msg.data[j].count_down_at;
        if(strname==""){
         $("#timedown").html('');console.log(0);
-      }
+       }
       else{
        $(strclass).downCount({
          date: strname,
@@ -38,7 +38,7 @@ function apply(){
        }, function () {console.log($(strclass).parent().html());
          $(strclass).parent().html('');
        }); 
-     }  
+      
    }
  },
 });
