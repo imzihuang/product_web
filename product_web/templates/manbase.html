@@ -11,13 +11,27 @@
 	<link href="css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/animate.min.css" rel="stylesheet">
 	<link href="css/table.css" rel="stylesheet">
+	<link href="css/fileinput.css" rel="stylesheet">
 	<link href="js/css/layer.css" rel="stylesheet" type="text/css">
 		<!--[if lt IE 8]>
 	    <meta http-equiv="refresh" content="0;ie.html" />
 	    <![endif]-->
 	</head>
 	<style type="text/css">
-
+	@media (min-width: 500px){
+		#editcompany input,#editcompany input{
+              width: 300px;
+		}
+		#editcompany select,#editcompany select{
+              width: 300px !important;
+		}
+	}
+	@media (max-width: 499px){
+        .layui-layer.layui-layer-page.layui-layer-demo.layer-anim-02 {
+		    margin-left: -120px!important;
+		}
+	}
+	.btn{font-size: 12px !important;}
 	</style>
 	<body class="gray-bg">
 		<h4>公司信息</h4>
