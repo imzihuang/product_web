@@ -38,7 +38,7 @@ function apply(){
        }, function () {console.log($(strclass).parent().html());
          $(strclass).parent().html('');
        }); 
-      
+     }  
    }
  },
 });
