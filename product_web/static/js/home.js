@@ -6,7 +6,7 @@ function apply(){
     type: "GET",
     url:"/product/keyword_os",
     async: false,
-    success: function(msg) {console.log(123);
+    success: function(msg) {console.log(msg);
       dataAll=msg;
       var str="";
       for(var i=0;i<msg.data.length;i++){
