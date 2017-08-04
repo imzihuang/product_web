@@ -22,11 +22,11 @@ function apply(){
        '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-twitter areapen" title="twitter"></i></a><a class="share share_google"><i class="fa fa-google areapen" title="google"></i></a></span></div></div></div></div></div>'
        str=str+str_;
      }   
-     $("#listPart").append(str);  
+     $("#listPart").append(str);
+       var strclass="";  
      for(var j=0;j<msg.data.length;j++){
        var strname="";
-       var strclass="";
-       var strclass='.countdown'+j;
+       strclass='.countdown'+j;
        console.log(strclass);
        strname=msg.data[j].count_down_at;
       //  if(strname==""){
@@ -35,12 +35,12 @@ function apply(){
       // else{
        $(strclass).downCount({
          date: strname,
-         offset: +10
-       }, function () {//console.log($(strclass).parent().html());
+        // offset: +10
+       }, function () {console.log($(strclass).parent().html());
          $(strclass).parent().html('');
        }); 
      // }  
-   }
+      }
  },
 });
 }
