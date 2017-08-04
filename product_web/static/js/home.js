@@ -113,7 +113,24 @@ function search(){
     }
   }
   $("#listPart").html("");
-  $("#listPart").append(str);  
+  $("#listPart").append(str);
+  for(var j=0;j<dataAll.data.length;j++){
+           var strname="";
+           var strclass="";
+           var strclass='.countdown'+j;
+           strname=dataAll.data[j].count_down_at;
+           if(strname==""){
+            $("#timedown").html('');
+          }
+          else{
+           $(strclass).downCount({
+             date: strname,
+             offset: +10
+           }, function () {
+             $("#timedown").html('<span class="timedown">Start!</span>');
+           }); 
+         }  
+       }  
 }
 
 $(".product_name a").click(function(){
