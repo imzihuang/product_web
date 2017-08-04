@@ -36,7 +36,7 @@ function apply(){
          date: strname,
          offset: +10
        }, function () {
-         $(strclass).parents().html('');console.log(01);
+         $(strclass).parent().html('');console.log(01);
        }); 
      }  
    }
