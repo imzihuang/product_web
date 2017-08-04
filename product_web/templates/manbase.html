@@ -39,21 +39,22 @@
 			display: inline-block;
 			float: left;
 		}
-
+		h4{font-weight: bold;}
 	</style>
 	<body class="gray-bg">
 		<h4>公司信息</h4>
 		<div id="companymain"></div>
 		<button class="btn btn-primary btn-myown" id="editcompanyBtn">编辑公司信息</button>
 		<div id="editcompany" style="display: none; min-width: 100px; padding: 16px;">
+			<div style="margin: 10px 0;"><label>公司名称(旧)：</label><input id="companyoldname" type="text" readonly="readonly" /></div>
 			<div style="margin: 10px 0;"><label>公司名称：</label><input id="companyname" type="text" /></div>
-			<div style="margin: 10px 0;"><label>邮箱：</label><input id="companyname" type="text" /></div>
-			<div style="margin: 10px 0;"><label>电话号码：</label><input id="companyname" type="text" /></div>
-			<div style="margin: 10px 0;"><label>公司地址：</label><input id="companyname" type="text" /></div>
-			<div style="margin: 10px 0;"><label>国家：</label><input id="companyname" type="text" /></div>
-			<div style="margin: 10px 0;"><label>省份：</label><input id="companyname" type="text" /></div>
-			<div style="margin: 10px 0;"><label>城市：</label><input id="companyname" type="text" /></div>
-			<div style="margin: 10px 0;"><label>描述：</label><input id="companyname" type="text" /></div>
+			<div style="margin: 10px 0;"><label>邮箱：</label><input id="companyemail" type="text" /></div>
+			<div style="margin: 10px 0;"><label>电话号码：</label><input id="companytelephone" type="text" /></div>
+			<div style="margin: 10px 0;"><label>公司地址：</label><input id="companyaddress" type="text" /></div>
+			<div style="margin: 10px 0;"><label>国家：</label><input id="companycountry" type="text" /></div>
+			<div style="margin: 10px 0;"><label>省份：</label><input id="companycity" type="text" /></div>
+			<div style="margin: 10px 0;"><label>城市：</label><input id="companyprovince" type="text" /></div>
+			<div style="margin: 10px 0;"><label>描述：</label><input id="companydescription" type="text" /></div>
 		</div>
 			<!-- <div id="tab-1" class="tab-pane active">
 				<div class="col-sm-12">
