@@ -29,7 +29,6 @@ $('#editcompanyBtn').click(function(){
 		  		city:$("#companycity").val(),
 		  		description:$("#companydescription").val()
 		  	};
-		  	console.log(data);
 		  	$.ajax({
 		  		type: "post",
 		  		url:"/product/company_os",
@@ -43,7 +42,6 @@ $('#editcompanyBtn').click(function(){
 		  				icon: 1,
 		  				time:600
 		  			});
-		  		}
 		  	},
 		  	error:function(){
 		  		layer.closeAll();
