@@ -1,5 +1,5 @@
 company_os();
-var oldName=$('#showname').val();
+var oldName=$('#showname').val();console.log(oldName);
 function down_base(method){
 	var dowen_a = document.createElement('a');
 	var down_url = "/product/excel_os?method="+method;
@@ -7,7 +7,7 @@ function down_base(method){
     //dowen_a.download = "proposed_file_name";
     dowen_a.click();
 }
-$('#editcompanyBtn').click(function(){
+$('#editcompanyBtn').click(function(){console.log(oldName);
 	$("#companyoldname").val(oldName);
 	layerIndex=layer.open({
 		title:'编辑公司信息',
