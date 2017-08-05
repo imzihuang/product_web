@@ -5,10 +5,14 @@
     <title></title>
 </head>
 <body>
-    <div></div><label>公司名：</label> {{ name }} </div>
-    <div><label>联系邮箱：</label> {{ email }}</div>
-    <div><label>联系方式：</label> {{ telephone}} </div>
-    <div><label>地址：</label> {{ country }} {{ province }} {{ city }}</div>
-    <div>{{ address }}</div>
+    {% if name %}
+        <div></div><label>公司名：</label> {{ name }} </div>
+        <div><label>联系邮箱：</label> {{ email }}</div>
+        <div><label>联系方式：</label> {{ telephone}} </div>
+        <div><label>地址：</label> {{ country }} {{ province }} {{ city }}</div>
+        <div>{{ address }}</div>
+    {% else %}
+        后台数据异常
+    {% end%}
 </body>
 </html>
