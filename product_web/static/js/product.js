@@ -45,12 +45,11 @@ $.ajax({
     var strclass="";
     var strclass='.countdown'+j;
     strname=msg.data[j].count_down_at;
-
     $(strclass).downCount({
       date: strname,
       offset: +10
     }, function () {
-
+      $("#timedown").html("");
     }); 
     
   } 
@@ -106,7 +105,7 @@ function apply(){
        date: strname,
        offset: +10
      }, function () {
-       $(this).parent().html('');
+       $("#timedown").html("");
      }); 
 
    }
@@ -181,10 +180,9 @@ function productsearch(){
      date: strname,
      offset: +10
    }, function () {
-    $(this).parent().html('');
-  }); 
+    $("#timedown").html("");
 
- }
+  }
 }
 
 function change(){
