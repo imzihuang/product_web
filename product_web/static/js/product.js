@@ -103,10 +103,10 @@ function apply(){
 }
 //ajax
 
-$('.likeList a img').click(function(){
+$('.likeList a img').click(function(){console.log(1);
   var imgId=$(this).attr("id");
   var current_obj = $(this);
-  current_obj.attr("src","img/like.png");
+  current_obj.attr("src","img/like.png");console.log(2);
   var data = {
     product_id:imgId
   };
