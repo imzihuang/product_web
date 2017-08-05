@@ -140,7 +140,7 @@ error:function(){
       var str="";
       var str_="";
       for(var i=0;i<dataAll.data.length;i++){
-        if(dataAll.data[i].name==$("#homeSearch").val()){
+        if(dataAll.data[i].name==$("#productSearch").val()){
           str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
           '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a>'+
           dataAll.data[i].theme+'</a></p><p class="color_gray">'+
