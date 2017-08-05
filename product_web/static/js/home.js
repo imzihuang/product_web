@@ -11,6 +11,7 @@ function apply(){
       var str="";
       var pop="";
       var pop_="";
+      var count_pop=0;
       var aboutOut_href=$(".track-sign-up").attr("href");
       if(aboutOut_href=="signin.html"){
         $(".product_name a").attr("onclick","change();return false");
@@ -46,14 +47,22 @@ function apply(){
    $("#listPart").append(str);
    for(var i=0;i<msg.data.length;i++){
     if(msg.data[i].recommend==true)
-    {
+    { count_pop++;
       pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
       '"alt="通用的占位符缩略图"><div class="caption"><p>'+msg.data[i].theme+
       '</p></div></div></div>'
       pop=pop+pop_;
     }
+    if(count_pop>5){
+      return false;
+    }
   }
   $("#home_popular").append(pop);
+  // setTime();
+  // var times = setInterval(setTime, 1000);
+  // function setTime(){
+
+  // }
   var strclass="";  
   var strname="";
   var current_obj=$(this);
