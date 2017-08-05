@@ -390,6 +390,7 @@ p{margin: 0px;}
     background-color: #0072bc;
     color: #fff;
 }
+#home_popular img{height: 90px; }
 /***** Media queries *****/
 @media (min-width: 768px){
 	.col-sm-offset-3 {
