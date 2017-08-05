@@ -165,7 +165,7 @@ function productsearch(){
     $("#listPart").append(str);
   }else{
     for(var i=0;i<dataAll.data.length;i++){
-      if(dataAll.data[i].name.indexOf($("#homeSearch").val())!=-1||dataAll.data[i].indexOf($("#homeSearch").val())!=-1||dataAll.data[i].indexOf($("#homeSearch").val())!=-1){
+      if(dataAll.data[i].name.indexOf($("#homeSearch").val())!=-1){
         str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
         '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
         dataAll.data[i].theme+'</a></p><p class="color_gray">'+
