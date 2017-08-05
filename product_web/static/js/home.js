@@ -38,7 +38,7 @@ function apply(){
          date: strname,
          offset: +10
        }, function () {console.log(0);
-         current_obj.parent().html('');
+         current_obj.parent().remove();
        }); 
      }  
       // }
