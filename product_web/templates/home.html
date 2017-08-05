@@ -1,122 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>home</title>
-        <!-- CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="css/form-elements.css">
-        <link rel="stylesheet" href="css/style.css">
-         <!-- Javascript -->
-      
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>home</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/form-elements.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Javascript -->
+	
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+            <![endif]-->
     </head>
-<body>
+    <body>
 
-<div class="header">
-	<div class="container">
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container-fluid"> 
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#example-navbar-collapse">
-					<span class="sr-only">切换导航</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">LOGO</a>
-			</div>
-			<div class="collapse navbar-collapse" id="example-navbar-collapse">
-				<ul class="nav navbar-nav text-right ">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">how to get $0.99deal</a></li>
-					<li><a href="#">connection</a></li>
-					<li><a href="#">help</a></li>
-				</ul>
-				<ul class="nav navbar-nav">
-					{%if user_name%}
-						<div class="loginButtonContainer">
-							<a class="button track-login">{{ user_name }}</a>
-							<a class="button primary signIn track-sign-up" onclick="logout()">Log Out</a>
-						</div>
-					{%else%}
-						<div class="loginButtonContainer">
-						  <a class="button track-login" href="login.html">Log In</a>
-						  <a class="button primary signIn track-sign-up" href="signin.html">Sign In</a>
-						</div>
-					{%end%}
-				</ul>
-			</div>
-			</div>
-		</nav>
-	</div>
-</div>
-<div class="main home">
-	<div class="container">
-		<div class="popular-items">
-			<div class="row">
-			<p class="today_popular">今日主打</p>
-			     <!-- list -->
-				 <div class="col-sm-12 col-md-12">
-			        <div class="thumbnail">
-			            <img src="img/one.png"
-			                 alt="通用的占位符缩略图">
-			            <div class="caption">
-			                <p>产品1</p>
-			            </div>
-			        </div>
-			     </div>
-			     <div class="col-sm-12 col-md-12">
-			        <div class="thumbnail">
-			            <img src="img/one.png"
-			                 alt="通用的占位符缩略图">
-			            <div class="caption">
-			                <p>产品1</p>
-			            </div>
-			        </div>
-			     </div>
-                <!-- list -->
-			</div>
-		</div>
-		<div class="all-items">
-			<div class="row">
-			    <div class="form-group searchPart">
-						<div class="input-group">
-							<input type="text" class="form-control" id="homeSearch">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button" onclick="search()">
-									<sapn><img src="img/search.png"></sapn>
-								</button>
-							</span>
-						</div><!-- /input-group -->
-                </div>
-			   
-                <!-- list -->
-                 <div id="listPart">
-				    
-			     </div>
-                <!-- list -->
-                
-			</div> 
-			
-		</div>
-	</div>
-</div>
-       
+    	<div class="header">
+    		<div class="container">
+    			<nav class="navbar navbar-default" role="navigation">
+    				<div class="container-fluid"> 
+    					<div class="navbar-header">
+    						<button type="button" class="navbar-toggle" data-toggle="collapse"
+    						data-target="#example-navbar-collapse">
+    						<span class="sr-only">切换导航</span>
+    						<span class="icon-bar"></span>
+    						<span class="icon-bar"></span>
+    						<span class="icon-bar"></span>
+    					</button>
+    					<a class="navbar-brand" href="#">LOGO</a>
+    				</div>
+    				<div class="collapse navbar-collapse" id="example-navbar-collapse">
+    					<ul class="nav navbar-nav text-right ">
+    						<li><a href="#">Home</a></li>
+    						<li><a href="#">how to get $0.99deal</a></li>
+    						<li><a href="#">connection</a></li>
+    						<li><a href="#">help</a></li>
+    					</ul>
+    					<ul class="nav navbar-nav">
+    						{%if user_name%}
+    						<div class="loginButtonContainer">
+    							<a class="button track-login">{{ user_name }}</a>
+    							<a class="button primary signIn track-sign-up" onclick="logout()">Log Out</a>
+    						</div>
+    						{%else%}
+    						<div class="loginButtonContainer">
+    							<a class="button track-login" href="login.html">Log In</a>
+    							<a class="button primary signIn track-sign-up" href="signin.html">Sign In</a>
+    						</div>
+    						{%end%}
+    					</ul>
+    				</div>
+    			</div>
+    		</nav>
+    	</div>
+    </div>
+    <div class="main home">
+    	<div class="container">
+    		<div class="popular-items">
+    			<div class="row">
+    				<p class="today_popular">今日主打</p>
+    				<!-- list -->
+    				<div class="col-sm-12 col-md-12">
+    					<div class="thumbnail">
+    						<img src="img/one.png"
+    						alt="通用的占位符缩略图">
+    						<div class="caption">
+    							<p>产品1</p>
+    						</div>
+    					</div>
+    				</div>
+    				<div class="col-sm-12 col-md-12">
+    					<div class="thumbnail">
+    						<img src="img/one.png"
+    						alt="通用的占位符缩略图">
+    						<div class="caption">
+    							<p>产品1</p>
+    						</div>
+    					</div>
+    				</div>
+    				<!-- list -->
+    			</div>
+    		</div>
+    		<div class="all-items">
+    			<div class="row">
+    				<div class="form-group searchPart">
+    					<div class="input-group">
+    						<input type="text" class="form-control" id="homeSearch">
+    						<span class="input-group-btn">
+    							<button class="btn btn-default" type="button" onclick="search()">
+    								<sapn><img src="img/search.png"></sapn>
+    							</button>
+    						</span>
+    					</div><!-- /input-group -->
+    				</div>
+    				
+    				<!-- list -->
+    				<div id="listPart">
+    					
+    				</div>
+    				<!-- list -->
+    				
+    			</div> 
+    			
+    		</div>
+    	</div>
+    	<a id="openlogin"></a>
+    	<div id="gologin" style="display: none; min-width: 100px;">
+    		<div class="col-sm-12 col-sm-offset-3 form-box">
+    			<div class="form-top">
+    				<h1>Sign in</h1>
+    			</div>
+    			<div class="form-bottom">
+    				<div class="form-group">
+    					<label class="sr_only" for="form-username">Name</label>
+    					<input type="text" name="form-username" placeholder="Name" class="form-username form-control" id="form-username">
+    					<div id="confirmMsg"></div>
+    				</div>
+    				<div class="form-group">
+    					<label class="sr_only" for="form-password">Password</label><span class="forget"><a href="findpwd.html">Forgot your password?</a></span>
+    					<input type="password" name="form-password" placeholder="Password" class="form-password form-control" id="form-password">
+    					<div id="confirmpassword"></div>
+    				</div>
+    				<button type="submit" class="btn submitbtn" onclick="login()">Sign in</button>
+    				<button type="submit " class="btn goSigninbtn" onclick="signin()" style="margin-top:10px;">Create new Account</button>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
 </body>
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.backstretch.min.js"></script>
-        <script src="js/jquery.downCount.js"></script>
-        <script src="js/jquery.cookie.js"></script>
-        <script src="js/home.js"></script>
-</html>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.backstretch.min.js"></script>
+    <script src="js/jquery.downCount.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/home.js"></script>
+    </html>
