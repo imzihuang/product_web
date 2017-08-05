@@ -23,9 +23,9 @@ function apply(){
        str=str+str_;
      }   
      $("#listPart").append(str);
-       var strclass="";  
-       var strname="";
-       var current_obj=$(this);
+     var strclass="";  
+     var strname="";
+     var current_obj=$(this);
      for(var j=0;j<msg.data.length;j++){
        strclass='.countdown'+j;
        console.log(strclass);
@@ -34,34 +34,34 @@ function apply(){
          date: strname,
          offset: +10
        }, function (){
-          }
-       });
+        
+     });
        
      }  
- },
-});
+   },
+ });
 }
 //ajax
 
 $('.likeList a img').click(function(){
-    var imgId=$(this).attr("id");
-    var current_obj = $(this);
-    current_obj.attr("src","img/like.png");
-    var data = {
-        keyword_id:imgId
-    };
-    $.ajax({
-        type: "post",
-        url:"/product/like_keyword",
-        async: false,
-        data:data,
-        success: function(msg) {
-            current_obj.parent().parent().find(".likecount").html(msg.count);
-        },
-        error:function(){
+  var imgId=$(this).attr("id");
+  var current_obj = $(this);
+  current_obj.attr("src","img/like.png");
+  var data = {
+    keyword_id:imgId
+  };
+  $.ajax({
+    type: "post",
+    url:"/product/like_keyword",
+    async: false,
+    data:data,
+    success: function(msg) {
+      current_obj.parent().parent().find(".likecount").html(msg.count);
+    },
+    error:function(){
 
-        }
-    });
+    }
+  });
 });
 
 
@@ -114,19 +114,19 @@ function search(){
   $("#listPart").html("");
   $("#listPart").append(str);
   for(var j=0;j<dataAll.data.length;j++){
-           var strname="";
-           var strclass="";
-           var strclass='.countdown'+j;
-           strname=dataAll.data[j].count_down_at;
-          
-           $(strclass).downCount({
-             date: strname,
-             offset: +10
-           }, function () {
-             
-           }); 
-          
-       }  
+   var strname="";
+   var strclass="";
+   var strclass='.countdown'+j;
+   strname=dataAll.data[j].count_down_at;
+
+   $(strclass).downCount({
+     date: strname,
+     offset: +10
+   }, function () {
+
+   }); 
+
+ }  
 }
 
 $(".product_name a").click(function(){
