@@ -41,17 +41,14 @@ $.ajax({
     var strclass="";
     var strclass='.countdown'+j;
     strname=msg.data[j].count_down_at;
-    if(strname==""){
-       $(strclass).parent().html('');
-    }
-    else{
-      $(strclass).downCount({
-        date: strname,
-        offset: +10
-      }, function () {
-        $(this).parent().html('');
-      }); 
-    }
+    
+    $(strclass).downCount({
+      date: strname,
+      offset: +10
+    }, function () {
+      $(this).parent().html('');
+    }); 
+    
   } 
 },
 error:function(){
@@ -88,42 +85,39 @@ error:function(){
            var strclass="";
            var strclass='.countdown'+j;
            strname=msg.data[j].count_down_at;
-           if(strname==""){
-            $(strclass).parent().html('');
-          }
-          else{
+           
            $(strclass).downCount({
              date: strname,
              offset: +10
            }, function () {
              $(this).parent().html('');
            }); 
-         }  
-       }
-     },
-   });
+           
+         }
+       },
+     });
     }
     //ajax
 
     $('.likeList a img').click(function(){
-        var imgId=$(this).attr("id");
-        var current_obj = $(this);
-        current_obj.attr("src","img/like.png");
-        var data = {
-            product_id:imgId
-        };
+      var imgId=$(this).attr("id");
+      var current_obj = $(this);
+      current_obj.attr("src","img/like.png");
+      var data = {
+        product_id:imgId
+      };
 
-        $.ajax({
-            type: "post",
-            url:"/product/like_product",
-            async: false,
-            data:data,
-            success: function(msg) {
-                current_obj.parent().parent().find(".likecount").html(msg.count);
-            },
-            error:function(){
-          }
-    });
+      $.ajax({
+        type: "post",
+        url:"/product/like_product",
+        async: false,
+        data:data,
+        success: function(msg) {
+          current_obj.parent().parent().find(".likecount").html(msg.count);
+        },
+        error:function(){
+        }
+      });
     //
   });
 
@@ -163,31 +157,28 @@ error:function(){
       $("#listPart").html("");
       $("#listPart").append(str);
       for(var j=0;j<dataAll.data.length;j++){
-           var strname="";
-           var strclass="";
-           var strclass='.countdown'+j;
-           strname=dataAll.data[j].count_down_at;
-           if(strname==""){
-           $(strclass).parent().html('');
-          }
-          else{
-           $(strclass).downCount({
-             date: strname,
-             offset: +10
-           }, function () {
-            $(this).parent().html('');
-           }); 
-         }  
-       }
-    }
+       var strname="";
+       var strclass="";
+       var strclass='.countdown'+j;
+       strname=dataAll.data[j].count_down_at;
+       
+       $(strclass).downCount({
+         date: strname,
+         offset: +10
+       }, function () {
+        $(this).parent().html('');
+      }); 
+       
+     }
+   }
 
 
-    function change(){
-      var aboutOut=$(".track-sign-up").attr("href");
-      if(aboutOut=="signin.html"){
-        layerIndex=layer.open({
-          title:'请先登录',
-          type: 1,
+   function change(){
+    var aboutOut=$(".track-sign-up").attr("href");
+    if(aboutOut=="signin.html"){
+      layerIndex=layer.open({
+        title:'请先登录',
+        type: 1,
               skin: 'layui-layer-demo', //样式类名
               anim: 2,
               shadeClose: true, //开启遮罩关闭
@@ -198,45 +189,45 @@ error:function(){
               }
 
             });
-      }
-      else{
-        window.location.href=$(this).attr("href");
-      }
-    };
-    function login(){
-      var data = {
-        user_name:$("#form-username").val(),
-        pwd:$("#form-password").val()
-      }
-      $.ajax({
-        type: "POST",
-        url:"/product/login",
-        async: false,
-        data:data,
-        success: function(msg) {
-          var data = JSON.parse(msg);
-          console.log(msg);
-          if(data.state==0){
-            layer.closeAll();
-            layer.msg('登录成功', {
-              icon: 1,
+    }
+    else{
+      window.location.href=$(this).attr("href");
+    }
+  };
+  function login(){
+    var data = {
+      user_name:$("#form-username").val(),
+      pwd:$("#form-password").val()
+    }
+    $.ajax({
+      type: "POST",
+      url:"/product/login",
+      async: false,
+      data:data,
+      success: function(msg) {
+        var data = JSON.parse(msg);
+        console.log(msg);
+        if(data.state==0){
+          layer.closeAll();
+          layer.msg('登录成功', {
+            icon: 1,
                       time: 800//2s后自动关闭
                     });
-            window.location.reload();
-          }
-          else if(data.state==1){
-            $("#confirmMsg").html("用户名不存在！");
-          }
-          else{
-            $("#confirmpassword").html("密码错误！");
-          }     
-        },
-        error:function(){
-          console.log("error");
+          window.location.reload();
         }
-      });
-    }
-    function signin(){
-     window.location.href="/product/signin.html";
-   }
+        else if(data.state==1){
+          $("#confirmMsg").html("用户名不存在！");
+        }
+        else{
+          $("#confirmpassword").html("密码错误！");
+        }     
+      },
+      error:function(){
+        console.log("error");
+      }
+    });
+  }
+  function signin(){
+   window.location.href="/product/signin.html";
+ }
 
