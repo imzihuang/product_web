@@ -17,5 +17,6 @@ class CompanyHandler(tornado.web.RequestHandler):
         record_pv_pu(real_ip, "company.html")
 
         company_info = locbase.get_company()
-
+        if not company_info:
+            company_info = {"name": ""}
         self.render('company.html', **company_info)
