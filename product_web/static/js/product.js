@@ -41,12 +41,12 @@ $.ajax({
     var strclass="";
     var strclass='.countdown'+j;
     strname=msg.data[j].count_down_at;
-    
+
     $(strclass).downCount({
       date: strname,
       offset: +10
     }, function () {
-      $(this).parent().html('');
+
     }); 
     
   } 
@@ -85,7 +85,7 @@ error:function(){
            var strclass="";
            var strclass='.countdown'+j;
            strname=msg.data[j].count_down_at;
-           
+
            $(strclass).downCount({
              date: strname,
              offset: +10
@@ -140,7 +140,7 @@ error:function(){
       var str="";
       var str_="";
       for(var i=0;i<dataAll.data.length;i++){
-        if(dataAll.data[i].theme==$("#homeSearch").val()){
+        if(dataAll.data[i].name==$("#homeSearch").val()){
           str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
           '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os("'+ dataAll.data[i].name +'")>'+
           dataAll.data[i].theme+'</a></p><p class="color_gray">'+
@@ -161,14 +161,14 @@ error:function(){
        var strclass="";
        var strclass='.countdown'+j;
        strname=dataAll.data[j].count_down_at;
-       
+
        $(strclass).downCount({
          date: strname,
          offset: +10
        }, function () {
         $(this).parent().html('');
       }); 
-       
+
      }
    }
 
