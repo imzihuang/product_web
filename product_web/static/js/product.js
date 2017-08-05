@@ -98,12 +98,10 @@ function apply(){
      var strclass="";
      var strclass='.countdown'+j;
      strname=msg.data[j].count_down_at;
-
      $(strclass).downCount({
        date: strname
      }, function () {
      }); 
-
    }
  },
 });
@@ -162,28 +160,29 @@ function productsearch(){
       '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+dataAll.data[i].like_count+'</span><a ><img src="img/unlike.png" id="'+dataAll.data[i].id+'"></a></div>'+
       '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen"></i></a><a class="share share_google"><i class="fa fa-comments areapen"></i></a></span></div></div></div></div></div>'
       str=str+str_;
-  }
-  $("#listPart").html("");
-  $("#listPart").append(str);
-  }else{
-  for(var i=0;i<dataAll.data.length;i++){
-    if(dataAll.data[i].name.indexOf($("#homeSearch").val())!=-1||dataAll.data[i].indexOf($("#homeSearch").val())!=-1||dataAll.data[i].indexOf($("#homeSearch").val())!=-1){
-      str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
-      '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
-      dataAll.data[i].theme+'</a></p><p class="color_gray">'+
-      dataAll.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
-      dataAll.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
-      dataAll.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">postage:￥'+
-      dataAll.data[i].postage_price+'</span></p><a id="timedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
-      '<p class="aboutHelp"><a>how to claim it?</a></p>'+
-      '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+dataAll.data[i].like_count+'</span><a ><img src="img/unlike.png" id="'+dataAll.data[i].id+'"></a></div>'+
-      '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen"></i></a><a class="share share_google"><i class="fa fa-comments areapen"></i></a></span></div></div></div></div></div>'
-      str=str+str_;
     }
+    $("#listPart").html("");
+    $("#listPart").append(str);
+  }else{
+    for(var i=0;i<dataAll.data.length;i++){
+      if(dataAll.data[i].name.indexOf($("#homeSearch").val())!=-1||dataAll.data[i].indexOf($("#homeSearch").val())!=-1||dataAll.data[i].indexOf($("#homeSearch").val())!=-1){
+        str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
+        '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
+        dataAll.data[i].theme+'</a></p><p class="color_gray">'+
+        dataAll.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
+        dataAll.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
+        dataAll.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">postage:￥'+
+        dataAll.data[i].postage_price+'</span></p><a id="timedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
+        '<p class="aboutHelp"><a>how to claim it?</a></p>'+
+        '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+dataAll.data[i].like_count+'</span><a ><img src="img/unlike.png" id="'+dataAll.data[i].id+'"></a></div>'+
+        '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen"></i></a><a class="share share_google"><i class="fa fa-comments areapen"></i></a></span></div></div></div></div></div>'
+        str=str+str_;
+      }
+    }
+    $("#listPart").html("");
+    $("#listPart").append(str);
   }
-  }
-  $("#listPart").html("");
-  $("#listPart").append(str);
+  
   for(var j=0;j<dataAll.data.length;j++){
    var strname="";
    var strclass="";
@@ -194,10 +193,10 @@ function productsearch(){
      date: strname
    }, function () {
 
-  }
+   }
+ }
 }
-
-function change(){
+ function change(){
   layerIndex=layer.open({
     title:'请先登录',
     type: 1,
