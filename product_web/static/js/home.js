@@ -24,8 +24,9 @@ function apply(){
      }   
      $("#listPart").append(str);
        var strclass="";  
-     for(var j=0;j<msg.data.length;j++){
        var strname="";
+       var current_obj=$(this);
+     for(var j=0;j<msg.data.length;j++){
        strclass='.countdown'+j;
        console.log(strclass);
        strname=msg.data[j].count_down_at;
@@ -35,14 +36,12 @@ function apply(){
       // else{
        $(strclass).downCount({
          date: strname,
-        // offset: +10
-       }, function () {console.log($(strclass).parent().html());
-        var xx=strclass;
-        console.log('xx'+xx);
-         $(strclass).parent().html('');
+         offset: +10
+       }, function () {
+         current_obj.parent().html('');
        }); 
-     // }  
-      }
+     }  
+      // }
  },
 });
 }
