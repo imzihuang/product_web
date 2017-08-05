@@ -43,6 +43,20 @@
 		.btn-myown{margin-bottom: 10px;margin-right: 5px;}
 		#editpvpu p,.abouterror{padding-left:85px;font-size:12px;line-height:20px;height:20px;}
 		.pad_left{padding-left: 85px;color: red;}
+		.tab_part button{
+			float: left;
+			font-size: 12px;
+			color: #747677;
+			padding: 8px 12px;
+			background: #ecf0f3;
+			border: none;
+			border-top: 3px solid #232f3e;
+		}
+		.tab_part .now{
+			border-top: 3px solid #f3a847;
+			color: #232f3e;
+		}
+		.btn{font-size: 12px !important;}
 	</style>
 	<body class="gray-bg">
 		<div class="tab_part">
@@ -64,63 +78,63 @@
 			<div style="margin: 10px 0;"><label>城市：</label><input id="companyprovince" type="text" /></div>
 			<div style="margin: 10px 0;"><label>描述：</label><input id="companydescription" type="text" /></div>
 		</div>
-		</br>
-		<h4>pv/pu</h4>
-		<div id="pvpumain">
-			<button class="btn btn-primary btn-myown" id="showpvpu">获取pv/pu</button><button class="btn btn-primary btn-myown" onclick="down_base('pv')">下载pv</button><button class="btn btn-primary btn-myown" onclick="down_base('pu')">下载pu</button>
-			<table class="table table-striped table-bordered table-hover dataTables-example">
-				<thead>
-					<tr class="zx_thTitle">
-						<th>数量</th>
-						<th>页面</th>
-						<th>IP</th>
-					</tr>
-				</thead>
-				<tbody id="pvputbody">
-					<tr class="center"><td></td><td>当前没有获取任何信息</td><td></td></tr>
-				</tbody>
-			</table>
-		</div>
-		<div id="editpvpu" style="display: none; min-width: 100px; padding: 16px;">
-			<div style="margin: 10px 0 0 0;"><label>pv/pu：</label><input id="pvpumethod" type="text" /></div>
-			<p class="abouterror">输入pu/pv</p>
-			<div id="pvpumethoderror" class="pad_left"></div>
-			<div style="margin: 10px 0 0 0;"><label>被访问页面：</label><input id="pvpupage" type="text" /></div>
-			<div id="pvpupageerror" class="pad_left"></div>
-			<div style="margin: 10px 0 0 0;"><label>开始时间段：</label><input id="pvpustart" type="text" /></div>
-			<p class="abouterror">格式：2017-01-01</p>
-			<div id="pvpustarterror" class="pad_left"></div>
-			<div style="margin: 10px 0 0 0;"><label>结束时间段：</label><input id="pvpuend" type="text" /></div>
-			<p class="abouterror">格式：2017-01-01</p>
-			<div id="pvpuenderror" class="pad_left"></div>
-		</div>
-        </br>
-		<h4>用户信息</h4>
-		<div id="usermain">
-			<button class="btn btn-primary btn-myown" id="showuser">获取所有用户信息</button> <button class="btn btn-primary btn-myown" onclick="down_base('user')">下载用户信息</button>
-			<table class="table table-striped table-bordered table-hover dataTables-example">
-				<thead>
-					<tr class="zx_thTitle">
-						<th>用户名</th>
-						<th>密码</th>
-						<th>重置密码</th>
-						<th>年龄</th>
-						<th>手机号码</th>
-						<th>邮箱</th>
-						<th>生日</th>
-						<th>创建时间</th>
-						<th>更新时间</th>
-					</tr>
-				</thead>
-				<tbody id="usertbody">
-					<tr class="center"><td></td><td></td><td></td><td></td><td>当前没有获取任何信息</td><td></td><td></td><td></td><td></td></tr>
-				</tbody>
-			</table>
-		</div>
-	    <script src="js/jquery-1.11.1.min.js"></script>
-	    <script src="js/bootstrap.min.js"></script>
-	    <script src="js/layer.js"></script>
-	    <script src="js/zh.js"></script>
-	    <script src="js/manbase.js"></script>
-	</body>
-	</html>
+	</br>
+	<h4>pv/pu</h4>
+	<div id="pvpumain">
+		<button class="btn btn-primary btn-myown" id="showpvpu">获取pv/pu</button><button class="btn btn-primary btn-myown" onclick="down_base('pv')">下载pv</button><button class="btn btn-primary btn-myown" onclick="down_base('pu')">下载pu</button>
+		<table class="table table-striped table-bordered table-hover dataTables-example">
+			<thead>
+				<tr class="zx_thTitle">
+					<th>数量</th>
+					<th>页面</th>
+					<th>IP</th>
+				</tr>
+			</thead>
+			<tbody id="pvputbody">
+				<tr class="center"><td></td><td>当前没有获取任何信息</td><td></td></tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="editpvpu" style="display: none; min-width: 100px; padding: 16px;">
+		<div style="margin: 10px 0 0 0;"><label>pv/pu：</label><input id="pvpumethod" type="text" /></div>
+		<p class="abouterror">输入pu/pv</p>
+		<div id="pvpumethoderror" class="pad_left"></div>
+		<div style="margin: 10px 0 0 0;"><label>被访问页面：</label><input id="pvpupage" type="text" /></div>
+		<div id="pvpupageerror" class="pad_left"></div>
+		<div style="margin: 10px 0 0 0;"><label>开始时间段：</label><input id="pvpustart" type="text" /></div>
+		<p class="abouterror">格式：2017-01-01</p>
+		<div id="pvpustarterror" class="pad_left"></div>
+		<div style="margin: 10px 0 0 0;"><label>结束时间段：</label><input id="pvpuend" type="text" /></div>
+		<p class="abouterror">格式：2017-01-01</p>
+		<div id="pvpuenderror" class="pad_left"></div>
+	</div>
+</br>
+<h4>用户信息</h4>
+<div id="usermain">
+	<button class="btn btn-primary btn-myown" id="showuser">获取所有用户信息</button> <button class="btn btn-primary btn-myown" onclick="down_base('user')">下载用户信息</button>
+	<table class="table table-striped table-bordered table-hover dataTables-example">
+		<thead>
+			<tr class="zx_thTitle">
+				<th>用户名</th>
+				<th>密码</th>
+				<th>重置密码</th>
+				<th>年龄</th>
+				<th>手机号码</th>
+				<th>邮箱</th>
+				<th>生日</th>
+				<th>创建时间</th>
+				<th>更新时间</th>
+			</tr>
+		</thead>
+		<tbody id="usertbody">
+			<tr class="center"><td></td><td></td><td></td><td></td><td>当前没有获取任何信息</td><td></td><td></td><td></td><td></td></tr>
+		</tbody>
+	</table>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/layer.js"></script>
+<script src="js/zh.js"></script>
+<script src="js/manbase.js"></script>
+</body>
+</html>
