@@ -29,6 +29,7 @@ def view_handlers():
         URLSpec(prefix + r'findpwd.html$', views.FindPwdHandler, default_settings),
         URLSpec(prefix + r'helpbuy.html$', views.HelpBuyHandler, default_settings),
         URLSpec(prefix + r'getmoney.html$', views.GetMoneyHandler, default_settings),
+        URLSpec(prefix + r'company.html$', views.CompanyHandler, default_settings),
         (prefix + r'(.*\.(css|png|gif|jpg|js|ttf|woff|woff2))', StaticFileHandler, {'path': default_settings.get('static_path')}),
         URLSpec(man_prefix + r'mankeyword.html$', views.ManKeywordHandler, default_settings),
         URLSpec(man_prefix + r'manproduct.html$', views.ManProductHandler, default_settings),

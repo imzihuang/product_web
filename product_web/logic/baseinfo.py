@@ -12,6 +12,7 @@ def get_company():
         return _.to_dict()
     except Exception as ex:
         gen_log.error("get all company error:%r"%ex)
+        return {}
     finally:
         session.close()
 

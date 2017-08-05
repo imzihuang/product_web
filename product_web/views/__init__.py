@@ -9,4 +9,5 @@ from getmoney import GetMoneyHandler
 from manage import KeywordHandler as ManKeywordHandler
 from manage import ProductHandler as ManProductHandler
 from manage import BaseInfoHandler as ManBaseInfoHandler
+from company import CompanyHandler
 
