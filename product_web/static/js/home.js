@@ -37,8 +37,8 @@ function apply(){
        $(strclass).downCount({
          date: strname,
          offset: +10
-       }, function () {console.log($(this).parent().html());
-         $(this).parent().attr();
+       }, function () {
+         $("#timedown").parent().attr();
        }); 
      }  
       // }
