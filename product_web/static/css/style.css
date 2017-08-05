@@ -82,7 +82,18 @@ img { max-width: 100%; }
 .btn-link-2:hover, .btn-link-2:focus, 
 .btn-link-2:active, .btn-link-2:active:focus { outline: 0; opacity: 0.6; background: rgba(0, 0, 0, 0.3); color: #fff; }
 .navbar-brand{padding: 15px 7px;}
-
+.container-fluid{
+	 padding-right: 10px !important;
+     padding-left: 0px !important; 
+     margin-right: 0px !important; 
+     margin-left: 0px !important; 
+}
+#example-navbar-collapse{padding: 0px;}
+@media (min-width: 768px){
+.navbar-brand {
+     margin-left: 0px !important; 
+}
+}
 /***** Top content *****/
 
 .inner-bg {
