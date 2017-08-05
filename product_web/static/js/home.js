@@ -61,10 +61,8 @@ function apply(){
    strclass='.countdown'+j;
    strname=msg.data[j].count_down_at;
    $(strclass).downCount({
-     date: strname,
-     offset: +10
+     date: strname
    }, function (){
-    $("#timedown").html("");
    }); 
  }  
 },
@@ -146,10 +144,8 @@ function search(){
    var strclass='.countdown'+j;
    strname=dataAll.data[j].count_down_at;
    $(strclass).downCount({
-     date: strname,
-     offset: +10
+     date: strname
    }, function () {
-    $("#timedown").html("");
    }); 
  }  
 }
