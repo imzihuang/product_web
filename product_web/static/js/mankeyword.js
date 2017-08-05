@@ -301,6 +301,7 @@ $(function() {
 					'</td><td class="center">'+msg.data[i].source+'</td><td class="center">'+msg.data[i].theme+
 					'</td><td class="center">'+msg.data[i].ori_price+'</td><td class="center">'+msg.data[i].con_price+
 					'</td><td class="center">'+msg.data[i].postage_price+'</td><td class="center">'+msg.data[i].description+
+					'</td><td class="center">'+msg.data[i].like_add_count+
 					'</td><td class="center">'+msg.data[i].sort_num+
 					'</td><td class="center">'+msg.data[i].recommend+
 					'</td><td><i class="fa fa-pencil areapen" title="更新信息"></i>&nbsp;&nbsp;<i class="fa fa-photo photopen" title="更新图片"></i></td></tr>';	
