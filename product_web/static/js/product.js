@@ -2,15 +2,15 @@
 var dataAll;
 var aboutOut=$(".track-sign-up").val();
 var aboutOut=$(".track-sign-up").attr("href");
-if(aboutOut=="signin.html"){console.log(22);
-  $(".product_name a").attr("onclick","change();return false");console.log(23);
-}
 if($("#current_keyword").val()==""){
   apply();
 }
 else{
   putkeyword();
 
+}
+if(aboutOut=="signin.html"){console.log(22);
+  $(".product_name a").attr("onclick","change();return false");console.log(23);
 }
 function putkeyword(){
  var data = {
