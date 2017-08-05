@@ -248,6 +248,7 @@ img { max-width: 100%; }
     float: left;
     margin-top: 3px;
 }
+.popular-items{height: 750px;width: 100%;overflow-y: scroll;}
 .navbar-default .navbar-nav>li>a,.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus{color: #ccc;font-size: 15px;}
 #example-navbar-collapse .nav:first-child{padding-left: 20%;margin-left: -66px}
 #example-navbar-collapse .nav:last-child{float: right;}
