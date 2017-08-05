@@ -53,7 +53,7 @@ function apply(){
         '</p></div></div></div>'
         pop=pop+pop_;
         if(count_pop>5){
-          return false;
+          return true;
         }
       }
 
