@@ -47,17 +47,18 @@ function apply(){
    $("#listPart").append(str);
    for(var i=0;i<msg.data.length;i++){
     if(msg.data[i].recommend==true)
-    { count_pop++;
-      pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-      '"alt="通用的占位符缩略图"><div class="caption"><p>'+msg.data[i].theme+
-      '</p></div></div></div>'
-      pop=pop+pop_;
+      { count_pop++;
+        pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
+        '"alt="通用的占位符缩略图"><div class="caption"><p>'+msg.data[i].theme+
+        '</p></div></div></div>'
+        pop=pop+pop_;
+        if(count_pop>5){
+          return false;
+        }
+      }
+
     }
-    if(count_pop>5){
-      return false;
-    }
-  }
-  $("#home_popular").append(pop);
+    $("#home_popular").append(pop);
   // setTime();
   // var times = setInterval(setTime, 1000);
   // function setTime(){
