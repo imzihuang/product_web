@@ -1,8 +1,4 @@
 apply();
-// var aboutOut_href=$(".track-sign-up").attr("href");
-// if(aboutOut_href=="signin.html"){
-//   $(".product_name a").attr("onclick","change();return false");
-// }
 var aboutOut=$(".track-sign-up").val();
 var dataAll;
 function apply(){
@@ -10,7 +6,7 @@ function apply(){
     type: "GET",
     url:"/product/keyword_os",
     async: false,
-    success: function(msg) {console.log(msg);
+    success: function(msg) {
       dataAll=msg;
       var str="";
       var aboutOut_href=$(".track-sign-up").attr("href");
@@ -32,38 +28,35 @@ function apply(){
      }
      else{
       for(var i=0;i<msg.data.length;i++){
-         str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-         '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os("'+ msg.data[i].name +'")>'+
-         msg.data[i].theme+'</a></p><p class="color_gray">'+
-         msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
-         msg.data[i].ori_price+'￥</a></span>&nbsp;&nbsp;<span class="color_gray"><a>'+
-         msg.data[i].con_price+'￥</a></span>&nbsp;&nbsp;<span class="color_gray_block">postage:'+
-         msg.data[i].postage_price+'￥</span></p><a id="timedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
-         '<p class="aboutHelp"><a>how to claim it?</a></p>'+
-         '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+(parseInt(msg.data[i].like_count)+parseInt(msg.data[i].like_add_count))+'</span><a ><img src="img/unlike.png" id="'+msg.data[i].id+'"></a></div>'+
-         '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-twitter areapen" title="twitter"></i></a><a class="share share_google"><i class="fa fa-google areapen" title="google"></i></a></span></div></div></div></div></div>'
-         str=str+str_;
-       }   
-     }
-
-     $("#listPart").append(str);
-     var strclass="";  
-     var strname="";
-     var current_obj=$(this);
-     for(var j=0;j<msg.data.length;j++){
-       strclass='.countdown'+j;
-       console.log(strclass);
-       strname=msg.data[j].count_down_at;console.log(strname);
-       $(strclass).downCount({
-         date: strname,
-         offset: +10
-       }, function (){
-       }); 
-     }  
-   },
- });
+       str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
+       '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os("'+ msg.data[i].name +'")>'+
+       msg.data[i].theme+'</a></p><p class="color_gray">'+
+       msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
+       msg.data[i].ori_price+'￥</a></span>&nbsp;&nbsp;<span class="color_gray"><a>'+
+       msg.data[i].con_price+'￥</a></span>&nbsp;&nbsp;<span class="color_gray_block">postage:'+
+       msg.data[i].postage_price+'￥</span></p><a id="timedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
+       '<p class="aboutHelp"><a>how to claim it?</a></p>'+
+       '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+(parseInt(msg.data[i].like_count)+parseInt(msg.data[i].like_add_count))+'</span><a ><img src="img/unlike.png" id="'+msg.data[i].id+'"></a></div>'+
+       '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-twitter areapen" title="twitter"></i></a><a class="share share_google"><i class="fa fa-google areapen" title="google"></i></a></span></div></div></div></div></div>'
+       str=str+str_;
+     }   
+   }
+   $("#listPart").append(str);
+   var strclass="";  
+   var strname="";
+   var current_obj=$(this);
+   for(var j=0;j<msg.data.length;j++){
+     strclass='.countdown'+j;
+     strname=msg.data[j].count_down_at;
+     $(strclass).downCount({
+       date: strname,
+       offset: +10
+     }, function (){
+     }); 
+   }  
+ },
+});
 }
-//ajax
 
 $('.likeList a img').click(function(){
   var imgId=$(this).attr("id");
@@ -86,9 +79,7 @@ $('.likeList a img').click(function(){
   });
 });
 
-
-
-function keyword_os(keyword){console.log(3);
+function keyword_os(keyword){
   window.location.href='/product/product.html?keyword='+keyword;
 }
 function logout(){
@@ -115,6 +106,7 @@ function shareFacebook(hrefName){
   window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(hrefName)+encodeURIComponent(document.title));
   return false;
 }
+
 function search(){
   var str="";
   var str_="";
@@ -158,16 +150,16 @@ function change(){
   layerIndex=layer.open({
     title:'请先登录',
     type: 1,
-              skin: 'layui-layer-demo', //样式类名
-              anim: 2,
-              shadeClose: true, //开启遮罩关闭
-              btn:false,//按钮
-              content: $('#gologin'),
-              yes: function(){
+    skin: 'layui-layer-demo', //样式类名
+    anim: 2,
+    shadeClose: true, //开启遮罩关闭
+    btn:false,//按钮
+    content: $('#gologin'),
+    yes: function(){
 
-              }
+    }
 
-            });
+  });
 };
 function login(){
   var data = {
@@ -181,7 +173,6 @@ function login(){
     data:data,
     success: function(msg) {
       var data = JSON.parse(msg);
-      console.log(msg);
       if(data.state==0){
         layer.closeAll();
         layer.msg('登录成功', {
@@ -201,4 +192,8 @@ function login(){
       console.log("error");
     }
   });
+}
+
+function signin(){
+ window.location.href="/product/signin.html";
 }
