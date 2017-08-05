@@ -165,7 +165,7 @@ function productsearch(){
     $("#listPart").html("");
     $("#listPart").append(str);
   }else{console.log(444);
-    for(var i=0;i<dataAll.data.length;i++){console.log(441);
+    for(var i=0;i<dataAll.data.length;i++){console.log(dataAll.data[i].name.indexOf(tag));
       if(dataAll.data[i].name.indexOf(tag)!=-1){console.log(1);
         str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
         '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
