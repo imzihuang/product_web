@@ -2,9 +2,9 @@
 var dataAll;
 var aboutOut=$(".track-sign-up").val();
 var aboutOut=$(".track-sign-up").attr("href");
-  if(aboutOut=="signin.html"){
-    $(".product_name a").attr("onclick","change();return false")
-  }
+if(aboutOut=="signin.html"){console.log(22);
+  $(".product_name a").attr("onclick","change();return false")
+}
 if($("#current_keyword").val()==""){
   apply();
 }
