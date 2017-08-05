@@ -231,4 +231,3 @@ function login(){
 function signin(){
  window.location.href="/product/signin.html";
 }
-
