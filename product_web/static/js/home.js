@@ -29,7 +29,7 @@ function apply(){
      for(var j=0;j<msg.data.length;j++){
        strclass='.countdown'+j;
        console.log(strclass);
-       strname=msg.data[j].count_down_at;
+       strname=msg.data[j].count_down_at;console.log(strname);
       //  if(strname==""){
       //   $("#timedown").html('');console.log(0);
       // }
