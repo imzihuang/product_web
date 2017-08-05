@@ -195,7 +195,7 @@ error:function(){
             });
     }
     else{
-      window.location.href=$(this).attr("href");
+      window.location.href=aboutOut;
     }
   };
   function login(){
