@@ -195,6 +195,7 @@ error:function(){
             });
     }
     else{
+      console.log(aboutOut);
       window.location.href=aboutOut;
     }
   };
