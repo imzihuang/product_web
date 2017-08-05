@@ -63,7 +63,7 @@ function apply(){
    $(strclass).downCount({
      date: strname
    }, function (){ console.log($(strclass).parent().html());
-    $(strclass).parent().html("")
+    $(strclass).parent().html("");console.log($(strclass).parent().html());
    
    }); 
  }  
