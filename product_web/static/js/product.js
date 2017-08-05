@@ -148,7 +148,7 @@ function productsearch(){
   var str="";
   var str_="";
   var tag=$("#productSearch").val();
-  if($("#productSearch").val()==""){console.log(333);
+  if(tag==""){
     for(var i=0;i<dataAll.data.length;i++){
       str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
       '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
@@ -164,9 +164,9 @@ function productsearch(){
     }
     $("#listPart").html("");
     $("#listPart").append(str);
-  }else{console.log(444);
-    for(var i=0;i<dataAll.data.length;i++){console.log(dataAll.data[i].name.indexOf(tag));
-      if(dataAll.data[i].name.indexOf(tag)!=-1){console.log(1);
+  }else{
+    for(var i=0;i<dataAll.data.length;i++){
+      if(dataAll.data[i].name.indexOf(tag)!=-1||dataAll.data[i].theme.indexOf(tag)!=-1||dataAll.data[i].description.indexOf(tag)!=-1){
         str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
         '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
         dataAll.data[i].theme+'</a></p><p class="color_gray">'+
