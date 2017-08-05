@@ -62,8 +62,8 @@ function apply(){
    strname=msg.data[j].count_down_at;
    $(strclass).downCount({
      date: strname
-   }, function (){ console.log($(strclass).parent().html());
-    $(strclass).parent(this).html("");console.log($(strclass).parent().html());
+   }, function (){ console.log($(strclass).parent(this).html());
+    $(strclass).current_obj.parent().html("");console.log($(strclass).parent().html());
    
    }); 
  }  
