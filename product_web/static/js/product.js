@@ -178,11 +178,9 @@ error:function(){
 
 
    function change(){
-    var aboutOut=$(".track-sign-up").attr("href");
-    if(aboutOut=="signin.html"){
-      layerIndex=layer.open({
-        title:'请先登录',
-        type: 1,
+    layerIndex=layer.open({
+      title:'请先登录',
+      type: 1,
               skin: 'layui-layer-demo', //样式类名
               anim: 2,
               shadeClose: true, //开启遮罩关闭
@@ -193,10 +191,6 @@ error:function(){
               }
 
             });
-    }
-    else{
-      window.location.href='http://'+aboutOut;
-    }
   };
   function login(){
     var data = {
