@@ -34,7 +34,7 @@ function apply(){
          date: strname,
          offset: +10
        }, function () {
-       });
+       });console.log($(strclass).val());
        if($(strclass).val()=="00日00:00:00"){console.log(00);
          $(strclass).parent().html('');
        }
