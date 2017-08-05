@@ -193,7 +193,7 @@ function productsearch(){
      date: strname
    }, function () {
 
-   }
+   }}
  }
 }
  function change(){
