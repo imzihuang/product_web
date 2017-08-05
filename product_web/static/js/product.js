@@ -136,7 +136,7 @@ error:function(){
 
     }
 
-    function productsearch(){
+    function productsearch(){console.log(223);
       var str="";
       var str_="";
       for(var i=0;i<dataAll.data.length;i++){
