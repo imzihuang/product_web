@@ -178,8 +178,6 @@ error:function(){
 
 
    function change(){
-    var aboutOut=$(".track-sign-up").attr("href");
-    if(aboutOut=="signin.html"){
       layerIndex=layer.open({
         title:'请先登录',
         type: 1,
@@ -193,11 +191,6 @@ error:function(){
               }
 
             });
-    }
-    else{
-      console.log(aboutOut);
-      window.location.href=aboutOut;
-    }
   };
   function login(){
     var data = {
