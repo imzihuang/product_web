@@ -1,6 +1,6 @@
 apply();
 var aboutOut=$(".track-sign-up").val();
-var dataAll;
+var dataAll;console.log(dataAll);
 function apply(){
   $.ajax({
     type: "GET",
@@ -62,9 +62,7 @@ function apply(){
    strname=msg.data[j].count_down_at;
    $(strclass).downCount({
      date: strname
-   }, function (){ console.log($(strclass).parent(this).html());
-    $(strclass).parent(this).attr("");console.log($(strclass).parent().html());
-   
+   }, function (){
    }); 
  }  
 },
