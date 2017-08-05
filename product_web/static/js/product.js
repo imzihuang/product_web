@@ -1,7 +1,7 @@
 
 var dataAll;
 var aboutOut=$(".track-sign-up").val();
-var aboutOut=$(".track-sign-up").attr("href");
+var aboutOut_href=$(".track-sign-up").attr("href");
 if($("#current_keyword").val()==""){
   apply();
 }
@@ -9,7 +9,7 @@ else{
   putkeyword();
 
 }
-if(aboutOut=="signin.html"){console.log(22);
+if(aboutOut_href=="signin.html"){console.log(22);
   $(".product_name a").attr("onclick","change();return false");console.log(23);
 }
 function putkeyword(){
