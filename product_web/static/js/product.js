@@ -1,6 +1,10 @@
 
 var dataAll;
-var aboutOut=$(".track-sign-up").val();console.log(aboutOut);
+var aboutOut=$(".track-sign-up").val();
+var aboutOut=$(".track-sign-up").attr("href");
+  if(aboutOut=="signin.html"){
+    $(".product_name a").attr("onclick","change();return false")
+  }
 if($("#current_keyword").val()==""){
   apply();
 }
@@ -24,7 +28,7 @@ $.ajax({
    var str_="";
    for(var i=0;i<msg.data.length;i++){
     str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-    '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick="change()" href="'+msg.data[i].links+'">'+
+    '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
     msg.data[i].theme+'</a></p><p class="color_gray">'+
     msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
     msg.data[i].ori_price+'￥</a></span>&nbsp;&nbsp;<span class="color_gray"><a>'+
@@ -68,7 +72,7 @@ error:function(){
           var str_="";
           for(var i=0;i<msg.data.length;i++){
            str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-           '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick="change()" href="'+msg.data[i].links+'">'+
+           '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
            msg.data[i].theme+'</a></p><p class="color_gray">'+
            msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
            msg.data[i].ori_price+'￥</a></span>&nbsp;&nbsp;<span class="color_gray"><a>'+
@@ -142,7 +146,7 @@ error:function(){
       for(var i=0;i<dataAll.data.length;i++){
         if(dataAll.data[i].name==$("#productSearch").val()){
           str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
-          '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick="change()" href="'+msg.data[i].links+'">'+
+          '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
           dataAll.data[i].theme+'</a></p><p class="color_gray">'+
           dataAll.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>'+
           dataAll.data[i].ori_price+'￥</a></span>&nbsp;&nbsp;<span class="color_gray"><a>'+
