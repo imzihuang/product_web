@@ -34,7 +34,7 @@ function apply(){
          date: strname,
          offset: +10
        }, function (){
-        
+
      });
        
      }  
@@ -66,7 +66,7 @@ $('.likeList a img').click(function(){
 
 
 
-function keyword_os(keyword){
+function keyword_os(keyword){console.log(3);
   window.location.href='/product/product.html?keyword='+keyword;
 }
 function logout(){
