@@ -37,8 +37,8 @@ function apply(){
        $(strclass).downCount({
          date: strname,
          offset: +10
-       }, function () {console.log(current_obj.parent().html());
-         current_obj.parent().attr();
+       }, function () {console.log($(this).parent().html());
+         $(this).parent().attr();
        }); 
      }  
       // }
