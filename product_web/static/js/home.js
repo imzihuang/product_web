@@ -30,18 +30,15 @@ function apply(){
        strclass='.countdown'+j;
        console.log(strclass);
        strname=msg.data[j].count_down_at;console.log(strname);
-      //  if(strname==""){
-      //   $("#timedown").html('');console.log(0);
-      // }
-      // else{
        $(strclass).downCount({
          date: strname,
          offset: +10
-       }, function () {console.log($(strclass).html(""));
-        $(this).html("");
-       }); 
+       }, function () {
+       });
+       if($(strclass).val()=="00日00:00:00"){console.log(00);
+         $(strclass).parent().html('');
+       }
      }  
-      // }
  },
 });
 }
