@@ -33,9 +33,7 @@ function apply(){
        $(strclass).downCount({
          date: strname,
          offset: +10
-       }, function () {
-          if($(strclass).val()=="00日00:00:00"){console.log(00);
-           $(strclass).parent().html('');
+       }, function (){
           }
        });
        
@@ -120,17 +118,14 @@ function search(){
            var strclass="";
            var strclass='.countdown'+j;
            strname=dataAll.data[j].count_down_at;
-           if(strname==""){
-            $("#timedown").html('');console.log(02);
-          }
-          else{
+          
            $(strclass).downCount({
              date: strname,
              offset: +10
            }, function () {
-             $("#timedown").html('');console.log(02);
+             
            }); 
-         }  
+          
        }  
 }
 
