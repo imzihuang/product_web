@@ -291,7 +291,7 @@ ul.countdown li p {
 	color: #a7abb1;
 	font-size: 14px;
 }
-.today_popular{margin-top: 10px;font-weight: bold;font-size: 16px;text-align: left;padding-left: 16px;}
+.today_popular{margin-top: 10px;font-weight: bold;font-size: 16px;text-align: left;padding-left: 7px;}
 .searchPart input{padding-left: 10px;border-radius: 5px 0 0 5px;height:35px;line-height: 35px;}
 .searchPart .btn{height: 35px;width: 45px;line-height: 32px;}
 .searchPart input{border: 1px solid #ccc;border-right: none;}
