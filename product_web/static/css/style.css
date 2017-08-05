@@ -393,7 +393,7 @@ p{margin: 0px;}
     background-color: #0072bc;
     color: #fff;
 }
-#home_popular img{height: 90px; }
+#home_popular img,#product_popular img{height: 90px; }
 .all-items{
 	z-index: 1222222222;
     background-color: #fff;
