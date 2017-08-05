@@ -147,7 +147,7 @@ function logout(){
 function productsearch(){
   var str="";
   var str_="";
-  if($("#homeSearch").val()==""){
+  if($("#homeSearch").val()==""){console.log(333);
     for(var i=0;i<dataAll.data.length;i++){
       str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
       '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
@@ -163,7 +163,7 @@ function productsearch(){
     }
     $("#listPart").html("");
     $("#listPart").append(str);
-  }else{
+  }else{console.log(444);
     for(var i=0;i<dataAll.data.length;i++){
       if(dataAll.data[i].name.indexOf($("#homeSearch").val())!=-1){
         str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
