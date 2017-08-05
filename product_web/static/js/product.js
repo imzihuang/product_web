@@ -147,8 +147,8 @@ function logout(){
 function productsearch(){
   var str="";
   var str_="";
-  var tag=$("#homeSearch").val();
-  if($("#homeSearch").val()==""){console.log(333);
+  var tag=$("#productSearch").val();
+  if($("#productSearch").val()==""){console.log(333);
     for(var i=0;i<dataAll.data.length;i++){
       str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
       '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
