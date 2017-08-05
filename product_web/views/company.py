@@ -18,4 +18,4 @@ class CompanyHandler(tornado.web.RequestHandler):
 
         company_info = locbase.get_company()
 
-        self.render('company.html', company_info)
+        self.render('company.html', **company_info)
