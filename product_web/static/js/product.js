@@ -11,6 +11,7 @@ else{
 }
 if(aboutOut_href=="signin.html"){
   $(".product_name a").attr("onclick","change();return false");
+  $(".likeList a img").attr("onclick","change();return false");
 }
 function putkeyword(){
  var data = {
