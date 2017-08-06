@@ -80,10 +80,10 @@ $.ajax({
     });
 }
 $(".share_google").mouseover(function(){
-  $(".weichat").css("display","block");
+  $(this).next(".weichat").css("display","block");
 });
 $(".share_google").mouseout(function(){
-  $(".weichat").css("display","none");
+  $(this).next(".weichat").css("display","none");
 });
 //ajax
 function apply(){
