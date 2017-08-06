@@ -40,6 +40,16 @@ $.ajax({
     str=str+str_;
   }   
   $("#listPart").append(str);
+  for(var i=0;i<msg.data.length;i++){
+    if(msg.data[i].recommend==true)
+    {
+      pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
+      '"alt="通用的占位符缩略图"><div class="caption"><p>'+msg.data[i].theme+
+      '</p></div></div></div>'
+      pop=pop+pop_;
+    }
+  }
+  $("#product_popular").append(pop);
   for(var j=0;j<msg.data.length;j++){
     var now_date = new Date;
     var str_current_date = msg.data[j].count_down_at;
