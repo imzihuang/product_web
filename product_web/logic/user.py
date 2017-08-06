@@ -132,7 +132,7 @@ def add_user(userinfo):
         return True
     except Exception as ex:
         gen_log.error("add user error:%r"%ex)
-        raise ex
+        return False
     finally:
         session.close()
 
