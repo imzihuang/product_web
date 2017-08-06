@@ -260,6 +260,11 @@ img { max-width: 100%; }
     width: 1170px;
 }
 }
+@media (min-width: 1500px){
+.container {
+    width: 1500px;
+}
+}
 #home_popular,#product_popular{height: 750px;width: 100%;overflow-y: scroll;position: relative;left: 17px;}
 .popular-items .row{margin: 0px !important;}
 .navbar-default .navbar-nav>li>a,.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus{color: #ccc;font-size: 15px;}
