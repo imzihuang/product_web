@@ -41,19 +41,19 @@ $.ajax({
   }   
   $("#listPart").append(str);
   for(var j=0;j<msg.data.length;j++){
-      var now_date = new Date;
-      var str_current_date = msg.data[j].count_down_at;
-      var current_date = new Date(str_current_date);
-      var strclass = ' .countdown' + j;
-      if (current_date>now_date) {
-          $(strclass).parent().attr("style", "display:block;");
-          $(strclass).downCount({
-              date: str_current_date,
-              offset:8,
-          });
-      }else{
-          $(strclass).parent().attr("style", "display:none;");
-      }
+    var now_date = new Date;
+    var str_current_date = msg.data[j].count_down_at;
+    var current_date = new Date(str_current_date);
+    var strclass = ' .countdown' + j;
+    if (current_date>now_date) {
+      $(strclass).parent().attr("style", "display:block;");
+      $(strclass).downCount({
+        date: str_current_date,
+        offset:8,
+      });
+    }else{
+      $(strclass).parent().attr("style", "display:none;");
+    }
   }
 },
 error:function(){
@@ -103,16 +103,16 @@ function apply(){
       var current_date = new Date(str_current_date);
       var strclass = ' .countdown' + j;
       if (current_date>now_date) {
-          $(strclass).parent().attr("style", "display:block;");
-          $(strclass).downCount({
-              date: str_current_date,
-              offset:8,
-          });
+        $(strclass).parent().attr("style", "display:block;");
+        $(strclass).downCount({
+          date: str_current_date,
+          offset:8,
+        });
       }else{
-          $(strclass).parent().attr("style", "display:none;");
+        $(strclass).parent().attr("style", "display:none;");
       }
     }
- },
+  },
 });
 }
 //ajax
@@ -206,7 +206,7 @@ function productsearch(){
    })
  }
 }
- function change(){
+function change(){console.log(111);
   layerIndex=layer.open({
     title:'请先登录',
     type: 1,
