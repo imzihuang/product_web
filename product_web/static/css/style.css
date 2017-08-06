@@ -269,6 +269,7 @@ img { max-width: 100%; }
 .popular-items {
    display: none !important;
 }
+.all-items{width: 100%;border-left: none;}
 }
 #home_popular,#product_popular{height: 750px;width: 100%;overflow-y: scroll;position: relative;left: 17px;}
 .popular-items .row{margin: 0px !important;}
