@@ -87,9 +87,9 @@ function apply(){
       var pop_="";
       var show_postage = function (postage_price) {
           if (postage_price<=0){
-              return "free shipping";
+              return "&free shipping";
           }
-          return "postage:￥"+postage_price;
+          return "&postage:￥"+postage_price;
       }
       for(var i=0;i<msg.data.length;i++){
        str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
