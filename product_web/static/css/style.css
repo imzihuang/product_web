@@ -306,9 +306,9 @@ ul.countdown li p {
 }
 .searchPart .btn-default img{height: 20px;width: auto;}
 .thumbnail{border:none;}
-.product_name a{color: #0066c0 !important;}
+.product_name a{color: #0066c0 !important;text-decoration: line-through;}
 .color_gray,.color_gray a{color: #555 !important;}
-.color_red a{color: #bf0303 !important;}
+.color_red a{color: #bf0303 !important;font-weight: bold;}
 .color_gray_block a{color: #444 !important;}
 .f_left{float: left !important;}
 .likecount{line-height: 25px;}
