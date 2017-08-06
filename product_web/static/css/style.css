@@ -265,6 +265,7 @@ img { max-width: 100%; }
 .aboutHelp a{color: #0066c0;text-decoration: underline;}
 .all-items .timedown{margin: 0;font-size: 12px;font-weight: bold;}
 .howmuch{line-height: 22px;}
+.weichat{height: 60px;width: 60px;position: relative;display: none;}
 ul.countdown {
 	list-style: none;
 	padding: 0;
