@@ -252,6 +252,9 @@ img { max-width: 100%; }
 .col-md-2 {
     width: 20%;
 }
+.container {
+    width: 1170px;
+}
 }
 #home_popular,#product_popular{height: 750px;width: 100%;overflow-y: scroll;position: relative;left: 17px;}
 .popular-items .row{margin: 0px !important;}
