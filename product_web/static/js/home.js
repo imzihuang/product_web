@@ -16,10 +16,10 @@ function apply(){
       var pop="";
       var pop_="";
       var show_postage = function (postage_price) {
-          if (postage_price<=0){
-              return "&free shipping";
-          }
-          return "&postage:￥"+postage_price;
+        if (postage_price<=0){
+          return "&free shipping";
+        }
+        return "&postage:￥"+postage_price;
       };
       var aboutOut_href=$(".track-sign-up").attr("href");
       for(var i=0;i<msg.data.length;i++){
@@ -126,10 +126,10 @@ function search(){
   var str_="";
   var tag=$("#homeSearch").val();
   var show_postage = function (postage_price) {
-          if (postage_price<=0){
-              return "&free shipping";
-          }
-          return "&postage:￥"+postage_price;
+    if (postage_price<=0){
+      return "&free shipping";
+    }
+    return "&postage:￥"+postage_price;
   };
   if(tag==""){
     for(var i=0;i<dataAll.data.length;i++){
@@ -165,6 +165,10 @@ function search(){
     }
     $("#listPart").html("");
     $("#listPart").append(str);
+    var aboutOut_href=$(".track-sign-up").attr("href");
+    if(aboutOut_href=="signin.html"){
+      $(".likeList a img").attr("onclick","change();return false");
+    }
   }
 
   for(var j=0; j<dataAll.data.length; j++){
