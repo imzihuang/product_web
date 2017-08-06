@@ -80,6 +80,9 @@ class SignInHandler(RequestHandler):
         if not _add:
             self.finish(json.dumps({'state': 4, "message": "Sign faild"}))
             return
+        # 设置cookie，注册的，默认都是1
+        self.set_secure_cookie("user_name", user_name, expires=time.time() + float(com_cookie_time))
+        self.set_secure_cookie("user_level", "1", expires=time.time() + float(com_cookie_time))
         self.finish(json.dumps({'state': 0, "message": "Sign success"}))
         return
         # 暂时不验证邮箱，直接注册
