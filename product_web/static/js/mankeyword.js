@@ -304,6 +304,7 @@ $(function() {
 					'</td><td class="center">'+msg.data[i].like_add_count+
 					'</td><td class="center">'+msg.data[i].sort_num+
 					'</td><td class="center">'+msg.data[i].recommend+
+					'</td><td class="center">'+msg.data[i].count_down_at+
 					'</td><td><i class="fa fa-pencil areapen" title="更新信息"></i>&nbsp;&nbsp;<i class="fa fa-photo photopen" title="更新图片"></i></td></tr>';	
                    }   
                     $("#tbody").append(str);
