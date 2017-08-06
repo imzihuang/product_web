@@ -73,14 +73,20 @@ function apply(){
       var str_="";
       var pop="";
       var pop_="";
+      var show_postage = function (postage_price) {
+          if (postage_price<=0){
+              return "free shipping";
+          }
+          return "postage:￥"+postage_price;
+      }
       for(var i=0;i<msg.data.length;i++){
        str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
        '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
        msg.data[i].theme+'</a></p><p class="color_gray">'+
        msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
        msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
-       msg.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">postage:￥'+
-       msg.data[i].postage_price+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
+       msg.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">'+
+       show_postage(msg.data[i].postage_price)+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
        '<p class="aboutHelp"><a>how to claim it?</a></p>'+
        '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+(parseInt(msg.data[i].like_count)+parseInt(msg.data[i].like_add_count))+'</span><a ><img src="img/unlike.png" id="'+msg.data[i].id+'"></a></div>'+
        '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen" ></i></a><a class="share share_google"><i class="fa fa-comments areapen"></i></a></span></div></div></div></div></div>'
