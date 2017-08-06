@@ -24,61 +24,61 @@ $.ajax({
   async: false,
   data:data,
   success: function(msg) {
-      dataAll=msg;
-      var str="";
-      var str_="";
-      var pop="";
-      var pop_="";
-      var show_postage = function (postage_price) {
-          if (postage_price<=0){
-              return "&free shipping";
-          }
-          return "&postage:￥"+postage_price;
-      };
-      for(var i=0;i<msg.data.length;i++){
-          str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-              '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
-              msg.data[i].theme+'</a></p><p class="color_gray">'+
-              msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
-              msg.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
-              msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">'+
-              show_postage(msg.data[i].postage_price)+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
-              '<p class="aboutHelp"><a>how to claim it?</a></p>'+
-              '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+(parseInt(msg.data[i].like_count)+parseInt(msg.data[i].like_add_count))+'</span><a ><img src="img/unlike.png" id="'+msg.data[i].id+'"></a></div>'+
-              '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen"></i></a><a class="share share_google"><i class="fa fa-comments areapen"></i></a><img src="img/weichart.png" class="weichat"/></span></div></div></div></div></div>'
-          str=str+str_;
+    dataAll=msg;
+    var str="";
+    var str_="";
+    var pop="";
+    var pop_="";
+    var show_postage = function (postage_price) {
+      if (postage_price<=0){
+        return "&free shipping";
       }
-      $("#listPart").append(str);
-      for(var i=0;i<msg.data.length;i++){
-        if(msg.data[i].recommend==true)
-        {
-           pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-        '"alt="通用的占位符缩略图"><div class="caption"><p><a href="'+msg.data[i].links+'">'+msg.data[i].theme+
-        '</a></p></div></div></div>'
-          pop=pop+pop_;
-        }
-      }
-      $("#product_popular").append(pop);
-      for(var j=0;j<msg.data.length;j++){
-        var now_date = new Date;
-        var str_current_date = msg.data[j].count_down_at;
-        var current_date = new Date(str_current_date);
-        var strclass = ' .countdown' + j;
-        if (current_date>now_date) {
-          $(strclass).parent().attr("style", "display:block;");
-          $(strclass).downCount({
-            date: str_current_date,
-            offset:8,
-          });
-        }else{
-          $(strclass).parent().attr("style", "display:none;");
-        }
-      }
-    },
-    error:function(){
-      console.log("error");
+      return "&postage:￥"+postage_price;
+    };
+    for(var i=0;i<msg.data.length;i++){
+      str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
+      '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
+      msg.data[i].theme+'</a></p><p class="color_gray">'+
+      msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
+      msg.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
+      msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">'+
+      show_postage(msg.data[i].postage_price)+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
+      '<p class="aboutHelp"><a>how to claim it?</a></p>'+
+      '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+(parseInt(msg.data[i].like_count)+parseInt(msg.data[i].like_add_count))+'</span><a ><img src="img/unlike.png" id="'+msg.data[i].id+'"></a></div>'+
+      '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen"></i></a><a class="share share_google"><i class="fa fa-comments areapen"></i></a><img src="img/weichart.png" class="weichat"/></span></div></div></div></div></div>'
+      str=str+str_;
     }
-    });
+    $("#listPart").append(str);
+    for(var i=0;i<msg.data.length;i++){
+      if(msg.data[i].recommend==true)
+      {
+       pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
+       '"alt="通用的占位符缩略图"><div class="caption"><p><a href="'+msg.data[i].links+'">'+msg.data[i].theme+
+       '</a></p></div></div></div>'
+       pop=pop+pop_;
+     }
+   }
+   $("#product_popular").append(pop);
+   for(var j=0;j<msg.data.length;j++){
+    var now_date = new Date;
+    var str_current_date = msg.data[j].count_down_at;
+    var current_date = new Date(str_current_date);
+    var strclass = ' .countdown' + j;
+    if (current_date>now_date) {
+      $(strclass).parent().attr("style", "display:block;");
+      $(strclass).downCount({
+        date: str_current_date,
+        offset:8,
+      });
+    }else{
+      $(strclass).parent().attr("style", "display:none;");
+    }
+  }
+},
+error:function(){
+  console.log("error");
+}
+});
 }
 $(".share_google").mouseover(function(){
   $(this).next(".weichat").css("display","block");
@@ -99,10 +99,10 @@ function apply(){
       var pop="";
       var pop_="";
       var show_postage = function (postage_price) {
-          if (postage_price<=0){
-              return "&free shipping";
-          }
-          return "&postage:￥"+postage_price;
+        if (postage_price<=0){
+          return "&free shipping";
+        }
+        return "&postage:￥"+postage_price;
       };
       for(var i=0;i<msg.data.length;i++){
        str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><img src="'+msg.data[i].img_path+
@@ -223,7 +223,10 @@ function productsearch(){
     $("#listPart").html("");
     $("#listPart").append(str);
   }
-  
+  var aboutOut_href=$(".track-sign-up").attr("href");
+  if(aboutOut_href=="signin.html"){
+    $(".likeList a img").attr("onclick","change();return false");
+  }
   for(var j=0;j<dataAll.data.length;j++){
    var strname="";
    var strclass="";
