@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <title></title>
 </head>
+<style type="text/css">
+    .companyMain{min-height: 400px;width: 400px;padding: 20px;margin: 0 auto;position: relative;top: 50%;margin-top: -200px;}
+    .companyMain label{width: 80px;text-align: right;}
+</style>
 <body>
-    {% if name %}
-        <div></div><label>公司名：</label> {{ name }} </div>
-        <div><label>联系邮箱：</label> {{ email }}</div>
-        <div><label>联系方式：</label> {{ telephone}} </div>
-        <div><label>地址：</label> {{ country }} {{ province }} {{ city }}</div>
-        <div>{{ address }}</div>
-    {% else %}
+    <div class="companyMain">
+        {% if name %}
+        <div></div><label>公司名：</label> <span>{{ name }}</span></div>
+        <div><label>联系邮箱：</label> <span>{{ email }}</span></div>
+        <div><label>联系方式：</label> <span>{{ telephone}}</span></div>
+        <div><label>地址：</label> <span>{{ country }} {{ province }} {{ city }}</span></div>
+        <div><label>{{ address }}</label></div>
+        {% else %}
         后台数据异常
-    {% end%}
+        {% end%}
+    </div>
 </body>
 </html>
