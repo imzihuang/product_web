@@ -9,12 +9,12 @@
      body{text-align: left;}
     .companyMain{
         min-height: 200px;
-        width: 300px;
+        min-width: 250px;
         padding: 20px 20px 40px 20px;
         margin: 0 auto;
         position: absolute;
         top: 50%;
-        margin-top: -140px;
+        margin-top: -200px;
         left: 50%;
         margin-left: -170px;
         border-radius: 4px;
@@ -40,7 +40,7 @@
 </style>
 <body>
     <div class="companyMain">
-        <h1>Create account</h1>
+        <h1>Company</h1>
         {% if name %}
         <div><label>公司名：</label> <span>{{ name }}</span></div>
         <div><label>联系邮箱：</label> <span>{{ email }}</span></div>
