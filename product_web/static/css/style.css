@@ -326,6 +326,7 @@ ul.countdown li p {
 	background-color: #f3a847;
 	opacity: 1;
 }
+.product_name{max-height: 36px;text-overflow:ellipsis;overflow: hidden;}
 .searchPart .btn-default img{height: 20px;width: auto;}
 .thumbnail{border:none;}
 .product_name a{color: #0066c0 !important;font-size: 13px !important;}
