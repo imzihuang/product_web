@@ -71,6 +71,22 @@ class SignInHandler(RequestHandler):
         if loc_user.is_exit_avai_email(email):
             self.finish(json.dumps({'state': 3, "message": "Email address already exists"}))
             return
+        _add = loc_user.add_user({
+            "name": user_name,
+            "email": email,
+            "pwd": encry_md5(pwd),
+            "status": "available"
+        })
+        if not _add:
+            self.finish(json.dumps({'state': 4, "message": "Sign faild"}))
+            return
+        # 设置cookie，注册的，默认都是1
+        self.set_secure_cookie("user_name", user_name, expires=time.time() + float(com_cookie_time))
+        self.set_secure_cookie("user_level", "1", expires=time.time() + float(com_cookie_time))
+        self.finish(json.dumps({'state': 0, "message": "Sign success"}))
+        return
+        # 暂时不验证邮箱，直接注册
+
         # 生成验证码，并发送邮件
         creating_user = loc_user.get_creating_user(email=email)
         msg = ""
@@ -91,8 +107,6 @@ class SignInHandler(RequestHandler):
                 self.finish(json.dumps({'state': 4, "message": str(e)}))
                 return
             msg = "ValCode:%s"%val_code
-        #http://123.58.0.76:48080/product/regcode_signin?user_name=123errr&val_code=403164
-        #"I'm %(name)s. I'm %(age)d year old" % {'name':'Vamei', 'age':99}
         redirect_url = "http://%(ip)s:%(port)s/product/regcode_signin?user_name=%(name)s&val_code=%(val_code)s"%{
             "ip": ser_url,
             "port": ser_port,
