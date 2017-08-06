@@ -6,13 +6,13 @@
 </head>
 <style type="text/css">
     .companyMain{
-        min-height: 300px;
+        min-height: 200px;
         width: 300px;
         padding: 20px;
         margin: 0 auto;
         position: absolute;
         top: 50%;
-        margin-top: -150px;
+        margin-top: -140px;
         left: 50%;
         margin-left: -170px;
         border-radius: 4px;
@@ -22,6 +22,7 @@
         display: inline-block;
         width: 80px;
         text-align: right;
+        color: #FBB300;
     }
     .companyMain div{
         height: 30px;
@@ -35,7 +36,7 @@
         <div><label>联系邮箱：</label> <span>{{ email }}</span></div>
         <div><label>联系方式：</label> <span>{{ telephone}}</span></div>
         <div><label>地址：</label> <span>{{ country }} {{ province }} {{ city }}</span></div>
-        <div><label>{{ address }}</label></div>
+        <div><label>详细地址：</label><span>{{ address }}</span></div>
         {% else %}
         后台数据异常
         {% end%}
