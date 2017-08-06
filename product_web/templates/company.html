@@ -28,15 +28,22 @@
         height: 30px;
         line-height: 30px;
     }
+    .companyMain h1{
+        color: #111;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 1.2;
+    }
 </style>
 <body>
     <div class="companyMain">
+        <h1>Create account</h1>
         {% if name %}
         <div><label>公司名：</label> <span>{{ name }}</span></div>
         <div><label>联系邮箱：</label> <span>{{ email }}</span></div>
         <div><label>联系方式：</label> <span>{{ telephone}}</span></div>
         <div><label>地址：</label> <span>{{ country }} {{ province }} {{ city }}</span></div>
-        <div><label>详细地址：</label><span>{{ address }}</span></div>
+        <div><label>详细地址：</label> <span>{{ address }}</span></div>
         {% else %}
         后台数据异常
         {% end%}
