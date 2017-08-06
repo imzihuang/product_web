@@ -48,7 +48,8 @@ $.ajax({
       if (current_date>now_date) {
           $(strclass).parent().attr("style", "display:block;");
           $(strclass).downCount({
-              date: str_current_date
+              date: str_current_date,
+              offset:8,
           });
       }else{
           $(strclass).parent().attr("style", "display:none;");
@@ -104,7 +105,8 @@ function apply(){
       if (current_date>now_date) {
           $(strclass).parent().attr("style", "display:block;");
           $(strclass).downCount({
-              date: str_current_date
+              date: str_current_date,
+              offset:8,
           });
       }else{
           $(strclass).parent().attr("style", "display:none;");
