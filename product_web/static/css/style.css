@@ -267,7 +267,7 @@ img { max-width: 100%; }
 }
 @media (max-width: 1024px){
 .popular-items {
-   display: none;
+   display: none !important;
 }
 }
 #home_popular,#product_popular{height: 750px;width: 100%;overflow-y: scroll;position: relative;left: 17px;}
