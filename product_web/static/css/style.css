@@ -395,7 +395,7 @@ p{margin: 0px;}
 }
 #home_popular img,#product_popular img{height: 90px; }
 .all-items{
-	z-index: 1222222222;
+	z-index: 100;
     background-color: #fff;
     min-height: 800px;
 }
