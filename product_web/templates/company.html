@@ -3,16 +3,18 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <style type="text/css">
+     body{text-align: left;}
     .companyMain{
-        min-height: 300px;
-        width: 300px;
-        padding: 20px;
+        min-height: 200px;
+        min-width: 250px;
+        padding: 20px 20px 40px 20px;
         margin: 0 auto;
         position: absolute;
         top: 50%;
-        margin-top: -150px;
+        margin-top: -200px;
         left: 50%;
         margin-left: -170px;
         border-radius: 4px;
@@ -22,20 +24,29 @@
         display: inline-block;
         width: 80px;
         text-align: right;
+        color: #FBB300;
     }
     .companyMain div{
         height: 30px;
         line-height: 30px;
     }
+    .companyMain h1{
+        color: #111;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 1.2;
+        text-align: left;
+    }
 </style>
 <body>
     <div class="companyMain">
+        <h1>Company</h1>
         {% if name %}
         <div><label>公司名：</label> <span>{{ name }}</span></div>
         <div><label>联系邮箱：</label> <span>{{ email }}</span></div>
         <div><label>联系方式：</label> <span>{{ telephone}}</span></div>
         <div><label>地址：</label> <span>{{ country }} {{ province }} {{ city }}</span></div>
-        <div><label>{{ address }}</label></div>
+        <div><label>详细地址：</label> <span>{{ address }}</span></div>
         {% else %}
         后台数据异常
         {% end%}
