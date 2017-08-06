@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <style type="text/css">
-   body{text-align: left;}
-   .companyMain{
+ body{text-align: left;}
+ .companyMain{
     min-height: 200px;
     min-width: 250px;
     padding: 20px 20px 40px 20px;
     margin: 0 auto;
-    border: 1px #ddd solid;
 }
 
 .companyMain label{
@@ -42,21 +41,21 @@
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3 form-box">
                         <div class="companyMain">
-                        <h1>Company</h1>
-                        {% if name %}
-                        <div><label>公司名：</label> <span>{{ name }}</span></div>
-                        <div><label>联系邮箱：</label> <span>{{ email }}</span></div>
-                        <div><label>联系方式：</label> <span>{{ telephone}}</span></div>
-                        <div><label>地址：</label> <span>{{ country }} {{ province }} {{ city }}</span></div>
-                        <div><label>详细地址：</label> <span>{{ address }}</span></div>
-                        {% else %}
-                        后台数据异常
-                        {% end%}
+                            <h1>Company</h1>
+                            {% if name %}
+                            <div><label>公司名：</label> <span>{{ name }}</span></div>
+                            <div><label>联系邮箱：</label> <span>{{ email }}</span></div>
+                            <div><label>联系方式：</label> <span>{{ telephone}}</span></div>
+                            <div><label>地址：</label> <span>{{ country }} {{ province }} {{ city }}</span></div>
+                            <div><label>详细地址：</label> <span>{{ address }}</span></div>
+                            {% else %}
+                            后台数据异常
+                            {% end%}
 
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>    
-    </div>
-</body>
-</html>
+            </div>    
+        </div>
+    </body>
+    </html>
