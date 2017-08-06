@@ -26,6 +26,8 @@ $.ajax({
    dataAll=msg;
    var str="";
    var str_="";
+   var pop="";
+   var pop_="";
    for(var i=0;i<msg.data.length;i++){
     str_='<div class="col-sm-6 col-md-3"><div class="thumbnail"><img src="'+msg.data[i].img_path+
     '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
@@ -40,20 +42,30 @@ $.ajax({
     str=str+str_;
   }   
   $("#listPart").append(str);
+  for(var i=0;i<msg.data.length;i++){
+    if(msg.data[i].recommend==true)
+    {
+      pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
+      '"alt="通用的占位符缩略图"><div class="caption"><p>'+msg.data[i].theme+
+      '</p></div></div></div>'
+      pop=pop+pop_;
+    }
+  }
+  $("#product_popular").append(pop);
   for(var j=0;j<msg.data.length;j++){
-      var now_date = new Date;
-      var str_current_date = msg.data[j].count_down_at;
-      var current_date = new Date(str_current_date);
-      var strclass = ' .countdown' + j;
-      if (current_date>now_date) {
-          $(strclass).parent().attr("style", "display:block;");
-          $(strclass).downCount({
-              date: str_current_date,
-              offset:8,
-          });
-      }else{
-          $(strclass).parent().attr("style", "display:none;");
-      }
+    var now_date = new Date;
+    var str_current_date = msg.data[j].count_down_at;
+    var current_date = new Date(str_current_date);
+    var strclass = ' .countdown' + j;
+    if (current_date>now_date) {
+      $(strclass).parent().attr("style", "display:block;");
+      $(strclass).downCount({
+        date: str_current_date,
+        offset:8,
+      });
+    }else{
+      $(strclass).parent().attr("style", "display:none;");
+    }
   }
 },
 error:function(){
@@ -109,16 +121,16 @@ function apply(){
       var current_date = new Date(str_current_date);
       var strclass = ' .countdown' + j;
       if (current_date>now_date) {
-          $(strclass).parent().attr("style", "display:block;");
-          $(strclass).downCount({
-              date: str_current_date,
-              offset:8,
-          });
+        $(strclass).parent().attr("style", "display:block;");
+        $(strclass).downCount({
+          date: str_current_date,
+          offset:8,
+        });
       }else{
-          $(strclass).parent().attr("style", "display:none;");
+        $(strclass).parent().attr("style", "display:none;");
       }
     }
- },
+  },
 });
 }
 //ajax
@@ -212,7 +224,7 @@ function productsearch(){
    })
  }
 }
- function change(){
+function change(){console.log(111);
   layerIndex=layer.open({
     title:'请先登录',
     type: 1,
