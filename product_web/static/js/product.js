@@ -44,7 +44,7 @@ $.ajax({
               show_postage(msg.data[i].postage_price)+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
               '<p class="aboutHelp"><a>how to claim it?</a></p>'+
               '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+(parseInt(msg.data[i].like_count)+parseInt(msg.data[i].like_add_count))+'</span><a ><img src="img/unlike.png" id="'+msg.data[i].id+'"></a></div>'+
-              '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen"></i></a><a class="share share_google"><i class="fa fa-comments areapen"></i></a></span></div></div></div></div></div>'
+              '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen"></i></a><a class="share share_google"><i class="fa fa-comments areapen"></i></a><img src="img/weichart.png" class="weichat"/></span></div></div></div></div></div>'
           str=str+str_;
       }
       $("#listPart").append(str);
@@ -79,6 +79,12 @@ $.ajax({
     }
     });
 }
+$(".share_google").mouseover(function(){
+  $(".weichat").css("display","block");
+});
+$(".share_google").mouseout(function(){
+  $(".weichat").css("display","none");
+});
 //ajax
 function apply(){
   $.ajax({
@@ -107,7 +113,7 @@ function apply(){
        show_postage(msg.data[i].postage_price)+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
        '<p class="aboutHelp"><a>how to claim it?</a></p>'+
        '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+(parseInt(msg.data[i].like_count)+parseInt(msg.data[i].like_add_count))+'</span><a ><img src="img/unlike.png" id="'+msg.data[i].id+'"></a></div>'+
-       '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen" ></i></a><a class="share share_google"><i class="fa fa-comments areapen"></i></a></span></div></div></div></div></div>'
+       '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen" ></i></a><a class="share share_google"><i class="fa fa-comments areapen"></i></a><img src="img/weichart.png" class="weichat"/></span></div></div></div></div></div>'
        str=str+str_;
      }   
      $("#listPart").append(str);  
@@ -192,7 +198,7 @@ function productsearch(){
       dataAll.data[i].postage_price+'</span></p><a id="timedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
       '<p class="aboutHelp"><a>how to claim it?</a></p>'+
       '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+dataAll.data[i].like_count+'</span><a ><img src="img/unlike.png" id="'+dataAll.data[i].id+'"></a></div>'+
-      '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen"></i></a><a class="share share_google"><i class="fa fa-comments areapen"></i></a></span></div></div></div></div></div>'
+      '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen"></i></a><a class="share share_google"><i class="fa fa-comments areapen"></i></a><img src="img/weichart.png" class="weichat"/></span></div></div></div></div></div>'
       str=str+str_;
     }
     $("#listPart").html("");
@@ -209,7 +215,7 @@ function productsearch(){
         dataAll.data[i].postage_price+'</span></p><a id="timedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>日</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
         '<p class="aboutHelp"><a>how to claim it?</a></p>'+
         '<div class="likeList"><img src="img/start.png" class="startimg"/><span class="likecount">'+dataAll.data[i].like_count+'</span><a ><img src="img/unlike.png" id="'+dataAll.data[i].id+'"></a></div>'+
-        '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen"></i></a><a class="share share_google"><i class="fa fa-comments areapen"></i></a></span></div></div></div></div></div>'
+        '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a><a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen"></i></a><a class="share share_google"><i class="fa fa-comments areapen"></i></a><img src="img/weichart.png" class="weichat"/></span></div></div></div></div></div>'
         str=str+str_;
       }
     }
