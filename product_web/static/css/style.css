@@ -275,7 +275,7 @@ img { max-width: 100%; }
 .popular-items .row{margin: 0px !important;}
 .navbar-default .navbar-nav>li>a,.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus{color: #ccc;font-size: 15px;}
 #example-navbar-collapse .nav:first-child{padding-left: 12%;margin-left: -66px}
-#example-navbar-collapse .nav:last-child{float: right;}
+#example-navbar-collapse .nav:last-child{float: left;}
 .popular-items{width: 12%;float: left;display: inline-block;}
 .popular-items .caption p{font-size: 12px;margin: 0px;}
 .all-items{width: 88%;float: left;display: inline-block;border-left: 1px solid #ccc;position: relative;z-index: 100;}
