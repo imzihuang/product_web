@@ -472,6 +472,7 @@ p{margin: 0px;}
 	
 	.inner-bg { padding: 60px 0 110px 0; }
 	#windowsearch{display: none;}
+	#phonesearch{display: block;}
 
 }
 
