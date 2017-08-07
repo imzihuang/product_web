@@ -37,6 +37,16 @@
 				<a class="navbar-brand" href="#">LOGO</a>
 			</div>
 			<div class="collapse navbar-collapse" id="example-navbar-collapse">
+			    <div class="form-group searchPart">
+						<div class="input-group">
+							<input type="text" class="form-control" id="productSearch">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button" onclick="productsearch()">
+									<sapn><img src="img/search.png"></sapn>
+								</button>
+							</span>
+						</div><!-- /input-group -->
+                </div>
 				<ul class="nav navbar-nav text-right ">
 					<li><a href="/product/home.html">Home</a></li>
 					<li><a href="#">how to get $0.99deal</a></li>
@@ -73,16 +83,6 @@
 		</div>
 		<div class="all-items">
 			<div class="row">
-			    <div class="form-group searchPart">
-						<div class="input-group">
-							<input type="text" class="form-control" id="productSearch">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button" onclick="productsearch()">
-									<sapn><img src="img/search.png"></sapn>
-								</button>
-							</span>
-						</div><!-- /input-group -->
-                </div>
 			    <!-- list -->
 			    <div id="listPart"></div>
 			     
