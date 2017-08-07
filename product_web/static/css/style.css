@@ -440,6 +440,7 @@ p{margin: 0px;}
 	z-index: 100;
 	background-color: #fff;
 	min-height: 800px;
+	padding-top: 20px;
 }
 /***** Media queries *****/
 @media (min-width: 768px){
@@ -470,6 +471,7 @@ p{margin: 0px;}
 @media (max-width: 767px) {
 	
 	.inner-bg { padding: 60px 0 110px 0; }
+	#windowsearch{display: none;}
 
 }
 
