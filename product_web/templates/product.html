@@ -37,94 +37,94 @@
         					<a class="navbar-brand" href="#">LOGO</a>
         				</div>
         				<div class="collapse navbar-collapse" id="example-navbar-collapse">
-        				<div style="width:70%;float:left">
-        						<div class="form-group searchPart" style="margin-bottom:0px;">
-        							<div class="input-group">
-        								<input type="text" class="form-control" id="productSearch">
-        								<span class="input-group-btn">
-        									<button class="btn btn-default" type="button" onclick="productsearch()">
-        										<sapn><img src="img/search.png"></sapn>
-        									</button>
-        								</span>
-        							</div><!-- /input-group -->
+        				<div style="width: 75%;float: left;padding-left: 12%;margin-left: -66px;">
+        					<div class="form-group searchPart" style="margin-bottom:0px;">
+        						<div class="input-group">
+        							<input type="text" class="form-control" id="productSearch">
+        							<span class="input-group-btn">
+        								<button class="btn btn-default" type="button" onclick="productsearch()">
+        									<sapn><img src="img/search.png"></sapn>
+        								</button>
+        							</span>
+        						</div><!-- /input-group -->
+        					</div>
+        					<ul class="nav navbar-nav text-right ">
+        						<li><a href="/product/home.html">Home</a></li>
+        						<li><a href="#">how to get $0.99deal</a></li>
+        						<li><a href="/product/company.html">connection</a></li>
+        						<li><a href="#">help</a></li>
+        					</ul>
+        				</div>
+        				<div style="width:20%;float:right">
+        					<p class="howto">how to claim it?</p>
+        					<ul class="nav navbar-nav">
+        						{%if user_name%}
+        						<div class="loginButtonContainer">
+        							<a class="button track-login">{{ user_name }}</a>
+        							<a class="button primary signIn track-sign-up" onclick="logout()">Log Out</a>
         						</div>
-        						<ul class="nav navbar-nav text-right ">
-        							<li><a href="/product/home.html">Home</a></li>
-        							<li><a href="#">how to get $0.99deal</a></li>
-        							<li><a href="/product/company.html">connection</a></li>
-        							<li><a href="#">help</a></li>
-        						</ul>
-        					</div>
-        					<div style="width:20%;float:right">
-        					    <p class="howto">how to claim it?</p>
-        						<ul class="nav navbar-nav">
-        							{%if user_name%}
-        							<div class="loginButtonContainer">
-        								<a class="button track-login">{{ user_name }}</a>
-        								<a class="button primary signIn track-sign-up" onclick="logout()">Log Out</a>
-        							</div>
-        							{%else%}
-        							<div class="loginButtonContainer">
-        								<a class="button track-login" href="login.html">Log In</a>
-        								<a class="button primary signIn track-sign-up" href="signin.html">Sign In</a>
-        							</div>
-        							{%end%}
-        						</ul>
-        					</div>
+        						{%else%}
+        						<div class="loginButtonContainer">
+        							<a class="button track-login" href="login.html">Log In</a>
+        							<a class="button primary signIn track-sign-up" href="signin.html">Sign In</a>
+        						</div>
+        						{%end%}
+        					</ul>
         				</div>
         			</div>
-        		</nav>
-        	</div>
+        		</div>
+        	</nav>
         </div>
-        <div class="main home">
-        	<div class="container">
-        		<div class="popular-items">
-        			<div class="row">
-        				<p class="today_popular">今日主打</p>
-        				<!-- list -->
-        				<div id="product_popular"></div>
-        				<!-- list -->
-        			</div>
-        		</div>
-        		<div class="all-items">
-        			<div class="row">
-        				<!-- list -->
-        				<div id="listPart"></div>
+    </div>
+    <div class="main home">
+    	<div class="container">
+    		<div class="popular-items">
+    			<div class="row">
+    				<p class="today_popular">今日主打</p>
+    				<!-- list -->
+    				<div id="product_popular"></div>
+    				<!-- list -->
+    			</div>
+    		</div>
+    		<div class="all-items">
+    			<div class="row">
+    				<!-- list -->
+    				<div id="listPart"></div>
 
-        			</div> 
+    			</div> 
 
-        		</div>
-        	</div>
-        	<a id="openlogin"></a>
-        	<div id="gologin" style="display: none; min-width: 100px;">
-        		<div class="col-sm-12 col-sm-offset-3 form-box">
-        			<div class="form-top">
-        				<h1>Sign in</h1>
-        			</div>
-        			<div class="form-bottom">
-        				<div class="form-group">
-        					<label class="sr_only" for="form-username">Name</label>
-        					<input type="text" name="form-username" placeholder="Name" class="form-username form-control" id="form-username">
-        					<div id="confirmMsg"></div>
-        				</div>
-        				<div class="form-group">
-        					<label class="sr_only" for="form-password">Password</label><span class="forget"><a href="findpwd.html">Forgot your password?</a></span>
-        					<input type="password" name="form-password" placeholder="Password" class="form-password form-control" id="form-password">
-        					<div id="confirmpassword"></div>
-        				</div>
-        				<button type="submit" class="btn submitbtn" onclick="login()">Sign in</button>
-        				<button type="submit " class="btn goSigninbtn" onclick="signin()" style="margin-top:10px;">Create new Account</button>
-        			</div>
-        		</div>
-        	</div>
-        </div>
-        <!-- Javascript -->
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.backstretch.min.js"></script>
-        <script src="js/jquery.downCount.js"></script>
-        <script src="js/layer.js"></script>
-        <script src="js/product.js"></script>
+    		</div>
+    	</div>
+    	<a id="openlogin"></a>
+    	<div id="gologin" style="display: none; min-width: 100px;">
+    		<div class="col-sm-12 col-sm-offset-3 form-box">
+    			<div class="form-top">
+    				<h1>Sign in</h1>
+    			</div>
+    			<div class="form-bottom">
+    				<div class="form-group">
+    					<label class="sr_only" for="form-username">Name</label>
+    					<input type="text" name="form-username" placeholder="Name" class="form-username form-control" id="form-username">
+    					<div id="confirmMsg"></div>
+    				</div>
+    				<div class="form-group">
+    					<label class="sr_only" for="form-password">Password</label><span class="forget"><a href="findpwd.html">Forgot your password?</a></span>
+    					<input type="password" name="form-password" placeholder="Password" class="form-password form-control" id="form-password">
+    					<div id="confirmpassword"></div>
+    				</div>
+    				<button type="submit" class="btn submitbtn" onclick="login()">Sign in</button>
+    				<button type="submit " class="btn goSigninbtn" onclick="signin()" style="margin-top:10px;">Create new Account</button>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <!-- Javascript -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.backstretch.min.js"></script>
+    <script src="js/jquery.downCount.js"></script>
+    <script src="js/layer.js"></script>
+    <script src="js/product.js"></script>
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
             <![endif]-->
