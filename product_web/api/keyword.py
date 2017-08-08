@@ -53,9 +53,9 @@ class KeywordHandler(RequestHandler):
             "name": keyword_name,
             "source": self.get_argument("source", ''),
             "theme": self.get_argument("theme", ''),
-            "ori_price": int(self.get_argument("ori_price", 0)),
-            "con_price": int(self.get_argument("con_price", 0)),
-            "postage_price": int(self.get_argument("postage_price", 0)),
+            "ori_price": float(self.get_argument("ori_price", 0)),
+            "con_price": float(self.get_argument("con_price", 0)),
+            "postage_price": float(self.get_argument("postage_price", 0)),
             "description": self.get_argument("description", ""),
             "sort_num": int(self.get_argument("sort_num", 10000)),
             "img_path": img_path,
@@ -104,13 +104,13 @@ class UpdateKeywordHandler(RequestHandler):
         theme = self.get_argument("theme", '')
         if theme:
             update_data.update({"theme": theme})
-        ori_price = int(self.get_argument("ori_price", -1))
+        ori_price = float(self.get_argument("ori_price", -1))
         if ori_price > -1:
             update_data.update({"ori_price": ori_price})
-        con_price = int(self.get_argument("con_price", -1))
+        con_price = float(self.get_argument("con_price", -1))
         if con_price > -1:
             update_data.update({"con_price": con_price})
-        postage_price = int(self.get_argument("postage_price", -1))
+        postage_price = float(self.get_argument("postage_price", -1))
         if postage_price > -1:
             update_data.update({"postage_price": postage_price})
 
