@@ -288,6 +288,9 @@ img { max-width: 100%; }
 .all-items .timedown{margin: 0;font-size: 12px;font-weight: bold;}
 .howmuch{line-height: 22px;}
 .weichat{height: 50px;width: 50px;position: relative;display: none;margin-top: -20px;}
+#phonepart{display: none;}
+#windowpart{display: block;}
+#winsearch{display: none;}
 ul.countdown {
 	list-style: none;
 	padding: 0;
@@ -460,6 +463,9 @@ p{margin: 0px;}
 @media (max-width: 767px) {
 	
 	.inner-bg { padding: 60px 0 110px 0; }
+	#phonepart{display: block;}
+	#windowpart{display: none;}
+	#winsearch{display: block;}
 
 }
 
