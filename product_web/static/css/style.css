@@ -459,6 +459,10 @@ p{margin: 0px;}
 		width: 350px;
 		margin: 0 auto;
 	}
+	
+	.col-sm-6 {
+    width: 33.3333%;
+    }
 }
 
 @media (max-width: 767px) {
