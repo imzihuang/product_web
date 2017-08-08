@@ -30,7 +30,7 @@ ul,li{
 position: fixed!important;
 width: 210px!important;
 }
-.kv-error-close{width: 10px;text-align: left;}
+.kv-error-close{width: 10px !important;text-align: left !important;}
 #page-wrapper {
 padding: 0 15px;
 position: inherit;
