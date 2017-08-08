@@ -291,6 +291,7 @@ img { max-width: 100%; }
 #phonepart{display: none;}
 #windowpart{display: block;}
 #winsearch{display: none;}
+#listPart{margin-top: 20px;}
 ul.countdown {
 	list-style: none;
 	padding: 0;
@@ -433,7 +434,6 @@ p{margin: 0px;}
 	z-index: 100;
 	background-color: #fff;
 	min-height: 800px;
-	margin-top: 20px;
 }
 /***** Media queries *****/
 @media (min-width: 768px){
@@ -467,6 +467,12 @@ p{margin: 0px;}
 	#phonepart{display: block;}
 	#windowpart{display: none;}
 	#winsearch{display: block;}
+	#example-navbar-collapse .nav:last-child{
+		float: right;
+	}
+	.navbar-nav{
+		padding: 0px 0px 10px 0px;
+	}
 
 }
 
