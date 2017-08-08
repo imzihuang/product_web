@@ -445,6 +445,9 @@ p{margin: 0px;}
 		margin: 0 auto;
 		float: none;
 	}
+	.col-sm-6 {
+    width: 33.3333%;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
