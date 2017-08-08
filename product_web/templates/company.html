@@ -56,7 +56,7 @@
                             {% else %}
                             后台数据异常
                             {% end%}
-                            <button class="btn btn-primary btn-myown">返回</button>
+                            <button class="btn btn-primary btn-myown" onclick="gohome()">返回</button>
                         </div>
                     </div>
                 </div>
@@ -64,3 +64,8 @@
         </div>
     </body>
     </html>
+    <script type="text/javascript">
+        function gohome(){
+             window.location.href="/product/home.html";
+        }
+    </script>
