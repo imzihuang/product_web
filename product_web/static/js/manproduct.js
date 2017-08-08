@@ -139,10 +139,7 @@ $(function() {
 		  btn: ['确定', '取消'] ,//按钮
 		  content: $('#addInfoContent'),
 		   yes: function(){
-             $("#addInfoContent .fileinput-upload-button").click();
-             $(".btn-file").removeAttr("disabled");
-             $(".rm_html").html("");
-			  	if($("#add_name").val()==""){
+		   	 if($("#add_name").val()==""){
                    $(".add_name_error").html("产品名不能为空!");
                 }
                 if($("#add_source").val()==""){
@@ -151,6 +148,10 @@ $(function() {
                 if($("#add_theme").val()==""){
                    $(".add_theme_error").html("主题不能为空!");
                 }
+             $("#addInfoContent .fileinput-upload-button").click();
+             $(".btn-file").removeAttr("disabled");
+             $(".rm_html").html("");
+			  	
 		  }
 		
 		});
