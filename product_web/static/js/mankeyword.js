@@ -139,9 +139,7 @@ $(function() {
 		  btn: ['确定', '取消'] ,//按钮
 		  content: $('#addInfoContent'),
 		   yes: function(){
-             $("#addInfoContent .fileinput-upload-button").click();
-             $(".rm_html").html("");
-			  	if($("#add_keyword_name").val()==""){
+		   	 if($("#add_keyword_name").val()==""){
                    $(".add_name_error").html("关键字名不能为空!");
                 }
                 if($("#add_source").val()==""){
@@ -150,6 +148,9 @@ $(function() {
                 if($("#add_theme").val()==""){
                    $(".add_theme_error").html("主题不能为空!");
                 }
+             $("#addInfoContent .fileinput-upload-button").click();
+             $(".rm_html").html("");
+			  	
 		  }
 		
 		});
