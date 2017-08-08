@@ -2,6 +2,7 @@
 
 import json
 import os
+import time
 from tornado.web import RequestHandler
 from datetime import datetime
 from logic import keyword as loc_keywod
@@ -40,7 +41,7 @@ class KeywordHandler(RequestHandler):
             return
         for meta in file_metas:
             filename = meta['filename']
-            filename = keyword_name + "." + filename.rpartition(".")[-1] #rename img meta
+            filename = keyword_name + "_" +str(int(time.time())) + "." + filename.rpartition(".")[-1] #rename img meta
             #content_type = meta['content_type']
             img_path = os.path.join("keyword_img", filename)
             filepath = os.path.join(upload_path, img_path)
