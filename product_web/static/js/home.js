@@ -95,7 +95,6 @@ $('.likeList a img').click(function(){
 
 function keyword_os(obj){
   obj = $(obj);
-  alert(obj.attr('val'));
   window.location.href='/product/product.html?keyword='+ obj.attr('val'); //keyword;
 }
 function logout(){
