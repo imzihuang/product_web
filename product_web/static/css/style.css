@@ -293,6 +293,7 @@ img { max-width: 100%; }
 #windowpart{display: block;}
 #winsearch{display: none;}
 #listPart{margin-top: 20px;}
+.navbar-toggle{color: #fff;font-size: 14px;}
 ul.countdown {
 	list-style: none;
 	padding: 0;
