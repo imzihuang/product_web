@@ -294,6 +294,8 @@ img { max-width: 100%; }
 #winsearch{display: none;}
 #listPart{margin-top: 20px;}
 .navbar-toggle{color: #fff;font-size: 14px;}
+.navbar-default .navbar-toggle:focus{background-color: none !important;}
+.thumbnail img{cursor: pointer;}
 ul.countdown {
 	list-style: none;
 	padding: 0;
