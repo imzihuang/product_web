@@ -24,7 +24,7 @@ function apply(){
       var aboutOut_href=$(".track-sign-up").attr("href");
       for(var i=0;i<msg.data.length;i++){
        str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-       '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os(\"'+ msg.data[i].name +'\")>'+
+       '"alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a onclick=keyword_os("'+ msg.data[i].name.toString()  +'")>'+
        msg.data[i].theme+'</a></p><p class="color_gray">'+
        msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
        msg.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
@@ -40,7 +40,7 @@ function apply(){
       if(msg.data[i].recommend==true)
       {
         pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-        '"alt="通用的占位符缩略图"><div class="caption"><p><a onclick=keyword_os(\"'+ msg.data[i].name +'\")>'+msg.data[i].theme+
+        '"alt="通用的占位符缩略图"><div class="caption"><p><a onclick=keyword_os("'+ msg.data[i].name.toString()  +'")>'+msg.data[i].theme+
         '</a></p></div></div></div>'
         pop=pop+pop_;
       }
