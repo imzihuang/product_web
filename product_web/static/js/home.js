@@ -32,7 +32,7 @@ function apply(){
        '<p class="aboutHelp"><a>how to claim it?</a></p>'+
        '<div class="likeList"><img src="img/start.png" class="startimg"/><a ><img src="img/unlike.png" id="'+msg.data[i].id+'"></a><span class="likecount">'+(parseInt(msg.data[i].like_count)+parseInt(msg.data[i].like_add_count))+'</span></div>'+
        '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen"></i></a>'+
-       '<a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen"></i></a>'+
+       '<a class="share share_twitter" onclick="sharetwitter('+"'"+window.location.href+"'"+')"><i class="fa fa-twitter areapen"></i></a>'+
        '<a class="share share_google"><i class="fa fa-comments areapen"></i></a><img src="img/weichart.png" class="weichat"/></span></div></div></div></div></div>'
        str=str+str_;
      }   
@@ -111,10 +111,10 @@ function logout(){
     }
   });
 }
- //分享到新浪微博
+
 //参数：要分享的链接
-function shareQZone(hrefName){
-  window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+encodeURIComponent(hrefName));
+function sharetwitter(hrefName){
+  window.open('http://twitter.com/home?status='+encodeURIComponent(hrefName));
   return false;
 }
 
@@ -144,7 +144,7 @@ function search(){
       '<p class="aboutHelp"><a>how to claim it?</a></p>'+
       '<div class="likeList"><img src="img/start.png" class="startimg"/><a ><img src="img/unlike.png" id="'+dataAll.data[i].id+'"></a><span class="likecount">'+dataAll.data[i].like_count+'</span></div>'+
       '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a>'+
-      '<a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen"></i></a>'+
+      '<a class="share share_twitter" onclick="sharetwitter('+"'"+window.location.href+"'"+')"><i class="fa fa-twitter areapen"></i></a>'+
       '<a class="share share_google"><i class="fa fa-comments areapen"></i></a><img src="img/weichart.png" class="weichat"/></span></div></div></div></div></div>'
       str=str+str_;
     }
@@ -162,7 +162,7 @@ function search(){
         '<p class="aboutHelp"><a>how to claim it?</a></p>'+
         '<div class="likeList"><img src="img/start.png" class="startimg"/><a ><img src="img/unlike.png" id="'+dataAll.data[i].id+'"></a><span class="likecount">'+dataAll.data[i].like_count+'</span></div>'+
         '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a>'+
-        '<a class="share share_twitter" onclick="shareQZone('+"'"+window.location.href+"'"+')"><i class="fa fa-qq areapen"></i></a>'+
+        '<a class="share share_twitter" onclick="sharetwitter('+"'"+window.location.href+"'"+')"><i class="fa fa-twitter areapen"></i></a>'+
         '<a class="share share_google"><i class="fa fa-comments areapen"></i></a><img src="img/weichart.png" class="weichat"/></span></div></div></div></div></div>'
         str=str+str_;
       }
