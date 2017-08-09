@@ -89,6 +89,7 @@ img { max-width: 100%; }
 	margin-left: 0px !important; 
 }
 #example-navbar-collapse{padding: 0px;margin-left: 12%;}
+.navbar-brand img{height: 100%;}
 @media (min-width: 768px){
 	.navbar-brand {
 		margin-left: 0px !important; 
