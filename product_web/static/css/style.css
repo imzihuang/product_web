@@ -482,7 +482,9 @@ p{margin: 0px;}
 		margin-left: 0px;
 		padding: 0px 15px;
 	}
-
+	.home .container{padding: 0;}
+    .home .container .all-items .row{padding: 0px 5px;}
+    .color_gray_block{display: none;}
 }
 
 @media (max-width: 415px) {
