@@ -31,7 +31,7 @@ class User(BaseModel):
     valcode = Column(CHAR(6))
     # 0:admin; 1:general
     level = Column(SMALLINT, default=1)
-    img_path = Column(VARCHAR(50))
+    img_path = Column(VARCHAR(100))
 
     def to_dict(self):
        return {c.name: getattr(self, c.name, None).strftime('%Y-%m-%d %H:%M:%S') if isinstance(getattr(self, c.name, None), datetime) else getattr(self, c.name, None) for c in self.__table__.columns}
@@ -46,14 +46,14 @@ class ProductKeyword(BaseModel):
     ori_price = Column(FLOAT)
     con_price = Column(FLOAT)
     postage_price = Column(FLOAT)
-    description = Column(VARCHAR(100))
+    description = Column(VARCHAR(200))
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow,
                         nullable=True, onupdate=datetime.utcnow)
     count_down_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     like_add_count = Column(Integer, default=0)
     sort_num = Column(Integer, default=10000)
-    img_path = Column(VARCHAR(50))
+    img_path = Column(VARCHAR(100))
     recommend = Column(BOOLEAN, default=False)
 
     def to_dict(self):
@@ -71,7 +71,7 @@ class Product(BaseModel):
     ori_price = Column(FLOAT)
     con_price = Column(FLOAT)
     postage_price = Column(FLOAT)
-    description = Column(VARCHAR(100))
+    description = Column(VARCHAR(200))
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow,
                         nullable=True, onupdate=datetime.utcnow)
@@ -79,7 +79,7 @@ class Product(BaseModel):
     links = Column(VARCHAR(50))
     like_add_count = Column(Integer, default=0)
     sort_num = Column(Integer, default=10000)
-    img_path = Column(VARCHAR(50))
+    img_path = Column(VARCHAR(100))
     recommend = Column(BOOLEAN, default=False)
 
     def to_dict(self):
