@@ -76,7 +76,7 @@ class Product(BaseModel):
     updated_at = Column(DateTime, default=datetime.utcnow,
                         nullable=True, onupdate=datetime.utcnow)
     count_down_at = Column(DateTime, default=datetime.utcnow, nullable=False)
-    links = Column(VARCHAR(50))
+    links = Column(VARCHAR(200))
     like_add_count = Column(Integer, default=0)
     sort_num = Column(Integer, default=10000)
     img_path = Column(VARCHAR(100))
