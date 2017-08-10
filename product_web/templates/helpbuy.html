@@ -1,10 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>help buy</title>
-</head>
-<body>
-买买买
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>help buy</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/form-elements.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="js/css/layer.css" rel="stylesheet" type="text/css">
+	<link href="css/table.css" rel="stylesheet">
+	<!-- Javascript -->
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+            <![endif]-->
+        </head>
+        <body>
+
+<div class="header">
+  <!--pht-->
+  <div class="container" id="phonepart">
+     <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid"> 
+           <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse"
+              data-target="#example-navbar-collapse">Account
+              </button>
+              <a class="navbar-brand" href="#"><img src="img/Logo.png"></a>
+          </div>
+          <div class="collapse navbar-collapse" id="example-navbar-collapse">
+           <ul class="nav navbar-nav text-right ">
+              <li><a href="#">Home</a></li>
+              <li><a href="/product/getmoney.html">How to claim?</a></li>
+              <li><a href="/product/company.html">connection</a></li>
+              <li><a href="/product/helpbuy.html">help</a></li>
+           </ul>
+           <ul class="nav navbar-nav">
+              {%if user_name%}
+              <div class="loginButtonContainer">
+                 <a class="button track-login">{{ user_name }}</a>
+                 <a class="button primary signIn track-sign-up" onclick="logout()">Log Out</a>
+             </div>
+             {%else%}
+             <div class="loginButtonContainer">
+                 <a class="button track-login" href="login.html">Log In</a>
+                 <a class="button primary signIn track-sign-up" href="signin.html">Sign In</a>
+             </div>
+             {%end%}
+           </ul>
+          </div>
+        </div>
+      </nav>
+  </div>
+  <!--pht-->
+  <!--win-->
+  <div class="container" id="windowpart">
+     <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid"> 
+           <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse"
+              data-target="#example-navbar-collapse">Account
+              </button>
+              <a class="navbar-brand" href="#"><img src="img/Logo.png"></a>
+          </div>
+          <div class="collapse navbar-collapse" id="example-navbar-collapse">
+              <div style="width:66%;float:left;">
+                   <ul class="nav navbar-nav text-right ">
+                      <li><a href="#">Home</a></li>
+                      <li><a href="/product/getmoney.html">How to claim</a></li>
+                      <li><a href="/product/company.html">connection</a></li>
+                      <li><a href="/product/helpbuy.html">help</a></li>
+                   </ul>
+               </div>
+               <div style="width:25%;float:right;">
+                   <a href="#"><p style="font-size:16px;color:#fff;margin-top: 10px;text-align: left;">Home</p></a>
+                   <ul class="nav navbar-nav">
+                      {%if user_name%}
+                      <div class="loginButtonContainer">
+                         <a class="button track-login">{{ user_name }}</a>
+                         <a class="button primary signIn track-sign-up" onclick="logout()">Log Out</a>
+                     </div>
+                     {%else%}
+                     <div class="loginButtonContainer">
+                         <a class="button track-login" href="login.html">Log In</a>
+                         <a class="button primary signIn track-sign-up" href="signin.html">Sign In</a>
+                     </div>
+                     {%end%}
+                   </ul>
+               </div>
+          </div>
+        </div>
+      </nav>
+  </div>
+  <!--win-->
+</div>
+<div class="main helpbuy">
+
+
+</div>
+
 </body>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.backstretch.min.js"></script>
+<script src="js/jquery.downCount.js"></script>
+<script src="js/layer.js"></script>
 </html>
