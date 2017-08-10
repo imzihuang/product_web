@@ -12,7 +12,7 @@ else{
 if(aboutOut_href=="signin.html"){
   $(".product_name a").attr("onclick","change();return false");
   $(".likeList a img").attr("onclick","change();return false");
-  $(".thumbnail a").eq(0).attr("onclick","change();return false");
+  $(".thumbnail a").eq(0).attr("onclick","change();return false"); console.log(9);
 }
 function putkeyword(){
  var data = {
