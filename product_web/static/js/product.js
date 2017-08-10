@@ -12,6 +12,7 @@ else{
 if(aboutOut_href=="signin.html"){
   $(".product_name a").attr("onclick","change();return false");
   $(".likeList a img").attr("onclick","change();return false");
+  $(".thumbnail img").eq(0).attr("onclick","change();return false");
 }
 function putkeyword(){
  var data = {
@@ -234,6 +235,7 @@ function productsearch(){
   var aboutOut_href=$(".track-sign-up").attr("href");
   if(aboutOut_href=="signin.html"){
     $(".likeList a img").attr("onclick","change();return false");
+    $(".thumbnail img").eq(0).attr("onclick","change();return false");
   }
   for(var j=0;j<dataAll.data.length;j++){
    var strname="";
