@@ -126,7 +126,7 @@ function apply(){
      $("#listPart").append(str); 
      for(var i=0;i<msg.data.length;i++){
       if(msg.data[i].recommend==true)
-      {console.log(msg.data[i].img_path);
+      {console.log(msg.data[i].links);
         pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
         '"alt="通用的占位符缩略图" href="'+msg.data[i].links+'"><div class="caption"><p><a href="'+msg.data[i].links+'">'+msg.data[i].theme+
         '</a></p></div></div></div>'
