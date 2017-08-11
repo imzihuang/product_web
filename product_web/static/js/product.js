@@ -13,7 +13,7 @@ if(aboutOut_href=="signin.html"){
   $(".product_name a").attr("onclick","change();return false");//产品名称
   $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
   $("#product_popular img").attr("onclick","change();return false");//今日主打图片
-  $("#product_popular caption p a").attr("onclick","change();return false");//今日主打名称
+  $("#product_popular .caption p a").attr("onclick","change();return false");//今日主打名称
 }
 function putkeyword(){
  var data = {
@@ -238,7 +238,7 @@ function productsearch(){
     $(".product_name a").attr("onclick","change();return false");//产品名称
     $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
     $("#product_popular img").attr("onclick","change();return false");//今日主打图片
-    $("#product_popular caption p a").attr("onclick","change();return false");//今日主打名称
+    $("#product_popular .caption p a").attr("onclick","change();return false");//今日主打名称
   }
   for(var j=0;j<dataAll.data.length;j++){
    var strname="";
