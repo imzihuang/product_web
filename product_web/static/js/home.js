@@ -4,7 +4,6 @@ var dataAll;console.log(dataAll);
 var aboutOut_href=$(".track-sign-up").attr("href");
 if(aboutOut_href=="signin.html"){
   $(".likeList a img").attr("onclick","change();return false");
-  $(".thumbnail a").eq(0).attr("onclick","change();return false");
 }
 function apply(){
   $.ajax({
@@ -178,7 +177,6 @@ function search(){
     var aboutOut_href=$(".track-sign-up").attr("href");
     if(aboutOut_href=="signin.html"){
       $(".likeList a img").attr("onclick","change();return false");
-      $(".thumbnail a").eq(0).attr("onclick","change();return false");
     }
   }
 
