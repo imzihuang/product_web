@@ -39,6 +39,7 @@ img { max-width: 100%; }
 	height: 200px;
 	width: 200px;
 	max-width: 100%;
+	margin-left: 8px;
 }
 #current_keyword{position: absolute;top: -10000px;}
 .btn-link-1 {
