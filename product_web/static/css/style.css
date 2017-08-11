@@ -171,6 +171,9 @@ img { max-width: 100%; }
 	text-align: left;
 }
 .form-bottom .form-group{margin-bottom: 12px;}
+#gologin .sr_only{
+	float: left;
+}
 .sr_only{
 	line-height: 24px;
 	display: block;
