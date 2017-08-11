@@ -5,6 +5,7 @@ var aboutOut_href=$(".track-sign-up").attr("href");
 if(aboutOut_href=="signin.html"){
   $(".likeList a img").attr("onclick","change();return false");
 }
+
 function apply(){
   $.ajax({
     type: "GET",
@@ -37,6 +38,7 @@ function apply(){
        str=str+str_;
      }   
      $("#listPart").append(str);
+
      for(var i=0;i<msg.data.length;i++){
       if(msg.data[i].recommend==true)
       {
@@ -47,6 +49,7 @@ function apply(){
       }
     }
     $("#home_popular").append(pop);
+
     for(var j=0;j<msg.data.length;j++){
       var now_date = new Date;
       var str_current_date = msg.data[j].count_down_at;
@@ -218,6 +221,7 @@ function change(){
 
   });
 };
+
 function login(){
   var data = {
     user_name:$("#form-username").val(),
