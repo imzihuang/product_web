@@ -123,7 +123,7 @@ function apply(){
        '<a class="share share_google" onclick="sharegoogle('+"'"+window.location.href+"'"+')"><i class="fa fa-google areapen"></i></a></span></div></div></div></div></div>'
        str=str+str_;
      }   
-     $("#listPart").append(str);  
+     $("#listPart").append(str); 
      for(var i=0;i<msg.data.length;i++){
       if(msg.data[i].recommend==true)
       {console.log(msg.data[i].links);
@@ -132,7 +132,7 @@ function apply(){
         '</a></p></div></div></div>'
         pop=pop+pop_;
       }
-    }
+    }console.log(msg);
     $("#product_popular").append(pop);
     for(var j=0;j<msg.data.length;j++){
       var now_date = new Date;
