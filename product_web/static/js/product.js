@@ -1,4 +1,3 @@
-
 var dataAll;
 var aboutOut=$(".track-sign-up").val();
 var aboutOut_href=$(".track-sign-up").attr("href");
@@ -7,14 +6,15 @@ if($("#current_keyword").val()==""){
 }
 else{
   putkeyword();
-
 }
+
 if(aboutOut_href=="signin.html"){
   $(".product_name a").attr("onclick","change();return false");//产品名称
   $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
   $("#product_popular img").attr("onclick","change();return false");//今日主打图片
   $("#product_popular .caption p a").attr("onclick","change();return false");//今日主打名称
 }
+
 function putkeyword(){
  var data = {
   keyword:$("#current_keyword").val(),
@@ -53,6 +53,7 @@ $.ajax({
       str=str+str_;
     }
     $("#listPart").append(str);
+
     for(var i=0;i<msg.data.length;i++){
       if(msg.data[i].recommend==true)
       {
@@ -63,6 +64,7 @@ $.ajax({
      }
    }
    $("#product_popular").append(pop);
+
    for(var j=0;j<msg.data.length;j++){
     var now_date = new Date;
     var str_current_date = msg.data[j].count_down_at;
@@ -84,13 +86,14 @@ error:function(){
 }
 });
 }
+
 $(".share_google").mouseover(function(){
   $(this).next(".weichat").css("display","block");
 });
 $(".share_google").mouseout(function(){
   $(this).next(".weichat").css("display","none");
 });
-//ajax
+
 function apply(){
   $.ajax({
     type: "GET",
@@ -154,7 +157,6 @@ function apply(){
   },
 });
 }
-//ajax
 
 $('.likeList a img').click(function(){console.log(1);
   var imgId=$(this).attr("id");
@@ -189,7 +191,6 @@ function logout(){
 
     }
   });
-
 }
 
 function productsearch(){
@@ -255,20 +256,21 @@ function productsearch(){
    })
  }
 }
+
 function change(){
   layerIndex=layer.open({
     title:'请先登录',
     type: 1,
-              skin: 'layui-layer-demo', //样式类名
-              anim: 2,
-              shadeClose: true, //开启遮罩关闭
-              btn:false,//按钮
-              content: $('#gologin'),
-              yes: function(){
+    skin: 'layui-layer-demo', //样式类名
+    anim: 2,
+    shadeClose: true, //开启遮罩关闭
+    btn:false,//按钮
+    content: $('#gologin'),
+    yes: function(){
 
-              }
+    }
 
-            });
+  });
 };
 
 function login(){
