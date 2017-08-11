@@ -222,6 +222,22 @@ function change(){
   });
 };
 
+function howclaim(){
+  layerIndex=layer.open({
+    title:'How to claim',
+    type: 1,
+    skin: 'layui-layer-demo', //样式类名
+    anim: 2,
+    shadeClose: true, //开启遮罩关闭
+    btn:false,//按钮
+    content: $('#howclaim'),
+    yes: function(){
+
+    }
+
+  });
+};
+
 function login(){
   var data = {
     user_name:$("#form-username").val(),
