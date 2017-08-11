@@ -125,10 +125,10 @@ function apply(){
      }   
      $("#listPart").append(str); 
 
-     for(var i=0;i<msg.data.length;i++){
+     for(var i=0;i<msg.data.length;i++){console.log(msg.data[3].links);
       if(msg.data[i].recommend==true)
-      {console.log(msg.data[i].recommend);console.log(msg.data[i].links);
-        pop_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+msg.data[i].img_path+
+      { console.log(msg.data[i].recommend);console.log(msg.data[i].links);
+        pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+msg.data[i].img_path+
         '"alt="通用的占位符缩略图"></a><div class="caption"><p><a href="'+msg.data[i].links+'">'+msg.data[i].theme+
         '</a></p></div></div></div>'
         pop=pop+pop_;
