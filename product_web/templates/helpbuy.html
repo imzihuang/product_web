@@ -111,7 +111,7 @@
 		<h3>About us</h3>
 		<div>We are a platform dedicated to collecting, displaying and providing promotional products from third-party platforms like Amazon, Ebay, Esty, Aliexpress,etc. In order to provide better products, Sellers want to get more feedback for the products they sell through promotion. So all the products we offer will have a great discount. The feedback for the products you leave on the purchase platform will be highly appreciated.Your satisfaction will be our best motivation.</div>
 		<h3>Customer Service</h3>
-		<div>Send Us An Email anytime:<span><a>click here</a></span></div>
+		<div>Send Us An Email anytime:<span><a onclick="helpemail()">click here</a></span></div>
 		<h3>FAQ's | Top Customer Questions</h3>
 		<h5>1.HOW CAN I CHECK THE STATUS OF MY ORDER?</h5>
 		<div>We are committed to providing promotional products with great discount from third-party platforms like Amazon, Ebay, Esty, Aliexpress,etc. So you can check the status of the order on the relevant platform.</div>
@@ -123,11 +123,30 @@
         <div>About the return policy, Please refer to the return policies of the relevant platform.</div>
 	</div>
 </div>
-
+<div id="helpemail">
+  
+</div>
 </body>
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.backstretch.min.js"></script>
 <script src="js/jquery.downCount.js"></script>
 <script src="js/layer.js"></script>
+<script type="text/javascript">
+  function helpemail(){
+  layerIndex=layer.open({
+    title:'请先登录',
+    type: 1,
+    skin: 'layui-layer-demo', //样式类名
+    anim: 2,
+    shadeClose: true, //开启遮罩关闭
+    btn:false,//按钮
+    content: $('#helpemail'),
+    yes: function(){
+
+    }
+
+  });
+};
+</script>
 </html>
