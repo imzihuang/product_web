@@ -175,6 +175,9 @@ img { max-width: 100%; }
 #howclaim div{margin-bottom: 5px;font-size: 13px;}
 .helpbuy div{font-size: 13px;}
 .helpbuy h3{color: #f3a847;}
+.helpbuy h5{font-weight: 600;}
+.helpbuy .imgLeft{width: 100px;height: 100px;float: left;}
+.helpbuy .imgLeft img{width: 100%;height: 100%;}
 #gologin .sr_only{
 	float: left;
 }
