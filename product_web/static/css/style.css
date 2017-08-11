@@ -172,6 +172,7 @@ img { max-width: 100%; }
 	text-align: left;
 }
 .form-bottom .form-group{margin-bottom: 12px;}
+#howclaim div{margin-bottom: 5px;}
 #gologin .sr_only{
 	float: left;
 }
