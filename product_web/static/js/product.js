@@ -125,7 +125,7 @@ function apply(){
      }   
      $("#listPart").append(str); 
 
-     for(var i=0;i<msg.data.length;i++){console.log(msg.data[3].links);
+     for(var i=0;i<msg.data.length;i++){console.log(msg.data[15].links);
       if(msg.data[i].recommend==true)
       { console.log(msg.data[i].recommend);console.log(msg.data[i].links);
         pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+msg.data[i].img_path+
