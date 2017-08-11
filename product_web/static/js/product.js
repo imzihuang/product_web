@@ -124,6 +124,7 @@ function apply(){
        str=str+str_;
      }   
      $("#listPart").append(str); 
+
      for(var i=0;i<msg.data.length;i++){
       if(msg.data[i].recommend==true)
       {console.log(msg.data[i].links);
@@ -134,6 +135,7 @@ function apply(){
       }
     }
     $("#product_popular").append(pop);
+    
     for(var j=0;j<msg.data.length;j++){
       var now_date = new Date;
       var str_current_date = msg.data[j].count_down_at;
