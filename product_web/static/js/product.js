@@ -10,9 +10,12 @@ else{
 
 }
 if(aboutOut_href=="signin.html"){
-  $(".product_name a").attr("onclick","change();return false");
-  $(".likeList a img").attr("onclick","change();return false");
-  $(".col-md-2 .thumbnail .listimg").attr("onclick","change();return false");
+  // $(".product_name a").attr("onclick","change();return false");
+  // $(".likeList a img").attr("onclick","change();return false");
+  // $(".col-md-2 .thumbnail .listimg").attr("onclick","change();return false");
+  $(body).click(function(){
+    change();
+  });
 }
 function putkeyword(){
  var data = {
