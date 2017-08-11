@@ -381,6 +381,7 @@ cursor: pointer;
 .layui-layer.layui-layer-page.layui-layer-demo.layer-anim-02{
 	width: auto!important;
 	left: 45%;
+    max-width: 500px;
 }
 .lineDiv{
 	height: 45px;
