@@ -10,14 +10,10 @@ else{
 
 }
 if(aboutOut_href=="signin.html"){
-  // $(".product_name a").attr("onclick","change();return false");
-  // $(".likeList a img").attr("onclick","change();return false");
-  // $(".col-md-2 .thumbnail .listimg").attr("onclick","change();return false");
-  $("body").click(function(e){
-    e.preventDefault();
-    e.stopPropagation();
-    change();
-  });
+  $(".product_name a").attr("onclick","change();return false");//产品名称
+  $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
+  $("#product_popular img").attr("onclick","change();return false");//今日主打图片
+  $("#product_popular caption p a").attr("onclick","change();return false");//今日主打名称
 }
 function putkeyword(){
  var data = {
@@ -42,7 +38,7 @@ $.ajax({
       return "&postage:￥"+postage_price;
     };
     for(var i=0;i<msg.data.length;i++){
-      str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'" class="listimg"><img src="'+msg.data[i].img_path+
+      str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+msg.data[i].img_path+
       '"alt="通用的占位符缩略图"></a><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
       msg.data[i].theme+'</a></p><p class="color_gray">'+
       msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
@@ -113,7 +109,7 @@ function apply(){
         return "&postage:￥"+postage_price;
       };
       for(var i=0;i<msg.data.length;i++){
-       str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'" class="listimg"><img src="'+msg.data[i].img_path+
+       str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+msg.data[i].img_path+
        '"alt="通用的占位符缩略图"></a><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
        msg.data[i].theme+'</a></p><p class="color_gray">'+
        msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
@@ -200,7 +196,7 @@ function productsearch(){
   var tag=$("#productSearch").val();
   if(tag==""){
     for(var i=0;i<dataAll.data.length;i++){
-      str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'" class="listimg"><img src="'+dataAll.data[i].img_path+
+      str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+dataAll.data[i].img_path+
       '"alt="通用的占位符缩略图"></a><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
       dataAll.data[i].theme+'</a></p><p class="color_gray">'+
       dataAll.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
@@ -219,7 +215,7 @@ function productsearch(){
   }else{
     for(var i=0;i<dataAll.data.length;i++){
       if(dataAll.data[i].name.indexOf(tag)!=-1||dataAll.data[i].theme.indexOf(tag)!=-1||dataAll.data[i].description.indexOf(tag)!=-1){
-        str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'" class="listimg"><img src="'+dataAll.data[i].img_path+
+        str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+dataAll.data[i].img_path+
         '"alt="通用的占位符缩略图"></a><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
         dataAll.data[i].theme+'</a></p><p class="color_gray">'+
         dataAll.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
@@ -239,8 +235,10 @@ function productsearch(){
   }
   var aboutOut_href=$(".track-sign-up").attr("href");
   if(aboutOut_href=="signin.html"){
-    $(".likeList a img").attr("onclick","change();return false");
-    $(".col-md-2 .thumbnail .listimg").attr("onclick","change();return false");
+    $(".product_name a").attr("onclick","change();return false");//产品名称
+    $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
+    $("#product_popular img").attr("onclick","change();return false");//今日主打图片
+    $("#product_popular caption p a").attr("onclick","change();return false");//今日主打名称
   }
   for(var j=0;j<dataAll.data.length;j++){
    var strname="";
@@ -255,7 +253,7 @@ function productsearch(){
    })
  }
 }
-function change(){console.log(111);
+function change(){
   layerIndex=layer.open({
     title:'请先登录',
     type: 1,
