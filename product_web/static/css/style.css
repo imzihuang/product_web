@@ -527,7 +527,7 @@ p{margin: 0px;}
 		display: none !important;
 	}
 }
-@media (min-width: 640px) and (max-width: 767px){
+@media (min-width: 551px) and (max-width: 767px){
 	.home .col-sm-6 {
 		width: 33.33%;
 	}
@@ -547,7 +547,7 @@ p{margin: 0px;}
 		margin: 0 auto;
 	}
 }
-@media (min-width: 320px) and (max-width: 639px){
+@media (min-width: 320px) and (max-width: 550px){
 	.home .col-sm-6 {
 		width: 50%;
 	}
