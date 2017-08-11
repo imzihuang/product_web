@@ -108,7 +108,7 @@ function apply(){
         }
         return "&postage:￥"+postage_price;
       };
-      for(var i=0;i<msg.data.length;i++){
+      for(var i=0;i<msg.data.length;i++){console.log(msg.data[i].links);
        str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+msg.data[i].img_path+
        '"alt="通用的占位符缩略图"></a><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
        msg.data[i].theme+'</a></p><p class="color_gray">'+
@@ -126,13 +126,13 @@ function apply(){
      $("#listPart").append(str); 
      for(var i=0;i<msg.data.length;i++){
       if(msg.data[i].recommend==true)
-      {console.log(msg.data[i].links);
+      {
         pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
         '"alt="通用的占位符缩略图"><div class="caption"><p><a href="'+msg.data[i].links+'">'+msg.data[i].theme+
         '</a></p></div></div></div>'
         pop=pop+pop_;
       }
-    }console.log(msg);
+    }
     $("#product_popular").append(pop);
     for(var j=0;j<msg.data.length;j++){
       var now_date = new Date;
