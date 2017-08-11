@@ -15,6 +15,7 @@ if(aboutOut_href=="signin.html"){
   // $(".col-md-2 .thumbnail .listimg").attr("onclick","change();return false");
   $("body").click(function(e){
     e.preventDefault();
+    e.stopPropagation();
     change();
   });
 }
