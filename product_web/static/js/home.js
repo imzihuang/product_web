@@ -41,7 +41,7 @@ function apply(){
       if(msg.data[i].recommend==true)
       {
         pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-        '"alt="通用的占位符缩略图"><div class="caption"><p><a val="'+ msg.data[i].name +'" onclick=keyword_os(this)>'+msg.data[i].theme+
+        '"alt="通用的占位符缩略图" val="'+ msg.data[i].name +'" onclick=keyword_os(this)><div class="caption"><p><a val="'+ msg.data[i].name +'" onclick=keyword_os(this)>'+msg.data[i].theme+
         '</a></p></div></div></div>';
         pop=pop+pop_;
       }
