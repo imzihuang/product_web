@@ -178,6 +178,7 @@ img { max-width: 100%; }
 .helpbuy h5{font-weight: 600;}
 .helpbuy .imgLeft{width: 100px;height: 100px;float: left;}
 .helpbuy .imgLeft img{width: 100%;height: 100%;}
+.helpbuy .wordRight{float: left;}
 #gologin .sr_only{
 	float: left;
 }
