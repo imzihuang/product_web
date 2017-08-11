@@ -125,11 +125,11 @@ function apply(){
      }   
      $("#listPart").append(str); 
 
-     for(var i=0;i<msg.data.length;i++){
-      if(msg.data[i].recommend==true)
-      {console.log(msg);
-        pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-        '"alt="通用的占位符缩略图" href="'+msg.data[i].links+'"><div class="caption"><p><a href="'+msg.data[i].links+'">'+msg.data[i].theme+
+     for(var i=0;i<dataAll.data.length;i++){
+      if(dataAll.data[i].recommend==true)
+      {console.log(dataAll);
+        pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
+        '"alt="通用的占位符缩略图" href="'+dataAll.data[i].links+'"><div class="caption"><p><a href="'+dataAll.data[i].links+'">'+dataAll.data[i].theme+
         '</a></p></div></div></div>'
         pop=pop+pop_;
       }
