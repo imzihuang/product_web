@@ -92,19 +92,22 @@ def pu_add(ip, html, product_id="", product_name=""):
 def pv_add(ip, html, product_id="", product_name=""):
     try:
         session = get_session()
-        current_date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        #query = api.model_query(session, "Product_PV", {"ip": [ip], "html": [html], "visit_date": [current_date]})
-        #if query.count() > 0:
-        #    return False
-        data = {
-            "ip": ip,
-            "html": html,
-            "product_id": product_id,
-            "product_name": product_name,
-            "visit_date": current_date
-        }
-        data = api.convert_model("Product_PV", data)
-        session.add(data)
+        current_date = datetime.datetime.now().strftime('%Y-%m-%d') + "00:00:00"
+        query = api.model_query(session, "Product_PV", {"ip": [ip], "html": [html], "visit_date": [current_date]})
+        if query.count() == 0:
+            data = {
+                "ip": ip,
+                "html": html,
+                "product_id": product_id,
+                "product_name": product_name,
+                "pv_count": 1,
+                "visit_date": current_date
+            }
+            data = api.convert_model("Product_PV", data)
+            session.add(data)
+        else:
+            current_pv = query.first()
+            current_pv.pv_count += 1
         session.commit()
         return True
     except Exception as ex:

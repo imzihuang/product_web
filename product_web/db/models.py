@@ -126,6 +126,7 @@ class Product_PV(BaseModel):
     html = Column(VARCHAR(20))
     product_id = Column(CHAR(36))
     product_name = Column(CHAR(30))
+    pv_count = Column(Integer)
     visit_date = Column(DateTime, default=datetime.utcnow)
 
     def to_dict(self):
