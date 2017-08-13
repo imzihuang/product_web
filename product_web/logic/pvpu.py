@@ -92,10 +92,10 @@ def pu_add(ip, html, product_id="", product_name=""):
 def pv_add(ip, html, product_id="", product_name=""):
     try:
         session = get_session()
-        current_date = datetime.datetime.now().strftime('%Y-%m-%d')+ " 00:00:00"
-        query = api.model_query(session, "Product_PV", {"ip": [ip], "html": [html], "visit_date": [current_date]})
-        if query.count() > 0:
-            return False
+        current_date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        #query = api.model_query(session, "Product_PV", {"ip": [ip], "html": [html], "visit_date": [current_date]})
+        #if query.count() > 0:
+        #    return False
         data = {
             "ip": ip,
             "html": html,
