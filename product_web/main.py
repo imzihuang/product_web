@@ -58,7 +58,8 @@ def api_handlers():
         (prefix + r'company_os$', api.CompanyHandler),
         (prefix + r'pvpu_os$', api.PVPUHandler),
         (prefix + r'user_all$', api.UserHandler),
-        (prefix + r'excel_os$', api.ExcelHandler)
+        (prefix + r'excel_os$', api.ExcelHandler),
+        (prefix + r'send_email$', api.SendEmailHandler),
     ]
 
 class My_Application(Application):

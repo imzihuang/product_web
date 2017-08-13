@@ -3,14 +3,14 @@
 import json
 import os
 from tornado.web import RequestHandler
-from common.convert import bs2utf8
+from common.convert import bs2utf8, is_email
 from logic import operation as loc_operation
 from logic import baseinfo as loc_base
 from logic import pvpu as loc_pvpu
 from logic import user as loc_user
 from common.log_client import gen_log
 from base import verify_api_login
-
+from ser_email.ser_email import qq_send_email, hot_send_email
 
 class LikeProductHandler(RequestHandler):
     @verify_api_login
@@ -142,4 +142,24 @@ class ExcelHandler(RequestHandler):
         self.set_header('Content-Disposition', 'attachment; filename=' + filename)
         self.finish()
 
+
+class SendEmailHandler(RequestHandler):
+    @verify_api_login
+    def post(self, *args, **kwargs):
+        user_name=self.get_secure_cookie('user_name')
+        company_info = loc_base.get_company()
+        send_email = company_info.get("email", "")
+        if not send_email or not is_email(send_email):
+            self.finish(json.dumps({'state': 1, "message": "Company email format error."}))
+            return
+        message = self.get_argument("message", "")
+        subject = self.get_argument("subject", "")
+        if not message or not subject:
+            self.finish(json.dumps({'state': 2, "message": "Message or subject is none."}))
+            return
+
+        if not hot_send_email(send_email, message, subject):
+            self.finish(json.dumps({'state': 3, "message": "send email faild"}))
+            return
+        self.finish(json.dumps({'state': 0, "message": "send ok"}))
 
