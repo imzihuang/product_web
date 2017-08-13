@@ -62,7 +62,7 @@ def get_pv(ip="", html="", start="", end=""):
 def pu_add(ip, html, product_id="", product_name=""):
     try:
         session = get_session()
-        current_month = datetime.datetime.now().strftime('%Y-%m')+"-00 00:00:00"
+        current_month = datetime.datetime.now().strftime('%Y-%m-%d')+" 00:00:00"
         query = api.model_query(session, "Product_PU", {"ip": [ip], "html": [html], "visit_date": [current_month]})
         if query.count() == 0:
             data = {
@@ -105,10 +105,7 @@ def pv_add(ip, html, product_id="", product_name=""):
             }
             data = api.convert_model("Product_PV", data)
             session.add(data)
-        else:
-            current_pv = query.first()
-            current_pv.pv_count += 1
-        session.commit()
+            session.commit()
         return True
     except Exception as ex:
         gen_log.error("pv error:%r"%ex)

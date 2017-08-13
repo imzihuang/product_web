@@ -80,16 +80,14 @@ def set_keyword_sort_num(session, sort_num):
     return True
 
 def get_pv_count(session, ip="", html="", start="", end=""):
-    query = session.query(models.Product_PV.ip, models.Product_PV.html, func.sum(models.Product_PV.pv_count))
+    query = session.query(models.Product_PV.ip, models.Product_PV.html, func.count(models.Product_PV.html))
     if ip:
         query = query.filter(models.Product_PV.ip == ip)
     if html:
         query = query.filter(models.Product_PV.html == html)
     if start:
-        #start = datetime.datetime.strptime(start, '%Y-%m-%d %H:%M:%S')
         query = query.filter(models.Product_PV.visit_date >= start)
     if end:
-        #end = datetime.datetime.strptime(end, '%Y-%m-%d %H:%M:%S')
         query = query.filter(models.Product_PV.visit_date <= end)
     return query.group_by(models.Product_PV.ip).group_by(models.Product_PV.html)
 
@@ -100,10 +98,8 @@ def get_pu_count(session, ip="", html="", start="", end=""):
     if html:
         query = query.filter(models.Product_PU.html == html)
     if start:
-        #start = datetime.datetime.strptime(start, '%Y-%m-%d %H:%M:%S')
         query = query.filter(models.Product_PU.visit_date >= start)
     if end:
-        #end = datetime.datetime.strptime(end, '%Y-%m-%d %H:%M:%S')
         query = query.filter(models.Product_PU.visit_date <= end)
     return query.group_by(models.Product_PU.ip).group_by(models.Product_PU.html)
 
