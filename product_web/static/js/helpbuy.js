@@ -4,7 +4,7 @@ if(aboutOut_href=="signin.html"){
 }
 function helpemail(){
   layerIndex=layer.open({
-    title:'请先登录',
+    title:'请填写邮箱、主题',
     type: 1,
     skin: 'layui-layer-demo', //样式类名
     anim: 2,
@@ -12,7 +12,41 @@ function helpemail(){
     btn: ['确定', '取消'] ,//按钮
     content: $('#helpemail'),
     yes: function(){
-
+    //
+     var data = {
+        message:$("#heleMag").val(),
+        subject:$("#helpThem").val()
+      }
+      $.ajax({
+        type: "POST",
+        url:"/product/send_email",
+        async: false,
+        data:data,
+        success: function(msg) {
+          var data = JSON.parse(msg);
+          if(data.state==0){
+            layer.closeAll();
+            layer.msg('发送成功', {
+              icon: 1,
+              time: 800//2s后自动关闭
+            });
+            window.location.reload();
+          }
+          else if(data.state==1){
+            $("#confirmhelp").html("公司邮箱格式错误！");
+          }
+          else if(data.state==2){
+            $("#confirmhelp").html("消息或主题不能为空！");
+          }
+          else{
+            $("#confirmhelp").html("发送邮件失败，可重新提交！");
+          }     
+        },
+        error:function(){
+          console.log("error");
+        }
+      });
+    //
     }
 
   });
