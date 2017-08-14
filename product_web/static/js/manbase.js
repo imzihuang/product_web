@@ -80,6 +80,9 @@ function company_os(){
 }
 $('#showpvpu').click(function(){
 	$('input').val("");
+	$("#pvpumethoderror").html("");
+	$("#pvpustarterror").html("");
+	$("#pvpuenderror").html("");
 	layerIndex=layer.open({
 	  title:'显示pv/pu',
 	  type: 1,
@@ -126,6 +129,55 @@ $('#showpvpu').click(function(){
 	  					icon: 1,
 	  					time:600
 	  				});
+	  			},
+	  			error:function(){
+	  				layer.closeAll();
+	  				layer.msg('获取失败', {
+	  					icon: 1,
+	  					time:600
+	  				});
+	  			}
+	  		});
+	  	}
+	  }
+	});
+});
+$('#showpv').click(function(){
+	$('input').val("");
+	$("#pvstarterror").html("");
+	$("#pvenderror").html("");
+	layerIndex=layer.open({
+	  title:'获取pv',
+	  type: 1,
+	  skin: 'layui-layer-demo', //样式类名
+	  anim: 2,
+	  shadeClose: true, //开启遮罩关闭
+	  btn: ['确定', '取消'] ,//按钮
+	  content: $('#editpv'),
+	  yes: function(){ 
+	  	if($("#pvstart").val()==""){
+	  		$("#pvstarterror").html("请输入开始时间！");
+	  	}
+	  	if($("#pvend").val()==""){
+	  		$("#pvenderror").html("请输入截止时间！");
+	  	}
+	  	if($("#pvstart").val()!="" && $("#pvend").val()!=""){
+	  		var data = {
+	  			start:$("#pvstart").val(),
+	  			end:$("#pvend").val()
+	  		};
+	  		$.ajax({
+	  			type: "get",
+	  			url:"/product/excel_os",
+	  			async: false,
+	  			data:data,
+	  			success: function(msg) {
+	  				layer.closeAll();
+	  				layer.msg('获取成功', {
+	  					icon: 1,
+	  					time:600
+	  				});
+	  				down_base('pv');
 	  			},
 	  			error:function(){
 	  				layer.closeAll();
