@@ -226,7 +226,7 @@ $('#downpu').click(function(){
 	  					icon: 1,
 	  					time:600
 	  				});
-	  				down_base('pv');
+	  				down_base('pu');
 	  			},
 	  			error:function(){
 	  				layer.closeAll();
