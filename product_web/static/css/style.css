@@ -523,7 +523,6 @@ p{margin: 0px;}
 	.home .popular-items{
 		display: none;
 	}
-	#listPart .thumbnail a>img, #listPart .thumbnail>img{height:160px; }
 }
 @media (min-width: 320px) and (max-width: 349px){
 	.top-content .col-sm-6{
@@ -533,10 +532,16 @@ p{margin: 0px;}
 	.home .popular-items{
 		display: none;
 	}
-    #listPart .thumbnail a>img, #listPart .thumbnail>img{height:160px; }
+    #listPart .thumbnail a>img, #listPart .thumbnail>img{height:140px; }
+}
+@media (min-width: 501px) and (max-width: 639px){
+    #listPart .thumbnail a>img, #listPart .thumbnail>img{height:180px; }
+}
+@media (min-width: 350px) and (max-width: 500px){
+    #listPart .thumbnail a>img, #listPart .thumbnail>img{height:170px; }
 }
 @media (max-width: 319px){
-    #listPart .thumbnail a>img, #listPart .thumbnail>img{height:160px; }
+    #listPart .thumbnail a>img, #listPart .thumbnail>img{height:140px; }
 }
 
 @media(max-width: 767px){
