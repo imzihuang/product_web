@@ -53,6 +53,21 @@ function helpemail(){
 
   });
 };
+function howclaim(){
+  layerIndex=layer.open({
+    title:'How to buy',
+    type: 1,
+    skin: 'layui-layer-demo', //样式类名
+    anim: 2,
+    shadeClose: true, //开启遮罩关闭
+    btn:false,//按钮
+    content: $('#howclaim'),
+    yes: function(){
+
+    }
+
+  });
+};
 function change(){
   layerIndex=layer.open({
     title:'Please login first',
