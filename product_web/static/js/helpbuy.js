@@ -3,6 +3,8 @@ if(aboutOut_href=="signin.html"){
   $(".wordRight a").attr("onclick","change();return false");
 }
 function helpemail(){
+  $('input').val("");
+  $("#confirmhelp").html("");
   layerIndex=layer.open({
     title:'请填写邮箱、主题',
     type: 1,
