@@ -77,27 +77,27 @@
                 $("#confirmMsg").html("");
                 $("#confirmname").html("");
                 if ($("#form-Re-enter").val() == "") {
-                    $("#confirmRe").html("Password不能为空！");
+                    $("#confirmRe").html("Password cannot be empty!");
                     $("#form-Re-enter").focus(); 
                 }
                 if ($("#form-Re-enter").val() != $("#sign_form-password").val()) {
-                    $("#confirmRe").html("密码不统一！");
+                    $("#confirmRe").html("Password is not unified!");
                     $("#form-Re-enter").focus(); 
                 }
                 if ($("#sign_form-password").val() == "") {
-                    $("#confirmpassword").html("Password不能为空！");
+                    $("#confirmpassword").html("Password cannot be empty!");
                     $("#sign_form-password").focus();    
                 }
                  if ($("#sign_form-Email").val() == "") {
-                    $("#confirmMsg").html("邮箱地址不能为空！");
+                    $("#confirmMsg").html("E-mail address cannot be empty!");
                     $("#sign_form-Email").focus();  
                 }
                 if($("#sign_form-Email").val()!='' && !/.+@.+\.[a-zA-z]{2,4}$/.test($("#sign_form-Email").val())) {
-                    $("#confirmMsg").html("邮箱格式不正确！请重新输入！");
+                    $("#confirmMsg").html("Incorrect email format! Please re-enter!");
                     $("#sign_form-Email").focus();  
                 }
                 if ($("#sign_form-username").val() == "") {
-                    $("#confirmname").html("Name不能为空！");
+                    $("#confirmname").html("Name cannot be empty!");
                     $("#sign_form-username").focus();
                 }
                  
@@ -122,22 +122,22 @@
                             window.location.href="/product/home.html";
                         }
                         else if(data.state==1){
-                            $("#confirmRe").html("密码不一致或者不满足格式！");
+                            $("#confirmRe").html("Password inconsistent or not satisfied format!");
                         }
                         else if(data.state==2){
-                            $("#confirmMsg").html("邮箱格式错误！");
+                            $("#confirmMsg").html("Incorrect email format!");
                         }
                         else if(data.state==3){
-                            $("#confirmMsg").html("邮箱已被注册！");
+                            $("#confirmMsg").html("The mailbox has been registered!");
                         }
                         else if(data.state==4){
-                            $("#confirmerror").html("创建用户失败，可能用户名或邮箱已经存在！");
+                            $("#confirmerror").html("User failed to create user name or mailbox already exists!");
                         }
                         // else if(data.state==5){
                         //   $("#confirmerror").html("发送邮件失败,请重新提交");
                         // }
                         else if(data.state==6){
-                            $("#confirmname").html("用户名格式对，字母开头，只允许字母数字-_，6-12个字符")
+                            $("#confirmname").html("User name format pairs, beginning with the letter, allow only the letter number - _, 6-12 characters!")
                         }
 
                     },
