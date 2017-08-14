@@ -36,10 +36,11 @@ img { max-width: 100%; }
 .companyMain button{float: right;}
 .companyMain .btn-primary{background-color: #FBB300;border-color: #FBB300;padding: 3px 12px;}
 #listPart .thumbnail a>img,#listPart  .thumbnail>img{
-	height: 200px;
-	width: 200px;
-	max-width: 100%;
-	margin-left: 8px;
+	height: 190px;
+    width: 200px;
+    max-width: 100%;
+    margin-left: 8px;
+    padding-right: 10px;
 }
 #current_keyword{position: absolute;top: -10000px;}
 .btn-link-1 {
