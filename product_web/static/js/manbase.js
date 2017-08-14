@@ -191,6 +191,55 @@ $('#downpv').click(function(){
 	  }
 	});
 });
+$('#downpu').click(function(){
+	$('input').val("");
+	$("#pustarterror").html("");
+	$("#puenderror").html("");
+	layerIndex=layer.open({
+	  title:'获取pv',
+	  type: 1,
+	  skin: 'layui-layer-demo', //样式类名
+	  anim: 2,
+	  shadeClose: true, //开启遮罩关闭
+	  btn: ['确定', '取消'] ,//按钮
+	  content: $('#editpu'),
+	  yes: function(){ 
+	  	if($("#pustart").val()==""){
+	  		$("#pustarterror").html("请输入开始时间！");
+	  	}
+	  	if($("#puend").val()==""){
+	  		$("#puenderror").html("请输入截止时间！");
+	  	}
+	  	if($("#pustart").val()!="" && $("#puend").val()!=""){
+	  		var data = {
+	  			start:$("#pustart").val(),
+	  			end:$("#puend").val()
+	  		};
+	  		$.ajax({
+	  			type: "get",
+	  			url:"/product/excel_os",
+	  			async: false,
+	  			data:data,
+	  			success: function(msg) {
+	  				layer.closeAll();
+	  				layer.msg('获取成功', {
+	  					icon: 1,
+	  					time:600
+	  				});
+	  				down_base('pv');
+	  			},
+	  			error:function(){
+	  				layer.closeAll();
+	  				layer.msg('获取失败', {
+	  					icon: 1,
+	  					time:600
+	  				});
+	  			}
+	  		});
+	  	}
+	  }
+	});
+});
 $("#showuser").click(function(){
 	$.ajax({
 		type: "get",
