@@ -259,7 +259,7 @@ function productsearch(){
 
 function change(){
   layerIndex=layer.open({
-    title:'请先登录',
+    title:'Please login first',
     type: 1,
     skin: 'layui-layer-demo', //样式类名
     anim: 2,
@@ -303,17 +303,17 @@ function login(){
       var data = JSON.parse(msg);
       if(data.state==0){
         layer.closeAll();
-        layer.msg('登录成功', {
+        layer.msg('Login successful', {
           icon: 1,
                       time: 800//2s后自动关闭
                     });
         window.location.reload();
       }
       else if(data.state==1){
-        $("#confirmMsg").html("用户名不存在！");
+        $("#confirmMsg").html("User name does not exist!");
       }
       else{
-        $("#confirmpassword").html("密码错误！");
+        $("#confirmpassword").html("Password error!");
       }     
     },
     error:function(){
