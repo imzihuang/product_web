@@ -6,12 +6,12 @@ function helpemail(){
   $('input').val("");
   $("#confirmhelp").html("");
   layerIndex=layer.open({
-    title:'请填写邮箱、主题',
+    title:'Please fill in the topic and content',
     type: 1,
     skin: 'layui-layer-demo', //样式类名
     anim: 2,
     shadeClose: true, //开启遮罩关闭
-    btn: ['确定', '取消'] ,//按钮
+    btn: ['confirm', 'cancel'] ,//按钮
     content: $('#helpemail'),
     yes: function(){
     //
@@ -28,7 +28,7 @@ function helpemail(){
           var data = JSON.parse(msg);
           if(data.state==0){
             layer.closeAll();
-            layer.msg('发送成功', {
+            layer.msg('Send a success', {
               icon: 1,
               time: 800//2s后自动关闭
             });
@@ -38,13 +38,13 @@ function helpemail(){
         },
         error:function(){
           if(data.state==1){
-            $("#confirmhelp").html("公司邮箱格式错误！");
+            $("#confirmhelp").html("Company email format error!");
           }
           else if(data.state==2){
-            $("#confirmhelp").html("消息或主题不能为空！");
+            $("#confirmhelp").html("Messages or topics cannot be empty!");
           }
           else{
-            $("#confirmhelp").html("发送邮件失败，可重新提交！");
+            $("#confirmhelp").html("Failed to send email, resubmit!");
           }   
         }
       });
@@ -55,7 +55,7 @@ function helpemail(){
 };
 function change(){
   layerIndex=layer.open({
-    title:'请先登录',
+    title:'Please login first',
     type: 1,
     skin: 'layui-layer-demo', //样式类名
     anim: 2,
@@ -95,17 +95,17 @@ function login(){
       var data = JSON.parse(msg);
       if(data.state==0){
         layer.closeAll();
-        layer.msg('登录成功', {
+        layer.msg('Login successful', {
           icon: 1,
                       time: 800//2s后自动关闭
                     });
         window.location.reload();
       }
       else if(data.state==1){
-        $("#confirmMsg").html("用户名不存在！");
+        $("#confirmMsg").html("User name does not exist!");
       }
       else{
-        $("#confirmpassword").html("密码错误！");
+        $("#confirmpassword").html("Password error!");
       }     
     },
     error:function(){
