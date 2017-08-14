@@ -142,7 +142,7 @@ $('#showpvpu').click(function(){
 	  }
 	});
 });
-$('#showpv').click(function(){
+$('#downpv').click(function(){
 	$('input').val("");
 	$("#pvstarterror").html("");
 	$("#pvenderror").html("");
