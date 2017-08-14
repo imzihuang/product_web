@@ -32,7 +32,10 @@ function helpemail(){
             });
             window.location.reload();
           }
-          else if(data.state==1){
+            
+        },
+        error:function(){
+          if(data.state==1){
             $("#confirmhelp").html("公司邮箱格式错误！");
           }
           else if(data.state==2){
@@ -40,10 +43,7 @@ function helpemail(){
           }
           else{
             $("#confirmhelp").html("发送邮件失败，可重新提交！");
-          }     
-        },
-        error:function(){
-          console.log("error");
+          }   
         }
       });
     //
