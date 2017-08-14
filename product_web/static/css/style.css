@@ -535,7 +535,9 @@ p{margin: 0px;}
 	}
     #listPart .thumbnail a>img, #listPart .thumbnail>img{height:160px; }
 }
-
+@media (max-width: 319px){
+    #listPart .thumbnail a>img, #listPart .thumbnail>img{height:160px; }
+}
 
 @media(max-width: 767px){
 	.home .popular-items{
