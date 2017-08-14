@@ -507,6 +507,7 @@ p{margin: 0px;}
 	.home .container{padding: 0;}
     .home .container .all-items .row{padding: 0px 5px;}
     .color_gray_block{display: none;}
+
 }
 
 @media (max-width: 415px) {
@@ -522,6 +523,7 @@ p{margin: 0px;}
 	.home .popular-items{
 		display: none;
 	}
+	#listPart .thumbnail a>img, #listPart .thumbnail>img{height:160px; }
 }
 @media (min-width: 320px) and (max-width: 349px){
 	.top-content .col-sm-6{
@@ -531,6 +533,7 @@ p{margin: 0px;}
 	.home .popular-items{
 		display: none;
 	}
+    #listPart .thumbnail a>img, #listPart .thumbnail>img{height:160px; }
 }
 
 
