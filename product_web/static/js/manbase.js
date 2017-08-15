@@ -176,7 +176,7 @@ $('#downpu').click(function(){
 	$("#pustarterror").html("");
 	$("#puenderror").html("");
 	layerIndex=layer.open({
-	  title:'获取pv',
+	  title:'获取pu',
 	  type: 1,
 	  skin: 'layui-layer-demo', //样式类名
 	  anim: 2,
