@@ -176,7 +176,7 @@ $('#downpv').click(function(){
 	  				layer.msg('获取成功', {
 	  					icon: 1,
 	  					time:600
-	  				});
+	  				});console.log(msg);
 	  				down_base('pv');
 	  			},
 	  			error:function(){
