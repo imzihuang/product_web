@@ -276,7 +276,7 @@ img { max-width: 100%; }
 @media (max-width: 600px){
 	.layui-layer.layui-layer-page.layui-layer-demo.layer-anim-02{
 		width: 90% !important;
-		left: 7% !important;
+		left: 5% !important;
 		margin: 0 auto !important;
 	}
 }
