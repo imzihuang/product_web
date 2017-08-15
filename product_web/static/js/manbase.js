@@ -2,7 +2,7 @@ company_os();
 var oldName=$('#showname').html();
 function down_base(method,start,end){
 	var dowen_a = document.createElement('a');
-	var down_url = "/product/excel_os?method="+method+start+end;
+	var down_url = "/product/excel_os?method="+method+'start='+start+'end='+end;
 	dowen_a.href = down_url;
     //dowen_a.download = "proposed_file_name";
     dowen_a.click();
