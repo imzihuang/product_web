@@ -56,14 +56,13 @@ def get_session():
 class EngineFacade():
     def __init__(self, connect, **kwargs):
         self.connect = connect
+        self.engine = create_engine(connect, **kwargs)
 
     def get_engine(self):
-        engine = create_engine(connect, **kwargs)
-        return engine
+        return self.engine
 
     def get_session(self):
-        engine = create_engine(connect, **kwargs)
-        Session = sessionmaker(bind=engine)
+        Session = sessionmaker(bind=self.engine)
         return Session()
 
 class DateJsonEncoder(simplejson.JSONEncoder):
