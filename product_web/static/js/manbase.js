@@ -166,7 +166,7 @@ $('#downpv').click(function(){
 	  			start:$("#pvstart").val(),
 	  			end:$("#pvend").val()
 	  		};
-	  		down_base(pv,data.start,data.end);
+	  		down_base('pv',data.start,data.end);
 	  	}
 	  }
 	});
