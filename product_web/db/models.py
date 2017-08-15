@@ -119,6 +119,7 @@ class User_Like(BaseModel):
     def to_dict(self):
         return {c.name: getattr(self, c.name, None).strftime('%Y-%m-%d %H:%M:%S') if isinstance(getattr(self, c.name, None), datetime) else getattr(self, c.name, None) for c in self.__table__.columns}
 
+"""
 class Product_PV(BaseModel):
     __tablename__ = "product_pv"
     id = Column(Integer, primary_key=True)
@@ -131,7 +132,7 @@ class Product_PV(BaseModel):
 
     def to_dict(self):
         return {c.name: getattr(self, c.name, None).strftime('%Y-%m-%d %H:%M:%S') if isinstance(getattr(self, c.name, None), datetime) else getattr(self, c.name, None) for c in self.__table__.columns}
-
+"""
 
 class Product_PU(BaseModel):
     __tablename__ = "product_pu"

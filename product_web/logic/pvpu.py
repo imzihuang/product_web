@@ -33,6 +33,7 @@ def get_pu(ip="", html="", start="", end=""):
     finally:
         session.close()
 
+
 def get_pv(ip="", html="", start="", end=""):
     try:
         session = get_session()
@@ -89,6 +90,7 @@ def pu_add(ip, html, product_id="", product_name=""):
     finally:
         session.close()
 
+"""
 def pv_add(ip, html, product_id="", product_name=""):
     try:
         session = get_session()
@@ -112,5 +114,7 @@ def pv_add(ip, html, product_id="", product_name=""):
         return False
     finally:
         session.close()
+"""
+
 
 

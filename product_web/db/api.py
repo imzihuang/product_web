@@ -80,16 +80,16 @@ def set_keyword_sort_num(session, sort_num):
     return True
 
 def get_pv_count(session, ip="", html="", start="", end=""):
-    query = session.query(models.Product_PV.ip, models.Product_PV.html, func.count(models.Product_PV.html))
+    query = session.query(models.Product_PU.ip, models.Product_PU.html, func.count(models.Product_PU.html))
     if ip:
-        query = query.filter(models.Product_PV.ip == ip)
+        query = query.filter(models.Product_PU.ip == ip)
     if html:
-        query = query.filter(models.Product_PV.html == html)
+        query = query.filter(models.Product_PU.html == html)
     if start:
-        query = query.filter(models.Product_PV.visit_date >= start)
+        query = query.filter(models.Product_PU.visit_date >= start)
     if end:
-        query = query.filter(models.Product_PV.visit_date <= end)
-    return query.group_by(models.Product_PV.ip).group_by(models.Product_PV.html)
+        query = query.filter(models.Product_PU.visit_date <= end)
+    return query.group_by(models.Product_PU.ip).group_by(models.Product_PU.html)
 
 def get_pu_count(session, ip="", html="", start="", end=""):
     query = session.query(models.Product_PU.ip, models.Product_PU.html, func.sum(models.Product_PU.pu_count))
