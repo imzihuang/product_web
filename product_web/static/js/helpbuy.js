@@ -33,7 +33,7 @@ function helpemail(){
               icon: 1,
               time: 800//2s后自动关闭
             });
-            window.location.reload();
+           
           }
             
         },
