@@ -195,27 +195,11 @@ $('#downpu').click(function(){
 	  			start:$("#pustart").val(),
 	  			end:$("#puend").val()
 	  		};
-	  		$.ajax({
-	  			type: "get",
-	  			url:"/product/excel_os",
-	  			async: false,
-	  			data:data,
-	  			success: function(msg) {
-	  				layer.closeAll();
-	  				layer.msg('获取成功', {
-	  					icon: 1,
-	  					time:600
-	  				});
-	  				down_base('pu');
-	  			},
-	  			error:function(){
-	  				layer.closeAll();
-	  				layer.msg('获取失败', {
-	  					icon: 1,
-	  					time:600
-	  				});
-	  			}
-	  		});
+	  		var data = {
+	  			start:$("#pvstart").val(),
+	  			end:$("#pvend").val()
+	  		};
+	  		down_base('pu',data.start,data.end);
 	  	}
 	  }
 	});
