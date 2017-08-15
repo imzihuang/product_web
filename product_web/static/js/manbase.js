@@ -1,8 +1,8 @@
 company_os();
 var oldName=$('#showname').html();
-function down_base(method){
+function down_base(start,end){
 	var dowen_a = document.createElement('a');
-	var down_url = "/product/excel_os?method="+method;
+	var down_url = "/product/excel_os?method="+start+end;
 	dowen_a.href = down_url;
     //dowen_a.download = "proposed_file_name";
     dowen_a.click();
@@ -166,27 +166,7 @@ $('#downpv').click(function(){
 	  			start:$("#pvstart").val(),
 	  			end:$("#pvend").val()
 	  		};
-	  		$.ajax({
-	  			type: "get",
-	  			url:"/product/excel_os",
-	  			async: false,
-	  			data:data,
-	  			success: function(msg) {
-	  				layer.closeAll();
-	  				layer.msg('获取成功', {
-	  					icon: 1,
-	  					time:600
-	  				});console.log(msg);
-	  				down_base('pv');
-	  			},
-	  			error:function(){
-	  				layer.closeAll();
-	  				layer.msg('获取失败', {
-	  					icon: 1,
-	  					time:600
-	  				});
-	  			}
-	  		});
+	  		down_base(data.start,data.end);
 	  	}
 	  }
 	});
