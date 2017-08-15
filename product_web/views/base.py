@@ -25,7 +25,9 @@ def record_pv_pu(ip, html):
         pvpu.pu_add(ip, html)
     except Exception as ex:
         gen_log.error("record pu error:%r"%ex)
+    """
     try:
         pvpu.pv_add(ip, html)
     except Exception as ex:
         gen_log.error("record pv error:%r" % ex)
+    """
