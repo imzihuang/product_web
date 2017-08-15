@@ -4,6 +4,7 @@ if(aboutOut_href=="signin.html"){
 }
 function helpemail(){
   $('input').val("");
+  $('textarea').val("");
   $("#confirmhelp").html("");
   layerIndex=layer.open({
     title:'Please fill in the topic and content',
