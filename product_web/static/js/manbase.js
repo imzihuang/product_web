@@ -1,8 +1,8 @@
 company_os();
 var oldName=$('#showname').html();
-function down_base(start,end){
+function down_base(method,start,end){
 	var dowen_a = document.createElement('a');
-	var down_url = "/product/excel_os?method="+start+end;
+	var down_url = "/product/excel_os?method="+method+start+end;
 	dowen_a.href = down_url;
     //dowen_a.download = "proposed_file_name";
     dowen_a.click();
@@ -166,7 +166,7 @@ $('#downpv').click(function(){
 	  			start:$("#pvstart").val(),
 	  			end:$("#pvend").val()
 	  		};
-	  		down_base(data.start,data.end);
+	  		down_base(pv,data.start,data.end);
 	  	}
 	  }
 	});
