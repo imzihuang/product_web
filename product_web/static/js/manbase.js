@@ -195,10 +195,6 @@ $('#downpu').click(function(){
 	  			start:$("#pustart").val(),
 	  			end:$("#puend").val()
 	  		};
-	  		var data = {
-	  			start:$("#pvstart").val(),
-	  			end:$("#pvend").val()
-	  		};
 	  		down_base('pu',data.start,data.end);
 	  	}
 	  }
