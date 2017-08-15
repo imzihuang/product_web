@@ -273,7 +273,7 @@ img { max-width: 100%; }
 	padding: 0px !important;
 }
 .thumbnail{margin-bottom: 0px;}
-.layui-layer.layui-layer-page.layui-layer-demo .layer-anim-02 .form-box{float: none !important;margin-top: 0px !important;}
+.layui-layer.layui-layer-page.layui-layer-demo.layer-anim-02 .form-box{float: none !important;margin-top: 0px !important;}
 @media (max-width: 600px){
 	.layui-layer.layui-layer-page.layui-layer-demo.layer-anim-02{
 		width: 90% !important;
