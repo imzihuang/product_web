@@ -273,6 +273,13 @@ img { max-width: 100%; }
 	padding: 0px !important;
 }
 .thumbnail{margin-bottom: 0px;}
+@media (max-width: 600px){
+	.layui-layer.layui-layer-page.layui-layer-demo.layer-anim-02{
+		width: 90% !important;
+		left: 7% !important;
+		margin: 0 auto !important;
+	}
+}
 @media (min-width: 1200px){
 	.col-md-2 {
 		width: 20%;
