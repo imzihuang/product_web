@@ -334,6 +334,7 @@ img { max-width: 100%; }
 .navbar-toggle{color: #fff;font-size: 14px;}
 .navbar-default .navbar-toggle:focus,.navbar-default .navbar-toggle{background-color: #232f3e;}
 .thumbnail img{cursor: pointer;}
+#home_popular .thumbnail{padding: 0px;}
 ul.countdown {
 	list-style: none;
 	padding: 0;
