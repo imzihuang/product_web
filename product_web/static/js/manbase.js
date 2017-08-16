@@ -33,7 +33,7 @@ $('#editcompanyBtn').click(function(){
 		  	$.ajax({
 		  		type: "post",
 		  		url:"/product/company_os",
-		  		async: false,
+		  		async: true,
 		  		data:data,
 		  		success: function(msg) {
 		  			console.log(msg);
@@ -60,7 +60,7 @@ function company_os(){
 	$.ajax({
 		type: "GET",
 		url:"/product/company_os",
-		async: false,
+		async: true,
 		success: function(msg) {
 			console.log(msg);
 			var str="";
@@ -111,7 +111,7 @@ $('#showpvpu').click(function(){
 	  		$.ajax({
 	  			type: "get",
 	  			url:"/product/pvpu_os",
-	  			async: false,
+	  			async: true,
 	  			data:data,
 	  			success: function(msg) {
 	  				console.log(msg);
@@ -204,7 +204,7 @@ $("#showuser").click(function(){
 	$.ajax({
 		type: "get",
 		url:"/product/user_all",
-		async: false,
+		async: true,
 		success: function(msg) {
 			console.log(msg);
 			$("#usertbody").find("tr").remove();
