@@ -10,7 +10,7 @@ var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:1
 '5px; background: #000;color: #fff; font-family:\'Microsoft YaHei\';">loading...</div></div>';
 //呈现loading效果
 document.write(_LoadingHtml);
-
+$("#loadingDiv").parents().css("overflow","hidden");console.log($("#loadingDiv").parents().html());
 //window.onload = function () {
 //    var loadingMask = document.getElementById('loadingDiv');
 //    loadingMask.parentNode.removeChild(loadingMask);
@@ -21,10 +21,10 @@ document.onreadystatechange = completeLoading;
 
 //加载状态为complete时移除loading效果
 function completeLoading() {
-    $("body").css("overflow","hidden");
     if (document.readyState == "complete") {
         var loadingMask = document.getElementById('loadingDiv');
         loadingMask.parentNode.removeChild(loadingMask);
+        $("body").css("overflow","auto");
     }
-    $("body").css("overflow","auto");
+
 }
