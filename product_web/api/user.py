@@ -22,10 +22,12 @@ com_cookie_time = com_dic.get('max_time', '3600')
 
 class LoginHandler(RequestHandler):
     def post(self):
-        user_name = self.get_argument('user_name')
+        user_name_email = self.get_argument('user_name')
         pwd = self.get_argument('pwd')
 
-        user_info = loc_user.get_available_user(name=user_name)
+        user_info = loc_user.get_available_user(name=user_name_email)
+        if not user_info:
+            user_info = loc_user.get_available_user(email=user_name_email)
         if not user_info:
             self.finish(json.dumps({'state': 1, "message": "user name not exit"}))
             return
@@ -187,7 +189,7 @@ class ReSetUserPwdHandler(RequestHandler):
         self.manage_prefix = manage_prefix
 
     def post(self):
-        user_name = self.get_argument('user_name', '')
+        #user_name = self.get_argument('user_name', '')
         email = self.get_argument('email', '')
         new_pwd = self.get_argument('pwd', '')
         affirm_pwd = self.get_argument('affirm_pwd', '')
@@ -199,21 +201,21 @@ class ReSetUserPwdHandler(RequestHandler):
             self.finish(json.dumps({'state': 2, "message": "Email format error"}))
             return
 
-        user_info = loc_user.get_available_user(name=user_name)
+        user_info = loc_user.get_available_user(email=email)
         if not user_info or user_info.email != email:
             self.finish(json.dumps({'state': 3, "message": "The user name and email don't match"}))
             return
         # 生成验证码
         val_code = ''.join((str(randint(0, 9)) for _ in xrange(6)))
         try:
-            loc_user.update_user({"valcode": val_code, "reset_pwd": new_pwd}, {"name": [user_name]})
+            loc_user.update_user({"valcode": val_code, "reset_pwd": new_pwd}, {"name": [user_info.name]})
         except Exception as e:
             self.finish(json.dumps({'state': 4, "message": str(e)}))
             return
         redirect_url = "http://%(ip)s:%(port)s/product/reset_pwd?user_name=%(name)s&val_code=%(val_code)s"%{
             "ip": ser_url,
             "port": ser_port,
-            "name": user_name,
+            "name": user_info.name,
             "val_code": val_code,
         }
         html = """
