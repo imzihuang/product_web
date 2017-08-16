@@ -10,7 +10,7 @@ from logic import pvpu as loc_pvpu
 from logic import user as loc_user
 from common.log_client import gen_log
 from base import verify_api_login
-from ser_email.ser_email import qq_send_email, hot_send_email
+from ser_email.ser_email import gmail_send_email
 
 class LikeProductHandler(RequestHandler):
     @verify_api_login
@@ -158,7 +158,7 @@ class SendEmailHandler(RequestHandler):
             self.finish(json.dumps({'state': 2, "message": "Message or subject is none."}))
             return
 
-        if not hot_send_email(send_email, message, subject):
+        if not gmail_send_email(send_email, message, subject):
             self.finish(json.dumps({'state': 3, "message": "send email faild"}))
             return
         self.finish(json.dumps({'state': 0, "message": "send ok"}))

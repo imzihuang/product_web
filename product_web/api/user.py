@@ -9,7 +9,7 @@ from common.log_client import gen_log
 from logic import user as loc_user
 from common.encrypt_md5 import encry_md5
 from common.ini_client import ini_load
-from ser_email.ser_email import qq_send_email, hot_send_email
+from ser_email.ser_email import gmail_send_email
 
 ser_conf = ini_load('config/service.ini')
 ser_dic_con = ser_conf.get_fields('service')
@@ -123,7 +123,7 @@ class SignInHandler(RequestHandler):
               </body>
             </html>
             """
-        if not hot_send_email(email, html%{"redirect_url":redirect_url}, "Verify email"):
+        if not gmail_send_email(email, html%{"redirect_url":redirect_url}, "Verify email"):
             self.finish(json.dumps({'state': 5, "message": "send email faild"}))
             return
         self.finish(json.dumps({'state': 0, "message": msg}))
@@ -226,7 +226,7 @@ class ReSetUserPwdHandler(RequestHandler):
               </body>
             </html>
             """
-        if not hot_send_email(email, html%{"redirect_url":redirect_url}, "Verify email"):
+        if not gmail_send_email(email, html%{"redirect_url":redirect_url}, "Verify email"):
             self.finish(json.dumps({'state': 5, "message": "send email faild"}))
             return
         self.finish(json.dumps({'state': 0, "message": "Reset ok"}))

@@ -75,17 +75,18 @@ gmail_email_pwd = gmail_dic_con.get("email_pwd")
 def gmail_send_email(to_email, message, subject):
     global _LOCK
     with _LOCK:
+        service_smtp = smtplib.SMTP()
         try:
             # Create SMTP Object
-            service_smtp = smtplib.SMTP()
             service_smtp.connect('smtp.gmail.com', 25)
             service_smtp.starttls()
             # login with username & password
             service_smtp.login(gmail_email_user, gmail_email_pwd)
+            msg = MIMEText(message)
             msg['From'] = gmail_email_user
             msg['To'] = to_email
             msg['Subject'] = subject
-            service_smtp.sendmail(from_addr, to_email, message)
+            service_smtp.sendmail(gmail_email_user, to_email, msg.as_string())
             return True
         except smtplib.SMTPException, e:
             gen_log.error("send email error:%r" % e)
