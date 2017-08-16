@@ -23,7 +23,7 @@ function helpemail(){
       $.ajax({
         type: "POST",
         url:"/product/send_email",
-        async: false,
+        async: true,
         data:data,
         success: function(msg) {
           var data = JSON.parse(msg);
@@ -88,7 +88,7 @@ function logout(){
   $.ajax({
     type: "post",
     url:"/product/logout",
-    async: false,
+    async: true,
     success: function(msg) {
       window.location.href='/product/login.html';
     },
@@ -105,7 +105,7 @@ function login(){
   $.ajax({
     type: "POST",
     url:"/product/login",
-    async: false,
+    async: true,
     data:data,
     success: function(msg) {
       var data = JSON.parse(msg);
