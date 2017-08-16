@@ -373,7 +373,7 @@ ul.countdown li p {
 	opacity: 1;
 }
 .product_name{
-	max-height: 36px;
+	max-height: 35px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
