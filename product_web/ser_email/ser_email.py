@@ -75,9 +75,9 @@ gmail_email_pwd = gmail_dic_con.get("email_pwd")
 def gmail_send_email(to_email, message, subject):
     global _LOCK
     with _LOCK:
+        service_smtp = smtplib.SMTP()
         try:
             # Create SMTP Object
-            service_smtp = smtplib.SMTP()
             service_smtp.connect('smtp.gmail.com', 25)
             service_smtp.starttls()
             # login with username & password
