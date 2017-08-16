@@ -280,6 +280,8 @@ img { max-width: 100%; }
 		left: 5% !important;
 		margin: 0 auto !important;
 	}
+}
+@media (max-width: 550px){
 	.all-items .col-sm-6, .all-items .col-md-3{
 		min-height: 350px !important;
 	}
