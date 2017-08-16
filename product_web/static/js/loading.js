@@ -9,7 +9,7 @@ var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:1
 '<div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px; width: auto;font-size:16px; height: 57px; line-height: 57px; padding-left: 50px; padding-right: '+
 '5px; background: #000;color: #fff; font-family:\'Microsoft YaHei\';">loading...</div></div>';
 //呈现loading效果
-document.write(_LoadingHtml);
+document.write(_LoadingHtml);console.log(2);
 $("#loadingDiv").parents().find("body").css("overflow-y","hidden");console.log($("#loadingDiv").parents().html());
 //window.onload = function () {
 //    var loadingMask = document.getElementById('loadingDiv');
