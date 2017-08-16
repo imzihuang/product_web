@@ -34,6 +34,7 @@ def qq_send_email(to_email, message, subject):
             msg["To"] = to_email
             service_smtp.login(qq_email_user, qq_email_pwd)
             service_smtp.sendmail(qq_email_user, to_email, msg.as_string())
+            service_smtp.close()
             return True
         except smtplib.SMTPException, e:
             gen_log.error("send email error:%r"%e)
@@ -61,6 +62,7 @@ def hot_send_email(to_email, message, subject):
             service_smtp.ehlo()
             service_smtp.login(hot_email_user, hot_email_pwd)
             service_smtp.sendmail(hot_email_user, to_email, msg.as_string())
+            service_smtp.close()
             return True
         except smtplib.SMTPException, e:
             gen_log.error("send email error:%r" % e)
@@ -75,8 +77,11 @@ gmail_email_pwd = gmail_dic_con.get("email_pwd")
 def gmail_send_email(to_email, message, subject):
     try:
         # Create SMTP Object
-        service_smtp = smtplib.SMTP()
-        service_smtp.connect('smtp.gmail.com', 25)
+        msg = MIMEText(message)
+        msg['From'] = gmail_email_user
+        msg['To'] = to_email
+        msg['Subject'] = subject
+        service_smtp = smtplib.SMTP('smtp.gmail.com', 587)
     except Exception, e:
         gen_log.error("send email conncet error:%r" % e)
         return False
@@ -85,10 +90,6 @@ def gmail_send_email(to_email, message, subject):
         service_smtp.starttls()
         # login with username & password
         service_smtp.login(gmail_email_user, gmail_email_pwd)
-        msg = MIMEText(message)
-        msg['From'] = gmail_email_user
-        msg['To'] = to_email
-        msg['Subject'] = subject
         service_smtp.sendmail(gmail_email_user, to_email, msg.as_string())
         return True
     except smtplib.SMTPException, e:
