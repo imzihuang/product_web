@@ -23,7 +23,7 @@ function putkeyword(){
 $.ajax({
   type: "GET",
   url:"/product/product_os",
-  async: true,
+  async: false,
   data:data,
   success: function(msg) {
     dataAll=msg;
@@ -39,7 +39,7 @@ $.ajax({
     };
     for(var i=0;i<msg.data.length;i++){
       str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+msg.data[i].img_path+
-      '"alt="images"></a><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
+      '"alt="通用的占位符缩略图"></a><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
       msg.data[i].theme+'</a></p><p class="color_gray">'+
       msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
       msg.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
@@ -58,7 +58,7 @@ $.ajax({
       if(msg.data[i].recommend==true)
       {
        pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+msg.data[i].img_path+
-       '"alt="images"></a><div class="caption"><p><a href="'+msg.data[i].links+'">'+msg.data[i].theme+
+       '"alt="通用的占位符缩略图"></a><div class="caption"><p><a href="'+msg.data[i].links+'">'+msg.data[i].theme+
        '</a></p></div></div></div>'
        pop=pop+pop_;
      }
@@ -98,7 +98,7 @@ function apply(){
   $.ajax({
     type: "GET",
     url:"/product/product_os",
-    async: true,
+    async: false,
     success: function(msg) {
       dataAll=msg;
       var str="";
@@ -113,7 +113,7 @@ function apply(){
       };
       for(var i=0;i<msg.data.length;i++){
        str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+msg.data[i].img_path+
-       '"alt="images"></a><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
+       '"alt="通用的占位符缩略图"></a><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
        msg.data[i].theme+'</a></p><p class="color_gray">'+
        msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
        msg.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
@@ -132,7 +132,7 @@ function apply(){
       if(msg.data[i].recommend==true)
       { 
         pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+msg.data[i].img_path+
-        '"alt="images"></a><div class="caption"><p><a href="'+msg.data[i].links+'">'+msg.data[i].theme+
+        '"alt="通用的占位符缩略图"></a><div class="caption"><p><a href="'+msg.data[i].links+'">'+msg.data[i].theme+
         '</a></p></div></div></div>'
         pop=pop+pop_;
       }
@@ -169,7 +169,7 @@ $('.likeList a img').click(function(){console.log(1);
   $.ajax({
     type: "post",
     url:"/product/like_product",
-    async: true,
+    async: false,
     data:data,
     success: function(msg) {
       current_obj.parent().parent().find(".likecount").html(msg.count);
@@ -183,7 +183,7 @@ function logout(){
   $.ajax({
     type: "post",
     url:"/product/logout",
-    async: true,
+    async: false,
     success: function(msg) {
       window.location.href='/product/login.html';
     },
@@ -200,7 +200,7 @@ function productsearch(){
   if(tag==""){
     for(var i=0;i<dataAll.data.length;i++){
       str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+dataAll.data[i].img_path+
-      '"alt="images"></a><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
+      '"alt="通用的占位符缩略图"></a><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
       dataAll.data[i].theme+'</a></p><p class="color_gray">'+
       dataAll.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
       dataAll.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
@@ -219,7 +219,7 @@ function productsearch(){
     for(var i=0;i<dataAll.data.length;i++){
       if(dataAll.data[i].name.indexOf(tag)!=-1||dataAll.data[i].theme.indexOf(tag)!=-1||dataAll.data[i].description.indexOf(tag)!=-1){
         str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+dataAll.data[i].img_path+
-        '"alt="images"></a><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
+        '"alt="通用的占位符缩略图"></a><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
         dataAll.data[i].theme+'</a></p><p class="color_gray">'+
         dataAll.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
         dataAll.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
@@ -297,7 +297,7 @@ function login(){
   $.ajax({
     type: "POST",
     url:"/product/login",
-    async: true,
+    async: false,
     data:data,
     success: function(msg) {
       var data = JSON.parse(msg);
