@@ -337,7 +337,15 @@ img { max-width: 100%; }
 .navbar-toggle{color: #fff;font-size: 14px;}
 .navbar-default .navbar-toggle:focus,.navbar-default .navbar-toggle{background-color: #232f3e;}
 .thumbnail img{cursor: pointer;}
-#home_popular .thumbnail{padding: 0px;}
+#home_popular .thumbnail,#product_popular .thumbnail,#product_popular .thumbnail .caption{padding: 0px;}
+#product_popular .thumbnail .caption a{
+	max-height:17px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
 ul.countdown {
 	list-style: none;
 	padding: 0;
