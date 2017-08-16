@@ -143,7 +143,7 @@ function search(){
   };
   if(tag==""){
     for(var i=0;i<dataAll.data.length;i++){
-      str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+'" val="'+ msg.data[i].name +'" onclick=keyword_os(this) alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
+      str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+'" val="'+ dataAll.data[i].name +'" onclick=keyword_os(this) alt="通用的占位符缩略图"><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
       dataAll.data[i].theme+'</a></p><p class="color_gray">'+
       dataAll.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
       dataAll.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
