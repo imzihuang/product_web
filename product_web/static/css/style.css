@@ -321,7 +321,7 @@ img { max-width: 100%; }
 .all-items .row{margin: 0px;padding-left:10px;padding-right: 10px; }
 .all-items .col-sm-6,.all-items .col-md-3{padding-left:0px;padding-right: 0px;min-height: 390px;}
 .likeList{height:25px;width: 100%;padding-top: 5px;}
-.likeList a img{height: 100% !important;width: auto!important;float:left;}
+.likeList a img{height: 100% !important;width: auto!important;float:left;padding-right: 0px !important;}
 .likeList span{color: #febd69;}
 .aboutHelp a{color: #0066c0;text-decoration: underline;}
 .all-items .timedown{margin: 0;font-size: 12px;font-weight: bold;}
