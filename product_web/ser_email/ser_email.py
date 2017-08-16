@@ -77,6 +77,11 @@ def gmail_send_email(to_email, message, subject):
         # Create SMTP Object
         service_smtp = smtplib.SMTP()
         service_smtp.connect('smtp.gmail.com', 25)
+    except Exception, e:
+        gen_log.error("send email conncet error:%r" % e)
+        return False
+
+    try:
         service_smtp.starttls()
         # login with username & password
         service_smtp.login(gmail_email_user, gmail_email_pwd)
@@ -87,6 +92,9 @@ def gmail_send_email(to_email, message, subject):
         service_smtp.sendmail(gmail_email_user, to_email, msg.as_string())
         return True
     except smtplib.SMTPException, e:
+        gen_log.error("send email smtp error:%r" % e)
+        return False
+    except Exception, e:
         gen_log.error("send email error:%r" % e)
         return False
     finally:
