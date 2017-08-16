@@ -289,6 +289,10 @@ img { max-width: 100%; }
     width: 40%;
     float: left;
 	}
+	.phonePright{
+	width: 60%;
+    float: left;
+	}
 	.all-items .col-sm-6, .all-items .col-md-3{
 		max-height: 182px !important;
 		min-height: 182px !important;
