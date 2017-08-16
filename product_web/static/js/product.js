@@ -218,7 +218,7 @@ function productsearch(){
   }else{
     for(var i=0;i<dataAll.data.length;i++){
       if(dataAll.data[i].name.indexOf(tag)!=-1||dataAll.data[i].theme.indexOf(tag)!=-1||dataAll.data[i].description.indexOf(tag)!=-1){
-        str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+dataAll.data[i].img_path+
+        str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+dataAll.data[i].links+'"><img src="'+dataAll.data[i].img_path+
         '"alt="images"></a><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
         dataAll.data[i].theme+'</a></p><p class="color_gray">'+
         dataAll.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
