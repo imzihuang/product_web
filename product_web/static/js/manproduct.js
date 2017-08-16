@@ -66,7 +66,7 @@ $(function() {
 				$.ajax({
                     type: "post",
                     url:"/product/product_os_del",
-                    async: false,
+                    async: true,
                     data:data,
                     success: function(msg) {
                         // var data = JSON.parse(msg);
@@ -213,7 +213,7 @@ $(function() {
               $.ajax({
                     type: "PUT",
                     url:"/product/product_os_update",
-                    async: false,
+                    async: true,
                     data:data,
                     success: function(msg) {
                         // var data = JSON.parse(msg);
@@ -296,7 +296,7 @@ $(function() {
 	 $.ajax({
             type: "GET",
             url:"/product/product_os",
-            async: false,
+            async: true,
             success: function(msg) {
                 $("#tbody").find("tr").remove();
                  var str;
