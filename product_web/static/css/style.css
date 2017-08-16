@@ -286,7 +286,7 @@ img { max-width: 100%; }
 		min-height: 340px !important;
 	}
 }
-@media (max-width: 550px){
+@media (max-width: 400px){
 	.all-items .col-sm-6, .all-items .col-md-3{
 		min-height: 330px !important;
 	}
