@@ -285,9 +285,11 @@ img { max-width: 100%; }
 }
 @media (max-width: 550px){
 	.phonePleft{
-	display: block;
-    width: 40%;
+	display: block !important;
+    width: 40% !important;
     float: left;
+    margin: 0 !important;
+    padding: 0 !important;
 	}
 	.phonePright{
 	width: 60%;
