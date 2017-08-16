@@ -294,8 +294,8 @@ img { max-width: 100%; }
     float: left;
 	}
 	.all-items .col-sm-6, .all-items .col-md-3{
-		max-height: 182px !important;
-		min-height: 182px !important;
+		max-height: 186px !important;
+		min-height: 186px !important;
 	}
 }
 
