@@ -24,7 +24,7 @@ function completeLoading() {
     if (document.readyState == "complete") {
         var loadingMask = document.getElementById('loadingDiv');
         loadingMask.parentNode.removeChild(loadingMask);
-        $("body").css("overflow-y","auto");
+        $("body").css("overflow-y","scroll");
     }
 
 }
