@@ -40,7 +40,7 @@ $.ajax({
     for(var i=0;i<msg.data.length;i++){
       str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+msg.data[i].img_path+
       '"alt="images"></a><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
-      msg.data[i].theme+'</a></p><p class="color_gray">'+
+      msg.data[i].theme+'</a></p><p class="color_gray by">'+
       msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
       msg.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
       msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">'+
@@ -114,7 +114,7 @@ function apply(){
       for(var i=0;i<msg.data.length;i++){
        str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+msg.data[i].links+'"><img src="'+msg.data[i].img_path+
        '"alt="images"></a><div class="caption text-left"><p class="product_name"><a href="'+msg.data[i].links+'">'+
-       msg.data[i].theme+'</a></p><p class="color_gray">'+
+       msg.data[i].theme+'</a></p><p class="color_gray by">'+
        msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
        msg.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
        msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">'+
@@ -201,7 +201,7 @@ function productsearch(){
     for(var i=0;i<dataAll.data.length;i++){
       str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+dataAll.data[i].links+'"><img src="'+dataAll.data[i].img_path+
       '"alt="images"></a><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
-      dataAll.data[i].theme+'</a></p><p class="color_gray">'+
+      dataAll.data[i].theme+'</a></p><p class="color_gray by">'+
       dataAll.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
       dataAll.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
       dataAll.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">postage:￥'+
@@ -220,7 +220,7 @@ function productsearch(){
       if(dataAll.data[i].name.indexOf(tag)!=-1||dataAll.data[i].theme.indexOf(tag)!=-1||dataAll.data[i].description.indexOf(tag)!=-1){
         str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+dataAll.data[i].links+'"><img src="'+dataAll.data[i].img_path+
         '"alt="images"></a><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
-        dataAll.data[i].theme+'</a></p><p class="color_gray">'+
+        dataAll.data[i].theme+'</a></p><p class="color_gray by">'+
         dataAll.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
         dataAll.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
         dataAll.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">postage:￥'+
