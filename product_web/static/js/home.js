@@ -1,6 +1,6 @@
 apply();
 var aboutOut=$(".track-sign-up").val();
-var dataAll;console.log(dataAll);
+var dataAll;
 var aboutOut_href=$(".track-sign-up").attr("href");
 if(aboutOut_href=="signin.html"){
   $(".likeList a img").attr("onclick","change();return false");
@@ -141,7 +141,7 @@ function search(){
     }
     return "&postage:￥"+postage_price;
   };
-  if(tag==""){
+  if(tag==""){console.log(1);
     for(var i=0;i<dataAll.data.length;i++){
       str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+'" val="'+ dataAll.data[i].name +'" onclick=keyword_os(this) alt="images"><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
       dataAll.data[i].theme+'</a></p><p class="color_gray">'+
@@ -158,7 +158,7 @@ function search(){
     }
     $("#listPart").html("");
     $("#listPart").append(str);
-  }else{
+  }else{console.log(2);
     for(var i=0;i<dataAll.data.length;i++){
       if(dataAll.data[i].name.indexOf(tag)!=-1||dataAll.data[i].theme.indexOf(tag)!=-1||dataAll.data[i].description.indexOf(tag)!=-1){
         str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+'" onclick=keyword_os(this) alt="images"><div class="caption text-left"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
