@@ -283,7 +283,12 @@ img { max-width: 100%; }
 }
 @media (max-width: 550px){
 	.all-items .col-sm-6, .all-items .col-md-3{
-		min-height: 320px !important;
+		min-height: 340px !important;
+	}
+}
+@media (max-width: 550px){
+	.all-items .col-sm-6, .all-items .col-md-3{
+		min-height: 330px !important;
 	}
 }
 @media (min-width: 1200px){
