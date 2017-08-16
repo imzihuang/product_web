@@ -346,6 +346,7 @@ img { max-width: 100%; }
 	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
 }
+#product_popular .col-sm-12, .col-md-12{width: 95% !important;}
 ul.countdown {
 	list-style: none;
 	padding: 0;
