@@ -9,7 +9,7 @@ var _LoadingTop = _PageHeight > 61 ? (_PageHeight - 61) / 2 : 0,
 var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;height:' + _PageHeight + 'px;top:0;background:#000;opacity:0.4;filter:alpha(opacity=80);z-index:10000;">'+
 '<div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px; width: auto;font-size:16px; height: 57px; line-height: 57px; padding-left: 50px; padding-right: '+
 '5px; background: #000;color: #fff; font-family:\'Microsoft YaHei\';">loading...</div></div>';
-if(_PageWidth>600){
+// if(_PageWidth>600){
 //呈现loading效果
 document.write(_LoadingHtml);
 
@@ -23,7 +23,7 @@ document.onreadystatechange = completeLoading;
 
 //加载状态为complete时移除loading效果
 function completeLoading() {
-    $("#loadingDiv").parents().css("overflow","hidden");
+    $("body").css("overflow","hidden");
     if (document.readyState == "complete") {
         var loadingMask = document.getElementById('loadingDiv');
         loadingMask.parentNode.removeChild(loadingMask);
@@ -31,4 +31,4 @@ function completeLoading() {
     $("body").css("overflow","auto");
 
 }
-}
+// }
