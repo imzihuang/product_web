@@ -23,7 +23,7 @@ function putkeyword(){
 $.ajax({
   type: "GET",
   url:"/product/product_os",
-  async: false,
+  async: true,
   data:data,
   success: function(msg) {
     dataAll=msg;
@@ -98,7 +98,7 @@ function apply(){
   $.ajax({
     type: "GET",
     url:"/product/product_os",
-    async: false,
+    async: true,
     success: function(msg) {
       dataAll=msg;
       var str="";
@@ -169,7 +169,7 @@ $('.likeList a img').click(function(){console.log(1);
   $.ajax({
     type: "post",
     url:"/product/like_product",
-    async: false,
+    async: true,
     data:data,
     success: function(msg) {
       current_obj.parent().parent().find(".likecount").html(msg.count);
@@ -183,7 +183,7 @@ function logout(){
   $.ajax({
     type: "post",
     url:"/product/logout",
-    async: false,
+    async: true,
     success: function(msg) {
       window.location.href='/product/login.html';
     },
@@ -297,7 +297,7 @@ function login(){
   $.ajax({
     type: "POST",
     url:"/product/login",
-    async: false,
+    async: true,
     data:data,
     success: function(msg) {
       var data = JSON.parse(msg);
