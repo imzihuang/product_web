@@ -10,7 +10,7 @@ var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:1
 '5px; background: #000;color: #fff; font-family:\'Microsoft YaHei\';">loading...</div></div>';
 //呈现loading效果
 document.write(_LoadingHtml);
- $("body").css("overflow","auto");
+
 //window.onload = function () {
 //    var loadingMask = document.getElementById('loadingDiv');
 //    loadingMask.parentNode.removeChild(loadingMask);
@@ -26,4 +26,5 @@ function completeLoading() {
         var loadingMask = document.getElementById('loadingDiv');
         loadingMask.parentNode.removeChild(loadingMask);
     }
+    $("body").css("overflow","auto");
 }
