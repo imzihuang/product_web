@@ -71,7 +71,7 @@ def hot_send_email(to_email, message, subject):
             service_smtp.quit()
 
 """gmail enterprise"""
-gmail_dic_con = _conf.get_fields('hotmail')
+gmail_dic_con = _conf.get_fields('google_enterprise')
 gmail_email_user = gmail_dic_con.get("email_user")
 gmail_email_pwd = gmail_dic_con.get("email_pwd")
 def gmail_send_email(to_email, message, subject):
