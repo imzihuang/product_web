@@ -43,9 +43,9 @@ def qq_send_email(to_email, message, subject):
 
 
 """smtp-mail.outlook.com"""
-hot_dic_con=_conf.get_fields('hotmail')
+hot_dic_con = _conf.get_fields('hotmail')
 hot_email_user = hot_dic_con.get("email_user")
-hot_email_pwd  = hot_dic_con.get("email_pwd")
+hot_email_pwd = hot_dic_con.get("email_pwd")
 def hot_send_email(to_email, message, subject):
     global _LOCK
     with _LOCK:
@@ -68,6 +68,30 @@ def hot_send_email(to_email, message, subject):
         finally:
             service_smtp.quit()
 
+"""gmail enterprise"""
+gmail_dic_con = _conf.get_fields('hotmail')
+gmail_email_user = gmail_dic_con.get("email_user")
+gmail_email_pwd = gmail_dic_con.get("email_pwd")
+def gmail_send_email(to_email, message, subject):
+    global _LOCK
+    with _LOCK:
+        try:
+            # Create SMTP Object
+            service_smtp = smtplib.SMTP()
+            service_smtp.connect('smtp.gmail.com', 25)
+            service_smtp.starttls()
+            # login with username & password
+            service_smtp.login(gmail_email_user, gmail_email_pwd)
+            msg['From'] = gmail_email_user
+            msg['To'] = to_email
+            msg['Subject'] = subject
+            service_smtp.sendmail(from_addr, to_email, message)
+            return True
+        except smtplib.SMTPException, e:
+            gen_log.error("send email error:%r" % e)
+            return False
+        finally:
+            service_smtp.quit()
 
 
 
