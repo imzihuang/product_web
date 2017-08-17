@@ -244,10 +244,10 @@ function signin(){
 }
 
 //点赞
-function like(){console.log(6);
-  var imgId = $(this).attr("id");
-  var current_obj = $(this);
-  current_obj.attr("src","img/like.png");
+function like(){
+  var imgId = this.attr("id");console.log(6);
+  // var current_obj = $(this);
+  this.attr("src","img/like.png");
   var data = {
     keyword_id:imgId
   };
