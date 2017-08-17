@@ -57,7 +57,7 @@ $.ajax({
      }
    }
    $("#product_popular").append(pop);
-   if(aboutOut_href=="signin.html"){console.log(1);
+   if(aboutOut_href=="signin.html"){
     $(".product_name a").attr("onclick","change();return false");//产品名称
     $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
     $("#product_popular img").attr("onclick","change();return false");//今日主打图片
@@ -136,7 +136,7 @@ function apply(){
       }
     }
     $("#product_popular").append(pop);
-    if(aboutOut_href=="signin.html"){console.log(1);
+    if(aboutOut_href=="signin.html"){
       $(".product_name a").attr("onclick","change();return false");//产品名称
       $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
       $("#product_popular img").attr("onclick","change();return false");//今日主打图片
@@ -161,7 +161,7 @@ function apply(){
 });
 }
 
-$('.likeList a img').click(function(){console.log(7);
+$('.likeList a img').click(function(){
   var imgId=$(this).attr("id");
   var current_obj = $(this);
   current_obj.attr("src","img/like.png");
