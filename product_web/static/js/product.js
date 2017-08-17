@@ -322,7 +322,7 @@ function like(m){
   var current_obj = $(m);
   $(m).attr("src","img/like.png");
   var data = {
-    keyword_id:imgId
+    product_id:imgId
   };
   $.ajax({
     type: "post",
