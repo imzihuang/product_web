@@ -85,13 +85,6 @@ error:function(){
 });
 }
 
-$(".share_google").mouseover(function(){
-  $(this).next(".weichat").css("display","block");
-});
-$(".share_google").mouseout(function(){
-  $(this).next(".weichat").css("display","none");
-});
-
 function apply(){
   $.ajax({
     type: "GET",
