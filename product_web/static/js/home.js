@@ -244,8 +244,8 @@ function signin(){
 }
 
 //点赞
-$(".startimg").click(function(){console.log(3);
-  var imgId=$(this).attr("id");
+$(".likeList a img").click(function(){console.log(3);
+  var imgId = $(this).attr("id");
   var current_obj = $(this);
   current_obj.attr("src","img/like.png");
   var data = {
