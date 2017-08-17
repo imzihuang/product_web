@@ -31,7 +31,7 @@ function apply(){
        msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">'+
        show_postage(msg.data[i].postage_price)+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>days</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
        '<p class="aboutHelp"><a onclick="howclaim()">How to buy?</a></p>'+
-       '<div class="likeList"><img src="img/start.png" class="startimg"/><a ><img src="img/unlike.png" id="'+msg.data[i].id+'" class="golike"></a><span class="likecount">'+(parseInt(msg.data[i].like_count)+parseInt(msg.data[i].like_add_count))+'</span></div>'+
+       '<div class="likeList"><img src="img/start.png" class="startimg"/><a ><img src="img/unlike.png" id="'+msg.data[i].id+'" onclick="like()"></a><span class="likecount">'+(parseInt(msg.data[i].like_count)+parseInt(msg.data[i].like_add_count))+'</span></div>'+
        '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen"></i></a>'+
        '<a class="share share_twitter" onclick="sharetwitter('+"'"+window.location.href+"'"+')"><i class="fa fa-twitter areapen"></i></a>'+
        '<a class="share share_google" onclick="sharegoogle('+"'"+window.location.href+"'"+')"><i class="fa fa-google areapen"></i></a></span></div></div></div></div></div>'
@@ -124,7 +124,7 @@ function search(){
       dataAll.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">'+
       show_postage(dataAll.data[i].postage_price)+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>days</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
       '<p class="aboutHelp"><a onclick="howclaim()">How to buy?</a></p>'+
-      '<div class="likeList"><img src="img/start.png" class="startimg"/><a ><img src="img/unlike.png" id="'+dataAll.data[i].id+'" class="golike"></a><span class="likecount">'+dataAll.data[i].like_count+'</span></div>'+
+      '<div class="likeList"><img src="img/start.png" class="startimg"/><a ><img src="img/unlike.png" id="'+dataAll.data[i].id+'" onclick="like()"></a><span class="likecount">'+dataAll.data[i].like_count+'</span></div>'+
       '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a>'+
       '<a class="share share_twitter" onclick="sharetwitter('+"'"+window.location.href+"'"+')"><i class="fa fa-twitter areapen"></i></a>'+
       '<a class="share share_google" onclick="sharegoogle('+"'"+window.location.href+"'"+')"><i class="fa fa-google areapen"></i></a></span></div></div></div></div></div>'
@@ -142,7 +142,7 @@ function search(){
         dataAll.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">'+
         show_postage(dataAll.data[i].postage_price)+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>days</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
         '<p class="aboutHelp"><a onclick="howclaim()">How to buy?</a></p>'+
-        '<div class="likeList"><img src="img/start.png" class="startimg"/><a><img src="img/unlike.png" id="'+dataAll.data[i].id+'" class="golike"></a><span class="likecount">'+dataAll.data[i].like_count+'</span></div>'+
+        '<div class="likeList"><img src="img/start.png" class="startimg"/><a><img src="img/unlike.png" id="'+dataAll.data[i].id+'" onclick="like()"></a><span class="likecount">'+dataAll.data[i].like_count+'</span></div>'+
         '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a>'+
         '<a class="share share_twitter" onclick="sharetwitter('+"'"+window.location.href+"'"+')"><i class="fa fa-twitter areapen"></i></a>'+
         '<a class="share share_google" onclick="sharegoogle('+"'"+window.location.href+"'"+')"><i class="fa fa-google areapen"></i></a><img src="img/weichart.png" class="weichat"/></span></div></div></div></div></div>'
@@ -244,10 +244,7 @@ function signin(){
 }
 
 //点赞
-$(".startimg").click(function(){
-  console.log("zzz");
-})
-$(".likeList a img").click(function(){console.log(3);
+function like(){
   var imgId = $(this).attr("id");
   var current_obj = $(this);
   current_obj.attr("src","img/like.png");
@@ -266,5 +263,4 @@ $(".likeList a img").click(function(){console.log(3);
 
     }
   });
-});
-
+}
