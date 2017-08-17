@@ -245,7 +245,7 @@ function signin(){
 
 //点赞
 function like(m){
-  var imgId = $(m).attr("id");console.log(6);
+  var imgId = $(m).attr("id");
   var current_obj = $(m);
   $(m).attr("src","img/like.png");
   var data = {
