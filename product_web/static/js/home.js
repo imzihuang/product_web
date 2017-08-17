@@ -244,6 +244,9 @@ function signin(){
 }
 
 //点赞
+$(".startimg").click(function(){
+  console.log("zzz");
+})
 $(".likeList a img").click(function(){console.log(3);
   var imgId = $(this).attr("id");
   var current_obj = $(this);
