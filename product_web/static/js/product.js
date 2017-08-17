@@ -3,24 +3,10 @@ var aboutOut=$(".track-sign-up").val();
 var aboutOut_href=$(".track-sign-up").attr("href");
 if($("#current_keyword").val()==""){
   apply();
-  if(aboutOut_href=="signin.html"){console.log(1);
-  $(".product_name a").attr("onclick","change();return false");//产品名称
-  $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
-  $("#product_popular img").attr("onclick","change();return false");//今日主打图片
-  $("#product_popular .caption p a").attr("onclick","change();return false");//今日主打名称
-}
 }
 else{
   putkeyword();
-  if(aboutOut_href=="signin.html"){console.log(1);
-  $(".product_name a").attr("onclick","change();return false");//产品名称
-  $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
-  $("#product_popular img").attr("onclick","change();return false");//今日主打图片
-  $("#product_popular .caption p a").attr("onclick","change();return false");//今日主打名称
 }
-}
-
-
 
 function putkeyword(){
  var data = {
@@ -71,7 +57,12 @@ $.ajax({
      }
    }
    $("#product_popular").append(pop);
-
+   if(aboutOut_href=="signin.html"){console.log(1);
+    $(".product_name a").attr("onclick","change();return false");//产品名称
+    $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
+    $("#product_popular img").attr("onclick","change();return false");//今日主打图片
+    $("#product_popular .caption p a").attr("onclick","change();return false");//今日主打名称
+  }
    for(var j=0;j<msg.data.length;j++){
     var now_date = new Date;
     var str_current_date = msg.data[j].count_down_at;
@@ -145,7 +136,12 @@ function apply(){
       }
     }
     $("#product_popular").append(pop);
-
+    if(aboutOut_href=="signin.html"){console.log(1);
+      $(".product_name a").attr("onclick","change();return false");//产品名称
+      $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
+      $("#product_popular img").attr("onclick","change();return false");//今日主打图片
+      $("#product_popular .caption p a").attr("onclick","change();return false");//今日主打名称
+    }
     for(var j=0;j<msg.data.length;j++){
       var now_date = new Date;
       var str_current_date = msg.data[j].count_down_at;
