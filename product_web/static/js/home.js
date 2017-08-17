@@ -53,7 +53,7 @@ function apply(){
       $(".likeList a img").attr("onclick","change();return false");
     }
     for(var j=0;j<msg.data.length;j++){
-      var now_date = new Date;
+      var now_date = msg.data[j].now_at;
       var str_current_date = msg.data[j].count_down_at;
       var current_date = new Date(str_current_date);
       var strclass = ' .countdown' + j;
@@ -158,7 +158,7 @@ function search(){
   }
 
   for(var j=0; j<dataAll.data.length; j++){
-    var now_date = new Date;
+    var now_date = dataAll.data[j].now_at;
     var str_current_date = dataAll.data[j].count_down_at;
     var current_date = new Date(str_current_date);
     var strclass = ' .countdown' + j;

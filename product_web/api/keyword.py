@@ -16,9 +16,12 @@ class KeywordHandler(RequestHandler):
         limit = int(self.get_argument("limit", 0))
         if keyword_name:
             keyword_info = loc_keywod.get_keyword(name=keyword_name)
+            if keyword_info:
+                keyword_info.update({"now_at": datetime.now().strftime('%Y\%m\%d %H:%M:%S')})
             self.finish({'state': '0', 'data': keyword_info})
             return
         keyword_list = loc_keywod.get_keyword(offset=offset, limit=limit)
+        [keyword.update({"now_at": datetime.now().strftime('%Y\%m\%d %H:%M:%S')}) for keyword in keyword_list]
         self.finish({'state': '0', 'data': keyword_list})
 
     @verify_api_login
