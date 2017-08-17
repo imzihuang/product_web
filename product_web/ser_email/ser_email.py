@@ -16,7 +16,7 @@ qq_email_user = qq_dic_con.get("email_user")
 qq_email_pwd  = qq_dic_con.get("email_pwd")
 
 
-def qq_send_email(to_email, message, subject, type="plain"):
+def qq_send_email(to_email, message, subject, msg_type="plain"):
     """
     发送邮件
     :param to_email: 接收邮箱
@@ -28,7 +28,7 @@ def qq_send_email(to_email, message, subject, type="plain"):
     with _LOCK:
         try:
             service_smtp = smtplib.SMTP_SSL("smtp.qq.com", 465)
-            msg = MIMEText(message, type)
+            msg = MIMEText(message, msg_type)
             msg["Subject"] = subject
             msg["From"] = qq_email_user
             msg["To"] = to_email
@@ -47,13 +47,13 @@ def qq_send_email(to_email, message, subject, type="plain"):
 hot_dic_con = _conf.get_fields('hotmail')
 hot_email_user = hot_dic_con.get("email_user")
 hot_email_pwd = hot_dic_con.get("email_pwd")
-def hot_send_email(to_email, message, subject, type="plain"):
+def hot_send_email(to_email, message, subject, msg_type="plain"):
     global _LOCK
     with _LOCK:
         try:
             #service_smtp = smtplib.SMTP("smtp-mail.outlook.com", 587)
             service_smtp = smtplib.SMTP("smtp.live.com",587)
-            msg = MIMEText(message, type)
+            msg = MIMEText(message, msg_type)
             msg["Subject"] = subject
             msg["From"] = hot_email_user
             msg["To"] = to_email
@@ -74,12 +74,12 @@ def hot_send_email(to_email, message, subject, type="plain"):
 gmail_dic_con = _conf.get_fields('google_enterprise')
 gmail_email_user = gmail_dic_con.get("email_user")
 gmail_email_pwd = gmail_dic_con.get("email_pwd")
-def gmail_send_email(to_email, message, subject, type="plain"):
+def gmail_send_email(to_email, message, subject, msg_type="plain"):
     global _LOCK
     with _LOCK:
         try:
             # Create SMTP Object
-            msg = MIMEText(message, type)
+            msg = MIMEText(message, msg_type)
             msg['From'] = gmail_email_user
             msg['To'] = to_email
             msg['Subject'] = subject
