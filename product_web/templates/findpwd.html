@@ -111,7 +111,8 @@
                         console.log(data);
                         console.log(data.state);
                         if(data.state==0){
-                            window.location.href="/product/signin_notice.html";
+                            alert("commit success!");
+                            window.location.href="/product/home.html";
                         }
                         else if(data.state==1){
                             $("#confirmRe").html("Password inconsistent or not satisfied format!");
