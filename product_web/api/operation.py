@@ -163,9 +163,9 @@ class SendEmailHandler(RequestHandler):
               <head></head>
               <body>
                 <p>
-                   %{user_name}s
+                   %(user_name)s
                    <br>
-                   %{message}s
+                   %(message)s
                 </p>
               </body>
             </html>
