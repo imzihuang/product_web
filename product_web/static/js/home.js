@@ -70,25 +70,26 @@ function apply(){
   },
 });
 }
+$(document).ready(function(){
+  $(".likeList a img").click(function(){console.log(33);
+    var imgId=$(this).attr("id");
+    var current_obj = $(this);
+    current_obj.attr("src","img/like.png");
+    var data = {
+      keyword_id:imgId
+    };
+    $.ajax({
+      type: "post",
+      url:"/product/like_keyword",
+      async: true,
+      data:data,
+      success: function(msg) {
+        current_obj.parent().parent().find(".likecount").html(msg.count);
+      },
+      error:function(){
 
-$(".likeList a img").click(function(){console.log(33);
-  var imgId=$(this).attr("id");
-  var current_obj = $(this);
-  current_obj.attr("src","img/like.png");
-  var data = {
-    keyword_id:imgId
-  };
-  $.ajax({
-    type: "post",
-    url:"/product/like_keyword",
-    async: true,
-    data:data,
-    success: function(msg) {
-      current_obj.parent().parent().find(".likecount").html(msg.count);
-    },
-    error:function(){
-
-    }
+      }
+    });
   });
 });
 
