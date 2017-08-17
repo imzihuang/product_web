@@ -76,7 +76,7 @@ $(".share_google").mouseout(function(){
   $(this).next(".weichat").css("display","none");
 });
 
-$('.likeList>a>img').click(function(){console.log(4);
+$('.likeList a').click(function(){console.log(4);
   var imgId=$(this).attr("id");
   var current_obj = $(this);
   current_obj.attr("src","img/like.png");
