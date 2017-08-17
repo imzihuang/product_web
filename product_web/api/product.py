@@ -19,17 +19,17 @@ class ProductHandler(RequestHandler):
         if is_like_query == 1:
             keyword = self.get_argument("keyword", "")
             product_list = loc_product.get_product_like_theme(keyword, offset, limit)
-            [product.update({"now_at": datetime.now().strftime('%Y\%m\%d %H:%M:%S')}) for product in product_list]
+            [product.update({"now_at": datetime.now().strftime('%m/%d/%Y %H:%M:%S')}) for product in product_list]
             self.finish({'state': '0', 'data': product_list})
             return
         if product_name:
             product = loc_product.get_product(name=product_name)
             if product:
-                product.update({"now_at": datetime.now().strftime('%Y\%m\%d %H:%M:%S')})
+                product.update({"now_at": datetime.now().strftime('%m/%d/%Y %H:%M:%S')})
             self.finish({'state': '0', 'data': product})
             return
         product_list = loc_product.get_product(offset=offset, limit=limit)
-        [product.update({"now_at": datetime.now().strftime('%Y\%m\%d %H:%M:%S')}) for product in product_list]
+        [product.update({"now_at": datetime.now().strftime('%m/%d/%Y %H:%M:%S')}) for product in product_list]
         self.finish({'state': '0', 'data': product_list})
 
     @verify_api_login
