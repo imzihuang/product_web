@@ -71,13 +71,6 @@ function apply(){
 });
 }
 
-$(".share_google").mouseover(function(){
-  $(this).next(".weichat").css("display","block");
-});
-$(".share_google").mouseout(function(){
-  $(this).next(".weichat").css("display","none");
-});
-
 $('.likeList a img').click(function(){
   var imgId=$(this).attr("id");
   var current_obj = $(this);
