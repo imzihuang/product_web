@@ -354,6 +354,15 @@ img { max-width: 100%; }
 	-webkit-box-orient: vertical;
 }
 #product_popular .col-sm-12, .col-md-12{width: 95% !important;}
+#home_popular .thumbnail .caption a{
+	max-height:17px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+#home_popular .col-sm-12, .col-md-12{width: 95% !important;}
 ul.countdown {
 	list-style: none;
 	padding: 0;
