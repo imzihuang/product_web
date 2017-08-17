@@ -244,7 +244,7 @@ function signin(){
 }
 
 //点赞
-$('.golike').click(function(){console.log(3);
+$(".golike").click(function(){console.log(3);
   var imgId=$(this).attr("id");
   var current_obj = $(this);
   current_obj.attr("src","img/like.png");
