@@ -1,6 +1,6 @@
 apply();
 var aboutOut=$(".track-sign-up").val();
-var dataAll;console.log(dataAll);
+var dataAll;
 var aboutOut_href=$(".track-sign-up").attr("href");
 if(aboutOut_href=="signin.html"){
   $(".likeList a img").attr("onclick","change();return false");console.log(11);
@@ -76,7 +76,7 @@ $(".share_google").mouseout(function(){
   $(this).next(".weichat").css("display","none");
 });
 
-$('.likeList a img').click(function(){
+$('.likeList>a>img').click(function(){console.log(4);
   var imgId=$(this).attr("id");
   var current_obj = $(this);
   current_obj.attr("src","img/like.png");
