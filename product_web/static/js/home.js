@@ -3,7 +3,7 @@ var aboutOut=$(".track-sign-up").val();
 var dataAll;
 var aboutOut_href=$(".track-sign-up").attr("href");
 if(aboutOut_href=="signin.html"){
-  $(".likeList a img").attr("width","50px");console.log(11);
+  $(".likeList").attr("width","50px");console.log(11);
 }
 
 function apply(){
@@ -76,7 +76,7 @@ $(".share_google").mouseout(function(){
   $(this).next(".weichat").css("display","none");
 });
 
-$('.likeList a').click(function(){console.log(4);
+$('.likeList a img').click(function(){console.log(4);
   var imgId=$(this).attr("id");
   var current_obj = $(this);
   current_obj.attr("src","img/like.png");
