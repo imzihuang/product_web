@@ -33,12 +33,8 @@ function helpemail(){
               icon: 1,
               time: 800//2s后自动关闭
             });
-           
           }
-            
-        },
-        error:function(){
-          if(data.state==1){
+          else if(data.state==1){
             $("#confirmhelp").html("Company email format error!");
           }
           else if(data.state==2){
@@ -46,7 +42,10 @@ function helpemail(){
           }
           else{
             $("#confirmhelp").html("Failed to send email, resubmit!");
-          }   
+          }    
+        },
+        error:function(){
+          
         }
       });
     //
