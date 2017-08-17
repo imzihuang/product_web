@@ -158,7 +158,20 @@ class SendEmailHandler(RequestHandler):
             self.finish(json.dumps({'state': 2, "message": "Message or subject is none."}))
             return
 
-        if not gmail_send_email(send_email, message, subject):
+        html = """
+            <html>
+              <head></head>
+              <body>
+                <p>
+                   %{user_name}s
+                   <br>
+                   %{message}s
+                </p>
+              </body>
+            </html>
+            """
+
+        if not gmail_send_email(send_email, html%{"user_name":user_name, "message":message}, subject):
             self.finish(json.dumps({'state': 3, "message": "send email faild"}))
             return
         self.finish(json.dumps({'state': 0, "message": "send ok"}))

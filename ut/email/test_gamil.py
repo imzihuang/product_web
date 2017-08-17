@@ -4,10 +4,8 @@ import threading
 from email.mime.text import MIMEText
 import time
 
-#gmail_email_user = "customerservice@amazfree.com"
-gmail_email_user = "imzihuang@gmail.com"
-#gmail_email_pwd = "songbaorui"
-gmail_email_pwd = "lin87786995"
+gmail_email_user = "customerservice@amazfree.com"
+gmail_email_pwd = "songbaorui"
 def gmail_send_email(to_email, message, subject):
     try:
         msg = MIMEText(message)
