@@ -222,13 +222,15 @@ class ReSetUserPwdHandler(RequestHandler):
             <html>
               <head></head>
               <body>
-                <p>Hi!<br>
-                   <a href="%(redirect_url)s">Please reset password. </a>
+                <p>
+                   <a href="%(redirect_url)s">Please click the link we sent to your email to complete this modification.</a>
+                   </br>
+                   After click this link, you will activate the new password and enter the home page directly. Contact the Customer Service if you need any assistant. 
                 </p>
               </body>
             </html>
             """
-        if not gmail_send_email(email, html%{"redirect_url":redirect_url}, "Verify email", msg_type="html"):
+        if not gmail_send_email(email, html%{"redirect_url":redirect_url}, "Password assistance", msg_type="html"):
             self.finish(json.dumps({'state': 5, "message": "send email faild"}))
             return
         self.finish(json.dumps({'state': 0, "message": "Reset ok"}))
