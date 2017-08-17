@@ -3,7 +3,7 @@ var aboutOut=$(".track-sign-up").val();
 var dataAll;console.log(dataAll);
 var aboutOut_href=$(".track-sign-up").attr("href");
 if(aboutOut_href=="signin.html"){
-  $(".likeList a img").attr("onclick","change();return false");console.log(11);
+  $(".likeList a img").prop("onclick","change();return false");console.log(11);
 }
 
 function apply(){
@@ -179,7 +179,7 @@ function search(){
     $("#listPart").append(str);
     var aboutOut_href=$(".track-sign-up").attr("href");
     if(aboutOut_href=="signin.html"){
-      $(".likeList a img").attr("onclick","change();return false");
+      $(".likeList a img").prop("onclick","change();return false");
     }
   }
 
