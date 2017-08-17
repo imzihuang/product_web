@@ -202,12 +202,6 @@ function search(){
   }
 }
 
-$(".product_name a").click(function(){
-  if(aboutOut=="Sign In"){
-   window.location.href='/product/login.html';
- }
-});
-
 function change(){
   layerIndex=layer.open({
     title:'Please login first',
