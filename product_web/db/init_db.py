@@ -37,7 +37,7 @@ if __name__ == "__main__":
     register_db()
     add_user({
         "name": "admin",
-        "email": "380447796@qq.com",
+        "email": "A99dealservice@outlook.com",
         "pwd": encry_md5("ewixqqssssss3$#@s"),
         "status": "available",
         "level": 0
