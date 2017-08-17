@@ -3,17 +3,24 @@ var aboutOut=$(".track-sign-up").val();
 var aboutOut_href=$(".track-sign-up").attr("href");
 if($("#current_keyword").val()==""){
   apply();
-}
-else{
-  putkeyword();
-}
-
-if(aboutOut_href=="signin.html"){console.log(1);
+  if(aboutOut_href=="signin.html"){console.log(1);
   $(".product_name a").attr("onclick","change();return false");//产品名称
   $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
   $("#product_popular img").attr("onclick","change();return false");//今日主打图片
   $("#product_popular .caption p a").attr("onclick","change();return false");//今日主打名称
 }
+}
+else{
+  putkeyword();
+  if(aboutOut_href=="signin.html"){console.log(1);
+  $(".product_name a").attr("onclick","change();return false");//产品名称
+  $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
+  $("#product_popular img").attr("onclick","change();return false");//今日主打图片
+  $("#product_popular .caption p a").attr("onclick","change();return false");//今日主打名称
+}
+}
+
+
 
 function putkeyword(){
  var data = {
