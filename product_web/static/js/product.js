@@ -169,7 +169,7 @@ $('.likeList a img').click(function(){console.log(7);
   $.ajax({
     type: "post",
     url:"/product/like_product",
-    async: false,
+    async: true,
     data:data,
     success: function(msg) {
       current_obj.parent().parent().find(".likecount").html(msg.count);
