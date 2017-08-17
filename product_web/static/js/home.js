@@ -3,7 +3,7 @@ var aboutOut=$(".track-sign-up").val();
 var dataAll;
 var aboutOut_href=$(".track-sign-up").attr("href");
 if(aboutOut_href=="signin.html"){
-  $(".likeList a img").attr("onclick","change();return false");console.log(11);
+  $(".likeList a img").attr("onclick","change();return false");
 }
 
 function apply(){
@@ -49,7 +49,9 @@ function apply(){
       }
     }
     $("#home_popular").append(pop);
-
+    if(aboutOut_href=="signin.html"){
+      $(".likeList a img").attr("onclick","change();return false");
+    }
     for(var j=0;j<msg.data.length;j++){
       var now_date = new Date;
       var str_current_date = msg.data[j].count_down_at;
