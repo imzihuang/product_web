@@ -13,7 +13,6 @@ if(aboutOut_href=="signin.html"){console.log(1);
   $("#listPart a img").attr("onclick","change();return false");console.log(3);//点赞图片和产品图片
   $("#product_popular img").attr("onclick","change();return false");console.log(4);//今日主打图片
   $("#product_popular .caption p a").attr("onclick","change();return false");console.log(5);//今日主打名称
-  $(".phonePleft").attr("onclick","change();return false");console.log(5);
 }
 
 function putkeyword(){
@@ -170,7 +169,7 @@ $('.likeList a img').click(function(){console.log(7);
   $.ajax({
     type: "post",
     url:"/product/like_product",
-    async: true,
+    async: false,
     data:data,
     success: function(msg) {
       current_obj.parent().parent().find(".likecount").html(msg.count);
