@@ -170,8 +170,7 @@ class SendEmailHandler(RequestHandler):
               </body>
             </html>
             """
-
-        if not gmail_send_email(send_email, html%{"user_name":user_name, "message":message}, subject):
+        if not gmail_send_email(send_email, html%{"user_name":user_name, "message":message}, subject, msg_type="html"):
             self.finish(json.dumps({'state': 3, "message": "send email faild"}))
             return
         self.finish(json.dumps({'state': 0, "message": "send ok"}))
