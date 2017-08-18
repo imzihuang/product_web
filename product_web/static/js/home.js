@@ -70,10 +70,10 @@ function apply(){
         $(strclass).parent().attr("style", "display:none;");
       }
       if(current_date-now_date>86400000){
-         $(abouttime).html("");console.log(1);
+         $(abouttime).html("");
       }
       else{
-         $(aboutday).html("");console.log(2);
+         $(aboutday).html("");
       }
     }
   },
@@ -206,10 +206,10 @@ function search(){
         $(strclass).parent().attr("style", "display:none;");
       }
       if(current_date-now_date>86400000){
-         $(abouttime).html("");console.log(1);
+         $(abouttime).html("");
       }
       else{
-         $(aboutday).html("");console.log(2);
+         $(aboutday).html("");
       }
     }
 }
