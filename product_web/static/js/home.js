@@ -114,12 +114,12 @@ function sharegoogle(hrefName){
   return false;
 }
 
-function search(){
+function search(){console.log($(this).parents().siblings().find(".homeSearch").val());
   var str="";
   var str_="";
   var pop="";
   var pop_="";
-  var tag=$("#homeSearch").val();
+  var tag=$(".homeSearch").val();
   var show_postage = function (postage_price) {
     if (postage_price<=0){
       return "&free shipping";
