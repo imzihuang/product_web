@@ -66,6 +66,7 @@ function apply(){
           date: str_current_date,
           offset:8,
         });
+         console.log($(aboutday_).html());
          if($(aboutday_).html()!="00"){
             $(abouttime).html("");
           }
