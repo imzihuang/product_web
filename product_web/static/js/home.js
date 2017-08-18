@@ -114,7 +114,9 @@ function sharegoogle(hrefName){
   return false;
 }
 
-function search(){console.log($(this).parents('.input-group-btn').siblings('.homeSearch').val());
+function search(obj){
+  var obj=$(obj);
+  console.log(obj.parents('.input-group-btn').siblings('.homeSearch').val());
   var str="";
   var str_="";
   var pop="";
