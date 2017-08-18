@@ -191,8 +191,8 @@ function productsearch(){console.log(1);
   var str_="";
   var pop="";
   var pop_="";
-  var tag=$("#productSearch").val();
-  if(tag==""){
+  var tag=$("#productSearch").val();console.log($("#productSearch").val());
+  if(tag==""){console.log(2);
     for(var i=0;i<dataAll.data.length;i++){
       str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+dataAll.data[i].links+'" class="phonePleft"><img src="'+dataAll.data[i].img_path+
       '"alt="images"></a><div class="caption text-left phonePright"><p class="product_name"><a href="'+dataAll.data[i].links+'">'+
@@ -220,7 +220,7 @@ function productsearch(){console.log(1);
       }
     }
     $("#product_popular").append(pop);
-  }else{
+  }else{console.log(3);
     for(var i=0;i<dataAll.data.length;i++){
       if(dataAll.data[i].name.indexOf(tag)!=-1||dataAll.data[i].theme.indexOf(tag)!=-1||dataAll.data[i].description.indexOf(tag)!=-1){
         str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+dataAll.data[i].links+'" class="phonePleft"><img src="'+dataAll.data[i].img_path+
