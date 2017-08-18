@@ -223,7 +223,7 @@ class ReSetUserPwdHandler(RequestHandler):
               <head></head>
               <body>
                 <p>
-                   Please click the link we sent to your email to complete this modification.
+                   Please click the link we sent to your email to complete this modification.
                    <br>
                    <a href="%(redirect_url)s">www.amazfree.com/account/change-password.</a>
                    <br>
