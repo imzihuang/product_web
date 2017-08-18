@@ -70,10 +70,10 @@ function apply(){
         $(strclass).parent().attr("style", "display:none;");
       }
       if(current_date-now_date>86400000){
-         $(abouttime).html("");
+         $(abouttime).html("");console.log(1);
       }
       else{
-         $(aboutday).html("");
+         $(aboutday).html("");console.log(2);
       }
     }
   },
