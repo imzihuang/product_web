@@ -233,7 +233,7 @@ class ReSetUserPwdHandler(RequestHandler):
               </body>
             </html>
             """
-        if not gmail_send_email(email, html%{"redirect_url":redirect_url}, "Password assistance", msg_type="html"):
+        if not gmail_send_email(email, html%{"redirect_url": redirect_url}, "Password assistance", msg_type="html"):
             self.finish(json.dumps({'state': 5, "message": "send email faild"}))
             return
         self.finish(json.dumps({'state': 0, "message": "Reset ok"}))
