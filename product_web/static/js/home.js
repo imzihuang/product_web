@@ -57,30 +57,29 @@ function apply(){
       var str_current_date = msg.data[j].count_down_at;
       var current_date = new Date(str_current_date);
       var strclass = ' .countdown' + j;
-      var aboutday_ = ' .countdown' + j + " .dayPart" + " .days";
-      var aboutday = ' .countdown' + j + " .dayPart";
-      var abouttime=' .countdown' + j + " .timePart";
       if (current_date>now_date) {
         $(strclass).parent().attr("style", "display:block;");
         $(strclass).downCount({
           date: str_current_date,
           offset:8,
-        },function(){
-         console.log($(aboutday_).html());
-         if($(aboutday_).html()!="00"){
-            $(abouttime).html("");
-          }
-          else{
-            $(aboutday).html("");
-          }
         });
-         
       }else{
         $(strclass).parent().attr("style", "display:none;");
       }
     }
   },
 });
+    for(var k=0;k<dataAll.data.length;k++){console.log(1);
+      var aboutday_ = ' .countdown' + k + " .dayPart" + " .days";
+      var aboutday = ' .countdown' + k + " .dayPart";
+      var abouttime=' .countdown' + k + " .timePart";console.log($(aboutday_).html());
+      if($(aboutday_).html()!="00"){console.log(2);
+        $(abouttime).html("");
+      }
+      else{console.log(3);
+        $(aboutday).html("");
+      }
+    }
 }
 
 function keyword_os(obj){
