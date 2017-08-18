@@ -62,16 +62,16 @@ function apply(){
         $(strclass).downCount({
           date: str_current_date,
           offset:8,
-        });console.log($(".countdown0 .dayPart .days").html());
+        });console.log(current_date-now_date);
       }else{
         $(strclass).parent().attr("style", "display:none;");
       }
     }
-    for(var k=0;k<dataAll.data.length;k++){console.log(1);
+    for(var k=0;k<dataAll.data.length;k++){
       var aboutday_ = ' .countdown' + k + " .dayPart" + " .days";
       var aboutday = ' .countdown' + k + " .dayPart";
       var abouttime=' .countdown' + k + " .timePart";
-      if($(aboutday_).html()!="00"){console.log(2);
+      if($(aboutday_).html()!="00"){
         $(abouttime).html("");
       }
       else{console.log(3);
