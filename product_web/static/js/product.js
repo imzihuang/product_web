@@ -37,7 +37,7 @@ $.ajax({
       msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
       msg.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
       msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">'+
-      show_postage(msg.data[i].postage_price)+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><span class="dayPart"><li><span class="days">00</span><span>days</span></li></span><span class="timePart"><li><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span></span></li></span></ul></a>'+
+      show_postage(msg.data[i].postage_price)+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><span class="dayPart"><li><span class="days">00</span><span>&nbsp;days</span></li></span><span class="timePart"><li><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span></span></li></span></ul></a>'+
       '<p class="aboutHelp"><a onclick="howclaim()">How to buy?</a></p>'+
       '<div class="likeList"><img src="img/start.png" class="startimg"/><a ><img src="img/unlike.png" id="'+msg.data[i].id+'" onclick="like(this)"></a><span class="likecount">'+(parseInt(msg.data[i].like_count)+parseInt(msg.data[i].like_add_count))+'</span></div>'+
       '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen"></i></a>'+
@@ -118,7 +118,7 @@ function apply(){
        msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
        msg.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
        msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">'+
-       show_postage(msg.data[i].postage_price)+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><span class="dayPart"><li><span class="days">00</span><span>days</span></li></span><span class="timePart"><li><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span></span></li></span></ul></a>'+
+       show_postage(msg.data[i].postage_price)+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><span class="dayPart"><li><span class="days">00</span><span>&nbsp;days</span></li></span><span class="timePart"><li><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span></span></li></span></ul></a>'+
        '<p class="aboutHelp"><a onclick="howclaim()">How to buy?</a></p>'+
        '<div class="likeList"><img src="img/start.png" class="startimg"/><a ><img src="img/unlike.png" id="'+msg.data[i].id+'" onclick="like(this)"></a><span class="likecount">'+(parseInt(msg.data[i].like_count)+parseInt(msg.data[i].like_add_count))+'</span></div>'+
        '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a>'+
@@ -200,7 +200,7 @@ function productsearch(){console.log(1);
       dataAll.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
       dataAll.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
       dataAll.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">postage:￥'+
-      dataAll.data[i].postage_price+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><span class="dayPart"><li><span class="days">00</span><span>days</span></li></span><span class="timePart"><li><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span></span></li></span></ul></a>'+
+      dataAll.data[i].postage_price+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><span class="dayPart"><li><span class="days">00</span><span>&nbsp;days</span></li></span><span class="timePart"><li><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span></span></li></span></ul></a>'+
       '<p class="aboutHelp"><a onclick="howclaim()">How to buy?</a></p>'+
       '<div class="likeList"><img src="img/start.png" class="startimg"/><a ><img src="img/unlike.png" id="'+dataAll.data[i].id+'" onclick="like(this)"></a><span class="likecount">'+dataAll.data[i].like_count+'</span></div>'+
       '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a>'+
@@ -229,7 +229,7 @@ function productsearch(){console.log(1);
         dataAll.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
         dataAll.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
         dataAll.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">postage:￥'+
-        dataAll.data[i].postage_price+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><span class="dayPart"><li><span class="days">00</span><span>days</span></li></span><span class="timePart"><li><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span></span></li></span></ul></a>'+
+        dataAll.data[i].postage_price+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><span class="dayPart"><li><span class="days">00</span><span>&nbsp;days</span></li></span><span class="timePart"><li><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span></span></li></span></ul></a>'+
         '<p class="aboutHelp"><a onclick="howclaim()">How to buy?</a></p>'+
         '<div class="likeList"><img src="img/start.png" class="startimg"/><a><img src="img/unlike.png" id="'+dataAll.data[i].id+'" onclick="like(this)"></a><span class="likecount">'+dataAll.data[i].like_count+'</span></div>'+
         '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen" title="Facebook"></i></a>'+
