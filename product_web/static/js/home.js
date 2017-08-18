@@ -29,7 +29,7 @@ function apply(){
        msg.data[i].source+'</p><p class="howmuch"><span class="color_red"><a>￥'+
        msg.data[i].con_price+'</a></span>&nbsp;&nbsp;<span class="color_gray"><a>￥'+
        msg.data[i].ori_price+'</a></span>&nbsp;&nbsp;<span class="color_gray_block">'+
-       show_postage(msg.data[i].postage_price)+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="days">00</span><span>days</span><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></li></ul></a>'+
+       show_postage(msg.data[i].postage_price)+'</span></p><a class="atimedown"><span class="timedown">Start for you in：</span><ul class="countdown'+i+' countdown"><li><span class="dayPart"><span class="days">00</span><span>days</span></span><span class="timePart"><span class="hours">00</span><span> :</span></li><li> <span class="minutes">00</span><span> :</span></li><li> <span class="seconds">00</span><span> </span></span></li></ul></a>'+
        '<p class="aboutHelp"><a onclick="howclaim()">How to buy?</a></p>'+
        '<div class="likeList"><img src="img/start.png" class="startimg"/><a ><img src="img/unlike.png" id="'+msg.data[i].id+'" onclick="like(this)"></a><span class="likecount">'+(parseInt(msg.data[i].like_count)+parseInt(msg.data[i].like_add_count))+'</span></div>'+
        '<div class="likeList"><span class="f_left"><a class="share share_face" onclick="shareFacebook('+"'"+window.location.href+"'"+')"><i class="fa fa-facebook areapen"></i></a>'+
@@ -65,6 +65,17 @@ function apply(){
         });
       }else{
         $(strclass).parent().attr("style", "display:none;");
+      }
+    }
+    for(var k=0;k<msg.data.length;k++){
+      var aboutday_ = ' .countdown' + k + "dayPart" + "days";
+      var aboutday = ' .countdown' + k + "dayPart";
+      var abouttime=' .countdown' + k + "timePart";
+      if($(aboutday_).html()!="00"){
+        $(abouttime).remove();
+      }
+      else{
+        $(aboutday).remove();
       }
     }
   },
@@ -108,6 +119,8 @@ function sharegoogle(hrefName){
 function search(){
   var str="";
   var str_="";
+  var pop="";
+  var pop_="";
   var tag=$("#homeSearch").val();
   var show_postage = function (postage_price) {
     if (postage_price<=0){
@@ -132,6 +145,16 @@ function search(){
     }
     $("#listPart").html("");
     $("#listPart").append(str);
+    for(var i=0;i<msg.data.length;i++){
+      if(msg.data[i].recommend==true)
+      {
+        pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
+        '"alt="images" val="'+ msg.data[i].name +'" onclick=keyword_os(this)><div class="caption"><p><a val="'+ msg.data[i].name +'" onclick=keyword_os(this)>'+msg.data[i].theme+
+        '</a></p></div></div></div>';
+        pop=pop+pop_;
+      }
+    }
+    $("#home_popular").append(pop);
   }else{
     for(var i=0;i<dataAll.data.length;i++){
       if(dataAll.data[i].name.indexOf(tag)!=-1||dataAll.data[i].theme.indexOf(tag)!=-1||dataAll.data[i].description.indexOf(tag)!=-1){
@@ -151,6 +174,16 @@ function search(){
     }
     $("#listPart").html("");
     $("#listPart").append(str);
+    for(var i=0;i<msg.data.length;i++){
+      if(msg.data[i].recommend==true)
+      {
+        pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
+        '"alt="images" val="'+ msg.data[i].name +'" onclick=keyword_os(this)><div class="caption"><p><a val="'+ msg.data[i].name +'" onclick=keyword_os(this)>'+msg.data[i].theme+
+        '</a></p></div></div></div>';
+        pop=pop+pop_;
+      }
+    }
+    $("#home_popular").append(pop);
     var aboutOut_href=$(".track-sign-up").attr("href");
     if(aboutOut_href=="signin.html"){
       $(".likeList a img").attr("onclick","change();return false");
