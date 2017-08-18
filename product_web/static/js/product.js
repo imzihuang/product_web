@@ -186,12 +186,13 @@ function logout(){
   });
 }
 
-function productsearch(){console.log(1);
+function productsearch(obj){
+  var obj=$(obj);
   var pop="";
   var pop_="";
   var str="";
   var str_="";
-  var tag=$("#productSearch").val();console.log($("#productSearch").val());
+  var tag=obj.parents('.input-group-btn').siblings('.productSearch').val();
   if(tag==""){console.log(2);
     for(var i=0;i<dataAll.data.length;i++){
       str_='<div class="col-sm-6 col-md-2"><div class="thumbnail"><a href="'+dataAll.data[i].links+'" class="phonePleft"><img src="'+dataAll.data[i].img_path+
