@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Findpwd</title>
-        <!-- CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/form-elements.css">
-        <link rel="stylesheet" href="css/style.css">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Findpwd</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/form-elements.css">
+    <link href="js/css/layer.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <!-- Top content -->
-        <div class="top-content">
-            <div class="inner-bg">
-                <div class="container">
-                    
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 form-box">
-                            <div class="form-top">
-                                <h1>Password assistance</h1>
-                            </div>
-                            <div class="form-bottom">
+            <![endif]-->
+        </head>
+        <body>
+            <div id="findOk" style="display: none; min-width: 100px;padding:7px 20px 20px 20px;text-align: left;">
+                <h4>Password assistance</h4>
+                <div>Please click the link we sent to your email to complete this modification.</div>
+                <div>After click this link, you will activate the new password and enter the home page directly. Contact the Customer Service if you need any assistant.</div>
+            </div>
+            <!-- Top content -->
+            <div class="top-content">
+                <div class="inner-bg">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3 form-box">
+                                <div class="form-top">
+                                    <h1>Password assistance</h1>
+                                </div>
+                                <div class="form-bottom">
                                     <div id="confirmerror"></div>
                                     <div class="form-group">
                                         <label class="sr_only" for="form-email">Email</label>
@@ -41,101 +47,113 @@
                                         <input type="password" name="form-password" placeholder="New password" class="form-password form-control" id="sign_form-password">
                                         <div id="confirmpassword"></div>
                                     </div>
-                                     <div class="form-group">
+                                    <div class="form-group">
                                         <label class="sr_only" for="form-Re-enter">Re-enter password</label>
                                         <input type="password" name="form-Re-enter" placeholder="Re-enter password" class="form-Re-enter form-control" id="form-Re-enter">
                                         <div id="confirmRe"></div>
                                     </div>
-                                   
+
                                     <button class="btn submitbtn" onclick="submit()">Submit</button>
+                                </div>
                             </div>
                         </div>
+                        <!---->
                     </div>
-                   <!---->
-                </div>
-            </div>    
-        </div>
-        <!-- Javascript -->
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.backstretch.min.js"></script>
-        <script src="js/scripts.js"></script> 
+                </div>    
+            </div>
+            <!-- Javascript -->
+            <script src="js/jquery-1.11.1.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/jquery.backstretch.min.js"></script>
+            <script src="js/scripts.js"></script> 
+            <script src="js/layer.js"></script>
         <!--[if lt IE 10]>
             <script src="assets/js/placeholder.js"></script>
-        <![endif]-->
-         <script type="text/javascript">
-            function submit(){
-                $("#confirmRe").html("");
-                $("#confirmpassword").html("");
-                $("#confirmMsg").html("");
-                $("#confirmname").html("");
-                if ($("#form-Re-enter").val() == "") {
-                    $("#confirmRe").html("Password cannot be empty!");
-                    $("#form-Re-enter").focus(); 
-                }
-                if ($("#form-Re-enter").val() != $("#sign_form-password").val()) {
-                    $("#confirmRe").html("Password is not unified!");
-                    $("#form-Re-enter").focus(); 
-                }
-                if ($("#sign_form-password").val() == "") {
-                    $("#confirmpassword").html("Password cannot be empty!");
-                    $("#sign_form-password").focus();    
-                }
-                 if ($("#sign_form-Email").val() == "") {
-                    $("#confirmMsg").html("E-mail address cannot be empty!");
-                    $("#sign_form-Email").focus();  
-                }
-                if($("#sign_form-Email").val()!='' && !/.+@.+\.[a-zA-z]{2,4}$/.test($("#sign_form-Email").val())) {
-                    $("#confirmMsg").html("Incorrect email format! Please re-enter!");
-                    $("#sign_form-Email").focus();  
-                }
-                if ($("#sign_form-username").val() == "") {
-                    $("#confirmname").html("Name cannot be empty!");
-                    $("#sign_form-username").focus();
-                }
-                 
-                var data = {
-                    email:$("#sign_form-Email").val(),
-                    pwd:$("#sign_form-password").val(),
-                    affirm_pwd:$("#form-Re-enter").val()
-                }
-               
-                $.ajax({
-                    type: "POST",
-                    url:"/product/reset_pwd",
-                    async: false,
-                    data:data,
-                    success: function(msg) {
-                        console.log(msg);
-                        var data = JSON.parse(msg);
-                        console.log(data);
-                        console.log(data.state);
-                        if(data.state==0){
-                            alert("commit success!");
-                            window.location.href="/product/home.html";
-                        }
-                        else if(data.state==1){
-                            $("#confirmRe").html("Password inconsistent or not satisfied format!");
-                        }
-                        else if(data.state==2){
-                            $("#confirmMsg").html("Incorrect email format!");
-                        }
-                        else if(data.state==3){
-                            $("#confirmMsg").html("The mailbox does not match the user's registered mailbox!");
-                        }
-                        else if(data.state==4){
-                            $("#confirmerror").html("User failed to create user name or mailbox already exists!");
-                        }
-                        else if(data.state==5){
-                          $("#confirmerror").html("Failed to send email, please resubmit!");
-                        }
+            <![endif]-->
+            <script type="text/javascript">
+                function submit(){
+                    $("#confirmRe").html("");
+                    $("#confirmpassword").html("");
+                    $("#confirmMsg").html("");
+                    $("#confirmname").html("");
+                    if ($("#form-Re-enter").val() == "") {
+                        $("#confirmRe").html("Password cannot be empty!");
+                        $("#form-Re-enter").focus(); 
+                    }
+                    if ($("#form-Re-enter").val() != $("#sign_form-password").val()) {
+                        $("#confirmRe").html("Password is not unified!");
+                        $("#form-Re-enter").focus(); 
+                    }
+                    if ($("#sign_form-password").val() == "") {
+                        $("#confirmpassword").html("Password cannot be empty!");
+                        $("#sign_form-password").focus();    
+                    }
+                    if ($("#sign_form-Email").val() == "") {
+                        $("#confirmMsg").html("E-mail address cannot be empty!");
+                        $("#sign_form-Email").focus();  
+                    }
+                    if($("#sign_form-Email").val()!='' && !/.+@.+\.[a-zA-z]{2,4}$/.test($("#sign_form-Email").val())) {
+                        $("#confirmMsg").html("Incorrect email format! Please re-enter!");
+                        $("#sign_form-Email").focus();  
+                    }
+                    if ($("#sign_form-username").val() == "") {
+                        $("#confirmname").html("Name cannot be empty!");
+                        $("#sign_form-username").focus();
+                    }
 
-                    },
-                    error:function(){
+                    var data = {
+                        email:$("#sign_form-Email").val(),
+                        pwd:$("#sign_form-password").val(),
+                        affirm_pwd:$("#form-Re-enter").val()
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url:"/product/reset_pwd",
+                        async: false,
+                        data:data,
+                        success: function(msg) {
+                            console.log(msg);
+                            var data = JSON.parse(msg);
+                            console.log(data);
+                            console.log(data.state);
+                            if(data.state==0){
+                                layerIndex=layer.open({
+                                    title:'commit success',
+                                    type: 1,
+                                skin: 'layui-layer-demo', //样式类名
+                                anim: 2,
+                                shadeClose: true, //开启遮罩关闭
+                                btn:"yes",//按钮
+                                content: $('#findOk'),
+                                yes: function(){
+
+                                }
+                                });
+                                window.location.href="/product/login.html";
+                            }
+                            else if(data.state==1){
+                                $("#confirmRe").html("Password inconsistent or not satisfied format!");
+                            }
+                            else if(data.state==2){
+                                $("#confirmMsg").html("Incorrect email format!");
+                            }
+                            else if(data.state==3){
+                                $("#confirmMsg").html("The mailbox does not match the user's registered mailbox!");
+                            }
+                            else if(data.state==4){
+                                $("#confirmerror").html("User failed to create user name or mailbox already exists!");
+                            }
+                            else if(data.state==5){
+                              $("#confirmerror").html("Failed to send email, please resubmit!");
+                          }
+
+                      },
+                      error:function(){
                         console.log("error");
                     }
                 });
-            }
-        </script>
-    </body>
-</html>
+                }
+            </script>
+        </body>
+        </html>
