@@ -218,9 +218,9 @@ function productsearch(){
     $("#product_popular img").attr("onclick","change();return false");//今days主打图片
     $("#product_popular .caption p a").attr("onclick","change();return false");//今days主打名称
   }
-  for(var j=0;j<msg.data.length;j++){
-      var now_date = new Date(msg.data[j].now_at);
-      var str_current_date = msg.data[j].count_down_at;
+  for(var j=0;j<dataAll.data.length;j++){
+      var now_date = new Date(dataAll.data[j].now_at);
+      var str_current_date = dataAll.data[j].count_down_at;
       var current_date = new Date(str_current_date);
       var strclass = ' .countdown' + j;
       if (current_date>now_date) {
