@@ -220,6 +220,30 @@ function productsearch(){console.log(1);
       }
     }
     $("#product_popular").append(pop);
+    for(var j=0;j<dataAll.data.length;j++){
+      var now_date = new Date(dataAll.data[j].now_at);
+      var str_current_date = dataAll.data[j].count_down_at;
+      var current_date = new Date(str_current_date);
+      var strclass = ' .countdown' + j;
+      var aboutday_ = ' .countdown' + j + " .dayPart" + " .days";
+      var aboutday = ' .countdown' + j + " .dayPart";
+      var abouttime=' .countdown' + j + " .timePart";
+      if (current_date>now_date) {
+        $(strclass).parent().attr("style", "display:block;");
+        $(strclass).downCount({
+          date: str_current_date,
+          offset:8,
+        });
+      }else{
+        $(strclass).parent().attr("style", "display:none;");
+      }
+      if(current_date-now_date>86400000){
+         $(abouttime).html("");
+      }
+      else{
+         $(aboutday).html("");
+      }
+    }
   }else{console.log(3);
     for(var i=0;i<dataAll.data.length;i++){
       if(dataAll.data[i].name.indexOf(tag)!=-1||dataAll.data[i].theme.indexOf(tag)!=-1||dataAll.data[i].description.indexOf(tag)!=-1){
@@ -250,15 +274,7 @@ function productsearch(){console.log(1);
       }
     }
     $("#product_popular").append(pop);
-  }
-  var aboutOut_href=$(".track-sign-up").attr("href");
-  if(aboutOut_href=="signin.html"){
-    $(".product_name a").attr("onclick","change();return false");//产品名称
-    $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
-    $("#product_popular img").attr("onclick","change();return false");//今days主打图片
-    $("#product_popular .caption p a").attr("onclick","change();return false");//今days主打名称
-  }
-  for(var j=0;j<dataAll.data.length;j++){
+    for(var j=0;j<dataAll.data.length;j++){
       var now_date = new Date(dataAll.data[j].now_at);
       var str_current_date = dataAll.data[j].count_down_at;
       var current_date = new Date(str_current_date);
@@ -282,6 +298,15 @@ function productsearch(){console.log(1);
          $(aboutday).html("");
       }
     }
+  }
+  var aboutOut_href=$(".track-sign-up").attr("href");
+  if(aboutOut_href=="signin.html"){
+    $(".product_name a").attr("onclick","change();return false");//产品名称
+    $("#listPart a img").attr("onclick","change();return false");//点赞图片和产品图片
+    $("#product_popular img").attr("onclick","change();return false");//今days主打图片
+    $("#product_popular .caption p a").attr("onclick","change();return false");//今days主打名称
+  }
+  
 }
 
 function change(){
