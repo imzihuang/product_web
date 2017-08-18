@@ -124,13 +124,13 @@
                                 skin: 'layui-layer-demo', //样式类名
                                 anim: 2,
                                 shadeClose: true, //开启遮罩关闭
-                                btn:"yes",//按钮
+                                btn:['确定'],//按钮
                                 content: $('#findOk'),
                                 yes: function(){
-
+                                 window.location.href="/product/login.html";
                                 }
                                 });
-                                window.location.href="/product/login.html";
+                               
                             }
                             else if(data.state==1){
                                 $("#confirmRe").html("Password inconsistent or not satisfied format!");
