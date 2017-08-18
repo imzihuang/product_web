@@ -65,14 +65,16 @@ function apply(){
         $(strclass).downCount({
           date: str_current_date,
           offset:8,
-        });
-         console.log($(aboutday_).html());
+        }function(){
+          console.log($(aboutday_).html());
          if($(aboutday_).html()!="00"){
             $(abouttime).html("");
           }
           else{
             $(aboutday).html("");
           }
+        });
+         
       }else{
         $(strclass).parent().attr("style", "display:none;");
       }
