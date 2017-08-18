@@ -72,10 +72,10 @@ function apply(){
       var aboutday = ' .countdown' + k + "dayPart";
       var abouttime=' .countdown' + k + "timePart";
       if($(aboutday_).html()!="00"){console.log(2);
-        $(abouttime).remove();
+        $(abouttime).html("");
       }
       else{console.log(3);
-        $(aboutday).remove();
+        $(aboutday).html("");
       }
     }
   },
