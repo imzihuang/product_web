@@ -158,11 +158,7 @@ class SendEmailHandler(RequestHandler):
             self.finish(json.dumps({'state': 2, "message": "Message or subject is none."}))
             return
 
-        html = """
-        %(user_name)s:
-        %(user_email)s:
-        %(message)s
-        """
+        html = "%(user_name)s:\n%(user_email)s:\n%(message)s"
         user_info = loc_user.get_available_user(name=user_name)
         if not gmail_send_email(send_email, html%{"user_email": user_info.email, "user_name":user_name, "message":message}, subject):
             self.finish(json.dumps({'state': 3, "message": "send email faild"}))
