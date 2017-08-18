@@ -6,18 +6,6 @@ if(aboutOut_href=="signin.html"){
   $(".likeList a img").attr("onclick","change();return false");
 }
 
-for(var k=0;k<msg.data.length;k++){console.log(1);
-  var aboutday_ = ' .countdown' + k + " .dayPart" + " .days";
-  var aboutday = ' .countdown' + k + " .dayPart";
-  var abouttime=' .countdown' + k + " .timePart";console.log($(aboutday_).html());
-  if($(aboutday_).html()!="00"){console.log(2);
-    $(abouttime).html("");
-  }
-  else{console.log(3);
-    $(aboutday).html("");
-  }
-}
-
 function apply(){
   $.ajax({
     type: "GET",
@@ -82,6 +70,17 @@ function apply(){
     
   },
 });
+  for(var k=0;k<dataAll.data.length;k++){console.log(1);
+    var aboutday_ = ' .countdown' + k + " .dayPart" + " .days";
+    var aboutday = ' .countdown' + k + " .dayPart";
+    var abouttime=' .countdown' + k + " .timePart";console.log($(aboutday_).html());
+    if($(aboutday_).html()!="00"){console.log(2);
+      $(abouttime).html("");
+    }
+    else{console.log(3);
+      $(aboutday).html("");
+    }
+  }
 }
 
 function keyword_os(obj){
