@@ -265,10 +265,10 @@ img { max-width: 100%; }
 	text-decoration: underline;
 }
 .startimg{
-	height: 14px;
-	float: left;
-	margin-top: 5px;
-	margin-right: 10px;
+	height: 16px;
+    float: left;
+    margin-top: 4px;
+    margin-right: 10px;
 }
 .col-sm-12, .col-md-12{
 	padding: 0px !important;
@@ -331,7 +331,7 @@ img { max-width: 100%; }
 .all-items .row{margin: 0px;padding-left:10px;padding-right: 10px; }
 .all-items .col-sm-6,.all-items .col-md-3{padding-left:0px;padding-right: 0px;min-height: 380px;max-height: 380px;}
 .likeList{height:25px;width: 100%;padding-top: 5px;}
-.likeList a img{height: 100% !important;width: auto!important;float:left;padding-right: 0px !important;}
+.likeList a img{height: 100% !important;width: auto!important;float:left;padding-right: 0px !important;margin-top: 2px;}
 .likeList span{color: #febd69;}
 .aboutHelp a{color: #0066c0;text-decoration: underline;}
 .all-items .timedown{margin: 0;font-size: 12px;font-weight: bold;}
