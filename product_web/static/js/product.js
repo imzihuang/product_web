@@ -187,10 +187,10 @@ function logout(){
 }
 
 function productsearch(){console.log(1);
-  var str="";
-  var str_="";
   var pop="";
   var pop_="";
+  var str="";
+  var str_="";
   var tag=$("#productSearch").val();console.log($("#productSearch").val());
   if(tag==""){console.log(2);
     for(var i=0;i<dataAll.data.length;i++){
