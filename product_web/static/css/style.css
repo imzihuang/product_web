@@ -425,7 +425,15 @@ ul.countdown li p {
 .color_red a{color: #bf0303 !important;font-weight: bold;}
 .color_gray_block a{color: #444 !important;}
 .f_left{float: left !important;}
-.likecount{line-height: 29px;}
+.likecount{
+	font-family: 'Hiragino Sans GB','Microsoft Yahei',Arial,sans-serif;
+	line-height: 29px;
+	color:#0066c0 !important;
+    font-weight: 400!important;
+    font-style: normal!important;
+    text-transform: none!important;
+    text-decoration: none!important;
+}
 .goSigninbtn
 {
 	height: 30px;
