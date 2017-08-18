@@ -15,7 +15,7 @@ def get_keyword_like_count(keyword_id):
         real_count = query.count()
         return real_count + result.like_add_count
     except Exception as ex:
-        gen_log.log("Query keyword like count error:%r."%ex)
+        gen_log.error("Query keyword like count error:%r."%ex)
         return 0
     finally:
         session.close()
@@ -31,7 +31,7 @@ def get_product_like_count(product_id):
         real_count = query.count()
         return real_count + result.like_add_count
     except Exception as ex:
-        gen_log.log("Query product like count error:%r."%ex)
+        gen_log.error("Query product like count error:%r."%ex)
         return 0
     finally:
         session.close()
@@ -41,11 +41,11 @@ def like_keyword(keyword_id, user_name):
         session = get_session()
         query = api.model_query(session, "User_Like", {"keyword_id": [keyword_id], "user_name": [user_name]})
         if query.count() > 0:
-            gen_log.log("The user has already clicked.")
+            gen_log.info("The user has already clicked.")
             return False
         query = api.model_query(session, "ProductKeyword", {"id": [keyword_id]})
         if query.count() == 0:
-            gen_log.log("Keyword id no exist.")
+            gen_log.info("Keyword id no exist.")
             return False
         data = {
             "user_name": user_name,
