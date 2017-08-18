@@ -75,7 +75,7 @@ function apply(){
         $(abouttime).html("");
       }
       else{console.log(3);
-        $(aboutday).html("");
+        // $(aboutday).html("");
       }
     }
   },
