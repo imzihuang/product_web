@@ -186,7 +186,7 @@ function logout(){
   });
 }
 
-function productsearch(){
+function productsearch(){console.log(1);
   var str="";
   var str_="";
   var pop="";
