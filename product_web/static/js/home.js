@@ -71,7 +71,7 @@ function apply(){
       var aboutday_ = ' .countdown' + k + " .dayPart" + " .days";
       var aboutday = ' .countdown' + k + " .dayPart";
       var abouttime=' .countdown' + k + " .timePart";
-      if($(aboutday_).html()!=00){console.log(2);
+      if($(aboutday_).html()!="00"){console.log(2);
         $(abouttime).html("");
       }
       else{console.log(3);
