@@ -218,18 +218,21 @@ function productsearch(){
     $("#product_popular img").attr("onclick","change();return false");//今days主打图片
     $("#product_popular .caption p a").attr("onclick","change();return false");//今days主打名称
   }
-  for(var j=0;j<dataAll.data.length;j++){
-   var strname="";
-   var strclass="";
-   var strclass='.countdown'+j;
-   strname=dataAll.data[j].count_down_at;
-
-   $(strclass).downCount({
-     date: strname
-   }, function () {
-
-   })
- }
+  for(var j=0;j<msg.data.length;j++){
+      var now_date = new Date(msg.data[j].now_at);
+      var str_current_date = msg.data[j].count_down_at;
+      var current_date = new Date(str_current_date);
+      var strclass = ' .countdown' + j;
+      if (current_date>now_date) {
+        $(strclass).parent().attr("style", "display:block;");
+        $(strclass).downCount({
+          date: str_current_date,
+          offset:8,
+        });
+      }else{
+        $(strclass).parent().attr("style", "display:none;");
+      }
+    }
 }
 
 function change(){
