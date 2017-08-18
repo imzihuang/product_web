@@ -116,12 +116,11 @@ function sharegoogle(hrefName){
 
 function search(obj){
   var obj=$(obj);
-  console.log(obj.parents('.input-group-btn').siblings('.homeSearch').val());
   var str="";
   var str_="";
   var pop="";
   var pop_="";
-  var tag=$(".homeSearch").val();
+  var tag=obj.parents('.input-group-btn').siblings('.homeSearch').val();
   var show_postage = function (postage_price) {
     if (postage_price<=0){
       return "&free shipping";
