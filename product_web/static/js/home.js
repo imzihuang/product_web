@@ -6,7 +6,7 @@ if(aboutOut_href=="signin.html"){
   $(".likeList a img").attr("onclick","change();return false");
 }
 
-for(var k=0;k<dataAll.data.length;k++){console.log(1);
+for(var k=0;k<msg.data.length;k++){console.log(1);
   var aboutday_ = ' .countdown' + k + " .dayPart" + " .days";
   var aboutday = ' .countdown' + k + " .dayPart";
   var abouttime=' .countdown' + k + " .timePart";console.log($(aboutday_).html());
@@ -147,11 +147,11 @@ function search(){
     }
     $("#listPart").html("");
     $("#listPart").append(str);
-    for(var i=0;i<msg.data.length;i++){
-      if(msg.data[i].recommend==true)
+    for(var i=0;i<dataAll.data.length;i++){
+      if(dataAll.data[i].recommend==true)
       {
-        pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-        '"alt="images" val="'+ msg.data[i].name +'" onclick=keyword_os(this)><div class="caption"><p><a val="'+ msg.data[i].name +'" onclick=keyword_os(this)>'+msg.data[i].theme+
+        pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
+        '"alt="images" val="'+ dataAll.data[i].name +'" onclick=keyword_os(this)><div class="caption"><p><a val="'+ dataAll.data[i].name +'" onclick=keyword_os(this)>'+dataAll.data[i].theme+
         '</a></p></div></div></div>';
         pop=pop+pop_;
       }
@@ -176,11 +176,11 @@ function search(){
     }
     $("#listPart").html("");
     $("#listPart").append(str);
-    for(var i=0;i<msg.data.length;i++){
-      if(msg.data[i].recommend==true)
+    for(var i=0;i<dataAll.data.length;i++){
+      if(dataAll.data[i].recommend==true)
       {
-        pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+msg.data[i].img_path+
-        '"alt="images" val="'+ msg.data[i].name +'" onclick=keyword_os(this)><div class="caption"><p><a val="'+ msg.data[i].name +'" onclick=keyword_os(this)>'+msg.data[i].theme+
+        pop_='<div class="col-sm-12 col-md-12"><div class="thumbnail"><img src="'+dataAll.data[i].img_path+
+        '"alt="images" val="'+ dataAll.data[i].name +'" onclick=keyword_os(this)><div class="caption"><p><a val="'+ dataAll.data[i].name +'" onclick=keyword_os(this)>'+dataAll.data[i].theme+
         '</a></p></div></div></div>';
         pop=pop+pop_;
       }
