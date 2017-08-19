@@ -1,5 +1,5 @@
 company_os();
-var oldName=$('#showname').html();
+
 function down_base(method,start,end){
 	var dowen_a = document.createElement('a');
 	var down_url = "/product/excel_os?method="+method+'&start='+start+'&end='+end;
@@ -8,6 +8,7 @@ function down_base(method,start,end){
     dowen_a.click();
 }
 $('#editcompanyBtn').click(function(){
+	var oldName=$('#showname').html();
 	$('input').val("");
 	$("#companyoldname").val(oldName);
 	layerIndex=layer.open({
